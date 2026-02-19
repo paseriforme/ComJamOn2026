@@ -8,13 +8,18 @@
 
 config_version=5
 
+[Fmod]
+
+General/banks_path="res://fmod"
+
 [animation]
 
 compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="GodotBase"
+config/name="Dando la nota"
+config/version="0.1"
 run/main_scene="uid://c161kl18xdbk1"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0.09411765, 0.09411765, 0.09019608, 1)
@@ -23,6 +28,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://scripts/global.gd"
+FmodManager="*uid://cds10pm7hwn3p"
+AudioManager="*uid://bupgf2kkplvy"
 
 [display]
 
@@ -35,6 +42,10 @@ window/stretch/aspect="keep_width"
 [dotnet]
 
 project/assembly_name="GodotBase"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
 
 [input]
 
