@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{e2f153b4-5daa-40a3-aa4b-b097af47726b}">
+		<property name="color">
+			<value>Red Light 1</value>
+		</property>
+		<property name="assetPath">
+			<value>SFX/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1404bf24-9914-4eb7-b663-e7dccb280ad3}</destination>
+		</relationship>
+	</object>
+</objects>

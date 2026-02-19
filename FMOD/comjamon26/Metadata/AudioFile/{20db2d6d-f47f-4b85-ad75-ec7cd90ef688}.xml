@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{20db2d6d-f47f-4b85-ad75-ec7cd90ef688}">
+		<property name="assetPath">
+			<value>Music/space-loop.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>104.18630385487528</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1404bf24-9914-4eb7-b663-e7dccb280ad3}</destination>
+		</relationship>
+	</object>
+</objects>
