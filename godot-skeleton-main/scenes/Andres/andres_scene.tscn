@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://d0fcsdwbpd1"]
 
+[ext_resource type="Script" uid="uid://rrj77v2uye7p" path="res://scenes/Andres/CharacterController.gd" id="1_22drs"]
+[ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="2_w1iya"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ieif4"]
 
 [node name="AndresScene" type="Node2D" unique_id=2120202095]
 
-[node name="Character" type="Node2D" parent="." unique_id=561192392]
+[node name="Character" type="CharacterBody2D" parent="." unique_id=579069834]
+script = ExtResource("1_22drs")
+speed = 100.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Character" unique_id=579069834]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character/CharacterBody2D" unique_id=763930801]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character" unique_id=763930801]
 shape = SubResource("CapsuleShape2D_ieif4")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Character" unique_id=1488612967]
+[node name="Sprite2D" type="Sprite2D" parent="Character" unique_id=1839637944]
+texture = ExtResource("2_w1iya")

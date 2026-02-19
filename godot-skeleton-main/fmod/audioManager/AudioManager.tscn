@@ -8,4 +8,3 @@ script = ExtResource("1_ujk52")
 [node name="FmodListener2D" type="FmodListener2D" parent="." unique_id=560248608]
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=1226397838]
-bank_paths = ["res://FMOD/banks/Master.strings.bank", "res://FMOD/banks/Master.bank", "res://FMOD/banks/Ambiente.bank", "res://FMOD/banks/SFX.bank", "res://FMOD/banks/Voices.bank"]
