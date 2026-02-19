@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dcenjwoarjpme"]
+
+[ext_resource type="Script" uid="uid://huigsvqgvdxn" path="res://addons/DialogueSystem/ui/DialogueBox/DialogueBox.gd" id="1_multg"]
+
+
+[node name="DialogueBox" type="Control" unique_id=1540864930]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_multg")
+
+[node name="Panel" type="Panel" parent="." unique_id=588593579]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = -64.5
+offset_right = 199.0
+offset_bottom = 64.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelCharacter" type="Label" parent="Panel" unique_id=112576036]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Character_name"
+
+[node name="LabelText" type="RichTextLabel" parent="Panel" unique_id=50363526]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sem metus, varius vel fermentum at, vestibulum rhoncus risus. Vivamus ex tellus, congue eu condimentum in, euismod at ligula. Pellentesque iaculis enim sed elementum rhoncus. Praesent dapibus varius vulputate. Cras elementum dictum arcu. Maecenas vitae diam venenatis, dignissim odio ut, volutpat ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis lectus mi, volutpat ac enim vitae, egestas vestibulum velit."
+
+[node name="ButtonContinue" type="Button" parent="." unique_id=1936068197]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 117.0
+offset_top = -71.0
+offset_right = 194.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "continue"
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1729048087]

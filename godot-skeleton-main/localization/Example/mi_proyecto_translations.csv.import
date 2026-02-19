@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cbwxt5qvw530b"
+
+[deps]
+
+files=["res://localization/Example/mi_proyecto_translations.en.translation", "res://localization/Example/mi_proyecto_translations.es.translation"]
+
+source_file="res://localization/Example/mi_proyecto_translations.csv"
+dest_files=["res://localization/Example/mi_proyecto_translations.en.translation", "res://localization/Example/mi_proyecto_translations.es.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

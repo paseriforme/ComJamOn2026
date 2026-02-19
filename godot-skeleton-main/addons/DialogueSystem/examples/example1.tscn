@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bmv3n8dvmpoyw"]
+
+[ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="1_pfu2s"]
+
+[node name="Example1" type="Node2D" unique_id=1598374295]
+
+[node name="DialogueManager" parent="." unique_id=500792603 instance=ExtResource("1_pfu2s")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+charactersPath = "res://localization/Example/mi_proyecto_characters.json"
+dialoguesPath = "res://localization/Example/mi_proyecto_dialogues.json"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1160897708]
