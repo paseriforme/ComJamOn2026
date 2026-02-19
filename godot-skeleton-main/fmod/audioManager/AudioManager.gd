@@ -47,7 +47,7 @@ func play_sfx(event_name: String):
 
 ## Reproduce un sfx con posicion.
 func play_sfx_2d(event_name: String, pos: Vector2):
-	# Comprueba entrada vacía
+	# Comprueba entrada vacia
 	if not event_name or event_name.strip_edges() == "":
 		push_error("AudioManager.play_sfx: event_path vacio.")
 		return
@@ -62,10 +62,9 @@ func play_sfx_2d(event_name: String, pos: Vector2):
 	emitter.play()
 
 # --- AMBIENCE ----------------------------------------------------------------
-
 ## Reproduce un sonido ambiente
 func play_ambience(event_name: String):
-	# Comprueba entrada vacía
+	# Comprueba entrada vacia
 	if not event_name or event_name.strip_edges() == "":
 		push_error("AudioManager.play_sfx: event_path vacio.")
 		return

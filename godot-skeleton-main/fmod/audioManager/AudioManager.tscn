@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bupgf2kkplvy"]
+[gd_scene format=3 uid="uid://bupgf2kkplvy"]
 
-[ext_resource type="Script" uid="uid://c5vxpfob8rk6" path="res://Scripts/Base/AudioManager.gd" id="1_eabc4"]
+[ext_resource type="Script" uid="uid://c065eg33qk3hb" path="res://fmod/audioManager/AudioManager.gd" id="1_ujk52"]
 
-[node name="AudioManager" type="Node"]
-script = ExtResource("1_eabc4")
+[node name="AudioManager" type="Node" unique_id=200919214]
+script = ExtResource("1_ujk52")
 
-[node name="FmodListener2D" type="FmodListener2D" parent="."]
+[node name="FmodListener2D" type="FmodListener2D" parent="." unique_id=560248608]
 
-[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+[node name="FmodBankLoader" type="FmodBankLoader" parent="." unique_id=1226397838]
 bank_paths = ["res://FMOD/banks/Master.strings.bank", "res://FMOD/banks/Master.bank", "res://FMOD/banks/Ambiente.bank", "res://FMOD/banks/SFX.bank", "res://FMOD/banks/Voices.bank"]
