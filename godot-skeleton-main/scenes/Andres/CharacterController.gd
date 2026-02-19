@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 class_name CharacterController
 
 @export var speed : float = 10
@@ -8,6 +8,7 @@ var direction := 0
 
 var redPressed = false;
 var greenPressed = false;
+var strumPressed = false;
 
 func _physics_process(delta: float) -> void:
 	if not greenPressed and Input.is_action_pressed("verde",true):
@@ -16,7 +17,7 @@ func _physics_process(delta: float) -> void:
 		direction -= 1
 		if direction < 0: 
 			direction = len(directions) -1
-		print("TURN LEFT")
+		#print("TURN LEFT")
 	elif Input.is_action_just_released("verde", true):
 		greenPressed = false
 	if not redPressed and Input.is_action_pressed("rojo",true):
@@ -25,11 +26,15 @@ func _physics_process(delta: float) -> void:
 		direction += 1
 		if direction >= len(directions): 
 			direction = 0
-		print("TURN RIGHT")
+		#print("TURN RIGHT")
 	elif Input.is_action_just_released("rojo", true):
 		redPressed = false
-	if Input.is_action_pressed("rasgar",true):
-		velocity = directions[direction] * speed
-		move_and_slide()
-		print("MOVE: ", directions[direction])
+	if not strumPressed and Input.is_action_pressed("rasgar",true):
+		var velocity = directions[direction] * speed
+		# ANDRES AQUI
+		strumPressed = true
+		apply_impulse(velocity)
+		#print("MOVE: ", directions[direction])
+	elif Input.is_action_just_released("rasgar", true):
+		strumPressed = false
 	pass

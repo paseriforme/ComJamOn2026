@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c7k3rqpmcf0vt"]
+
+[ext_resource type="Script" uid="uid://rrj77v2uye7p" path="res://scenes/Andres/CharacterController.gd" id="1_8iokl"]
+[ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="2_xhxll"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_cx57j"]
+[ext_resource type="Resource" uid="uid://euybd2w0bax" path="res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_2d_tween.tres" id="4_np3hh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8iokl"]
+radius = 70.0
+
+[node name="Character" type="RigidBody2D" unique_id=294427056]
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 59
+linear_damp = 6.0
+script = ExtResource("1_8iokl")
+speed = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1373909019]
+shape = SubResource("CircleShape2D_8iokl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1389860513]
+texture = ExtResource("2_xhxll")
+
+[node name="PlayerPhantomCamera2D" type="Node2D" parent="." unique_id=1361599555 node_paths=PackedStringArray("follow_target")]
+unique_name_in_owner = true
+process_priority = -1
+top_level = true
+script = ExtResource("3_cx57j")
+priority = 10
+follow_mode = 2
+follow_target = NodePath("..")
+zoom = Vector2(1.16, 1.16)
+frame_preview = false
+tween_resource = ExtResource("4_np3hh")
+tween_on_load = false
+follow_damping = true
+follow_damping_value = Vector2(1, 1)
+draw_limits = true

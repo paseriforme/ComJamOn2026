@@ -1,18 +1,54 @@
 [gd_scene format=3 uid="uid://d0fcsdwbpd1"]
 
-[ext_resource type="Script" uid="uid://rrj77v2uye7p" path="res://scenes/Andres/CharacterController.gd" id="1_22drs"]
+[ext_resource type="PackedScene" uid="uid://c7k3rqpmcf0vt" path="res://scenes/Prefabs/character.tscn" id="1_e84x4"]
+[ext_resource type="PackedScene" uid="uid://cd63p357bbkyu" path="res://scenes/Prefabs/camera_2d.tscn" id="2_8yqig"]
 [ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="2_w1iya"]
+[ext_resource type="Script" uid="uid://bcchepkryj7kl" path="res://scenes/Andres/NPC.gd" id="3_po2s8"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ieif4"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ltust"]
+radius = 70.0
 
 [node name="AndresScene" type="Node2D" unique_id=2120202095]
 
-[node name="Character" type="CharacterBody2D" parent="." unique_id=579069834]
-script = ExtResource("1_22drs")
-speed = 100.0
+[node name="Character" parent="." unique_id=1460752680 instance=ExtResource("1_e84x4")]
+speed = 500.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character" unique_id=763930801]
-shape = SubResource("CapsuleShape2D_ieif4")
+[node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("2_8yqig")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Character" unique_id=1839637944]
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=87190673]
+position = Vector2(149, -186)
+mass = 9.223372e+18
+gravity_scale = 0.0
+lock_rotation = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 770
+script = ExtResource("3_po2s8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=745321614]
+shape = SubResource("CircleShape2D_ltust")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=11502373]
+modulate = Color(0, 0.83137256, 0, 1)
 texture = ExtResource("2_w1iya")
+
+[node name="UI" type="Control" parent="." unique_id=1173081918]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="UI" unique_id=1082711229]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_body_entered"]

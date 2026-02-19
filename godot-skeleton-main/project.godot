@@ -30,6 +30,7 @@ config/icon="res://icon.svg"
 Global="*res://scripts/global.gd"
 FmodManager="uid://cds10pm7hwn3p"
 AudioManager="*uid://bupgf2kkplvy"
+PhantomCameraManager="*uid://duq6jhf6unyis"
 
 [display]
 
@@ -45,7 +46,7 @@ project/assembly_name="GodotBase"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
+enabled=PackedStringArray("res://addons/fmod/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [input]
 
