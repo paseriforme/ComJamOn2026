@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cqsaa8m5gcbww"]
+
+[ext_resource type="PackedScene" uid="uid://6ljgskeosmgf" path="res://scenes/Cynthia/trastes.tscn" id="1_5lwix"]
+[ext_resource type="Script" uid="uid://cuuc1u18f3t8m" path="res://scenes/Andres/GameState.gd" id="1_a6vk8"]
+[ext_resource type="PackedScene" uid="uid://c7k3rqpmcf0vt" path="res://scenes/Prefabs/character.tscn" id="2_uxfon"]
+[ext_resource type="PackedScene" uid="uid://cd63p357bbkyu" path="res://scenes/Prefabs/camera_2d.tscn" id="4_6bit8"]
+[ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scenes/Andres/UI.gd" id="5_s7rui"]
+[ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="6_kjaud"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yltfk"]
+
+[node name="CyntristScene" type="Node2D" unique_id=581873652]
+script = ExtResource("1_a6vk8")
+
+[node name="Character" parent="." unique_id=294427056 instance=ExtResource("2_uxfon")]
+speed = 500.0
+
+[node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("4_6bit8")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1296503279]
+visible = false
+script = ExtResource("5_s7rui")
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=141480542]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueManager" parent="CanvasLayer/Panel" unique_id=500792603 instance=ExtResource("6_kjaud")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+charactersPath = "res://localization/Dando la nota_characters.json"
+dialoguesPath = "res://localization/Dando la nota_dialogues.json"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel" unique_id=804411341]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 800.0
+grow_vertical = 2
+texture = SubResource("ViewportTexture_yltfk")
+
+[node name="Trastes" parent="CanvasLayer" unique_id=1867009734 instance=ExtResource("1_5lwix")]

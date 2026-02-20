@@ -25,6 +25,8 @@ var coolDown = 0.5
 var startCoolDown = false
 var random = RandomNumberGenerator.new()
 
+var trastes: Array[int] = [0, 0, 0, 0, 0];
+
 func _ready() -> void:
 	pass
 

@@ -18,6 +18,7 @@ func _physics_process(delta: float) -> void:
 	
 	if not greenPressed and Input.is_action_pressed("verde",true):
 		print_debug("VERDE")
+		Global.trastes[0] = 1;
 		greenPressed = true
 		#animated_sprite_2d.play("up")
 		direction -= 1
@@ -25,9 +26,11 @@ func _physics_process(delta: float) -> void:
 			direction = len(directions) -1
 		#print("TURN LEFT")
 	elif Input.is_action_just_released("verde", true):
+		Global.trastes[0] = 0;
 		greenPressed = false
 	if not redPressed and Input.is_action_pressed("rojo",true):
 		print_debug("ROJO")
+		Global.trastes[1] = 1;
 		redPressed = true
 		#animated_sprite_2d.play("face_down")
 		direction += 1
@@ -35,6 +38,7 @@ func _physics_process(delta: float) -> void:
 			direction = 0
 		#print("TURN RIGHT")
 	elif Input.is_action_just_released("rojo", true):
+		Global.trastes[1] = 0;
 		redPressed = false
 	if not strumPressed and Input.is_action_pressed("rasgar",true):
 		print_debug("RASGAR")
