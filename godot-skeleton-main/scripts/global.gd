@@ -7,6 +7,7 @@ signal on_transition_end
 signal on_enable(scene)
 signal on_disable(scene)
 signal on_game_end()
+signal end_dialogue()
 
 ## maquina de estados y variables de flujo
 var sm # state machine

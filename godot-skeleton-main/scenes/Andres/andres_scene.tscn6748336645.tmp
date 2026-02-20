@@ -12,8 +12,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ltust"]
 radius = 70.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dgn8v"]
-
 [node name="AndresScene" type="Node2D" unique_id=2120202095]
 script = ExtResource("1_dgn8v")
 
@@ -61,13 +59,5 @@ grow_horizontal = 0
 grow_vertical = 0
 charactersPath = "res://localization/Dando la nota_characters.json"
 dialoguesPath = "res://localization/Dando la nota_dialogues.json"
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1435831102]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 800.0
-grow_vertical = 2
-texture = SubResource("ViewportTexture_dgn8v")
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]

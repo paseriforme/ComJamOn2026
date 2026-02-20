@@ -9,8 +9,13 @@ var direction := 0
 var redPressed = false;
 var greenPressed = false;
 var strumPressed = false;
+var canwalk = false;
+
+
 
 func _physics_process(delta: float) -> void:
+	if not canwalk: return
+	
 	if not greenPressed and Input.is_action_pressed("verde",true):
 		print_debug("VERDE")
 		greenPressed = true

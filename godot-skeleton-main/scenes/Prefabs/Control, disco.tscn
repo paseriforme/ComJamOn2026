@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ccal3uvapfrev"]
+
+[ext_resource type="Script" uid="uid://ck10m815fx7p3" path="res://scenes/Prefabs/gameGuitar.gd" id="1_20c7q"]
+
+[node name="control_disco" type="Control" unique_id=1914348709]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_20c7q")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=36126840]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

@@ -49,3 +49,4 @@ func _pressed():
 	hide()
 	if on_continue:
 		on_continue.call()
+	

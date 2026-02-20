@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bbx5gwo01maqe"
+
+[deps]
+
+files=["res://localization/Dando la nota_translations.en.translation"]
+
+source_file="res://localization/Dando la nota_translations.csv"
+dest_files=["res://localization/Dando la nota_translations.en.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

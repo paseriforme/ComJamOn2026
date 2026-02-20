@@ -83,6 +83,8 @@ func show_dialogue(is_end := false):
 	)
 	if not is_end:
 		dialogue_box.on_continue = next_node
+	else:
+		dialogue_box.on_continue = end_dialogue
 
 func show_decision():
 	var question = current_node.text_key
@@ -108,13 +110,15 @@ func show_decision():
 func do_action():
 	# Mandar la senyal
 	current_node.text_key
-	pass
 
 func next_node():
 	if current_node.next == -1:
 		return
 	current_node = current_nodes[current_node.next]
 	_show_node()
+
+func end_dialogue():
+	Global.end_dialogue.emit()
 
 func choose(next_id):
 	current_node = current_nodes[next_id]
