@@ -1,26 +1,47 @@
 [gd_scene format=3 uid="uid://dcenjwoarjpme"]
 
 [ext_resource type="Script" uid="uid://huigsvqgvdxn" path="res://addons/DialogueSystem/ui/DialogueBox/DialogueBox.gd" id="1_multg"]
-
+[ext_resource type="Texture2D" uid="uid://dj02lwf6l4f2e" path="res://assets/image/Characters/Chavala.png" id="2_7ovhn"]
 
 [node name="DialogueBox" type="Control" unique_id=1540864930]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
 script = ExtResource("1_multg")
+
+[node name="CharacterSprite" type="TextureRect" parent="." unique_id=2077406374]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -407.0
+offset_top = -465.0
+offset_right = 48.0
+offset_bottom = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_7ovhn")
 
 [node name="Panel" type="Panel" parent="." unique_id=588593579]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -199.0
-offset_top = -64.5
-offset_right = 199.0
-offset_bottom = 64.5
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -446.0
+offset_top = -168.0
+offset_right = -48.0
+offset_bottom = -39.0
+grow_horizontal = 0
+grow_vertical = 0
 
 [node name="LabelCharacter" type="Label" parent="Panel" unique_id=112576036]
 layout_mode = 0
@@ -40,17 +61,17 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sem metus, 
 
 [node name="ButtonContinue" type="Button" parent="." unique_id=1936068197]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 117.0
-offset_top = -71.0
-offset_right = 194.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -138.0
+offset_top = -166.0
+offset_right = -61.0
+offset_bottom = -135.0
+grow_horizontal = 0
+grow_vertical = 0
 text = "continue"
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="." unique_id=1729048087]

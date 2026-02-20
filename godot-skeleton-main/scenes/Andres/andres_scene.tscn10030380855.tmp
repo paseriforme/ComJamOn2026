@@ -27,6 +27,7 @@ freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 770
 script = ExtResource("3_po2s8")
+selfNPC = null
 TEXTURE = ExtResource("4_ltust")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" unique_id=745321614]

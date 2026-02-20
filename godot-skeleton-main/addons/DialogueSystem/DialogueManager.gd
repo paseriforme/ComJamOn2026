@@ -1,4 +1,4 @@
-extends Node
+extends Control
 class_name DialogueManager
 
 const DIALOGUE_BOX = preload("uid://dcenjwoarjpme")
