@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://d0fcsdwbpd1"]
 
-[ext_resource type="Script" uid="uid://cuuc1u18f3t8m" path="res://scenes/Andres/GameState.gd" id="1_dgn8v"]
+[ext_resource type="Script" uid="uid://cuuc1u18f3t8m" path="res://scripts/game_behaivour.gd" id="1_dgn8v"]
 [ext_resource type="PackedScene" uid="uid://c7k3rqpmcf0vt" path="res://scenes/Prefabs/character.tscn" id="1_e84x4"]
 [ext_resource type="PackedScene" uid="uid://cd63p357bbkyu" path="res://scenes/Prefabs/camera_2d.tscn" id="2_8yqig"]
 [ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="2_w1iya"]
-[ext_resource type="Script" uid="uid://bcchepkryj7kl" path="res://scenes/Andres/NPC.gd" id="3_po2s8"]
+[ext_resource type="Script" uid="uid://bcchepkryj7kl" path="res://scripts/game/NPC.gd" id="3_po2s8"]
 [ext_resource type="Texture2D" uid="uid://dj02lwf6l4f2e" path="res://assets/image/Characters/Chavala.png" id="4_ltust"]
 [ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="5_8yqig"]
-[ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scenes/Andres/UI.gd" id="5_po2s8"]
+[ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scripts/game/UI.gd" id="5_po2s8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ltust"]
 radius = 70.0
@@ -18,7 +18,6 @@ radius = 70.0
 script = ExtResource("1_dgn8v")
 
 [node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("2_8yqig")]
-top_level = false
 
 [node name="NPC" type="RigidBody2D" parent="." unique_id=87190673]
 position = Vector2(149, -186)

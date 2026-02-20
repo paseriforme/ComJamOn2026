@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7k3rqpmcf0vt"]
 
-[ext_resource type="Script" uid="uid://rrj77v2uye7p" path="res://scenes/Andres/CharacterController.gd" id="1_8iokl"]
+[ext_resource type="Script" uid="uid://rrj77v2uye7p" path="res://scripts/game/CharacterController.gd" id="1_8iokl"]
 [ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="2_xhxll"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_cx57j"]
 [ext_resource type="Resource" uid="uid://euybd2w0bax" path="res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_2d_tween.tres" id="4_np3hh"]

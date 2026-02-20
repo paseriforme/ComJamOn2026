@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dlsillfjnepba"]
+
+[ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="1_dmurf"]
+[ext_resource type="Script" uid="uid://cexvyruoqfl70" path="res://scripts/game/boton_juego.gd" id="2_vph8p"]
+
+[node name="Pulso" type="VBoxContainer" unique_id=1319305216]
+offset_right = 128.0
+offset_bottom = 656.0
+
+[node name="Verde" type="TextureRect" parent="." unique_id=1001314730]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+texture = ExtResource("1_dmurf")
+script = ExtResource("2_vph8p")
+
+[node name="Rojo" type="TextureRect" parent="." unique_id=237537647]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("1_dmurf")
+script = ExtResource("2_vph8p")
+
+[node name="Amarillo" type="TextureRect" parent="." unique_id=1152343199]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+texture = ExtResource("1_dmurf")
+script = ExtResource("2_vph8p")
+
+[node name="Azul" type="TextureRect" parent="." unique_id=1118710860]
+modulate = Color(0, 0, 1, 1)
+layout_mode = 2
+texture = ExtResource("1_dmurf")
+script = ExtResource("2_vph8p")
+
+[node name="Naranja" type="TextureRect" parent="." unique_id=646286410]
+modulate = Color(0.81960785, 0.57254905, 0, 1)
+layout_mode = 2
+texture = ExtResource("1_dmurf")
+script = ExtResource("2_vph8p")

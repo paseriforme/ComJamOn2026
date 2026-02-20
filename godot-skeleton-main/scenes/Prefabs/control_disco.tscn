@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ccal3uvapfrev"]
+
+[ext_resource type="Script" uid="uid://ck10m815fx7p3" path="res://scripts/game/gameGuitar.gd" id="1_312xo"]
+[ext_resource type="PackedScene" uid="uid://dlsillfjnepba" path="res://scenes/Prefabs/pulso.tscn" id="2_hqoxk"]
+
+[node name="control_disco" type="Control" unique_id=1914348709]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_312xo")
+
+[node name="Pulso" parent="." unique_id=1319305216 instance=ExtResource("2_hqoxk")]
+layout_mode = 0
