@@ -1,82 +1,68 @@
 [gd_scene format=3 uid="uid://cqsaa8m5gcbww"]
 
-[ext_resource type="PackedScene" path="res://scenes/Cynthia/trastes.tscn" id="1_5lwix"]
+[ext_resource type="PackedScene" uid="uid://bjiblirkavor3" path="res://scenes/Cynthia/trastes.tscn" id="1_5lwix"]
 [ext_resource type="Script" uid="uid://cuuc1u18f3t8m" path="res://scripts/game_behaivour.gd" id="1_a6vk8"]
 [ext_resource type="PackedScene" uid="uid://c7k3rqpmcf0vt" path="res://scenes/Prefabs/character.tscn" id="2_uxfon"]
 [ext_resource type="Script" uid="uid://bcchepkryj7kl" path="res://scripts/game/NPC.gd" id="3_1syo1"]
-[ext_resource type="PackedScene" uid="uid://bhy4gj3puyovl" path="res://scenes/Prefabs/player_phantom_camera_2d.tscn" id="3_7nmud"]
 [ext_resource type="Resource" uid="uid://la0sllanulfh" path="res://assets/tweens/seguimiento_hablar.tres" id="3_r4itm"]
 [ext_resource type="PackedScene" uid="uid://cd63p357bbkyu" path="res://scenes/Prefabs/camera_2d.tscn" id="4_6bit8"]
 [ext_resource type="Resource" uid="uid://ck4hr0752fmoa" path="res://assets/tweens/seguimiento_jugador.tres" id="4_7nmud"]
+[ext_resource type="Texture2D" uid="uid://bcts5vf22lxia" path="res://assets/image/Backgrounds/FONDO_detras.png" id="4_r4itm"]
 [ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="5_r4itm"]
 [ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scripts/game/UI.gd" id="5_s7rui"]
 [ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="6_kjaud"]
+[ext_resource type="Texture2D" uid="uid://kw5pykq6pu5w" path="res://assets/image/Backgrounds/FONDO_delante.png" id="9_1x3un"]
 [ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="9_2eiin"]
+[ext_resource type="Texture2D" uid="uid://blqcpuh4d4m6w" path="res://assets/image/UI/UI PRACTICA.png" id="11_2eiin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itcj4"]
-size = Vector2(3119, 108)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1syo1"]
-size = Vector2(272, 1341.25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nmud"]
-size = Vector2(238.25, 1345)
+size = Vector2(3119, 274)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4itm"]
 size = Vector2(3138, 108)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
-size = Vector2(1791, 1127)
+size = Vector2(2310.5, 1394.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1x3un"]
 radius = 70.0
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_1syo1"]
 
 [node name="CyntristScene" type="Node2D" unique_id=581873652]
 script = ExtResource("1_a6vk8")
 tween_seguir = ExtResource("4_7nmud")
 tween_hablar = ExtResource("3_r4itm")
 
-[node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("4_6bit8")]
-zoom = Vector2(1, 1)
-process_callback = 0
-limit_left = -892
-limit_top = -605
-limit_right = 899
-limit_bottom = 522
-editor_draw_limits = false
+[node name="Fondo" type="Sprite2D" parent="." unique_id=1597160808]
+position = Vector2(-926, 0)
+texture = ExtResource("4_r4itm")
 
-[node name="PlayerPhantomCamera2D" parent="." unique_id=120058987 node_paths=PackedStringArray("follow_target") instance=ExtResource("3_7nmud")]
-follow_target = NodePath("../Character")
-tween_resource = ExtResource("4_7nmud")
-limit_target = NodePath("../Colisiones Jugador/Area/CollisionShape2D")
+[node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("4_6bit8")]
+zoom = Vector2(0.6, 0.6)
+process_callback = 0
+limit_left = -1187
+limit_top = -702
+limit_right = 1124
+limit_bottom = 693
 
 [node name="Colisiones Jugador" type="Node" parent="." unique_id=19771807]
 
 [node name="Arriba" type="StaticBody2D" parent="Colisiones Jugador" unique_id=1953880181]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones Jugador/Arriba" unique_id=478299749]
-position = Vector2(9.5, -656)
+position = Vector2(9.5, -573)
 shape = SubResource("RectangleShape2D_itcj4")
 
 [node name="Izquierda" type="StaticBody2D" parent="Colisiones Jugador" unique_id=1000452435]
 position = Vector2(0, 3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones Jugador/Izquierda" unique_id=2035840383]
-position = Vector2(-1027, -42.625)
-shape = SubResource("RectangleShape2D_1syo1")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones Jugador/Izquierda" unique_id=688039937]
 
 [node name="Derecha" type="StaticBody2D" parent="Colisiones Jugador" unique_id=1180501495]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones Jugador/Derecha" unique_id=941247022]
-position = Vector2(1013, -41.5)
-shape = SubResource("RectangleShape2D_7nmud")
 
 [node name="Abajo" type="StaticBody2D" parent="Colisiones Jugador" unique_id=1033822984]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones Jugador/Abajo" unique_id=1092415775]
-position = Vector2(12, 574)
+position = Vector2(19, 721)
 shape = SubResource("RectangleShape2D_r4itm")
 
 [node name="Area" type="StaticBody2D" parent="Colisiones Jugador" unique_id=114390528]
@@ -84,7 +70,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones Jugador/Area" unique_id=2129079594]
-position = Vector2(3.5, -41.5)
+position = Vector2(-31.25, -4.25)
 shape = SubResource("RectangleShape2D_2eiin")
 
 [node name="NPC" type="RigidBody2D" parent="." unique_id=2089657348]
@@ -106,12 +92,21 @@ texture = ExtResource("5_r4itm")
 
 [node name="Character" parent="." unique_id=294427056 instance=ExtResource("2_uxfon")]
 speed = 500.0
-sprite_directions = Array[Texture2D]([ExtResource("5_r4itm"), ExtResource("5_r4itm"), ExtResource("5_r4itm"), ExtResource("5_r4itm"), ExtResource("5_r4itm"), ExtResource("5_r4itm"), ExtResource("5_r4itm"), ExtResource("5_r4itm")])
+
+[node name="PlayerPhantomCamera2D" parent="Character" index="2" unique_id=1361599555]
+zoom = Vector2(0.6, 0.6)
+draw_limits = true
+limit_target = NodePath("../../Colisiones Jugador/Area/CollisionShape2D")
 
 [node name="Segundo" type="Node2D" parent="Character" unique_id=682664090]
 position = Vector2(-350, 0)
 
+[node name="Refondo" type="Sprite2D" parent="." unique_id=329199081]
+position = Vector2(-926, 0)
+texture = ExtResource("9_1x3un")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1624487201]
+visible = false
 script = ExtResource("5_s7rui")
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=89512763]
@@ -141,7 +136,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 800.0
 grow_vertical = 2
-texture = SubResource("ViewportTexture_1syo1")
+texture = ExtResource("11_2eiin")
 metadata/_edit_use_anchors_ = true
 
 [node name="control_disco" parent="CanvasLayer/Panel/TextureRect" unique_id=1914348709 instance=ExtResource("9_2eiin")]
@@ -164,3 +159,5 @@ scale = Vector2(0.37, 0.37)
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="NPC" to="NPC" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="Character" to="Character" method="_on_body_entered"]
+
+[editable path="Character"]

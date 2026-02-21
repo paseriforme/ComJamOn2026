@@ -5,7 +5,7 @@ enum states {WALK, TALK, PLAY}
 
 @onready var character: CharacterController = $Character
 @onready var canvas_layer: UI = $CanvasLayer
-@onready var camara: PhantomCamera2D = $PlayerPhantomCamera2D
+@onready var camara: PhantomCamera2D = $Character/PlayerPhantomCamera2D
 
 @export var tween_seguir : PhantomCameraTween
 @export var tween_hablar : PhantomCameraTween
@@ -15,7 +15,8 @@ var state := states.WALK
 func _ready() -> void:
 	set_state(states.WALK)
 	Global.end_song.connect(_end_song)
-
+#	camara.tween_resource.duration = 20
+	
 func _end_song():
 	print("END SONG")
 	set_state(states.WALK)
@@ -26,7 +27,7 @@ func set_state(st : states):
 		states.WALK:
 			print("WALK")
 			camara.follow_target = $Character
-			camara.tween_resource = tween_seguir
+#			camara.tween_resource = tween_seguir
 			character.canwalk = true
 			character.set_process(true)
 			canvas_layer.visible(false)
@@ -34,7 +35,7 @@ func set_state(st : states):
 		states.TALK:
 			print("TALK")
 			camara.follow_target = $Character/Segundo
-			camara.tween_resource = tween_hablar
+#			camara.tween_resource = tween_hablar
 			character.canwalk = false
 			character.set_process(false)
 			canvas_layer.visible(true)

@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_wdgav")
-duration = 0.5
+duration = 0.1
 transition = 3
 ease = 1
