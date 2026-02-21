@@ -87,14 +87,9 @@ func _callback_XD():
 	tween2.tween_property(self, "position", position + velocity, time).set_trans(trans_steps)
 	pass
 
-func _process(delta: float) -> void:
-	if colision:
-		_rebote()
-	
-
 
 func _on_body_entered(body: Node) -> void:
-	#_rebote();
+	_rebote();
 	pass # Replace with function body.
 
 func _rebote():

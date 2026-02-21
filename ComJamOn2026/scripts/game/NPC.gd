@@ -31,7 +31,7 @@ func _on_body_entered(body: Node) -> void:
 	tween2.set_ease(Tween.EASE_IN)
 	tween2.tween_property($Sprite2D, "position", inipos, tween_time/2).set_trans(trans)
 	gameState.set_state(GameState.states.TALK)
-	canvas_layer.show_dialogue(startDialogue)
+	canvas_layer.show_dialogue(startDialogue)	
 	pass
 #	var newpos = ((position - body.position) * body.speed)
 #	body.apply_impulse(newpos)
