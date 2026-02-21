@@ -34,7 +34,7 @@ var startCoolDown = false
 var random = RandomNumberGenerator.new()
 
 var direccion_jugador : Vector2 = Vector2.ZERO
-var trastes: Array[int] = [false, false, false, false, false];
+var trastes: Array[bool] = [false, false, false, false, false];
 
 enum acordes {DO, RE, MI, SOL, NONE}
 const DO  = [true, false, false, false, false]

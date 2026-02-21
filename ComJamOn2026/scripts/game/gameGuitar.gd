@@ -66,6 +66,12 @@ func next_pulse():
 	var tween2 = pool_pulsos[actual_pulso].create_tween()
 	tween2.tween_property(pool_pulsos[actual_pulso], "position", Vector2(0,720.0), 0.5)
 
+func _matching_keys() -> bool:
+	for i in len(Global.trastes):
+		if Global.trastes[i] != Global.song[actual_chord][i]:
+			return false
+	return true
+
 func _physics_process(delta: float) -> void:
 	if not enable: return
 	
@@ -75,8 +81,8 @@ func _physics_process(delta: float) -> void:
 		pulsed = true
 		print("RASGAR")
 		# if not correcto: return
-		print(Global.song[actual_chord])
-		if Global.trastes != Global.song[actual_chord]:
+		print(Global.song[actual_chord], " / ", Global.trastes, ": ", _matching_keys())
+		if not _matching_keys:
 			acierto = false
 		# si ha acertado => siguiente
 		# diferencia con el tiempo anterior
@@ -94,7 +100,7 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_released("rasgar",true):
 		pulsed = false
 	
-	if not acierto: return
+	if paused: return
 	elapsed_b_time += delta
 	if elapsed_b_time >= 1/(bpm/60):
 		#print(1/(bpm/60))

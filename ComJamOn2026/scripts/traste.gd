@@ -5,7 +5,7 @@ extends TextureRect
 @export var traste : int = 0;
 
 func _process(delta: float) -> void:
-	if Global.trastes[traste] == 1:
+	if Global.trastes[traste]:
 		self.texture = traste_pulsado_spr
 		pass
 	else:
