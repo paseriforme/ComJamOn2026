@@ -37,10 +37,6 @@ script = ExtResource("1_a6vk8")
 [node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("4_6bit8")]
 zoom = Vector2(1, 1)
 process_callback = 0
-limit_left = -892
-limit_top = -605
-limit_right = 899
-limit_bottom = 522
 editor_draw_limits = false
 
 [node name="PlayerPhantomCamera2D" parent="." unique_id=120058987 node_paths=PackedStringArray("follow_target") instance=ExtResource("3_7nmud")]
