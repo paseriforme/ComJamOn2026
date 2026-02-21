@@ -25,16 +25,16 @@ func set_state(st : states):
 	match st:
 		states.WALK:
 			print("WALK")
-			camara.follow_target = $Character
-			camara.tween_resource = tween_seguir
+			#camara.follow_target = $Character
+			#camara.tween_resource = tween_seguir
 			character.canwalk = true
 			character.set_process(true)
 			canvas_layer.visible(false)
 			pass
 		states.TALK:
 			print("TALK")
-			camara.follow_target = $Character/Segundo
-			camara.tween_resource = tween_hablar
+			#camara.follow_target = $Character/Segundo
+			#camara.tween_resource = tween_hablar
 			character.canwalk = false
 			character.set_process(false)
 			canvas_layer.visible(true)
