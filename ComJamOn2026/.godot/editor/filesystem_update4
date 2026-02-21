@@ -26,3 +26,4 @@ res://scripts/game_scene.gd
 res://scripts/scene.gd
 res://scenes/Cynthia/trastes.tscn
 res://scripts/game/NPC.gd
+res://scenes/Prefabs/character.tscn
