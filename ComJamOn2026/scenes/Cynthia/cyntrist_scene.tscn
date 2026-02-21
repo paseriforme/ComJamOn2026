@@ -84,6 +84,8 @@ speed = 500.0
 
 [node name="PlayerPhantomCamera2D" parent="Character" index="2" unique_id=1361599555]
 zoom = Vector2(0.6, 0.6)
+tween_resource = ExtResource("4_7nmud")
+tween_on_load = true
 limit_target = NodePath("../../Colisiones Jugador/Area/CollisionShape2D")
 
 [node name="Refondo" type="Sprite2D" parent="." unique_id=329199081]

@@ -31,6 +31,7 @@ func set_state(st : states):
 			character.canwalk = true
 			character.set_process(true)
 			canvas_layer.visible(false)
+			Global.npc_chocado = false
 			pass
 		states.TALK:
 			print("TALK")

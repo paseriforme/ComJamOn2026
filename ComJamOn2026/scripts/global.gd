@@ -16,6 +16,8 @@ signal on_game_end()
 signal end_dialogue()
 @warning_ignore("unused_signal")
 signal end_song()
+@warning_ignore("unused_signal")
+signal chocar_npc()
 
 ## maquina de estados y variables de flujo
 var sm # state machine
@@ -47,6 +49,8 @@ var song := [
 	SOL, NONE, NONE, NONE, NONE, NONE, NONE, RE,
 	RE, NONE, NONE, NONE, NONE, NONE, NONE, NONE
 	]
+	
+var npc_chocado = false
 
 func _ready() -> void:
 	pass

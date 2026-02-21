@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_by4ei")
-duration = 2000.0
+duration = 0.5
 transition = 3
 ease = 1
