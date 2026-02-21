@@ -14,25 +14,6 @@ var orangePressed = false;
 var strumPressed = false;
 var canwalk = false;
 
-var init_scale;
-var factor_spr_scale : Vector2 = Vector2(0.2, 0.2);
-var trans_scale = Tween.TRANS_QUAD
-
-var time_steps: float = 0.3
-var factor_steps: float = -0.075
-var ease_steps: int = Tween.EASE_OUT
-var trans_steps: int = Tween.TRANS_CUBIC
-
-var factor_spr_scale_2 : float = 0.5
-var time_steps_2 : float = 0.75
-var factor_steps_2 : float = 0.75
-
-var colision = false
-
-func _ready() -> void:
-	init_scale = $Sprite2D.scale;
-
-
 func _physics_process(delta: float) -> void:
 	colision = false
 	if not canwalk: return

@@ -36,6 +36,18 @@ var random = RandomNumberGenerator.new()
 var direccion_jugador : Vector2 = Vector2.ZERO
 var trastes: Array[int] = [false, false, false, false, false];
 
+enum acordes {DO, RE, MI, SOL, NONE}
+const DO  = [true, false, false, false, false]
+const RE  = [false, true, false, false, false]
+const MI  = [false, false, true, false, false]
+const SOL  = [false, false, false, true, false]
+const NONE  = [false, false, false, false, false]
+
+var song := [
+	SOL, NONE, NONE, NONE, NONE, NONE, NONE, RE,
+	RE, NONE, NONE, NONE, NONE, NONE, NONE, NONE
+	]
+
 func _ready() -> void:
 	pass
 

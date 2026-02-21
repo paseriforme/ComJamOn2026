@@ -20,7 +20,6 @@ radius = 70.0
 script = ExtResource("1_dgn8v")
 
 [node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("2_8yqig")]
-process_callback = 0
 
 [node name="NPC" type="RigidBody2D" parent="." unique_id=87190673]
 position = Vector2(149, -186)
@@ -78,6 +77,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="control_disco" parent="CanvasLayer/Panel/TextureRect" unique_id=1914348709 instance=ExtResource("9_p6fmi")]
 layout_mode = 1
+bien_time = null
+perfe_time = null
+bpm = null
 metadata/_edit_use_anchors_ = true
 
 [node name="Trastes" parent="CanvasLayer/Panel/TextureRect" unique_id=1867009734 instance=ExtResource("10_iaq8r")]
