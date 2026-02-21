@@ -4,21 +4,63 @@
 [ext_resource type="Script" uid="uid://duym7tbol3144" path="res://scripts/traste.gd" id="2_jb3l1"]
 [ext_resource type="Texture2D" uid="uid://fgp2undq26sl" path="res://assets/image/traste_pulsado.png" id="3_feha5"]
 
-[node name="Trastes" type="Node" unique_id=1867009734]
+[node name="Trastes" type="Control" unique_id=427422133]
+layout_mode = 3
+anchors_preset = 0
 
-[node name="Verde" type="Sprite2D" parent="." unique_id=285131767]
+[node name="Verde" type="TextureRect" parent="." unique_id=847364053]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(429, 395)
+layout_mode = 0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_kp2oo")
 script = ExtResource("2_jb3l1")
 traste_spr = ExtResource("1_kp2oo")
 traste_pulsado_spr = ExtResource("3_feha5")
 
-[node name="Rojo" type="Sprite2D" parent="." unique_id=1684637156]
+[node name="Rojo" type="TextureRect" parent="." unique_id=1517510035]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(938, 346)
+layout_mode = 0
+offset_left = 200.0
+offset_right = 200.0
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_kp2oo")
 script = ExtResource("2_jb3l1")
 traste_spr = ExtResource("1_kp2oo")
 traste_pulsado_spr = ExtResource("3_feha5")
 traste = 1
+
+[node name="Amarillo" type="TextureRect" parent="." unique_id=672186122]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 0
+offset_left = 400.0
+offset_right = 400.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kp2oo")
+script = ExtResource("2_jb3l1")
+traste_spr = ExtResource("1_kp2oo")
+traste_pulsado_spr = ExtResource("3_feha5")
+traste = 2
+
+[node name="Azul" type="TextureRect" parent="." unique_id=936476913]
+modulate = Color(0, 0.1764706, 1, 1)
+layout_mode = 0
+offset_left = 600.0
+offset_right = 600.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kp2oo")
+script = ExtResource("2_jb3l1")
+traste_spr = ExtResource("1_kp2oo")
+traste_pulsado_spr = ExtResource("3_feha5")
+traste = 3
+
+[node name="Naranja" type="TextureRect" parent="." unique_id=1444185021]
+modulate = Color(1, 0.5294118, 0, 1)
+layout_mode = 0
+offset_left = 800.0
+offset_right = 800.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_kp2oo")
+script = ExtResource("2_jb3l1")
+traste_spr = ExtResource("1_kp2oo")
+traste_pulsado_spr = ExtResource("3_feha5")
+traste = 4

@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="5_8yqig"]
 [ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scripts/game/UI.gd" id="5_po2s8"]
 [ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="9_p6fmi"]
+[ext_resource type="PackedScene" uid="uid://6ljgskeosmgf" path="res://scenes/Cynthia/trastes.tscn" id="10_iaq8r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ltust"]
 radius = 70.0
@@ -73,5 +74,7 @@ texture = SubResource("ViewportTexture_dgn8v")
 
 [node name="control_disco" parent="CanvasLayer/Panel/TextureRect" unique_id=1914348709 instance=ExtResource("9_p6fmi")]
 layout_mode = 1
+
+[node name="Trastes" parent="CanvasLayer" unique_id=1867009734 instance=ExtResource("10_iaq8r")]
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]

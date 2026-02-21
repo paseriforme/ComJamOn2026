@@ -1,0 +1,16 @@
+res://localization/Dando la nota_translations.en.translation
+res://localization/Example/mi_proyecto_translations.en.translation
+res://localization/Example/mi_proyecto_translations.es.translation
+res://scenes/Cynthia/trastes.tscn
+res://addons/phantom_camera/themes/theme.tres
+res://scenes/Andres/andres_scene.tscn
+res://scripts/traste.gd
+res://scripts/game/CharacterController.gd
+res://scenes/Prefabs/pulso.tscn
+res://scripts/game_behaivour.gd
+res://scripts/global.gd
+res://scripts/sound_manager.gd
+res://scripts/state_machine.gd
+res://scripts/game/boton_juego.gd
+res://scripts/game/gameGuitar.gd
+res://scripts/game/UI.gd

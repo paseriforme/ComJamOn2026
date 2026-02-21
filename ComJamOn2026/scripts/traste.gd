@@ -1,4 +1,4 @@
-extends Sprite2D
+extends TextureRect
 
 @export var traste_spr : Texture2D
 @export var traste_pulsado_spr : Texture2D

@@ -33,7 +33,7 @@ var coolDown = 0.5
 var startCoolDown = false
 var random = RandomNumberGenerator.new()
 
-var trastes: Array[int] = [0, 0, 0, 0, 0];
+var trastes: Array[int] = [false, false, false, false, false];
 
 func _ready() -> void:
 	pass
