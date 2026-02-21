@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="5_8yqig"]
 [ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scripts/game/UI.gd" id="5_po2s8"]
 [ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="9_p6fmi"]
-[ext_resource type="PackedScene" uid="uid://b328gvx2r2gcu" path="res://scenes/Cynthia/trastes.tscn" id="10_iaq8r"]
+[ext_resource type="Script" uid="uid://y3quaa0klmfh" path="res://scripts/game/disco.gd" id="10_iaq8r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ltust"]
 radius = 70.0
@@ -80,17 +80,27 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Trastes" parent="CanvasLayer/Panel/TextureRect" unique_id=1867009734 instance=ExtResource("10_iaq8r")]
+[node name="Disco" type="Control" parent="CanvasLayer/Panel/TextureRect" unique_id=1747149668]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 99.99997
-offset_top = -82.0
-offset_right = 99.99997
-offset_bottom = -82.0
 grow_vertical = 0
-rotation = -0.7853982
-scale = Vector2(0.37, 0.37)
+script = ExtResource("10_iaq8r")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/TextureRect/Disco" unique_id=1226353597]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w1iya")
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
