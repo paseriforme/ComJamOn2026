@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 	if not canwalk: return
 	
 	if not greenPressed and Input.is_action_pressed("verde",true):
-		print_debug("VERDE")
+		#print_debug("VERDE")
 		greenPressed = true
 		#animated_sprite_2d.play("up")
 		direction += 1
@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_released("verde", true):
 		greenPressed = false
 	if not redPressed and Input.is_action_pressed("rojo",true):
-		print_debug("ROJO")
+		#print_debug("ROJO")
 		redPressed = true
 		#animated_sprite_2d.play("face_down")
 		direction -= 1
@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_released("rojo", true):
 		redPressed = false
 	if not strumPressed and Input.is_action_pressed("rasgar",true):
-		print_debug("RASGAR")
+		#print_debug("RASGAR")
 		var velocity = directions[direction] * speed
 		# ANDRES AQUI
 		strumPressed = true

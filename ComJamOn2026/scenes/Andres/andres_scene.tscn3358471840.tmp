@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://d0fcsdwbpd1"]
+
+[ext_resource type="Script" uid="uid://cuuc1u18f3t8m" path="res://scripts/game_behaivour.gd" id="1_dgn8v"]
+[ext_resource type="PackedScene" uid="uid://c7k3rqpmcf0vt" path="res://scenes/Prefabs/character.tscn" id="1_e84x4"]
+[ext_resource type="PackedScene" uid="uid://cd63p357bbkyu" path="res://scenes/Prefabs/camera_2d.tscn" id="2_8yqig"]
+[ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="2_w1iya"]
+[ext_resource type="Script" uid="uid://bcchepkryj7kl" path="res://scripts/game/NPC.gd" id="3_po2s8"]
+[ext_resource type="Texture2D" uid="uid://dj02lwf6l4f2e" path="res://assets/image/Characters/Chavala.png" id="4_ltust"]
+[ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="5_8yqig"]
+[ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scripts/game/UI.gd" id="5_po2s8"]
+[ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="9_p6fmi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ltust"]
+radius = 70.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dgn8v"]
+
+[node name="AndresScene" type="Node2D" unique_id=2120202095]
+script = ExtResource("1_dgn8v")
+
+[node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("2_8yqig")]
+
+[node name="NPC" type="RigidBody2D" parent="." unique_id=87190673]
+position = Vector2(149, -186)
+mass = 9.223372e+18
+gravity_scale = 0.0
+lock_rotation = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 770
+script = ExtResource("3_po2s8")
+TEXTURE = ExtResource("4_ltust")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" unique_id=745321614]
+shape = SubResource("CircleShape2D_ltust")
+
+[node name="Sprite2D" type="Sprite2D" parent="NPC" unique_id=11502373]
+modulate = Color(0, 0.83137256, 0, 1)
+texture = ExtResource("2_w1iya")
+
+[node name="Character" parent="." unique_id=1460752680 instance=ExtResource("1_e84x4")]
+speed = 500.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1923334515]
+script = ExtResource("5_po2s8")
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=43913169]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueManager" parent="CanvasLayer/Panel" unique_id=500792603 instance=ExtResource("5_8yqig")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+charactersPath = "res://localization/Dando la nota_characters.json"
+dialoguesPath = "res://localization/Dando la nota_dialogues.json"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1435831102]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 800.0
+grow_vertical = 2
+texture = SubResource("ViewportTexture_dgn8v")
+
+[node name="control_disco" parent="CanvasLayer/Panel/TextureRect" unique_id=1914348709 instance=ExtResource("9_p6fmi")]
+layout_mode = 1
+
+[connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]

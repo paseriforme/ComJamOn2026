@@ -55,6 +55,7 @@ func _load_audio() -> void:
 
 #=== MÚSICA (BGM) ===
 
+@warning_ignore("shadowed_variable_base_class")
 func play_bgm(name: String, loop: bool = true) -> void:
 	if not bgm_tracks.has(name):
 		push_warning("SoundManager: BGM '%s' no encontrado" % name)
@@ -85,6 +86,7 @@ func set_bgm_volume_db(db: float) -> void:
 
 #=== EFECTOS (SFX) ===
 
+@warning_ignore("shadowed_variable_base_class")
 func play_sfx(name: String, pitch_variation: float = 0.0) -> void:
 	if not sfx_tracks.has(name):
 		push_warning("SoundManager: SFX '%s' no encontrado" % name)
