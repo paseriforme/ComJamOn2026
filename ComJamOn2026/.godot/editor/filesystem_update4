@@ -17,3 +17,7 @@ res://scripts/game/UI.gd
 res://scenes/Cynthia/cyntrist_scene.tscn
 res://scripts/game/NPC.gd
 res://scripts/game/chocarTween.gd
+res://scripts/game_scene.gd
+res://scripts/null_scene.gd
+res://scripts/scene.gd
+res://scenes/context_scene.tscn

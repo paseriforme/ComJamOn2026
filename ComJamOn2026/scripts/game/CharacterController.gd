@@ -102,26 +102,7 @@ func _physics_process(delta: float) -> void:
 		
 	var colisiones: Array[Node2D] = get_colliding_bodies();
 	if colisiones.size() > 0:
-		print_debug("COLISION")
-		
-		#version por física
-#		var velocity = directions[direction] * speed
-#		velocity *= -0.5
-#		apply_impulse(velocity)
-		
-		#escalado
-		var tween = get_tree().create_tween()
-		tween.set_ease(Tween.EASE_OUT)
-		tween.tween_property($Sprite2D, "scale", init_scale + factor_spr_scale, time_steps/2).set_trans(trans_scale)
-		tween.set_ease(Tween.EASE_IN)
-		tween.tween_property($Sprite2D, "scale", init_scale, time_steps/2).set_trans(trans_scale)
-		
-		#rebote
-		var velocity = directions[direction] * speed * factor_steps
-		var tween2 = get_tree().create_tween()
-		tween2.set_ease(ease_steps)
-		tween2.tween_property(self, "position", position + velocity, time_steps).set_trans(trans_steps)
-		tween2.finished.connect(_callback_XD)
+		_rebote()
 		pass
 	pass
 
@@ -141,3 +122,30 @@ func _callback_XD():
 	tween2.set_ease(ease_steps)
 	tween2.tween_property(self, "position", position + velocity, time).set_trans(trans_steps)
 	pass
+
+
+func _on_body_entered(body: Node) -> void:
+	_rebote();
+	pass # Replace with function body.
+
+func _rebote():
+	print_debug("COLISION")
+	
+	#version por física
+#		var velocity = directions[direction] * speed
+#		velocity *= -0.5
+#		apply_impulse(velocity)
+	
+	#escalado
+	var tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property($Sprite2D, "scale", init_scale + factor_spr_scale, time_steps/2).set_trans(trans_scale)
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property($Sprite2D, "scale", init_scale, time_steps/2).set_trans(trans_scale)
+	
+	#rebote
+	var velocity = directions[direction] * speed * factor_steps
+	var tween2 = get_tree().create_tween()
+	tween2.set_ease(ease_steps)
+	tween2.tween_property(self, "position", position + velocity, time_steps).set_trans(trans_steps)
+	tween2.finished.connect(_callback_XD)
