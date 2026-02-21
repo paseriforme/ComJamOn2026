@@ -5,7 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://c7k3rqpmcf0vt" path="res://scenes/Prefabs/character.tscn" id="2_uxfon"]
 [ext_resource type="Script" uid="uid://bcchepkryj7kl" path="res://scripts/game/NPC.gd" id="3_1syo1"]
 [ext_resource type="PackedScene" uid="uid://bhy4gj3puyovl" path="res://scenes/Prefabs/player_phantom_camera_2d.tscn" id="3_7nmud"]
+[ext_resource type="Resource" uid="uid://la0sllanulfh" path="res://assets/tweens/seguimiento_hablar.tres" id="3_r4itm"]
 [ext_resource type="PackedScene" uid="uid://cd63p357bbkyu" path="res://scenes/Prefabs/camera_2d.tscn" id="4_6bit8"]
+[ext_resource type="Resource" uid="uid://ck4hr0752fmoa" path="res://assets/tweens/seguimiento_jugador.tres" id="4_7nmud"]
 [ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="5_r4itm"]
 [ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scripts/game/UI.gd" id="5_s7rui"]
 [ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="6_kjaud"]
@@ -33,6 +35,8 @@ radius = 70.0
 
 [node name="CyntristScene" type="Node2D" unique_id=581873652]
 script = ExtResource("1_a6vk8")
+tween_seguir = ExtResource("4_7nmud")
+tween_hablar = ExtResource("3_r4itm")
 
 [node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("4_6bit8")]
 zoom = Vector2(1, 1)
@@ -45,6 +49,7 @@ editor_draw_limits = false
 
 [node name="PlayerPhantomCamera2D" parent="." unique_id=120058987 node_paths=PackedStringArray("follow_target") instance=ExtResource("3_7nmud")]
 follow_target = NodePath("../Character")
+tween_resource = ExtResource("4_7nmud")
 limit_target = NodePath("../Colisiones Jugador/Area/CollisionShape2D")
 
 [node name="Colisiones Jugador" type="Node" parent="." unique_id=19771807]
@@ -102,6 +107,9 @@ texture = ExtResource("5_r4itm")
 [node name="Character" parent="." unique_id=294427056 instance=ExtResource("2_uxfon")]
 speed = 500.0
 sprite_directions = Array[Texture2D]([ExtResource("5_r4itm"), ExtResource("5_r4itm"), ExtResource("5_r4itm"), ExtResource("5_r4itm"), ExtResource("5_r4itm"), ExtResource("5_r4itm"), ExtResource("5_r4itm"), ExtResource("5_r4itm")])
+
+[node name="Segundo" type="Node2D" parent="Character" unique_id=682664090]
+position = Vector2(-350, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1624487201]
 script = ExtResource("5_s7rui")

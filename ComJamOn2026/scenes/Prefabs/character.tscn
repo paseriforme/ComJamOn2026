@@ -14,6 +14,7 @@ max_contacts_reported = 59
 linear_damp = 6.0
 script = ExtResource("1_8iokl")
 speed = 100.0
+sprite_directions = Array[Texture2D]([ExtResource("2_xhxll"), ExtResource("2_xhxll"), ExtResource("2_xhxll"), ExtResource("2_xhxll"), ExtResource("2_xhxll"), ExtResource("2_xhxll"), ExtResource("2_xhxll"), ExtResource("2_xhxll")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1373909019]
 shape = SubResource("CircleShape2D_8iokl")
