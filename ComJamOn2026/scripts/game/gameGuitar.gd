@@ -15,6 +15,7 @@ var last_klk_time : float = 0
 
 var pulsed = false
 var enable = false
+var paused = false
 
 @export var bpm :float = 120
 var elapsed_b_time :float = 0
@@ -68,26 +69,32 @@ func next_pulse():
 func _physics_process(delta: float) -> void:
 	if not enable: return
 	
+	var acierto = true
+	
 	if not pulsed and Input.is_action_pressed("rasgar",true):
 		pulsed = true
+		print("RASGAR")
 		# if not correcto: return
-		if Global.trastes == Global.song[actual_chord]:
-			# si ha acertado => siguiente
-			# diferencia con el tiempo anterior
-			var dif_at = abs(Time.get_ticks_msec() - last_klk_time) * 0.001
-			# diferencia con el tiempo siguiente
-			var dif_nt = abs(Time.get_ticks_msec() - last_klk_time + (0.25/(bpm/60))) * 0.001
-			print(dif_at, " / ", dif_nt, ": ", bien_time, "-", perfe_time)
-			if dif_at < bien_time or dif_nt < bien_time/3:
-				# BIEN
-				print("BIEN")
-				if dif_at < perfe_time:
-					# PERFECTO
-					print("PERFECTO")
-			#next_pulse()
+		print(Global.song[actual_chord])
+		if Global.trastes != Global.song[actual_chord]:
+			acierto = false
+		# si ha acertado => siguiente
+		# diferencia con el tiempo anterior
+		var dif_at = abs(Time.get_ticks_msec() - last_klk_time) * 0.001
+		# diferencia con el tiempo siguiente
+		var dif_nt = abs(Time.get_ticks_msec() - last_klk_time + (0.25/(bpm/60))) * 0.001
+		print(dif_at, " / ", dif_nt, ": ", bien_time, "-", perfe_time)
+		if (dif_at < bien_time or dif_nt < bien_time/3 or paused) and acierto:
+			# BIEN
+			print("BIEN")
+			if dif_at < perfe_time:
+				# PERFECTO
+				print("PERFECTO")
+			next_pulse()
 	elif Input.is_action_just_released("rasgar",true):
 		pulsed = false
 	
+	if not acierto: return
 	elapsed_b_time += delta
 	if elapsed_b_time >= 1/(bpm/60):
 		#print(1/(bpm/60))
