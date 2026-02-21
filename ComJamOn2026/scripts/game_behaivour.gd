@@ -65,7 +65,6 @@ func _physics_process(delta: float) -> void:
 		Global.trastes[3] = false
 	# NARANJA
 	if not Global.trastes[4] and Input.is_action_pressed("naranja",true):
-		print_debug("NARANJA")
 		Global.trastes[4] = true
 	elif Input.is_action_just_released("naranja", true):
 		Global.trastes[4] = false
