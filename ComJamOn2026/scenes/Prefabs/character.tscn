@@ -37,3 +37,7 @@ tween_resource = ExtResource("4_np3hh")
 tween_on_load = false
 follow_damping = true
 follow_damping_value = Vector2(1, 1)
+draw_limits = true
+
+[node name="Segundo" type="Node2D" parent="." unique_id=1371953691]
+position = Vector2(-350, 0)
