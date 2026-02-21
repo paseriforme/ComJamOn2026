@@ -5,6 +5,10 @@ enum states {WALK, TALK, PLAY}
 
 @onready var character: CharacterController = $Character
 @onready var canvas_layer: UI = $CanvasLayer
+@onready var camara: PhantomCamera2D = $PlayerPhantomCamera2D
+
+@export var tween_seguir : PhantomCameraTween
+@export var tween_hablar : PhantomCameraTween
 
 var state := states.WALK
 
@@ -21,12 +25,16 @@ func set_state(st : states):
 	match st:
 		states.WALK:
 			print("WALK")
+			camara.follow_target = $Character
+			camara.tween_resource = tween_seguir
 			character.canwalk = true
 			character.set_process(true)
 			canvas_layer.visible(false)
 			pass
 		states.TALK:
 			print("TALK")
+			camara.follow_target = $Character/Segundo
+			camara.tween_resource = tween_hablar
 			character.canwalk = false
 			character.set_process(false)
 			canvas_layer.visible(true)
