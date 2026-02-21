@@ -10,9 +10,20 @@
 
 [node name="State Machine" type="Node" unique_id=1764933967]
 script = ExtResource("1_nj0rb")
-scenes = Array[PackedScene]([ExtResource("4_yux3b"), ExtResource("4_okvjo"), ExtResource("3_s46hd")])
 
 [node name="Scenes" type="Node" parent="." unique_id=138193595]
+
+[node name="NullScene" parent="Scenes" unique_id=692942345 instance=ExtResource("3_s46hd")]
+process_mode = 4
+visible = false
+
+[node name="GameScene" parent="Scenes" unique_id=244541797 instance=ExtResource("4_okvjo")]
+process_mode = 4
+visible = false
+
+[node name="ContextScene" parent="Scenes" unique_id=913253790 instance=ExtResource("4_yux3b")]
+process_mode = 4
+visible = false
 
 [node name="Fade" parent="." unique_id=1845705408 instance=ExtResource("5_yux3b")]
 

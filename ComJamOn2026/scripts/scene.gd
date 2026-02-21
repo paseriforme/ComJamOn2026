@@ -1,5 +1,4 @@
 extends Control
-
 class_name Scene
 
 func on_enable():

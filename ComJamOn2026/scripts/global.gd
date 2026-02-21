@@ -19,10 +19,10 @@ signal end_song()
 
 ## maquina de estados y variables de flujo
 var sm # state machine
-var current_scene = Scenes.INTRO 
-var next_scene = Scenes.INTRO
+var current_scene = Scenes.CONTEXT 
+var next_scene = Scenes.CONTEXT
 ## MUY IMPORTANTE: MISMO ORDEN QUE EN EL SERIALIZED ARRAY DE LA STATEMACHINE
-enum Scenes { INTRO, GAME, NULL}
+enum Scenes { CONTEXT, GAME, NULL}
 
 ## sonido
 var sfx

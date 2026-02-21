@@ -2,17 +2,31 @@
 
 [ext_resource type="Script" uid="uid://bqnm45w65wo6p" path="res://scripts/state_machine.gd" id="1_nj0rb"]
 [ext_resource type="PackedScene" uid="uid://dot54uqxpvioo" path="res://objects/canvas/shader.tscn" id="2_6rk0d"]
+[ext_resource type="PackedScene" uid="uid://2fn8su01j5da" path="res://scenes/intro_scene.tscn" id="2_a0fpy"]
 [ext_resource type="PackedScene" uid="uid://dhwq84dhhtp70" path="res://scenes/null_scene.tscn" id="3_s46hd"]
 [ext_resource type="PackedScene" uid="uid://cpbv42xhe4um5" path="res://scenes/game_scene.tscn" id="4_okvjo"]
 [ext_resource type="PackedScene" uid="uid://byuoxy3wu36jd" path="res://scenes/context_scene.tscn" id="4_yux3b"]
 [ext_resource type="PackedScene" uid="uid://bsth51shqxg7x" path="res://objects/canvas/fade.tscn" id="5_yux3b"]
 [ext_resource type="Script" uid="uid://cdy06es2yfjyw" path="res://scripts/sound_manager.gd" id="7_s46hd"]
 
-[node name="State Machine" type="Node" unique_id=1764933967]
+[node name="State Machine" type="Node" unique_id=1764933967 node_paths=PackedStringArray("scenes")]
 script = ExtResource("1_nj0rb")
-scenes = Array[PackedScene]([ExtResource("4_yux3b"), ExtResource("4_okvjo"), ExtResource("3_s46hd")])
+scenes = [NodePath("Scenes/IntroScene"), NodePath("Scenes/ContextScene"), NodePath("Scenes/GameScene"), NodePath("Scenes/NullScene")]
 
 [node name="Scenes" type="Node" parent="." unique_id=138193595]
+
+[node name="NullScene" parent="Scenes" unique_id=692942345 instance=ExtResource("3_s46hd")]
+process_mode = 4
+visible = false
+
+[node name="GameScene" parent="Scenes" unique_id=244541797 instance=ExtResource("4_okvjo")]
+process_mode = 4
+visible = false
+
+[node name="ContextScene" parent="Scenes" unique_id=913253790 instance=ExtResource("4_yux3b")]
+visible = false
+
+[node name="IntroScene" parent="Scenes" unique_id=109836491 instance=ExtResource("2_a0fpy")]
 
 [node name="Fade" parent="." unique_id=1845705408 instance=ExtResource("5_yux3b")]
 
