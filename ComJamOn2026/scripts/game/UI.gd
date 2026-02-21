@@ -13,7 +13,7 @@ func _ready() -> void:
 func visible(vis):
 	if vis:
 		panel.visible = true
-		
+		control_disco.stop_song()
 	else:
 		panel.visible = false
 		panel.set_process(false)

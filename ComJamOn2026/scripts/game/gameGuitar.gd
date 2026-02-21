@@ -9,6 +9,7 @@ var anterior_pulso := -1
 var actual_compass := 0
 
 var pulsed = false
+var enable = false
 
 func _ready() -> void:
 	for i in range(4):
@@ -17,9 +18,12 @@ func _ready() -> void:
 		pool_pulsos.push_back(pulso)
 	
 	next_pulse()
-	
+
+func stop_song():
+	enable = false
 
 func start_song():
+	enable = true
 	actual_pulso = 0
 	anterior_pulso = -1
 	actual_compass = 0
@@ -59,6 +63,8 @@ func next_pulse():
 	tween2.tween_property(pool_pulsos[actual_pulso], "position", Vector2(0,720.0), 0.5)
 
 func _physics_process(delta: float) -> void:
+	if not enable: return
+	
 	if not pulsed and Input.is_action_pressed("rasgar",true):
 		pulsed = true
 		next_pulse()

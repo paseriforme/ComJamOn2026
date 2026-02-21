@@ -4,7 +4,7 @@ class_name GameState
 enum states {WALK, TALK, PLAY}
 
 @onready var character: CharacterController = $Character
-@onready var ui: UI = $CanvasLayer
+@onready var canvas_layer: UI = $CanvasLayer
 
 var state := states.WALK
 
@@ -23,19 +23,20 @@ func set_state(st : states):
 			print("WALK")
 			character.canwalk = true
 			character.set_process(true)
-			ui.visible(false)
+			canvas_layer.visible(false)
 			pass
 		states.TALK:
 			print("TALK")
 			character.canwalk = false
 			character.set_process(false)
-			ui.visible(true)
+			canvas_layer.visible(true)
 			pass
 		states.PLAY:
 			print("PLAY")
 			character.canwalk = false
 			character.set_process(false)
-			ui.visible(true)
+			canvas_layer.visible(true)
+			canvas_layer.control_disco.start_song()
 			pass
 		_:
 			pass
