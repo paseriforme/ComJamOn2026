@@ -83,4 +83,5 @@ layout_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="NPC" to="NPC" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="Character" to="Character" method="_on_body_entered"]

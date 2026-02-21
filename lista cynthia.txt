@@ -1,2 +1,2 @@
 > tween cámara al hablar
-> tween chocar
+> clampeo camara

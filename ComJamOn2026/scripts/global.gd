@@ -33,6 +33,7 @@ var coolDown = 0.5
 var startCoolDown = false
 var random = RandomNumberGenerator.new()
 
+var direccion_jugador : Vector2 = Vector2.ZERO
 var trastes: Array[int] = [false, false, false, false, false];
 
 func _ready() -> void:

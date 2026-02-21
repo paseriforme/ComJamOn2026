@@ -27,11 +27,14 @@ var factor_spr_scale_2 : float = 0.5
 var time_steps_2 : float = 0.75
 var factor_steps_2 : float = 0.75
 
+var colision = false
+
 func _ready() -> void:
 	init_scale = $Sprite2D.scale;
 
 
 func _physics_process(delta: float) -> void:
+	colision = false
 	if not canwalk: return
 	
 	# VERDE
@@ -96,13 +99,14 @@ func _physics_process(delta: float) -> void:
 		# ANDRES AQUI
 		strumPressed = true
 		apply_impulse(velocity)
+		Global.direccion_jugador = velocity
 		#print("MOVE: ", directions[direction])
 	elif Input.is_action_just_released("rasgar", true):
 		strumPressed = false
 		
 	var colisiones: Array[Node2D] = get_colliding_bodies();
 	if colisiones.size() > 0:
-		_rebote()
+		colision = true
 		pass
 	pass
 
@@ -123,14 +127,17 @@ func _callback_XD():
 	tween2.tween_property(self, "position", position + velocity, time).set_trans(trans_steps)
 	pass
 
+func _process(delta: float) -> void:
+	if colision:
+		_rebote()
+	
+
 
 func _on_body_entered(body: Node) -> void:
-	_rebote();
+	#_rebote();
 	pass # Replace with function body.
 
 func _rebote():
-	print_debug("COLISION")
-	
 	#version por física
 #		var velocity = directions[direction] * speed
 #		velocity *= -0.5

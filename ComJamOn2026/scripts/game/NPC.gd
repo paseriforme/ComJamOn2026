@@ -10,12 +10,33 @@ enum NPC_type {COLEGA, MUCHACHA, TRONCA, CHAVALA, MANAGER}
 @export var startDialogue : int = 0
 @onready var gameState: GameState = $".."
 
+var inipos: Vector2 
+@export var distance_factor : float = 0.05
+@export var tween_time : float = 0.5
+
 func _ready() -> void:
+	inipos = $Sprite2D.position
 	sprite_2d.texture = TEXTURE
 
 func _on_body_entered(body: Node) -> void:
-	var newpos = ((position - body.position) * body.speed)
-	body.apply_impulse(newpos)
-	print("CHOQUE", newpos)
+#	if body.linear_velocity != Vector2.ZERO:
+#		var velocity = body.linear_velocity
+#		print_debug(velocity)
+#		velocity = velocity * -1
+	var velocity: Vector2 = Global.direccion_jugador
+	var trans : Tween.TransitionType = Tween.TRANS_SINE
+	var tween2: Tween = get_tree().create_tween()
+	tween2.set_ease(Tween.EASE_OUT)
+	tween2.tween_property($Sprite2D, "position", inipos + velocity * distance_factor, tween_time/2).set_trans(trans)
+	tween2.set_ease(Tween.EASE_IN)
+	tween2.tween_property($Sprite2D, "position", inipos, tween_time/2).set_trans(trans)
+	pass
+#	var newpos = ((position - body.position) * body.speed)
+#	body.apply_impulse(newpos)
+#	print("CHOQUE", newpos)
 #	gameState.set_state(GameState.states.TALK)
 #	canvas_layer.show_dialogue(startDialogue)
+
+
+func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+	pass # Replace with function body.
