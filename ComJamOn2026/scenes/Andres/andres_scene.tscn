@@ -81,7 +81,16 @@ layout_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Trastes" parent="CanvasLayer/Panel/TextureRect" unique_id=1867009734 instance=ExtResource("10_iaq8r")]
-layout_mode = 0
-metadata/_edit_use_anchors_ = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 99.99997
+offset_top = -82.0
+offset_right = 99.99997
+offset_bottom = -82.0
+grow_vertical = 0
+rotation = -0.7853982
+scale = Vector2(0.37, 0.37)
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
