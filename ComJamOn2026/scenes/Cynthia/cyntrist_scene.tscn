@@ -91,7 +91,6 @@ position = Vector2(-926, 0)
 texture = ExtResource("9_1x3un")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1624487201]
-visible = false
 script = ExtResource("5_s7rui")
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=89512763]
@@ -117,10 +116,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel" unique_id=756236629]
 layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 800.0
-grow_vertical = 2
+anchors_preset = -1
+anchor_left = 0.09972187
+anchor_right = 0.09972191
+offset_left = -127.644
+offset_right = 1752.356
+offset_bottom = 1079.0
+scale = Vector2(0.67, 0.67)
 texture = ExtResource("11_2eiin")
 metadata/_edit_use_anchors_ = true
 
