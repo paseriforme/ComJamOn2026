@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b328gvx2r2gcu"]
+[gd_scene format=3 uid="uid://bjiblirkavor3"]
 
 [ext_resource type="Texture2D" uid="uid://dhs1urrssbq2e" path="res://assets/image/traste.png" id="1_kp2oo"]
 [ext_resource type="Script" uid="uid://duym7tbol3144" path="res://scripts/traste.gd" id="2_jb3l1"]

@@ -1,2 +1,8 @@
 > tween cámara al hablar
-> clampeo camara
+> controles de dialogo
+
+las ruelias
+las durianas
+las magnolias
+las galanas
+las brugmansias
