@@ -14,3 +14,4 @@ res://scripts/state_machine.gd
 res://scripts/game/boton_juego.gd
 res://scripts/game/gameGuitar.gd
 res://scripts/game/UI.gd
+res://scenes/Cynthia/cyntrist_scene.tscn

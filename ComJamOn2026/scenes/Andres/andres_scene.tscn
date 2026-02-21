@@ -51,6 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="DialogueManager" parent="CanvasLayer/Panel" unique_id=500792603 instance=ExtResource("5_8yqig")]
 layout_mode = 1
@@ -63,6 +64,7 @@ grow_horizontal = 0
 grow_vertical = 0
 charactersPath = "res://localization/Dando la nota_characters.json"
 dialoguesPath = "res://localization/Dando la nota_dialogues.json"
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1435831102]
 layout_mode = 1
@@ -71,10 +73,14 @@ anchor_bottom = 1.0
 offset_right = 800.0
 grow_vertical = 2
 texture = SubResource("ViewportTexture_dgn8v")
+metadata/_edit_use_anchors_ = true
 
 [node name="control_disco" parent="CanvasLayer/Panel/TextureRect" unique_id=1914348709 instance=ExtResource("9_p6fmi")]
 layout_mode = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Trastes" parent="CanvasLayer" unique_id=1867009734 instance=ExtResource("10_iaq8r")]
+[node name="Trastes" parent="CanvasLayer/Panel/TextureRect" unique_id=1867009734 instance=ExtResource("10_iaq8r")]
+layout_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]

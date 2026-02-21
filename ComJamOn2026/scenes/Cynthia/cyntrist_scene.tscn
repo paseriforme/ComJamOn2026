@@ -1,32 +1,57 @@
 [gd_scene format=3 uid="uid://cqsaa8m5gcbww"]
 
 [ext_resource type="PackedScene" uid="uid://6ljgskeosmgf" path="res://scenes/Cynthia/trastes.tscn" id="1_5lwix"]
-[ext_resource type="Script" uid="uid://cuuc1u18f3t8m" path="res://scenes/Andres/GameState.gd" id="1_a6vk8"]
+[ext_resource type="Script" uid="uid://cuuc1u18f3t8m" path="res://scripts/game_behaivour.gd" id="1_a6vk8"]
 [ext_resource type="PackedScene" uid="uid://c7k3rqpmcf0vt" path="res://scenes/Prefabs/character.tscn" id="2_uxfon"]
+[ext_resource type="Script" uid="uid://bcchepkryj7kl" path="res://scripts/game/NPC.gd" id="3_1syo1"]
 [ext_resource type="PackedScene" uid="uid://cd63p357bbkyu" path="res://scenes/Prefabs/camera_2d.tscn" id="4_6bit8"]
-[ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scenes/Andres/UI.gd" id="5_s7rui"]
+[ext_resource type="Texture2D" uid="uid://dj02lwf6l4f2e" path="res://assets/image/Characters/Chavala.png" id="4_7nmud"]
+[ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="5_r4itm"]
+[ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scripts/game/UI.gd" id="5_s7rui"]
 [ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="6_kjaud"]
+[ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="9_2eiin"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_yltfk"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_1x3un"]
+radius = 70.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_h3u08"]
 
 [node name="CyntristScene" type="Node2D" unique_id=581873652]
 script = ExtResource("1_a6vk8")
 
+[node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("4_6bit8")]
+
+[node name="NPC" type="RigidBody2D" parent="." unique_id=2089657348]
+position = Vector2(149, -186)
+mass = 9.223372e+18
+gravity_scale = 0.0
+lock_rotation = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 770
+script = ExtResource("3_1syo1")
+TEXTURE = ExtResource("4_7nmud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" unique_id=2003509257]
+shape = SubResource("CircleShape2D_1x3un")
+
+[node name="Sprite2D" type="Sprite2D" parent="NPC" unique_id=717588399]
+modulate = Color(0, 0.83137256, 0, 1)
+texture = ExtResource("5_r4itm")
+
 [node name="Character" parent="." unique_id=294427056 instance=ExtResource("2_uxfon")]
 speed = 500.0
 
-[node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("4_6bit8")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1296503279]
-visible = false
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1161929892]
 script = ExtResource("5_s7rui")
 
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=141480542]
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=786596770]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="DialogueManager" parent="CanvasLayer/Panel" unique_id=500792603 instance=ExtResource("6_kjaud")]
 layout_mode = 1
@@ -39,13 +64,23 @@ grow_horizontal = 0
 grow_vertical = 0
 charactersPath = "res://localization/Dando la nota_characters.json"
 dialoguesPath = "res://localization/Dando la nota_dialogues.json"
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel" unique_id=804411341]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel" unique_id=2069310866]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 800.0
 grow_vertical = 2
-texture = SubResource("ViewportTexture_yltfk")
+texture = SubResource("ViewportTexture_h3u08")
+metadata/_edit_use_anchors_ = true
 
-[node name="Trastes" parent="CanvasLayer" unique_id=1867009734 instance=ExtResource("1_5lwix")]
+[node name="control_disco" parent="CanvasLayer/Panel/TextureRect" unique_id=1914348709 instance=ExtResource("9_2eiin")]
+layout_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Trastes" parent="CanvasLayer/Panel/TextureRect" unique_id=427422133 instance=ExtResource("1_5lwix")]
+layout_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]

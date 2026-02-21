@@ -8,11 +8,13 @@
 layout_mode = 3
 anchors_preset = 0
 
-[node name="Sombras" type="Node" parent="." unique_id=1848602273]
+[node name="Sombras" type="Control" parent="." unique_id=2081918369]
+anchors_preset = 0
 
 [node name="Verde2" type="TextureRect" parent="Sombras" unique_id=1744949746]
 modulate = Color(0, 0, 0, 0.3372549)
 z_index = -1
+layout_mode = 0
 offset_left = 17.0
 offset_top = 19.0
 offset_right = 417.0
@@ -26,6 +28,7 @@ traste_pulsado_spr = ExtResource("3_feha5")
 [node name="Rojo2" type="TextureRect" parent="Sombras" unique_id=612313069]
 modulate = Color(0, 0, 0, 0.3372549)
 z_index = -1
+layout_mode = 0
 offset_left = 217.0
 offset_top = 19.0
 offset_right = 617.0
@@ -40,6 +43,7 @@ traste = 1
 [node name="Amarillo2" type="TextureRect" parent="Sombras" unique_id=1054395064]
 modulate = Color(0, 0, 0, 0.3372549)
 z_index = -1
+layout_mode = 0
 offset_left = 417.0
 offset_top = 19.0
 offset_right = 817.0
@@ -54,6 +58,7 @@ traste = 2
 [node name="Azul2" type="TextureRect" parent="Sombras" unique_id=1873461896]
 modulate = Color(0, 0, 0, 0.3372549)
 z_index = -1
+layout_mode = 0
 offset_left = 617.0
 offset_top = 19.0
 offset_right = 1017.0
@@ -68,6 +73,7 @@ traste = 3
 [node name="Naranja2" type="TextureRect" parent="Sombras" unique_id=585489925]
 modulate = Color(0, 0, 0, 0.3372549)
 z_index = -1
+layout_mode = 0
 offset_left = 817.0
 offset_top = 19.0
 offset_right = 1217.0
