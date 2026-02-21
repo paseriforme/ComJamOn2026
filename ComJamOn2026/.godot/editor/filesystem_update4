@@ -15,3 +15,5 @@ res://scripts/game/boton_juego.gd
 res://scripts/game/gameGuitar.gd
 res://scripts/game/UI.gd
 res://scenes/Cynthia/cyntrist_scene.tscn
+res://scripts/game/NPC.gd
+res://scripts/game/chocarTween.gd

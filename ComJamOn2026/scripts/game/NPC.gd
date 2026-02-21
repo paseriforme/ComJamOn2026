@@ -14,8 +14,8 @@ func _ready() -> void:
 	sprite_2d.texture = TEXTURE
 
 func _on_body_entered(body: Node) -> void:
-	gameState.set_state(GameState.states.TALK)
 	var newpos = ((position - body.position) * body.speed)
 	body.apply_impulse(newpos)
 	print("CHOQUE", newpos)
-	canvas_layer.show_dialogue(startDialogue)
+#	gameState.set_state(GameState.states.TALK)
+#	canvas_layer.show_dialogue(startDialogue)

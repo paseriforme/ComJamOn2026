@@ -133,6 +133,10 @@ whammy={
 
 locale/translations=PackedStringArray("res://localization/Example/mi_proyecto_translations.en.translation", "res://localization/Example/mi_proyecto_translations.es.translation")
 
+[physics]
+
+common/physics_interpolation=true
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.09411765, 0.09411765, 0.09019608, 1)

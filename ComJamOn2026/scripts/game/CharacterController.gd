@@ -14,6 +14,21 @@ var orangePressed = false;
 var strumPressed = false;
 var canwalk = false;
 
+var init_scale;
+var factor_spr_scale : Vector2 = Vector2(0.2, 0.2);
+var trans_scale = Tween.TRANS_QUAD
+
+var time_steps: float = 0.3
+var factor_steps: float = -0.075
+var ease_steps: int = Tween.EASE_OUT
+var trans_steps: int = Tween.TRANS_CUBIC
+
+var factor_spr_scale_2 : float = 0.5
+var time_steps_2 : float = 0.75
+var factor_steps_2 : float = 0.75
+
+func _ready() -> void:
+	init_scale = $Sprite2D.scale;
 
 
 func _physics_process(delta: float) -> void:
@@ -32,6 +47,7 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_released("verde", true):
 		Global.trastes[0] = false
 		greenPressed = false
+		
 	# ROJO
 	if not redPressed and Input.is_action_pressed("rojo",true):
 		#print_debug("ROJO")
@@ -45,6 +61,7 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_released("rojo", true):
 		Global.trastes[1] = false
 		redPressed = false
+		
 	# AMARILLO
 	if not yellowPressed and Input.is_action_pressed("amarillo",true):
 		print_debug("AMARILLO")
@@ -53,6 +70,7 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_released("amarillo", true):
 		Global.trastes[2] = false
 		yellowPressed = false
+		
 	# AZUL
 	if not bluePressed and Input.is_action_pressed("azul",true):
 		print_debug("AZUL")
@@ -61,6 +79,7 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_released("azul", true):
 		Global.trastes[3] = false
 		bluePressed = false	
+		
 	# NARANJA
 	if not orangePressed and Input.is_action_pressed("naranja",true):
 		print_debug("NARANJA")
@@ -69,6 +88,8 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_released("naranja", true):
 		Global.trastes[4] = false
 		orangePressed = false	
+		
+	# RASGEO
 	if not strumPressed and Input.is_action_pressed("rasgar",true):
 		#print_debug("RASGAR")
 		var velocity = directions[direction] * speed
@@ -78,4 +99,45 @@ func _physics_process(delta: float) -> void:
 		#print("MOVE: ", directions[direction])
 	elif Input.is_action_just_released("rasgar", true):
 		strumPressed = false
+		
+	var colisiones: Array[Node2D] = get_colliding_bodies();
+	if colisiones.size() > 0:
+		print_debug("COLISION")
+		
+		#version por física
+#		var velocity = directions[direction] * speed
+#		velocity *= -0.5
+#		apply_impulse(velocity)
+		
+		#escalado
+		var tween = get_tree().create_tween()
+		tween.set_ease(Tween.EASE_OUT)
+		tween.tween_property($Sprite2D, "scale", init_scale + factor_spr_scale, time_steps/2).set_trans(trans_scale)
+		tween.set_ease(Tween.EASE_IN)
+		tween.tween_property($Sprite2D, "scale", init_scale, time_steps/2).set_trans(trans_scale)
+		
+		#rebote
+		var velocity = directions[direction] * speed * factor_steps
+		var tween2 = get_tree().create_tween()
+		tween2.set_ease(ease_steps)
+		tween2.tween_property(self, "position", position + velocity, time_steps).set_trans(trans_steps)
+		tween2.finished.connect(_callback_XD)
+		pass
+	pass
+
+func _callback_XD():
+	# second
+	var time = time_steps * time_steps_2
+	# second scale
+	var tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property($Sprite2D, "scale", init_scale + factor_spr_scale * factor_spr_scale_2, time/2).set_trans(trans_scale)
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property($Sprite2D, "scale", init_scale, time/2).set_trans(trans_scale)
+
+	# second steps
+	var velocity = directions[direction] * speed * factor_steps_2 * factor_steps
+	var tween2 = get_tree().create_tween()
+	tween2.set_ease(ease_steps)
+	tween2.tween_property(self, "position", position + velocity, time).set_trans(trans_steps)
 	pass
