@@ -6,6 +6,8 @@ class_name CharacterController
 var directions := [Vector2(0,1), Vector2(0.75,0.75),Vector2(1,0), Vector2(0.75,-0.75),Vector2(0,-1), Vector2(-0.75,-0.75),Vector2(-1,0), Vector2(-0.75,0.75)]
 var direction := 0
 
+var redPressed = false;
+var greenPressed = false;
 var strumPressed = false;
 var canwalk = false;
 
@@ -32,19 +34,24 @@ func _physics_process(delta: float) -> void:
 	if not canwalk: return
 	
 	# VERDE
-	if not Global.trastes[0] and Input.is_action_pressed("verde",true):		
+	if not greenPressed and Input.is_action_pressed("verde",true):
+		greenPressed = true
 		#animated_sprite_2d.play("face_down")
 		direction += 1
 		if direction >= len(directions): 
 			direction = 0
 		#print("TURN LEFT")
+	if Input.is_action_just_released("verde", true): greenPressed = false
+		
 	# ROJO
-	if not Global.trastes[1] and Input.is_action_pressed("rojo",true):
+	if not redPressed and Input.is_action_pressed("rojo",true):
+		redPressed = true
 		#animated_sprite_2d.play("face_down")
 		direction -= 1
 		if direction < 0: 
 			direction = len(directions) -1
 		#print("TURN RIGHT")
+	if Input.is_action_just_released("rojo", true): redPressed = false
 	# RASGEO
 	if not strumPressed and Input.is_action_pressed("rasgar",true):
 		#print_debug("RASGAR")
