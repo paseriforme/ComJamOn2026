@@ -15,12 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="9_2eiin"]
 [ext_resource type="Texture2D" uid="uid://blqcpuh4d4m6w" path="res://assets/image/UI/UI PRACTICA.png" id="11_2eiin"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_itcj4"]
-size = Vector2(3119, 274)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4itm"]
-size = Vector2(3138, 108)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
 
@@ -46,26 +40,21 @@ limit_bottom = 693
 
 [node name="Colisiones Jugador" type="Node" parent="." unique_id=19771807]
 
-[node name="Arriba" type="StaticBody2D" parent="Colisiones Jugador" unique_id=1953880181]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones Jugador/Arriba" unique_id=478299749]
-position = Vector2(9.5, -573)
-shape = SubResource("RectangleShape2D_itcj4")
-
-[node name="Izquierda" type="StaticBody2D" parent="Colisiones Jugador" unique_id=1000452435]
+[node name="Escenario" type="StaticBody2D" parent="Colisiones Jugador" unique_id=1000452435]
 position = Vector2(0, 3)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones Jugador/Izquierda" unique_id=688039937]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones Jugador/Escenario" unique_id=688039937]
+polygon = PackedVector2Array(-1040, -204, -1060, -144, -994, 367, -928, 574, -794, 704, 273, 741, 840, 685, 967, 487, 1010, -241, 856, -284, 681, -310, 641, -392, 523, -401, 488, -474, 380, -449, 287, -493, 168, -459, 53, -505, -30, -443, -117, -491, -232, -439, -315, -420, -368, -434, -461, -384, -643, -415, -681, -356, -730, -386, -834, -327, -938, -297, -1040, -205, -1231, -756, 1214, -742, 1206, 764, -969, 839, -1355, 688, -1274, -804, -1258, -354, -1255, -241)
 
 [node name="Derecha" type="StaticBody2D" parent="Colisiones Jugador" unique_id=1180501495]
+process_mode = 4
+visible = false
 
-[node name="Abajo" type="StaticBody2D" parent="Colisiones Jugador" unique_id=1033822984]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones Jugador/Abajo" unique_id=1092415775]
-position = Vector2(19, 721)
-shape = SubResource("RectangleShape2D_r4itm")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones Jugador/Derecha" unique_id=66413424]
+polygon = PackedVector2Array(-1044, -199, -1054, -154, -994, 372, -928, 571, -794, 705, 274, 740, 841, 685, 966, 491, 1001, -41, 1007, -233, 857, -280, 681, -307, 641, -389, 524, -398, 488, -471, 381, -446, 287, -490, 170, -457, 53, -503, -32, -439, -117, -488, -231, -436, -314, -417, -367, -431, -460, -380, -642, -412, -681, -351, -730, -383, -834, -324, -936, -295)
 
 [node name="Area" type="StaticBody2D" parent="Colisiones Jugador" unique_id=114390528]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -95,7 +84,6 @@ speed = 500.0
 
 [node name="PlayerPhantomCamera2D" parent="Character" index="2" unique_id=1361599555]
 zoom = Vector2(0.6, 0.6)
-draw_limits = true
 limit_target = NodePath("../../Colisiones Jugador/Area/CollisionShape2D")
 
 [node name="Refondo" type="Sprite2D" parent="." unique_id=329199081]
