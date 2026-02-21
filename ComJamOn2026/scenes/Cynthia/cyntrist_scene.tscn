@@ -37,6 +37,10 @@ script = ExtResource("1_a6vk8")
 [node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("4_6bit8")]
 zoom = Vector2(1, 1)
 process_callback = 0
+limit_left = -892
+limit_top = -605
+limit_right = 899
+limit_bottom = 522
 editor_draw_limits = false
 
 [node name="PlayerPhantomCamera2D" parent="." unique_id=120058987 node_paths=PackedStringArray("follow_target") instance=ExtResource("3_7nmud")]
@@ -99,7 +103,6 @@ texture = ExtResource("5_r4itm")
 speed = 500.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1161929892]
-visible = false
 script = ExtResource("5_s7rui")
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=786596770]
