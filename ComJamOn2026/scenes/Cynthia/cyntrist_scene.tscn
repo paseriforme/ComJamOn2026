@@ -98,9 +98,6 @@ zoom = Vector2(0.6, 0.6)
 draw_limits = true
 limit_target = NodePath("../../Colisiones Jugador/Area/CollisionShape2D")
 
-[node name="Segundo" type="Node2D" parent="Character" unique_id=682664090]
-position = Vector2(-350, 0)
-
 [node name="Refondo" type="Sprite2D" parent="." unique_id=329199081]
 position = Vector2(-926, 0)
 texture = ExtResource("9_1x3un")
