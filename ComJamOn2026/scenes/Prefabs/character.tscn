@@ -36,4 +36,3 @@ tween_resource = ExtResource("4_np3hh")
 tween_on_load = false
 follow_damping = true
 follow_damping_value = Vector2(1, 1)
-draw_limits = true

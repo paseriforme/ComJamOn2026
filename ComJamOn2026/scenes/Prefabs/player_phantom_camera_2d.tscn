@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bhy4gj3puyovl"]
+
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="1_wefc2"]
+[ext_resource type="Resource" uid="uid://euybd2w0bax" path="res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_2d_tween.tres" id="2_pm7an"]
+
+[node name="PlayerPhantomCamera2D" type="Node2D" unique_id=120058987 node_paths=PackedStringArray("follow_target")]
+process_priority = -1
+top_level = true
+script = ExtResource("1_wefc2")
+priority = 10
+follow_mode = 2
+follow_target = NodePath("")
+frame_preview = false
+tween_resource = ExtResource("2_pm7an")
+tween_on_load = false
+follow_damping = true
+follow_damping_value = Vector2(1, 1)
