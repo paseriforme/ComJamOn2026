@@ -4,7 +4,7 @@ static var bank_icon = load("res://addons/fmod/icons/bank_icon.svg")
 
 var _open_project_explorer_callable: Callable
 
-func _init(plugin):
+func _init(plugin: FmodPlugin):
 	_open_project_explorer_callable = plugin.open_project_explorer_bank
 
 func _can_handle(object: Object):

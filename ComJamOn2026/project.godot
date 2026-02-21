@@ -28,7 +28,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://scripts/global.gd"
-FmodManager="uid://cds10pm7hwn3p"
+FmodManager="*uid://cds10pm7hwn3p"
 AudioManager="*uid://bupgf2kkplvy"
 PhantomCameraManager="*uid://duq6jhf6unyis"
 

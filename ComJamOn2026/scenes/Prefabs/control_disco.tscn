@@ -4,9 +4,9 @@
 
 [node name="control_disco" type="Control" unique_id=1914348709]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
 script = ExtResource("1_312xo")
