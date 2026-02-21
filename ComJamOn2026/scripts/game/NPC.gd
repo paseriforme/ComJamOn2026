@@ -30,12 +30,12 @@ func _on_body_entered(body: Node) -> void:
 	tween2.tween_property($Sprite2D, "position", inipos + velocity * distance_factor, tween_time/2).set_trans(trans)
 	tween2.set_ease(Tween.EASE_IN)
 	tween2.tween_property($Sprite2D, "position", inipos, tween_time/2).set_trans(trans)
+	gameState.set_state(GameState.states.TALK)
+	canvas_layer.show_dialogue(startDialogue)
 	pass
 #	var newpos = ((position - body.position) * body.speed)
 #	body.apply_impulse(newpos)
 #	print("CHOQUE", newpos)
-#	gameState.set_state(GameState.states.TALK)
-#	canvas_layer.show_dialogue(startDialogue)
 
 
 func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
