@@ -1,0 +1,2 @@
+> tween cámara al hablar
+> tween chocar
