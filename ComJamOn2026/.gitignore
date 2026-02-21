@@ -5,7 +5,11 @@
 # Godot-specific ignores
 .import/
 *.cfg
-!.addons/*.cfg
+!.addons/*/*.cfg
+!.addons/**/
+!.addons/**/*.cfg
+!addons/**/*.cfg
+!addons/*.cfg
 export.cfg
 export_credentials.cfg
 
