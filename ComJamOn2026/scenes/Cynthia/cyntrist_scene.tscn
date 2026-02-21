@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqsaa8m5gcbww"]
 
-[ext_resource type="PackedScene" uid="uid://6ljgskeosmgf" path="res://scenes/Cynthia/trastes.tscn" id="1_5lwix"]
+[ext_resource type="PackedScene" uid="uid://6ljgskeosmgf" path="res://scenes/Prefabs/trastes.tscn" id="1_5lwix"]
 [ext_resource type="Script" uid="uid://cuuc1u18f3t8m" path="res://scripts/game_behaivour.gd" id="1_a6vk8"]
 [ext_resource type="PackedScene" uid="uid://c7k3rqpmcf0vt" path="res://scenes/Prefabs/character.tscn" id="2_uxfon"]
 [ext_resource type="Script" uid="uid://bcchepkryj7kl" path="res://scripts/game/NPC.gd" id="3_1syo1"]
@@ -22,6 +22,9 @@ size = Vector2(238.25, 1345)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4itm"]
 size = Vector2(3138, 108)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
+size = Vector2(1795, 1133)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_1x3un"]
 radius = 70.0
 
@@ -33,6 +36,7 @@ script = ExtResource("1_a6vk8")
 [node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("4_6bit8")]
 zoom = Vector2(1, 1)
 process_callback = 0
+editor_draw_limits = false
 
 [node name="Colisiones Jugador" type="Node" parent="." unique_id=19771807]
 
@@ -60,6 +64,12 @@ shape = SubResource("RectangleShape2D_7nmud")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones Jugador/Abajo" unique_id=1092415775]
 position = Vector2(12, 574)
 shape = SubResource("RectangleShape2D_r4itm")
+
+[node name="Area" type="StaticBody2D" parent="Colisiones Jugador" unique_id=66699385]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones Jugador/Area" unique_id=139638511]
+position = Vector2(-1.5, -44.5)
+shape = SubResource("RectangleShape2D_2eiin")
 
 [node name="NPC" type="RigidBody2D" parent="." unique_id=2089657348]
 position = Vector2(149, -186)
