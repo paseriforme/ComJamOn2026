@@ -31,7 +31,6 @@ script = ExtResource("3_cx57j")
 priority = 10
 follow_mode = 2
 follow_target = NodePath("..")
-zoom = Vector2(1.16, 1.16)
 frame_preview = false
 tween_resource = ExtResource("4_np3hh")
 tween_on_load = false
