@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1771702891
+::res://::1771703363
 icon.svg::CompressedTexture2D::7926403344590722640::1771684193::1771685505::1::::<><><>0<>0<>5bfdcb6fbedbdd8bb55dee81a5aa623c<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 TODO.md::TextFile::-1::1771684191::0::1::::<><><>0<>0<><>::
 ::res://addons/::1771684193
@@ -54,7 +54,7 @@ CopyPast_Fmod_Libs_Here.txt::TextFile::-1::1771684193::0::1::::<><><>0<>0<><>::
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.editor.framework/::1771684193
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.template_debug.framework/::1771684193
 ::res://addons/fmod/libs/macos/libGodotFmod.macos.template_release.framework/::1771684193
-::res://addons/fmod/libs/windows/::1771702888
+::res://addons/fmod/libs/windows/::1771703360
 CopyPast_Fmod_Libs_Here.txt::TextFile::-1::1771684193::0::1::::<><><>0<>0<><>::
 ::res://addons/fmod/tool/::1771684193
 FmodBankDatabase.gd::GDScript::8186486955615663266::1771684193::0::1::::FmodBankDatabase<>Node<><>0<>0<><>::
@@ -293,9 +293,9 @@ scene.gd::GDScript::5981117492203067888::1771696019::0::1::::Scene<>Control<><>0
 sound_manager.gd::GDScript::5034526487986863602::1771685326::0::1::::SoundManager<>Node<><>0<>0<><>::
 state_machine.gd::GDScript::3537061095776507477::1771696019::0::1::::<>Node<><>0<>0<><>::
 traste.gd::GDScript::8613370739395924079::1771696019::0::1::::<>TextureRect<><>0<>0<><>::
-::res://scripts/game/::1771702633
+::res://scripts/game/::1771703335
 boton_juego.gd::GDScript::5102396270634248173::1771685326::0::1::::boton_juego<>TextureRect<><>0<>0<><>::
-CharacterController.gd::GDScript::1228910076447951103::1771702633::0::1::::CharacterController<>RigidBody2D<><>0<>0<><>::
+CharacterController.gd::GDScript::1228910076447951103::1771703335::0::1::::CharacterController<>RigidBody2D<><>0<>0<><>::
 gameGuitar.gd::GDScript::5529944754524255970::1771701965::0::1::::<>Control<><>0<>0<><>::
 NPC.gd::GDScript::2531360092705431879::1771700770::0::1::::NPC<>RigidBody2D<><>0<>0<><>::
 pulso.gd::GDScript::-1::1771685326::0::1::::pulso<>Control<><>0<>0<><>::
