@@ -226,20 +226,22 @@ script = ExtResource("12_ojqkt")
 [node name="Panel" parent="CanvasLayer" unique_id=1301705266 instance=ExtResource("13_g7yle")]
 
 [node name="Sombra vinilo" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="0" unique_id=284944054]
-offset_left = 371.64172
-offset_right = 2291.6418
+offset_left = 383.58206
+offset_top = 2.9850612
+offset_right = 2303.582
+offset_bottom = 1082.9851
 
 [node name="Disco" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="1" unique_id=2129852190]
-offset_left = 659.7018
-offset_right = 659.7018
+offset_left = 686.2269
+offset_right = 686.2269
 
 [node name="control_disco" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="2" unique_id=1914348709]
 offset_left = -108.955215
 offset_right = -108.955215
 
 [node name="TextureRect" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="3" unique_id=2110772926]
-offset_left = 386.8438
-offset_right = 2306.8474
+offset_left = 413.36896
+offset_right = 2333.3726
 
 [node name="Pegatina" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="4" unique_id=1529530381]
 offset_left = -108.955215

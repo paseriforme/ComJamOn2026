@@ -68,9 +68,11 @@ limit_target = NodePath("../Colisiones/Area/AreaShape")
 [node name="Colisiones" type="Node" parent="." unique_id=19771807]
 
 [node name="Escenario" type="StaticBody2D" parent="Colisiones" unique_id=1000452435]
+visible = false
 position = Vector2(0, 3)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones/Escenario" unique_id=688039937]
+visible = false
 polygon = PackedVector2Array(-1040, -204, -1060, -144, -994, 367, -928, 574, -789, 698, 268, 697, 838, 697, 967, 487, 1010, -241, 856, -284, 681, -310, 641, -392, 523, -401, 488, -474, 380, -449, 287, -493, 168, -459, 53, -505, -30, -443, -117, -491, -232, -439, -315, -420, -368, -434, -461, -384, -643, -415, -681, -356, -730, -386, -834, -327, -938, -297, -1040, -205, -1231, -756, 1214, -742, 1206, 764, -969, 839, -1355, 688, -1274, -804, -1258, -354, -1255, -241)
 
 [node name="Invertida" type="StaticBody2D" parent="Colisiones" unique_id=1180501495]
@@ -81,6 +83,7 @@ visible = false
 polygon = PackedVector2Array(-1044, -199, -1054, -154, -994, 372, -928, 571, -794, 705, 274, 740, 841, 685, 966, 491, 1001, -41, 1007, -233, 857, -280, 681, -307, 641, -389, 524, -398, 488, -471, 381, -446, 287, -490, 170, -457, 53, -503, -32, -439, -117, -488, -231, -436, -314, -417, -367, -431, -460, -380, -642, -412, -681, -351, -730, -383, -834, -324, -936, -295)
 
 [node name="Area" type="StaticBody2D" parent="Colisiones" unique_id=114390528]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
