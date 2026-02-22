@@ -68,5 +68,16 @@ func _reiniciar():
 	for a in actions:
 		for e in InputMap.action_get_events(a):
 			InputMap.action_erase_event(a, e)
+	key = -1
+	for button in buttons:
+		button.visible = false
+	next_key()
+	var tween2 = get_tree().create_tween()
+	tween2.set_ease(Tween.EASE_OUT)
+	tween2.tween_property(flecha_confirmar, "position", Vector2(-450.0, 0), 1.0).set_trans(Tween.TRANS_ELASTIC)
+	
+	var tween3 = get_tree().create_tween()
+	tween3.set_ease(Tween.EASE_OUT)
+	tween3.tween_property(flecha_reintentar, "position", Vector2(760, 0), 1.0).set_trans(Tween.TRANS_ELASTIC)
 	print_debug("REPETIR")
 	pass

@@ -205,8 +205,8 @@ libraries/ = SubResource("AnimationLibrary_cjjoh")
 
 [node name="Confirmar" type="TextureRect" parent="Control" unique_id=1750839680]
 layout_mode = 0
-offset_left = -451.95193
-offset_right = 1468.0481
+offset_left = -450.0
+offset_right = 1470.0
 offset_bottom = 1080.0
 texture = ExtResource("23_enjpd")
 
