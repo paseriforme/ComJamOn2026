@@ -64,7 +64,7 @@ func set_state(st : states):
 			print("WALK")
 			character.set_process(true)
 			canvas_layer.visible(false)
-			Global.npc_chocado = false
+			Global.npc_chocado = null
 			dialogue_man.set_process(false)
 			Global.dialogo_aceptado = false
 			Global.playing = false

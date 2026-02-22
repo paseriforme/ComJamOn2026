@@ -21,7 +21,7 @@ func stop_song():
 	control_disco.stop_song()
 
 func show_dialogue(character):
-	dialogue_manager.start(0)
+	dialogue_manager.start(character)
 	
 #func continue_dialogue(character):
 func _process(delta: float) -> void:

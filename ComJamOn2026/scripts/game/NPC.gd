@@ -34,16 +34,21 @@ func _on_body_entered(body: Node) -> void:
 	tween2.tween_property($Sprite2D, "position", inipos + velocity * distance_factor, tween_time/2).set_trans(trans)
 	tween2.set_ease(Tween.EASE_IN)
 	tween2.tween_property($Sprite2D, "position", inipos, tween_time/2).set_trans(trans)
-	Global.npc_chocado = true
+	Global.npc_chocado = self
 	pass
 #	var newpos = ((position - body.position) * body.speed)
 #	body.apply_impulse(newpos)
 #	print("CHOQUE", newpos)
 
 func _iniciar_dialogo():
-	gameState.ini	= firstChord
+	gameState.ini = firstChord
 	gameState.fin = lastChord
-	if Global.npc_chocado: 
+	if Global.npc_chocado and Global.npc_chocado == self: 
 		gameState.set_state(GameState.states.TALK)
-		canvas_layer.show_dialogue(startDialogue)	
+		print("START DIALOGUE: ", startDialogue)
+		canvas_layer.show_dialogue(startDialogue)
 	pass
+
+
+func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+	pass # Replace with function body.

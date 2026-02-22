@@ -2,24 +2,29 @@
   "characters": {
     "Colega": {
       "font": "Sin fuente",
-      "sound": "Sin audio",
+      "sound": "blah.m4a",
       "Color": "#2db044"
     },
     "Muchacha": {
       "font": "Sin fuente",
-      "sound": "Sin audio",
+      "sound": "blah.m4a",
       "Color": "#452998"
     },
     "Tronca": {
       "font": "Sin fuente",
-      "sound": "Sin audio",
+      "sound": "blah.m4a",
       "Color": "#e6ab31"
     },
     "Chavala": {
       "font": "Sin fuente",
-      "sound": "Sin audio",
+      "sound": "blah.m4a",
       "Color": "#cb6725"
+    },
+    "Manager": {
+      "font": "Sin fuente",
+      "sound": "blah.m4a",
+      "Color": "#d917ca"
     }
   },
-  "lastModified": "2026-02-22T05:37:47.475584"
+  "lastModified": "2026-02-22T18:42:59.982618"
 }

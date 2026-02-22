@@ -110,7 +110,7 @@ var song := [
 	DO, NONE, NONE, NONE, DO, DO, NONE, NONE,
 	]
 	
-var npc_chocado = false
+var npc_chocado = null
 var dialogo_aceptado = false;
 var playing = false;
 
