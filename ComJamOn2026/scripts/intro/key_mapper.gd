@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if key >= len(actions): return
-	if event.is_pressed():
+	if Input.is_anything_pressed():
 		InputMap.action_add_event(actions[key], event)
 		print(actions[key], event.get_class())
 		next_key()
