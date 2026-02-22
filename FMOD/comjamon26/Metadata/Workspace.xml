@@ -2,31 +2,31 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Workspace" id="{8236ab2b-e05a-4ed9-8698-7ae6a9c996b4}">
 		<relationship name="masterEventFolder">
-			<destination>{77815a39-b1b7-45f0-9ef4-8304b9623d45}</destination>
+			<destination>{7bad8eda-195f-4f88-a742-0ca386a1c4f6}</destination>
 		</relationship>
 		<relationship name="masterTagFolder">
-			<destination>{cc1434dd-fb1e-4f12-ae49-b81ad4c3133c}</destination>
+			<destination>{6c69518b-331f-4d36-8fd5-c85f679d5417}</destination>
 		</relationship>
 		<relationship name="masterEffectPresetFolder">
-			<destination>{1f7b2ba4-d889-4f02-81b9-1a84e3f7dcee}</destination>
+			<destination>{97f0f938-5d17-4186-ab57-e2a5fdde166a}</destination>
 		</relationship>
 		<relationship name="masterParameterPresetFolder">
-			<destination>{a998fb91-a50d-4d14-acf9-60473dd7b628}</destination>
+			<destination>{58bedbc8-89e3-4103-9879-14c1f4da5a01}</destination>
 		</relationship>
 		<relationship name="masterBankFolder">
-			<destination>{0612a4c8-08d4-4eee-b976-d4335d2a7515}</destination>
+			<destination>{ac46de94-9901-44c2-980d-b8a516c2d846}</destination>
 		</relationship>
 		<relationship name="masterSandboxFolder">
-			<destination>{ec17f9d8-2c87-4406-8df6-8c1b20f5e8a8}</destination>
+			<destination>{a2941247-db50-4ad5-a226-646eef4c6622}</destination>
 		</relationship>
 		<relationship name="masterAssetFolder">
-			<destination>{1404bf24-9914-4eb7-b663-e7dccb280ad3}</destination>
+			<destination>{eb4c62ee-17d1-4981-a5b7-2d6353783388}</destination>
 		</relationship>
 		<relationship name="mixer">
-			<destination>{b67011c2-aba1-4e57-bc5b-da1c46483e55}</destination>
+			<destination>{fbe867bb-08b2-4017-bc10-819c9bbf93d6}</destination>
 		</relationship>
 		<relationship name="profilerSessionFolder">
-			<destination>{c1c987af-9252-4dd3-a1ed-f856d7adfcd3}</destination>
+			<destination>{7ec0c43a-2aa5-4bc2-bda8-eb0e117a4998}</destination>
 		</relationship>
 		<relationship name="platforms">
 			<destination>{09141b11-431a-49dc-b266-5cdad03286be}</destination>
