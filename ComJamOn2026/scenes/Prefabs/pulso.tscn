@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="1_dmurf"]
 [ext_resource type="Script" uid="uid://bpt2ut7ph3v7m" path="res://scripts/game/pulso.gd" id="1_vph8p"]
-[ext_resource type="Script" uid="uid://cexvyruoqfl70" path="res://scripts/game/boton_juego.gd" id="2_vph8p"]
 
 [node name="Pulso" type="Control" unique_id=1177493615]
 layout_mode = 3
@@ -16,25 +15,23 @@ script = ExtResource("1_vph8p")
 modulate = Color(0, 1, 0, 1)
 layout_mode = 0
 offset_left = -64.0
-offset_top = -657.0
+offset_top = -129.0
 offset_right = 64.0
-offset_bottom = -529.0
+offset_bottom = -1.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("1_dmurf")
-script = ExtResource("2_vph8p")
 
 [node name="Rojo" type="TextureRect" parent="." unique_id=237537647]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 0
 offset_left = -64.0
-offset_top = -525.0
+offset_top = -261.0
 offset_right = 64.0
-offset_bottom = -397.0
+offset_bottom = -133.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("1_dmurf")
-script = ExtResource("2_vph8p")
 
 [node name="Amarillo" type="TextureRect" parent="." unique_id=1152343199]
 modulate = Color(1, 1, 0, 1)
@@ -46,28 +43,25 @@ offset_bottom = -265.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("1_dmurf")
-script = ExtResource("2_vph8p")
 
 [node name="Azul" type="TextureRect" parent="." unique_id=1118710860]
 modulate = Color(0, 0, 1, 1)
 layout_mode = 0
 offset_left = -64.0
-offset_top = -261.0
+offset_top = -525.0
 offset_right = 64.0
-offset_bottom = -133.0
+offset_bottom = -397.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("1_dmurf")
-script = ExtResource("2_vph8p")
 
 [node name="Naranja" type="TextureRect" parent="." unique_id=646286410]
 modulate = Color(0.81960785, 0.57254905, 0, 1)
 layout_mode = 0
 offset_left = -64.0
-offset_top = -129.0
+offset_top = -657.0
 offset_right = 64.0
-offset_bottom = -1.0
+offset_bottom = -529.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("1_dmurf")
-script = ExtResource("2_vph8p")
