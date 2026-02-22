@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://huigsvqgvdxn" path="res://addons/DialogueSystem/ui/DialogueBox/DialogueBox.gd" id="1_multg"]
 [ext_resource type="Texture2D" uid="uid://dj02lwf6l4f2e" path="res://assets/image/Characters/Chavala.png" id="2_7ovhn"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ovhn"]
+
 [node name="DialogueBox" type="Control" unique_id=1540864930]
 layout_mode = 3
 anchors_preset = 3
@@ -36,6 +38,7 @@ offset_right = -48.0
 offset_bottom = -39.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7ovhn")
 
 [node name="LabelCharacter" type="Label" parent="Panel" unique_id=112576036]
 layout_mode = 0

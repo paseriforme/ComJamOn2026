@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://j5cotml288fn" path="res://addons/DialogueSystem/ui/DescisionBox/DecisionBox.gd" id="1_3lveg"]
 [ext_resource type="Texture2D" uid="uid://dj02lwf6l4f2e" path="res://assets/image/Characters/Chavala.png" id="2_gh3ow"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gh3ow"]
+
 [node name="DecisionBox" type="Control" unique_id=611704795]
 layout_mode = 3
 anchors_preset = 3
@@ -38,6 +40,7 @@ offset_right = -48.0
 offset_bottom = -38.5
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gh3ow")
 
 [node name="LabelCharacter" type="Label" parent="Panel" unique_id=1019314345]
 layout_mode = 0
@@ -57,6 +60,7 @@ grow_vertical = 2
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sem metus, varius vel fermentum at, vestibulum rhoncus risus. Vivamus ex tellus, congue eu condimentum in, euismod at ligula. Pellentesque iaculis enim sed elementum rhoncus. Praesent dapibus varius vulputate. Cras elementum dictum arcu. Maecenas vitae diam venenatis, dignissim odio ut, volutpat ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis lectus mi, volutpat ac enim vitae, egestas vestibulum velit."
 
 [node name="OptionsContainer" type="VBoxContainer" parent="Panel" unique_id=1244514026]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

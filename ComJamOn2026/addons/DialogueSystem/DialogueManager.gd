@@ -86,7 +86,6 @@ func show_dialogue(is_end := false):
 	var audio = _load_audio(character.get("sound"))
 	
 	feedback.visible = false
-	
 	dialogue_box.visible = true
 	decision_box.visible = false
 	
