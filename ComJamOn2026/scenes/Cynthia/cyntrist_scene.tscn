@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="9_2eiin"]
 [ext_resource type="Texture2D" uid="uid://n0ob011ts0le" path="res://assets/image/Characters/UI PRACTICA.png" id="12_1x3un"]
 [ext_resource type="Script" uid="uid://y3quaa0klmfh" path="res://scripts/game/disco.gd" id="15_h3u08"]
+[ext_resource type="Texture2D" uid="uid://uvypc1m30qg" path="res://assets/image/UI/vinilo.png" id="18_k7xfu"]
+[ext_resource type="Texture2D" uid="uid://d4dtlbu4ge0j6" path="res://assets/image/UI/seccion_disco.png" id="19_q5vl3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
@@ -172,31 +174,56 @@ grow_vertical = 0
 rotation = -0.7853982
 scale = Vector2(0.37, 0.37)
 
-[node name="Disco" type="Control" parent="CanvasLayer/Panel/Fondo" unique_id=339788349]
+[node name="Disco" type="Control" parent="CanvasLayer/Panel/Fondo" unique_id=1885119383]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
+offset_left = 768.6566
+offset_top = 370.94763
+offset_right = 768.6566
+offset_bottom = 370.94763
 grow_vertical = 2
 script = ExtResource("15_h3u08")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Fondo/Disco" unique_id=989706061]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Fondo/Disco" unique_id=249932620]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = -805.0
+offset_top = -799.0
+offset_right = 805.0
+offset_bottom = 799.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_r4itm")
+texture = ExtResource("18_k7xfu")
+
+[node name="Trastes2" parent="CanvasLayer/Panel/Fondo" unique_id=1259376826 instance=ExtResource("1_5lwix")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1067.1641
+offset_top = 169.4552
+offset_right = 1067.1641
+offset_bottom = 169.4552
+grow_vertical = 2
+rotation = -0.5235988
+scale = Vector2(0.43, 0.43)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Fondo" unique_id=290479187]
+layout_mode = 0
+offset_left = 473.1343
+offset_right = 2393.1343
+offset_bottom = 1080.0
+texture = ExtResource("19_q5vl3")
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="NPC" to="NPC" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="Character" to="Character" method="_on_body_entered"]
 
 [editable path="Character"]
+[editable path="CanvasLayer/Panel/Fondo/Trastes2"]
