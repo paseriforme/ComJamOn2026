@@ -178,6 +178,8 @@ func _physics_process(delta: float) -> void:
 	if actual_chord >= last_chord:
 		disco.end()
 		Global.sound.stop_bgm()
+		if Global.npc_chocado == $"../../../../manager2":
+			queue_free()
 		return
 	
 	if not paused:
