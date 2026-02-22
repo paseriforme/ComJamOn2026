@@ -41,13 +41,15 @@ func _aceptar_dialogo():
 	
 func _rechazar_dialogo():
 #	set_state(states.WALK)	
-#	Global.dialogo_aceptado = false
+	Global.dialogo_aceptado = false
 	pass
 	
 func _end_dialogo():
-	if not Global.dialogo_aceptado:
+	if not Global.dialogo_aceptado and not dialogue_man.starting:
 		print_debug("ESTOY FALLANDO AQUI")
-#		set_state(states.WALK)	
+		set_state(states.WALK)	
+
+
 
 func _end_song():
 	print("END SONG")

@@ -7,15 +7,18 @@ class_name UI
 
 func _ready() -> void:
 	Global.end_dialogue.connect(_end_dialogue)
-	visible(false)
+#	visible(false)
 
 func visible(vis):
 	if vis:
 		dialogue_manager.visible = true
 	else:
 		dialogue_manager.visible = false
-		panel.set_process(false)
+#		panel.set_process(false)
 		control_disco.stop_song()
+
+func stop_song():
+	control_disco.stop_song()
 
 func show_dialogue(character):
 	dialogue_manager.start(0)
@@ -24,7 +27,6 @@ func show_dialogue(character):
 func _process(delta: float) -> void:
 	if Global.playing: return 
 	if Input.is_action_just_pressed("rasgar",true) and dialogue_manager.dialogue_box.visible and not dialogue_manager.ending and not dialogue_manager.starting:
-		print_debug("Es por esto 2")
 		dialogue_manager.dialogue_box.pressed()
 
 func _end_dialogue():
