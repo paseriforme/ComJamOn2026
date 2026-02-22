@@ -42,26 +42,28 @@ func set_state(st : states):
 		states.WALK:
 			print("WALK")
 			character.set_process(true)
-			camara.follow_target = $Character
-#			camara.tween_resource = tween_seguir
 			character.canwalk = true
-			print_debug(camara.limit_target)
 			canvas_layer.visible(false)
 			Global.npc_chocado = false
-			camara.limit_target = area_camara
+			
+			
+			camara.follow_target = $Character
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_walk)
 			tween2.tween_property(fondo, "position", Vector2(fondo_ini_x, 0), fondo_tween_time_walk).set_trans(fondo_tween_trans)
+			tween2.finished.connect(func(): camara.set_limit_target(area_camara))
+			print_debug(camara.limit_target)	
 			pass
 		states.TALK:
 			print("TALK")
-			camara.follow_target = $Character/Segundo
-			camara.limit_target = area_camara_talk
 #			camara.tween_resource = tween_hablar
 			character.canwalk = false
 			character.set_process(false)
 			canvas_layer.visible(true)
 			#twin
+			camara.follow_target = $Character/Segundo
+			camara.set_limit_target("");
+			camara.set_limit_left(-10000000);
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_talk)
 			tween2.tween_property(fondo, "position", Vector2(fondo_talk_x, 0), fondo_tween_time_talk).set_trans(fondo_tween_trans)
