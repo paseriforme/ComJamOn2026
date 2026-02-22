@@ -5,6 +5,7 @@ enum states {WALK, TALK, PLAY}
 
 @onready var character: CharacterController = $Character
 @onready var canvas_layer: UI = $CanvasLayer
+@onready var dialogue_man: DialogueManager = $CanvasLayer/Panel/DialogueManager
 @onready var camara: PhantomCamera2D = $PlayerPhantomCamera2D
 @onready var fondo : TextureRect = $CanvasLayer/Panel/Fondo
 @onready var area_camara : String = "../Colisiones/Area/AreaShape"
@@ -46,10 +47,10 @@ func _rechazar_dialogo():
 func _end_dialogo():
 	if not Global.dialogo_aceptado:
 		print_debug("ESTOY FALLANDO AQUI")
-		set_state(states.WALK)	
+#		set_state(states.WALK)	
 
 func _end_song():
-	#print("END SONG")
+	print("END SONG")
 	set_state(states.WALK)
 
 func set_state(st : states):
@@ -60,8 +61,9 @@ func set_state(st : states):
 			character.set_process(true)
 			canvas_layer.visible(false)
 			Global.npc_chocado = false
-			
+			dialogue_man.set_process(false)
 			Global.dialogo_aceptado = false
+			Global.playing = false
 			camara.follow_target = $Character
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_walk)
@@ -77,6 +79,7 @@ func set_state(st : states):
 			character.canwalk = false
 			character.set_process(false)
 			canvas_layer.visible(true)
+			dialogue_man.set_process(true)
 			#twin
 			camara.follow_target = $Character/Segundo
 			camara.set_limit_target(area_camara_talk);
@@ -87,14 +90,16 @@ func set_state(st : states):
 			pass
 		states.PLAY:
 			print("PLAY")
+			dialogue_man.set_process(false)
 			character.canwalk = false
-			character.set_process(false)
+			character.set_process(false)	
 			canvas_layer.visible(true)
+			Global.playing = true
 			canvas_layer.control_disco.start_song()
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_play)
 			tween2.tween_property(fondo, "position", Vector2(fondo_play_x, 0), fondo_tween_time_play).set_trans(fondo_tween_trans)
-			tween2.finished.connect(func(): set_state(states.WALK))
+			#tween2.finished.connect(func(): set_state(states.WALK))
 			pass
 		_:
 			pass

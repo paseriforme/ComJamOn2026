@@ -59,6 +59,7 @@ var song := [
 	
 var npc_chocado = false
 var dialogo_aceptado = false;
+var playing = false;
 
 func _ready() -> void:
 	pass

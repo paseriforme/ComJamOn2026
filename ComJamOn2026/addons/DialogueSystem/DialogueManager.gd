@@ -154,7 +154,9 @@ func end_dialogue():
 	tween2.set_ease(Tween.EASE_IN)
 	tween2.tween_property(sprite, "position", Vector2(-1280,0), tween_char_time).set_trans(Tween.TRANS_BACK)
 	_show_node()
-	tween2.finished.connect(func(): Global.end_dialogue.emit(); ending = false )
+	tween2.finished.connect(func():  ending = false )
+	await Global.timer(tween_char_time + 0.2)
+	Global.end_dialogue.emit()
 	
 
 func choose(next_id):

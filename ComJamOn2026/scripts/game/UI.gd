@@ -22,7 +22,9 @@ func show_dialogue(character):
 	
 #func continue_dialogue(character):
 func _process(delta: float) -> void:
+	if Global.playing: return 
 	if Input.is_action_just_pressed("rasgar",true) and dialogue_manager.dialogue_box.visible and not dialogue_manager.ending and not dialogue_manager.starting:
+		print_debug("Es por esto 2")
 		dialogue_manager.dialogue_box.pressed()
 
 func _end_dialogue():
