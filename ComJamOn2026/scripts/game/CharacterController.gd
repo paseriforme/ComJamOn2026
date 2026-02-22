@@ -137,3 +137,9 @@ func _rebote():
 	tween2.set_ease(ease_steps)
 	tween2.tween_property(self, "position", position + velocity, time_steps).set_trans(trans_steps)
 	tween2.finished.connect(_callback_XD)
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if (anim_name == "pensamiento"):
+		animator.play("loop")
+	pass # Replace with function body.

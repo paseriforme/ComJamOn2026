@@ -114,7 +114,7 @@ texture = ExtResource("5_r4itm")
 
 [node name="Character" parent="." unique_id=294427056 instance=ExtResource("2_uxfon")]
 speed = 500.0
-control_feedback_time = 3.0
+control_feedback_time = 2.0
 
 [node name="Segundo" parent="Character" index="2" unique_id=1371953691]
 position = Vector2(-500, 0)

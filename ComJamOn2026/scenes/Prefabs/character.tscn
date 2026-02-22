@@ -83,6 +83,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Pensamiento/Burbuja:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.17453292]
+}
 
 [sub_resource type="Animation" id="Animation_dvl2a"]
 resource_name = "despensamiento"
@@ -123,9 +135,50 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_cx57j"]
+resource_name = "loop"
+length = 0.8
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pensamiento/Burbuja:rotation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.17453292519943295]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pensamiento/Parte2:rotation")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.3490658503988659, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pensamiento/Parte1:rotation")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.3490658503988659]
+}
+
 [sub_resource type="Animation" id="Animation_6h1tk"]
 resource_name = "pensamiento"
-length = 1.7
+length = 1.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -133,7 +186,7 @@ tracks/0/path = NodePath("Pensamiento/Parte1:rotation")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.5235987755982988, 0.0, 0.0]
@@ -157,10 +210,10 @@ tracks/2/path = NodePath("Pensamiento/Parte2:rotation")
 tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.626019, 0.826019, 1.026019),
+"times": PackedFloat32Array(0.626019, 0.8, 0.96666664),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-0.3490658503988659, 0.0, 0.0]
+"values": [0.0, -0.3490658503988659, -0.3490658503988659]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -181,10 +234,10 @@ tracks/4/path = NodePath("Pensamiento/Burbuja:rotation")
 tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1.2, 1.4, 1.6),
+"times": PackedFloat32Array(1.2, 1.3666667, 1.5333333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-0.17453292519943295, 0.0, 0.0]
+"values": [-0.3490658503988659, 0.0, 0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -205,7 +258,7 @@ tracks/6/path = NodePath("Pensamiento/Parte1:position")
 tracks/6/interp = 0
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.20194161),
+"times": PackedFloat32Array(0, 0.16860828),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(88, 179.07), Vector2(88, 187.515)]
@@ -217,7 +270,7 @@ tracks/7/path = NodePath("Pensamiento/Parte2:position")
 tracks/7/interp = 0
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.6333333, 0.8333333),
+"times": PackedFloat32Array(0.6333333, 0.80731434),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(116, 125.665), Vector2(116, 137.99998)]
@@ -229,7 +282,7 @@ tracks/8/path = NodePath("Pensamiento/Burbuja:position")
 tracks/8/interp = 0
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(1.2, 1.4),
+"times": PackedFloat32Array(1.2, 1.3666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(2, -26.98), Vector2(2, -9)]
@@ -239,6 +292,7 @@ tracks/8/keys = {
 _data = {
 &"RESET": SubResource("Animation_xhxll"),
 &"despensamiento": SubResource("Animation_dvl2a"),
+&"loop": SubResource("Animation_cx57j"),
 &"pensamiento": SubResource("Animation_6h1tk")
 }
 
@@ -288,3 +342,5 @@ position = Vector2(88, 193)
 texture = ExtResource("5_np3hh")
 centered = false
 offset = Vector2(-354.515, -397.905)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
