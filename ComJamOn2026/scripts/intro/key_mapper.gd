@@ -51,7 +51,7 @@ func next_key() -> void:
 		var tween3 = get_tree().create_tween()
 		tween3.set_ease(Tween.EASE_OUT)
 		tween3.tween_property(flecha_reintentar, "position", Vector2(20, 0), 1.0).set_trans(Tween.TRANS_ELASTIC)
-	
+	await Global.timer(0.25)
 #	for c in range(get_child_count()):
 #		if c == key:
 #			get_child(c).self_modulate = Color(42.356, 42.356, 42.356, 1.0)
@@ -76,6 +76,7 @@ func _reiniciar():
 	key = -1
 	for button in buttons:
 		button.visible = false
+	await Global.timer(0.25)
 	next_key()
 	var tween2 = get_tree().create_tween()
 	tween2.set_ease(Tween.EASE_OUT)
