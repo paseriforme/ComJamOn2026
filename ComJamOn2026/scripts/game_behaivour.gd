@@ -5,7 +5,19 @@ enum states {WALK, TALK, PLAY}
 
 @onready var character: CharacterController = $Character
 @onready var canvas_layer: UI = $CanvasLayer
-@onready var camara: PhantomCamera2D = $PlayerPhantomCamera2D
+@onready var camara: PhantomCamera2D = $Character/PlayerPhantomCamera2D
+@onready var fondo : TextureRect = $CanvasLayer/Panel/Fondo
+@onready var area_camara : CollisionShape2D = $Colisiones/Area/AreaShape
+
+@export var fondo_ini_x : float = -1280.0
+@export var fondo_talk_x : float = -340.0
+@export var fondo_play_x : float = 0
+
+@export var fondo_tween_trans : Tween.TransitionType = Tween.TRANS_ELASTIC
+@export var fondo_tween_ease_walk : Tween.EaseType = Tween.EASE_OUT
+@export var fondo_tween_ease_talk : Tween.EaseType = Tween.EASE_IN_OUT
+@export var fondo_tween_ease_play : Tween.EaseType = Tween.EASE_OUT
+@export var fondo_tween_time : float = 1.0
 
 @export var tween_seguir : PhantomCameraTween
 @export var tween_hablar : PhantomCameraTween
@@ -15,7 +27,8 @@ var state := states.WALK
 func _ready() -> void:
 	set_state(states.WALK)
 	Global.end_song.connect(_end_song)
-
+#	camara.tween_resource.duration = 20
+	
 func _end_song():
 	print("END SONG")
 	set_state(states.WALK)
@@ -26,18 +39,29 @@ func set_state(st : states):
 		states.WALK:
 			print("WALK")
 			camara.follow_target = $Character
-			camara.tween_resource = tween_seguir
+#			camara.tween_resource = tween_seguir
 			character.canwalk = true
 			character.set_process(true)
 			canvas_layer.visible(false)
+			Global.npc_chocado = false
+			area_camara.scale.x = 1
+			var tween2 = get_tree().create_tween()
+			print_debug(fondo.position)
+			tween2.set_ease(fondo_tween_ease_walk)
+			tween2.tween_property(fondo, "position", Vector2(fondo_ini_x, 0), fondo_tween_time).set_trans(fondo_tween_trans)
 			pass
 		states.TALK:
 			print("TALK")
 			camara.follow_target = $Character/Segundo
-			camara.tween_resource = tween_hablar
+#			camara.tween_resource = tween_hablar
 			character.canwalk = false
 			character.set_process(false)
 			canvas_layer.visible(true)
+			area_camara.scale.x = 2
+			#twin
+			var tween2 = get_tree().create_tween()
+			tween2.set_ease(fondo_tween_ease_talk)
+			tween2.tween_property(fondo, "position", Vector2(fondo_talk_x, 0), fondo_tween_time).set_trans(fondo_tween_trans)
 			pass
 		states.PLAY:
 			print("PLAY")
@@ -45,6 +69,9 @@ func set_state(st : states):
 			character.set_process(false)
 			canvas_layer.visible(true)
 			canvas_layer.control_disco.start_song()
+			var tween2 = get_tree().create_tween()
+			tween2.set_ease(fondo_tween_ease_play)
+			tween2.tween_property(fondo, "position", Vector2(fondo_play_x, 0), fondo_tween_time).set_trans(fondo_tween_trans)
 			pass
 		_:
 			pass

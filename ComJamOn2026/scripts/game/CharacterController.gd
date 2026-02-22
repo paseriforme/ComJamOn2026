@@ -89,6 +89,7 @@ func _callback_XD():
 	var tween2 = get_tree().create_tween()
 	tween2.set_ease(ease_steps)
 	tween2.tween_property(self, "position", position + velocity, time).set_trans(trans_steps)
+	tween2.finished.connect(func(): Global.chocar_npc.emit())
 	pass
 
 

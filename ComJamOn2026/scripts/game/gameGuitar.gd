@@ -46,15 +46,9 @@ func next_pulse():
 		return
 		
 	# quita el anterior
-	if (anterior_pulso != -1):
-		var tween2 = pool_pulsos[anterior_pulso].create_tween()
-		tween2.tween_property(pool_pulsos[anterior_pulso], "rotation", Vector2(300, 0.0), 0.00001)
-		tween2.tween_property(pool_pulsos[anterior_pulso], "position", Vector2(-300, 720.0), 0.00001)
 	anterior_pulso = actual_pulso
 	if(not song[actual_chord]): return
 	# coloca el actual
-	var tween1 = pool_pulsos[actual_pulso].create_tween()
-	tween1.tween_property(pool_pulsos[actual_pulso], "position", Vector2(300, 720.0), 0.1)
 	actual_pulso +=1
 	if actual_pulso >= len(pool_pulsos): actual_pulso = 0
 	
@@ -63,8 +57,6 @@ func next_pulse():
 	actual_chord +=1
 	
 	# coloca el siguiente
-	var tween2 = pool_pulsos[actual_pulso].create_tween()
-	tween2.tween_property(pool_pulsos[actual_pulso], "position", Vector2(0,720.0), 0.5)
 
 func _matching_keys() -> bool:
 	for i in len(Global.trastes):
@@ -104,7 +96,8 @@ func _physics_process(delta: float) -> void:
 	elapsed_b_time += delta
 	if elapsed_b_time >= 1/(bpm/60):
 		#print(1/(bpm/60))
-		Global.sound.play_sfx("metronom_klack")
+		if (Global.sound != null):
+			Global.sound.play_sfx("metronom_klack")
 		elapsed_b_time = 0
 	elapsed_sb_time += delta
 	if elapsed_sb_time >= 0.5/(bpm/60):

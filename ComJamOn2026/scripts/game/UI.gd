@@ -1,6 +1,6 @@
 extends Node
 class_name UI
-@onready var control_disco: Control = $Panel/TextureRect/control_disco
+@onready var control_disco: Control = $Panel/Fondo/control_disco
 @onready var dialogue_manager: DialogueManager = $Panel/DialogueManager
 @onready var panel: Panel = $Panel
 @onready var game_state: GameState = $".."

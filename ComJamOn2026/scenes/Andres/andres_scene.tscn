@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://cuuc1u18f3t8m" path="res://scripts/game_behaivour.gd" id="1_dgn8v"]
 [ext_resource type="PackedScene" uid="uid://c7k3rqpmcf0vt" path="res://scenes/Prefabs/character.tscn" id="1_e84x4"]
 [ext_resource type="PackedScene" uid="uid://cd63p357bbkyu" path="res://scenes/Prefabs/camera_2d.tscn" id="2_8yqig"]
+[ext_resource type="Resource" uid="uid://ck4hr0752fmoa" path="res://assets/tweens/seguimiento_jugador.tres" id="2_jxgry"]
 [ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="2_w1iya"]
 [ext_resource type="Script" uid="uid://bcchepkryj7kl" path="res://scripts/game/NPC.gd" id="3_po2s8"]
 [ext_resource type="Texture2D" uid="uid://dj02lwf6l4f2e" path="res://assets/image/Characters/Chavala.png" id="4_ltust"]
 [ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="5_8yqig"]
 [ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scripts/game/UI.gd" id="5_po2s8"]
 [ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="9_p6fmi"]
-[ext_resource type="PackedScene" uid="uid://b328gvx2r2gcu" path="res://scenes/Cynthia/trastes.tscn" id="10_iaq8r"]
+[ext_resource type="Script" path="res://scripts/game/disco.gd" id="10_iaq8r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ltust"]
 radius = 70.0
@@ -18,8 +19,11 @@ radius = 70.0
 
 [node name="AndresScene" type="Node2D" unique_id=2120202095]
 script = ExtResource("1_dgn8v")
+tween_seguir = ExtResource("2_jxgry")
+tween_hablar = ExtResource("2_jxgry")
 
 [node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("2_8yqig")]
+zoom = Vector2(1.1533695, 1.1533695)
 process_callback = 0
 
 [node name="NPC" type="RigidBody2D" parent="." unique_id=87190673]
@@ -42,6 +46,9 @@ texture = ExtResource("2_w1iya")
 
 [node name="Character" parent="." unique_id=1460752680 instance=ExtResource("1_e84x4")]
 speed = 500.0
+
+[node name="PlayerPhantomCamera2D" parent="Character" index="2" unique_id=1361599555]
+draw_limits = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1923334515]
 script = ExtResource("5_po2s8")
@@ -80,17 +87,29 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Trastes" parent="CanvasLayer/Panel/TextureRect" unique_id=1867009734 instance=ExtResource("10_iaq8r")]
+[node name="Disco" type="Control" parent="CanvasLayer/Panel/TextureRect" unique_id=1747149668]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 99.99997
-offset_top = -82.0
-offset_right = 99.99997
-offset_bottom = -82.0
 grow_vertical = 0
-rotation = -0.7853982
-scale = Vector2(0.37, 0.37)
+script = ExtResource("10_iaq8r")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/TextureRect/Disco" unique_id=1226353597]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w1iya")
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
+
+[editable path="Character"]
