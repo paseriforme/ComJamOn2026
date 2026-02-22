@@ -7,7 +7,7 @@
 		  "ID": 2,
 		  "Type": "START",
 		  "Character": "Manager",
-		  "Text": "¡¡HOLA HOLA!!",
+		  "Text": "¡Hola, hola!",
 		  "Next": 5
 		},
 		{
@@ -18,7 +18,7 @@
 		  "Next": 6,
 		  "Options": [
 			{
-			  "Text": "Si",
+			  "Text": "Sí",
 			  "Next": 6
 			},
 			{
@@ -38,7 +38,7 @@
 		  "ID": 7,
 		  "Type": "END",
 		  "Character": "Manager",
-		  "Text": "A TOPE !!!",
+		  "Text": "¡A tope!",
 		  "Next": null
 		},
 		{
@@ -52,7 +52,7 @@
 		  "ID": 10,
 		  "Type": "END",
 		  "Character": "Manager",
-		  "Text": "Vuelve cuando estés lista.",
+		  "Text": "Vuelve cuando estés lista",
 		  "Next": null
 		}
 	  ]
@@ -64,18 +64,18 @@
 		  "ID": 12,
 		  "Type": "START",
 		  "Character": "Colega",
-		  "Text": "¿Que pasa Colega?",
+		  "Text": "¿Qué pasa colega?",
 		  "Next": 13
 		},
 		{
 		  "ID": 13,
 		  "Type": "DECISION",
 		  "Character": "Colega",
-		  "Text": "¿Practicamos la estrofa 1?",
+		  "Text": "¿Practicamos la primera estrofa?",
 		  "Next": 14,
 		  "Options": [
 			{
-			  "Text": "Si",
+			  "Text": "Sí",
 			  "Next": 14
 			},
 			{
@@ -95,7 +95,7 @@
 		  "ID": 16,
 		  "Type": "END",
 		  "Character": "Colega",
-		  "Text": "¡¡ DALE !!",
+		  "Text": "¡Dale!",
 		  "Next": null
 		},
 		{
@@ -109,7 +109,7 @@
 		  "ID": 17,
 		  "Type": "END",
 		  "Character": "Colega",
-		  "Text": "Pfff vale",
+		  "Text": "Pfff, vale...",
 		  "Next": null
 		}
 	  ]
@@ -121,18 +121,18 @@
 		  "ID": 18,
 		  "Type": "START",
 		  "Character": "Chavala",
-		  "Text": "¿Y esos pelos tia?",
+		  "Text": "¿Y esos pelos, tía?",
 		  "Next": 19
 		},
 		{
 		  "ID": 19,
 		  "Type": "DECISION",
 		  "Character": "Chavala",
-		  "Text": "Practica el puente que estas muy verde.",
+		  "Text": "Ponte a practicar el puente que estás muy verde",
 		  "Next": 20,
 		  "Options": [
 			{
-			  "Text": "Si",
+			  "Text": "Sí",
 			  "Next": 20
 			},
 			{
@@ -152,7 +152,7 @@
 		  "ID": 22,
 		  "Type": "END",
 		  "Character": "Chavala",
-		  "Text": "¡¡ REAL TIA !!",
+		  "Text": "¡Qué real, tía!",
 		  "Next": null
 		},
 		{
@@ -166,7 +166,7 @@
 		  "ID": 23,
 		  "Type": "END",
 		  "Character": "Chavala",
-		  "Text": "Que chavala... pasa el cubata.",
+		  "Text": "Qué chavala... Anda, pasa el cubata",
 		  "Next": null
 		}
 	  ]
@@ -178,18 +178,18 @@
 		  "ID": 24,
 		  "Type": "START",
 		  "Character": "Tronca",
-		  "Text": "Que pasa tron?",
+		  "Text": "¿Qué pasa tron?",
 		  "Next": 25
 		},
 		{
 		  "ID": 25,
 		  "Type": "DECISION",
 		  "Character": "Tronca",
-		  "Text": "¿Nos echamos unos estribillos?",
+		  "Text": "¿Le damos a los estribillos?",
 		  "Next": 26,
 		  "Options": [
 			{
-			  "Text": "Si",
+			  "Text": "Sí",
 			  "Next": 26
 			},
 			{
@@ -223,14 +223,14 @@
 		  "ID": 30,
 		  "Type": "DIALOGUE",
 		  "Character": "Tronca",
-		  "Text": "¡¡ HASTA LUEGO LUCAS !!",
+		  "Text": "¡Pues hasta luego, Lucas!",
 		  "Next": 29
 		},
 		{
 		  "ID": 29,
 		  "Type": "END",
 		  "Character": "Tronca",
-		  "Text": "¿¿ Y esa sonrisita ??  (romanceable)",
+		  "Text": "¿Y esa sonrisita coqueta?",
 		  "Next": null
 		}
 	  ]
@@ -242,18 +242,18 @@
 		  "ID": 31,
 		  "Type": "START",
 		  "Character": "Muchacha",
-		  "Text": "Noto que algo perturba tu espiritu...",
+		  "Text": "Noto que algo perturba tu espíritu...",
 		  "Next": 33
 		},
 		{
 		  "ID": 33,
 		  "Type": "DECISION",
 		  "Character": "Muchacha",
-		  "Text": "Esta  estrofa calmará tus sentidos...",
+		  "Text": "Esta estrofa calmará tus sentidos...",
 		  "Next": 34,
 		  "Options": [
 			{
-			  "Text": "Si",
+			  "Text": "Sí",
 			  "Next": 34
 			},
 			{
