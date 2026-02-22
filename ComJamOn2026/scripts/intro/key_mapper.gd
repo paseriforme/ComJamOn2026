@@ -19,7 +19,9 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 #	if key >= len(actions): return
-	if Input.is_anything_pressed() and not somethingpressed:
+#	print_debug(event)
+	var raw_val = Input.get_joy_axis(0, 5)
+	if Input.is_anything_pressed() or raw_val != 0.0 and not somethingpressed:
 		somethingpressed = true
 		if key < len(actions):
 			InputMap.action_add_event(actions[key], event)
