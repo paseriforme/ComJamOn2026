@@ -19,6 +19,8 @@ var decision_box : DecisionBox
 @onready var feedback = $Feedback
 
 @export var tween_char_time : float = 1.0
+var starting = false
+var ending = false
 
 func _ready() -> void:
 	dialogue_box = DIALOGUE_BOX.instantiate()
@@ -33,12 +35,16 @@ func _ready() -> void:
 func start(dialogue_id):
 	current_nodes = loader.dialogues[dialogue_id]
 	current_node = _find_start_node()
+	
 	$DialogueBox.visible = true
+	if starting: return
+	starting = true
 	var sprite = $DialogueBox/CharacterSprite
 	var tween2 = get_tree().create_tween()
 	tween2.set_ease(Tween.EASE_OUT)
 	tween2.tween_property(sprite, "position", Vector2(-1280,-720), tween_char_time).set_trans(Tween.TRANS_BACK)
 	_show_node()
+	tween2.finished.connect(func(): starting = false)
 
 func _find_start_node():
 	for n in current_nodes.values():
@@ -78,6 +84,8 @@ func show_dialogue(is_end := false):
 	var character = loader.characters[current_node.character]
 	var font = _load_font(character.get("font"))
 	var audio = _load_audio(character.get("sound"))
+	
+	feedback.visible = false
 	
 	dialogue_box.visible = true
 	decision_box.visible = false
@@ -139,11 +147,14 @@ func next_node():
 
 func end_dialogue():
 	var sprite = $DialogueBox/CharacterSprite
+	
+	if ending: return
+	ending = true
 	var tween2 = get_tree().create_tween()
 	tween2.set_ease(Tween.EASE_IN)
 	tween2.tween_property(sprite, "position", Vector2(-1280,0), tween_char_time).set_trans(Tween.TRANS_BACK)
 	_show_node()
-	tween2.finished.connect(func(): Global.end_dialogue.emit() )
+	tween2.finished.connect(func(): Global.end_dialogue.emit(); ending = false )
 	
 
 func choose(next_id):

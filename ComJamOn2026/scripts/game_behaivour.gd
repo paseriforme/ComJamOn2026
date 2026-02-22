@@ -40,10 +40,12 @@ func _aceptar_dialogo():
 	
 func _rechazar_dialogo():
 #	set_state(states.WALK)	
-	Global.dialogo_aceptado = false
-
+#	Global.dialogo_aceptado = false
+	pass
+	
 func _end_dialogo():
 	if not Global.dialogo_aceptado:
+		print_debug("ESTOY FALLANDO AQUI")
 		set_state(states.WALK)	
 
 func _end_song():
@@ -65,7 +67,7 @@ func set_state(st : states):
 			tween2.set_ease(fondo_tween_ease_walk)
 			tween2.tween_property(fondo, "position", Vector2(fondo_ini_x, 0), fondo_tween_time_walk).set_trans(fondo_tween_trans)
 			tween2.finished.connect(func(): camara.set_limit_target(area_camara))
-			print_debug(camara.limit_target)	
+#			print_debug(camara.limit_target)	
 			await Global.timer(0.1)
 			character.canwalk = true
 			pass
@@ -92,7 +94,7 @@ func set_state(st : states):
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_play)
 			tween2.tween_property(fondo, "position", Vector2(fondo_play_x, 0), fondo_tween_time_play).set_trans(fondo_tween_trans)
-			#tween2.finished.connect(func(): set_state(states.WALK))
+			tween2.finished.connect(func(): set_state(states.WALK))
 			pass
 		_:
 			pass
