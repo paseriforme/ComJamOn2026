@@ -62,8 +62,8 @@ func set_state(st : states):
 			canvas_layer.visible(true)
 			#twin
 			camara.follow_target = $Character/Segundo
-			camara.set_limit_target("");
-			camara.set_limit_left(-10000000);
+			camara.set_limit_target(area_camara_talk);
+#			camara.set_limit_left(-10000000);
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_talk)
 			tween2.tween_property(fondo, "position", Vector2(fondo_talk_x, 0), fondo_tween_time_talk).set_trans(fondo_tween_trans)
