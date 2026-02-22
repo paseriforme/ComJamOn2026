@@ -30,8 +30,18 @@ func _ready() -> void:
 	
 	loader.load_all(charactersPath, dialoguesPath)
 	$Feedback/AnimationPlayer.play("loop")
+#	$Feedback/AVerde.play("loop")
+#	$Feedback/ARojo.play("loop")
 	#Descomentar para probar
 	#start(0)
+
+func pegar_rojo():
+	$Feedback/ARojo.play("pegar")
+	pass
+	
+func pegar_verde():
+	$Feedback/AVerde.play("pegar")
+	pass
 
 func start(dialogue_id):
 	current_nodes = loader.dialogues[dialogue_id]
@@ -208,9 +218,11 @@ func choose(next_id):
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("verde",true) and decision_box.visible and not dialogue_box.visible:
 		choose(current_node.options[0].next)
+#		pegar_verde()
 		pass
 	if Input.is_action_pressed("rojo",true) and decision_box.visible and not dialogue_box.visible:
 		choose(current_node.options[1].next)
+#		pegar_rojo()
 		pass
 	pass
 	
