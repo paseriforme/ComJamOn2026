@@ -19,9 +19,9 @@ enum states {WALK, TALK, PLAY}
 @export var fondo_tween_ease_walk : Tween.EaseType = Tween.EASE_OUT
 @export var fondo_tween_ease_talk : Tween.EaseType = Tween.EASE_IN_OUT
 @export var fondo_tween_ease_play : Tween.EaseType = Tween.EASE_OUT
-@export var fondo_tween_time_walk : float = 1.0
-@export var fondo_tween_time_talk : float = 1.0
-@export var fondo_tween_time_play : float = 1.0
+@export var fondo_tween_time_walk : float = 2.0
+@export var fondo_tween_time_talk : float = 2.0
+@export var fondo_tween_time_play : float = 2.0
 
 @export var tween_seguir : PhantomCameraTween
 @export var tween_hablar : PhantomCameraTween
@@ -46,7 +46,7 @@ func _rechazar_dialogo():
 	
 func _end_dialogo():
 	if not Global.dialogo_aceptado and not dialogue_man.starting:
-		print_debug("ESTOY FALLANDO AQUI")
+#		print_debug("ESTOY FALLANDO AQUI")
 		set_state(states.WALK)	
 
 
