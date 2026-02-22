@@ -12,6 +12,7 @@ var actions := ["verde", "rojo", "amarillo", "azul", "naranja", "rasgar"]
 @onready var flecha_confirmar : TextureRect = $Confirmar
 @onready var flecha_reintentar : TextureRect = $Reintentar
 var trans : bool =false
+var ini_map
 
 var somethingpressed = false
 func _ready() -> void:
@@ -21,7 +22,7 @@ func _input(event: InputEvent) -> void:
 #	if key >= len(actions): return
 #	print_debug(event)
 	var raw_val = Input.get_joy_axis(0, 5)
-	if Input.is_anything_pressed() or raw_val != 0.0 and not somethingpressed:
+	if (event.is_pressed() or raw_val != 0.0 and event is not InputEventJoypadMotion) and not somethingpressed:
 		somethingpressed = true
 		if key < len(actions):
 			InputMap.action_add_event(actions[key], event)
@@ -51,15 +52,6 @@ func next_key() -> void:
 		var tween3 = get_tree().create_tween()
 		tween3.set_ease(Tween.EASE_OUT)
 		tween3.tween_property(flecha_reintentar, "position", Vector2(20, 0), 1.0).set_trans(Tween.TRANS_ELASTIC)
-	await Global.timer(0.25)
-#	for c in range(get_child_count()):
-#		if c == key:
-#			get_child(c).self_modulate = Color(42.356, 42.356, 42.356, 1.0)
-#		else:
-#			get_child(c).self_modulate = Color(0.1, 0.1, 0.1, 1)
-	
-#	if key >= len(actions):
-#		Global.change_scene(Global.Scenes.GAME)
 
 
 func _confirmar():
@@ -76,7 +68,6 @@ func _reiniciar():
 	key = -1
 	for button in buttons:
 		button.visible = false
-	await Global.timer(0.25)
 	next_key()
 	var tween2 = get_tree().create_tween()
 	tween2.set_ease(Tween.EASE_OUT)
