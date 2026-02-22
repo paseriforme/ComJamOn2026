@@ -18,6 +18,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1x3un"]
+size = Vector2(3926, 1379)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_1x3un"]
 radius = 70.0
 
@@ -25,11 +28,6 @@ radius = 70.0
 
 [node name="CyntristScene" type="Node2D" unique_id=581873652]
 script = ExtResource("1_a6vk8")
-fondo_ini_x = null
-fondo_talk_x = null
-fondo_play_x = null
-fondo_tween_trans = null
-fondo_tween_ease = 1
 fondo_tween_time = 2.0
 tween_seguir = ExtResource("4_7nmud")
 tween_hablar = ExtResource("3_r4itm")
@@ -54,11 +52,11 @@ position = Vector2(0, 3)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones/Escenario" unique_id=688039937]
 polygon = PackedVector2Array(-1040, -204, -1060, -144, -994, 367, -928, 574, -794, 704, 273, 741, 840, 685, 967, 487, 1010, -241, 856, -284, 681, -310, 641, -392, 523, -401, 488, -474, 380, -449, 287, -493, 168, -459, 53, -505, -30, -443, -117, -491, -232, -439, -315, -420, -368, -434, -461, -384, -643, -415, -681, -356, -730, -386, -834, -327, -938, -297, -1040, -205, -1231, -756, 1214, -742, 1206, 764, -969, 839, -1355, 688, -1274, -804, -1258, -354, -1255, -241)
 
-[node name="Derecha" type="StaticBody2D" parent="Colisiones" unique_id=1180501495]
+[node name="Invertida" type="StaticBody2D" parent="Colisiones" unique_id=1180501495]
 process_mode = 4
 visible = false
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones/Derecha" unique_id=66413424]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones/Invertida" unique_id=66413424]
 polygon = PackedVector2Array(-1044, -199, -1054, -154, -994, 372, -928, 571, -794, 705, 274, 740, 841, 685, 966, 491, 1001, -41, 1007, -233, 857, -280, 681, -307, 641, -389, 524, -398, 488, -471, 381, -446, 287, -490, 170, -457, 53, -503, -32, -439, -117, -488, -231, -436, -314, -417, -367, -431, -460, -380, -642, -412, -681, -351, -730, -383, -834, -324, -936, -295)
 
 [node name="Area" type="StaticBody2D" parent="Colisiones" unique_id=114390528]
@@ -68,6 +66,10 @@ collision_mask = 2
 [node name="AreaShape" type="CollisionShape2D" parent="Colisiones/Area" unique_id=2129079594]
 position = Vector2(-31.25, -4.25)
 shape = SubResource("RectangleShape2D_2eiin")
+
+[node name="AreaShape2" type="CollisionShape2D" parent="Colisiones/Area" unique_id=266058823]
+position = Vector2(-844, -4.5)
+shape = SubResource("RectangleShape2D_1x3un")
 
 [node name="NPC" type="RigidBody2D" parent="." unique_id=2089657348]
 position = Vector2(149, -186)
@@ -96,7 +98,7 @@ tween_on_load = true
 limit_target = NodePath("../../Colisiones/Area/AreaShape")
 
 [node name="Segundo" parent="Character" index="3" unique_id=1371953691]
-position = Vector2(-912, 20)
+position = Vector2(-500, 0)
 
 [node name="Refondo" type="Sprite2D" parent="." unique_id=329199081]
 position = Vector2(-926, 0)
