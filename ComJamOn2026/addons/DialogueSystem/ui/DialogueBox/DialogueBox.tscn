@@ -87,7 +87,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("6_lso5e")
-theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/normal_font_size = 50
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sem metus, varius vel fermentum at, vestibulum rhoncus risus. Vivamus ex tellus, congue eu condimentum in, euismod at ligula. Pellentesque iaculis enim sed elementum rhoncus. Praesent dapibus varius vulputate. Cras elementum dictum arcu. Maecenas vitae diam venenatis, dignissim odio ut, volutpat ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis lectus mi, volutpat ac enim vitae, egestas vestibulum velit."
 
 [node name="ButtonContinue" type="Button" parent="." unique_id=1936068197]
