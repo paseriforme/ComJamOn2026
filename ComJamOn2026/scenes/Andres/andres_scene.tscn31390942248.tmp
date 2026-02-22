@@ -171,12 +171,13 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 768.657
-offset_top = 370.948
-offset_right = 768.657
-offset_bottom = 370.948
+offset_left = 1307.4626
+offset_top = -9.649231
+offset_right = 1307.4626
+offset_bottom = -9.649231
 grow_vertical = 2
 rotation = 1.6388642
+scale = Vector2(0.665, 0.665)
 script = ExtResource("17_b8sw3")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Fondo/Disco" unique_id=1166698560]
@@ -194,6 +195,19 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_ocxcs")
 
+[node name="Trastes" parent="CanvasLayer/Panel/Fondo" unique_id=1785847443 instance=ExtResource("16_nl040")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1067.1641
+offset_top = 169.4552
+offset_right = 1067.1641
+offset_bottom = 169.4552
+grow_vertical = 2
+rotation = -0.5235988
+scale = Vector2(0.43, 0.43)
+
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Fondo" unique_id=395180740]
 z_index = 2
 layout_mode = 0
@@ -202,30 +216,14 @@ offset_right = 2393.1343
 offset_bottom = 1080.0
 texture = ExtResource("19_vu87w")
 
-[node name="Trastes" parent="CanvasLayer/Panel/Fondo/TextureRect" unique_id=1785847443 instance=ExtResource("16_nl040")]
-z_index = 60
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 594.0298
-offset_top = 168.9552
-offset_right = 594.0298
-offset_bottom = 168.9552
-grow_vertical = 2
-rotation = -0.5235988
-scale = Vector2(0.43, 0.43)
-
 [node name="Pegatina" type="TextureRect" parent="CanvasLayer/Panel/Fondo" unique_id=878587443]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="CanvasLayer/Panel/Fondo" unique_id=792159061]
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="NPC" to="NPC" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="Character" to="Character" method="_on_body_entered"]
 
 [editable path="Character"]
-[editable path="CanvasLayer/Panel/Fondo/TextureRect/Trastes"]
+[editable path="CanvasLayer/Panel/Fondo/Trastes"]

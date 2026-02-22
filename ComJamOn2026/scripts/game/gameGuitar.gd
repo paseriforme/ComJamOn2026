@@ -2,21 +2,22 @@ extends Control
 const PULSO = preload("res://scenes/Prefabs/pulso.tscn")
 
 var pool_pulsos : Array[Node]= []
-var actual_pulso := 0
-var anterior_pulso := -1
-
+var actual_pulso := 0  # MANTENER ESTE INDICE, no recalcular
 var actual_chord := 0
-var waiting_chord := -1
-
 var last_klk_time : float = 0
+
+@onready var audio_player: AudioStreamPlayer2D = $"../AudioPlayer"
 
 @export var bien_time = 0.15
 @export var perfe_time = 0.1
+@export var hit_zone_angle = -30.0
 
 var pulsed = false
 var enable = false
 var paused = false
 var acierto = false
+var failed_this_beat = false
+var correct_this_beat = false
 
 @onready var disco: Disco = $"../Disco"
 
@@ -24,75 +25,100 @@ var acierto = false
 var elapsed_b_time :float = 0
 var elapsed_sb_time :float = 0
 
-var pulses_to_start := 0
+var pulses_to_start := 2
 
 func _ready() -> void:
-	var rot = 0
 	for i in range(8):
 		var pulso = PULSO.instantiate()
 		pulso.scale = Vector2(0.66, 0.66)
 		disco.add_child(pulso)
 		pool_pulsos.push_back(pulso)
-	
 
 func stop_song():
 	enable = false
 
+func _get_pulso_en_hit_zone() -> int:
+	var disco_rot = fmod(rad_to_deg(disco.rotation) + 360, 360)
+	
+	var closest = 0
+	var min_diff = 360.0
+	
+	for i in range(len(pool_pulsos)):
+		var pulso_rot = fmod(rad_to_deg(pool_pulsos[i].rotation) + 360, 360)
+		var pulso_angle = fmod(pulso_rot + disco_rot + 360, 360)
+		var diff = abs(pulso_angle - hit_zone_angle)
+		if diff > 180:
+			diff = 360 - diff
+		if diff < min_diff:
+			min_diff = diff
+			closest = i
+	
+	return closest
+
 func start_song():
-	# Detener primero
 	enable = true
 	paused = false
 	
-	# Limpiar pulsos
+	# limpiar pulsos y establecer rotaciones fijas
 	var rot = 0
 	for i in len(pool_pulsos):
-		var pulso = pool_pulsos[i]
-		pulso.scale = Vector2(0.66, 0.66)
-		pulso.rotation = deg_to_rad(rot)
-		pulso.set_pulso(Global.song[i])
-		rot += 45
+		pool_pulsos[i].scale = Vector2(0.66, 0.66)
+		pool_pulsos[i].rotation = deg_to_rad(rot)
+		pool_pulsos[i].set_pulso([false,false,false,false,false])
+		rot -= 45
 	
-	# Reset de indices
-	actual_pulso = 0
-	anterior_pulso = -1
+	# reset de indices
 	actual_chord = 0
-	waiting_chord = -1
 	
-	# Reset estados
+	# reset estados
 	pulsed = false
 	acierto = false
-	pulses_to_start = 0
+	failed_this_beat = false
+	correct_this_beat = false
+	pulses_to_start = 2
 	
-	# Reset tiempos
+	# reset tiempos
 	elapsed_b_time = 0
 	elapsed_sb_time = 0
 	last_klk_time = 0
 	
-	# Reset visual
-	disco.rotation = deg_to_rad(-90 -30)
+	# reset visual
+	disco.rotation = deg_to_rad(-90 + 150)
 	
-	#next_pulse()
+	# Calcular que pulso esta en la zona de hit al inicio (SOLO UNA VEZ)
+	actual_pulso = _get_pulso_en_hit_zone()
+	
+	# pre-cargar 3 pulsos visibles desde ese punto
+	for i in range(3):
+		var pulso_idx = (actual_pulso + i) % len(pool_pulsos)
+		if i < len(Global.song):
+			pool_pulsos[pulso_idx].set_pulso(Global.song[i])
 	
 	print("START")
 
 func next_pulse():
-	# quita el anterior
-	anterior_pulso = actual_pulso
-	if Global.song[actual_chord] != null:
-		# coloca el actual
-		actual_pulso +=1
-		if actual_pulso >= len(pool_pulsos):
-			actual_pulso = 0
-		
-		# encender botones segun el acorde
-		pool_pulsos[actual_pulso].set_pulso(Global.song[actual_chord])
-		
-		actual_chord += 1
-		
-		acierto = false
-	else:
-		actual_chord += 1
-		next_pulse()
+	# apagar el pulso que ya paso (1 atras del actual)
+	var pulso_atras = (actual_pulso - 1 + len(pool_pulsos)) % len(pool_pulsos)
+	pool_pulsos[pulso_atras].set_pulso([false,false,false,false,false])
+	#print("Apagando pulso: ", pulso_atras)
+	
+	# avanzar el acorde
+	actual_chord += 1
+	
+	# AVANZAR actual_pulso
+	actual_pulso = (actual_pulso + 1) % len(pool_pulsos)
+	
+	# encender el pulso que entra
+	var pulso_adelante = (actual_pulso + 3) % len(pool_pulsos)
+	var chord_adelante = actual_chord + 2  # 2 acordes adelante del nuevo actual
+	
+	if chord_adelante < len(Global.song):
+		pool_pulsos[pulso_adelante].set_pulso(Global.song[chord_adelante])
+		#print("Generando pulso: ", pulso_adelante, " con acorde: ", chord_adelante, " | Acorde actual: ", actual_chord, " | Pulso actual: ", actual_pulso)
+	
+	acierto = false
+	failed_this_beat = false
+	correct_this_beat = false
 
 func _matching_keys() -> bool:
 	if actual_chord >= len(Global.song):
@@ -107,20 +133,14 @@ func _acertado_on_time() -> bool:
 	if paused:
 		print("MAL")
 		return true
-	# diferencia con el tiempo anterior
 	var dif_at = abs(Time.get_ticks_msec() - last_klk_time) * 0.001
-	# diferencia con el tiempo siguiente
 	var dif_nt = abs(Time.get_ticks_msec() - last_klk_time + (0.25/(bpm/60))) * 0.001
-	#print(dif_at, " / ", dif_nt, ": ", bien_time, "-", perfe_time)
 	if (dif_at < bien_time or dif_nt < bien_time/3):
 		if dif_at < perfe_time:
-			# PERFECTO
 			print("PERFECTO")
 		elif(dif_at > bien_time ):
-			# MAL
 			print("MAL")
 		else:
-			# BIEN
 			print("BIEN")
 		return true
 	return false
@@ -137,23 +157,21 @@ func _physics_process(delta: float) -> void:
 	if not enable:
 		return
 	
-	# si ha terminado la cancion
 	if actual_chord >= len(Global.song):
-		#print(actual_chord, " / ", len(Global.song))
 		disco.end()
 		return
 	
 	if not paused:
-		# Actualizar el tiempo del beat
 		var beat_time = 60.0 / bpm
 		elapsed_b_time += delta
 		if elapsed_b_time >= beat_time:
 			if Global.sound != null:
 				Global.sound.play_sfx("metronom_klack")
 			elapsed_b_time -= beat_time
-			if pulses_to_start < 2 : pulses_to_start += 1
+			if pulses_to_start < 2 : 
+				print("A")
+				pulses_to_start += 1
 	
-		# Actualizar sub-beat (medio tiempo)
 		elapsed_sb_time += delta
 		if elapsed_sb_time >= beat_time * 0.5:
 			last_klk_time = Time.get_ticks_msec()
@@ -161,42 +179,61 @@ func _physics_process(delta: float) -> void:
 		
 			if pulses_to_start >= 2 and acierto:
 				acierto = false
-				pulsed = false  # Reset para el siguiente pulso
+				pulsed = false
 				next_pulse()
+				print("next")
 	
 	# Detectar input solo cuando estamos esperando acierto
-	if pulses_to_start >= 2 :
+	if pulses_to_start >= 2:
 		if _vacio():
-			print("vacio")
-			acierto = true
+			correct()
 		elif not pulsed and Input.is_action_just_pressed("rasgar", true):
-			print("RASGAR")
 			pulsed = true
 			if _matching_keys() and _acertado_on_time():
-				print("Pulsado correcto")
 				correct()
 			else:
-				print("Fallo en la deteccion")
 				fail()
-		else:
-			#print("Falloa")
+		elif not failed_this_beat and not pulsed:
 			fail()
 	
-	# Liberar pulsacion
 	if Input.is_action_just_released("rasgar"):
 		pulsed = false
 
 func correct():
-	print("Correct")
+	if correct_this_beat:
+		return
+		
+	correct_this_beat = true
 	acierto = true
 	paused = false
+	print("CORRECTO, ", Global.song[actual_chord])
+	match Global.song[actual_chord]:
+		Global.DO:
+			audio_player.stream = load("res://audio/sfx/DO.wav")
+			audio_player.play()
+		Global.RE:
+			audio_player.stream = load("res://audio/sfx/RE.wav")
+			audio_player.play()
+		Global.MI:
+			audio_player.stream = load("res://audio/sfx/MI.wav")
+			audio_player.play()
+		Global.SOL:
+			audio_player.stream =  load("res://audio/sfx/SOL.wav")
+			audio_player.play()
+	failed_this_beat = false
 	disco.correct()
 
 func fail():
-	#print("Fail")
-	# FAIL SOUND
-	disco.fail()
-	elapsed_sb_time = 60.0 / bpm
+	if failed_this_beat:
+		return
+		
+	failed_this_beat = true
+	#if Global.sound != null:
+		#Global.sound.play_sfx("detuned")
+	
+	# Pasar el indice del pulso actual y su rotacion
+	disco.fail(pool_pulsos[actual_pulso].rotation)
+	correct_this_beat = false
 	elapsed_sb_time = (60.0 / bpm) * 0.5
 	acierto = false
 	paused = true

@@ -158,6 +158,19 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Trastes" parent="CanvasLayer/Panel/Fondo" unique_id=427422133 instance=ExtResource("16_nl040")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 99.99997
+offset_top = -82.0
+offset_right = 99.99997
+offset_bottom = -82.0
+grow_vertical = 0
+rotation = -0.7853982
+scale = Vector2(0.37, 0.37)
+
 [node name="Sombra vinilo" type="TextureRect" parent="CanvasLayer/Panel/Fondo" unique_id=894602778]
 layout_mode = 0
 offset_left = 480.59692
@@ -171,12 +184,11 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 768.657
-offset_top = 370.948
-offset_right = 768.657
-offset_bottom = 370.948
+offset_left = 768.6566
+offset_top = 370.94763
+offset_right = 768.6566
+offset_bottom = 370.94763
 grow_vertical = 2
-rotation = 1.6388642
 script = ExtResource("17_b8sw3")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Fondo/Disco" unique_id=1166698560]
@@ -186,46 +198,42 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -805.0001
+offset_left = -805.0
 offset_top = -799.0
-offset_right = 804.9999
+offset_right = 805.0
 offset_bottom = 799.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_ocxcs")
 
+[node name="Trastes2" parent="CanvasLayer/Panel/Fondo" unique_id=1785847443 instance=ExtResource("16_nl040")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1067.1641
+offset_top = 169.4552
+offset_right = 1067.1641
+offset_bottom = 169.4552
+grow_vertical = 2
+rotation = -0.5235988
+scale = Vector2(0.43, 0.43)
+
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Fondo" unique_id=395180740]
-z_index = 2
 layout_mode = 0
 offset_left = 473.1343
 offset_right = 2393.1343
 offset_bottom = 1080.0
 texture = ExtResource("19_vu87w")
 
-[node name="Trastes" parent="CanvasLayer/Panel/Fondo/TextureRect" unique_id=1785847443 instance=ExtResource("16_nl040")]
-z_index = 60
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 594.0298
-offset_top = 168.9552
-offset_right = 594.0298
-offset_bottom = 168.9552
-grow_vertical = 2
-rotation = -0.5235988
-scale = Vector2(0.43, 0.43)
-
 [node name="Pegatina" type="TextureRect" parent="CanvasLayer/Panel/Fondo" unique_id=878587443]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="CanvasLayer/Panel/Fondo" unique_id=792159061]
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="NPC" to="NPC" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="Character" to="Character" method="_on_body_entered"]
 
 [editable path="Character"]
-[editable path="CanvasLayer/Panel/Fondo/TextureRect/Trastes"]
+[editable path="CanvasLayer/Panel/Fondo/Trastes2"]
