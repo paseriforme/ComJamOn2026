@@ -18,6 +18,8 @@ var dialogue_box : DialogueBox
 var decision_box : DecisionBox
 @onready var feedback = $Feedback
 
+@export var tween_char_time : float = 1.0
+
 func _ready() -> void:
 	dialogue_box = DIALOGUE_BOX.instantiate()
 	self.add_child(dialogue_box)
@@ -35,7 +37,7 @@ func start(dialogue_id):
 	var sprite = $DialogueBox/CharacterSprite
 	var tween2 = get_tree().create_tween()
 	tween2.set_ease(Tween.EASE_OUT)
-	tween2.tween_property(sprite, "position", Vector2(-1280,-720), 1.0).set_trans(Tween.TRANS_BACK)
+	tween2.tween_property(sprite, "position", Vector2(-1280,-720), tween_char_time).set_trans(Tween.TRANS_BACK)
 	_show_node()
 
 func _find_start_node():
@@ -136,7 +138,13 @@ func next_node():
 	_show_node()
 
 func end_dialogue():
-	Global.end_dialogue.emit()
+	var sprite = $DialogueBox/CharacterSprite
+	var tween2 = get_tree().create_tween()
+	tween2.set_ease(Tween.EASE_IN)
+	tween2.tween_property(sprite, "position", Vector2(-1280,0), tween_char_time).set_trans(Tween.TRANS_BACK)
+	_show_node()
+	tween2.finished.connect(func(): Global.end_dialogue.emit() )
+	
 
 func choose(next_id):
 	current_node = current_nodes[next_id]
