@@ -101,7 +101,7 @@ freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 770
 script = ExtResource("8_vedlm")
-lastChord = 0
+lastChord = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" unique_id=2003509257]
 shape = SubResource("CircleShape2D_1x3un")
@@ -121,6 +121,7 @@ position = Vector2(-926, 0)
 texture = ExtResource("11_5jka1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1624487201]
+visible = false
 script = ExtResource("12_ojqkt")
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=89512763]

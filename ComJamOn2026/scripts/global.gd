@@ -33,7 +33,7 @@ enum Scenes { CONTEXT, GAME, NULL}
 ## sonido
 var sfx
 var bgm
-var sound
+var sound : SoundManager
 
 var coolDown = 0.5
 var startCoolDown = false
@@ -51,6 +51,8 @@ const SOL  = [false, true, false, true, false]
 const NONE  = [false, false, false, false, false]
 
 var song := [
+	#intro
+	NONE, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
 	# estrofa 1
 	SOL, NONE, NONE, NONE, NONE, NONE, NONE, RE,
 	RE, NONE, NONE, NONE, NONE, NONE, NONE, NONE,

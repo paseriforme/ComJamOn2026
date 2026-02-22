@@ -26,6 +26,8 @@ var correct_this_beat = false
 var elapsed_b_time :float = 0
 var elapsed_sb_time :float = 0
 
+var actual_cancion : float =0
+
 var pulses_to_start := 2
 
 func _ready() -> void:
@@ -59,6 +61,9 @@ func _get_pulso_en_hit_zone() -> int:
 func start_song(start, fin):
 	enable = true
 	paused = false
+	
+	var start_sec = start * ((60/bpm) * 0.5)
+	Global.sound.play_bgm("CancionEnteraSinGuitarra", false, start_sec)
 	
 	# limpiar pulsos y establecer rotaciones fijas
 	var rot = 0
@@ -161,24 +166,25 @@ func _physics_process(delta: float) -> void:
 	
 	if actual_chord >= last_chord:
 		disco.end()
+		Global.sound.stop_bgm()
 		return
 	
 	if not paused:
 		var beat_time = 60.0 / bpm
 		elapsed_b_time += delta
 		if elapsed_b_time >= beat_time:
-			if Global.sound != null:
-				Global.sound.play_sfx("metronom_klack")
+			#if Global.sound != null:
+				#Global.sound.play_sfx("metronom_klack")
 			elapsed_b_time -= beat_time
 			if pulses_to_start < 2 : 
-				print("A")
+				#print("A")
 				pulses_to_start += 1
 	
 		elapsed_sb_time += delta
 		if elapsed_sb_time >= beat_time * 0.5:
 			last_klk_time = Time.get_ticks_msec()
 			elapsed_sb_time -= beat_time * 0.5
-		
+			actual_cancion = Global.sound.bgm.get_playback_position()
 			if pulses_to_start >= 2 and acierto:
 				acierto = false
 				pulsed = false
@@ -208,6 +214,8 @@ func correct():
 	correct_this_beat = true
 	acierto = true
 	paused = false
+	
+	Global.sound.play_bgm("CancionEnteraSinGuitarra", false, actual_cancion)
 	print("CORRECTO, ", Global.song[actual_chord])
 	match Global.song[actual_chord]:
 		Global.DO:
@@ -228,7 +236,7 @@ func correct():
 func fail():
 	if failed_this_beat:
 		return
-		
+	Global.sound.stop_bgm()
 	failed_this_beat = true
 	#if Global.sound != null:
 		#Global.sound.play_sfx("detuned")

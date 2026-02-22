@@ -56,21 +56,24 @@ func _load_audio() -> void:
 #=== MÚSICA (BGM) ===
 
 @warning_ignore("shadowed_variable_base_class")
-func play_bgm(name: String, loop: bool = true) -> void:
+func play_bgm(name: String, loop: bool = true, from_position: float = 0.0) -> void:
 	if not bgm_tracks.has(name):
 		push_warning("SoundManager: BGM '%s' no encontrado" % name)
 		return
-
-	if current_bgm_name == name and bgm.playing:
-		return
-
 	current_bgm_name = name
 	bgm.stop()
 	bgm.stream = bgm_tracks[name]
-	if bgm.stream:
-		bgm.stream.loop = loop
+	var stream = bgm.stream
+	
+	if stream is AudioStreamWAV:
+		if loop:
+			stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+		else:
+			stream.loop_mode = AudioStreamWAV.LOOP_DISABLED
+	elif stream is AudioStreamOggVorbis:
+		stream.loop = loop
 	bgm.volume_db = bgm_volume_db
-	bgm.play()
+	bgm.play(from_position)
 
 
 func stop_bgm() -> void:
