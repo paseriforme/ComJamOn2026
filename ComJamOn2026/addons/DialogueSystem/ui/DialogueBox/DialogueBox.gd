@@ -50,3 +50,7 @@ func _pressed():
 	if on_continue:
 		on_continue.call()
 	
+func pressed():
+	hide()
+	if on_continue:
+		on_continue.call()

@@ -21,15 +21,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -423.52
-offset_top = -572.11
-offset_right = 283.48
-offset_bottom = 164.89001
+offset_right = 707.0
+offset_bottom = 737.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.8, 0.8)
+pivot_offset_ratio = Vector2(-4, -4)
 texture = ExtResource("2_7ovhn")
-expand_mode = 1
 stretch_mode = 2
 
 [node name="Panel" type="Panel" parent="." unique_id=588593579]
@@ -63,6 +61,7 @@ grow_vertical = 2
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sem metus, varius vel fermentum at, vestibulum rhoncus risus. Vivamus ex tellus, congue eu condimentum in, euismod at ligula. Pellentesque iaculis enim sed elementum rhoncus. Praesent dapibus varius vulputate. Cras elementum dictum arcu. Maecenas vitae diam venenatis, dignissim odio ut, volutpat ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis lectus mi, volutpat ac enim vitae, egestas vestibulum velit."
 
 [node name="ButtonContinue" type="Button" parent="." unique_id=1936068197]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

@@ -7,7 +7,6 @@ class_name UI
 
 func _ready() -> void:
 	Global.end_dialogue.connect(_end_dialogue)
-	
 	visible(false)
 
 func visible(vis):
@@ -20,6 +19,11 @@ func visible(vis):
 
 func show_dialogue(character):
 	dialogue_manager.start(0)
+	
+#func continue_dialogue(character):
+func _process(delta: float) -> void:
+	if (Input.is_action_just_pressed("verde",true)):
+		dialogue_manager.dialogue_box.pressed()
 
 func _end_dialogue():
 	if (Global.dialogo_aceptado):

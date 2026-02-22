@@ -21,13 +21,15 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -407.0
-offset_top = -465.0
-offset_right = 48.0
-offset_bottom = -21.0
+offset_right = 707.0
+offset_bottom = 737.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(0.8, 0.8)
+pivot_offset_ratio = Vector2(-4, -4)
 texture = ExtResource("2_gh3ow")
+expand_mode = 1
+stretch_mode = 2
 
 [node name="Panel" type="Panel" parent="." unique_id=922935107]
 layout_mode = 1
