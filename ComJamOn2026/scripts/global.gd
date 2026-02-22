@@ -44,15 +44,17 @@ var trastes: Array[bool] = [false, false, false, false, false];
 
 
 enum acordes {DO, RE, MI, SOL, NONE}
-const DO  = [true, false, false, false, false]
-const RE  = [false, true, false, false, false]
-const MI  = [false, false, true, false, false]
-const SOL  = [false, false, false, true, false]
+const DO  = [true, false, false, true, false]
+const RE  = [false, true, false, false, true]
+const MI  = [true, false, true, false, false]
+const SOL  = [false, true, false, true, false]
 const NONE  = [false, false, false, false, false]
 
 var song := [
 	SOL, NONE, NONE, NONE, NONE, NONE, NONE, RE,
-	RE, NONE, NONE, NONE, NONE, NONE, NONE, NONE
+	RE, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
+	MI, NONE, NONE, NONE, NONE, NONE, NONE, DO,
+	DO, NONE, NONE, NONE, NONE, NONE, NONE, NONE
 	]
 	
 var npc_chocado = false

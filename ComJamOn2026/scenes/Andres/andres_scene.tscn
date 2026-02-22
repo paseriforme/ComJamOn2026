@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://bjiblirkavor3" path="res://scenes/Cynthia/trastes.tscn" id="16_nl040"]
 [ext_resource type="Script" uid="uid://y3quaa0klmfh" path="res://scripts/game/disco.gd" id="17_b8sw3"]
 [ext_resource type="Texture2D" uid="uid://uvypc1m30qg" path="res://assets/image/UI/vinilo.png" id="18_ocxcs"]
-[ext_resource type="PackedScene" uid="uid://dlsillfjnepba" path="res://scenes/Prefabs/pulso.tscn" id="19_7xyf6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
@@ -142,8 +141,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
-charactersPath = "res://localization/localization_characters.json"
-dialoguesPath = "res://localization/localization_dialogues.json"
 metadata/_edit_use_anchors_ = true
 
 [node name="Fondo" type="TextureRect" parent="CanvasLayer/Panel" unique_id=756236629]
@@ -201,11 +198,6 @@ offset_bottom = 799.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("18_ocxcs")
-
-[node name="Pulso" parent="CanvasLayer/Panel/Fondo/Disco" unique_id=1177493615 instance=ExtResource("19_7xyf6")]
-layout_mode = 1
-rotation = 1.5707964
-scale = Vector2(0.66, 0.66)
 
 [node name="Trastes2" parent="CanvasLayer/Panel/Fondo" unique_id=1785847443 instance=ExtResource("16_nl040")]
 layout_mode = 1

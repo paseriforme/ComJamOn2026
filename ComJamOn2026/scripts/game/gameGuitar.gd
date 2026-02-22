@@ -56,12 +56,6 @@ func start_song():
 	disco.rotation = deg_to_rad(-90)
 
 func next_pulse():
-	# si ha terminado la cancion
-	if actual_chord >= len(Global.song):
-		#print(actual_chord, " / ", len(Global.song))
-		Global.end_song.emit()
-		return
-	
 	# quita el anterior
 	anterior_pulso = actual_pulso
 	if Global.song[actual_chord] != null:
@@ -72,6 +66,11 @@ func next_pulse():
 		
 		# encender botones segun el acorde
 		pool_pulsos[actual_pulso].set_pulso(Global.song[actual_chord])
+		for p in len(pool_pulsos):
+			if p == actual_pulso:
+				pool_pulsos[p].set_pulso(Global.song[actual_chord])
+			else:
+				pool_pulsos[p].set_pulso([false,false,false,false,false])
 		
 		actual_chord += 1
 		
@@ -81,6 +80,8 @@ func next_pulse():
 		next_pulse()
 
 func _matching_keys() -> bool:
+	if actual_chord >= len(Global.song):
+		return false
 	for i in range(len(Global.trastes)):
 		if Global.trastes[i] != Global.song[actual_chord][i]:
 			print("_matching_keys: FALSE")
@@ -110,6 +111,8 @@ func _acertado_on_time() -> bool:
 	return false
 
 func _vacio() -> bool:
+	if actual_chord >= len(Global.song):
+		return false
 	for traste in Global.song[actual_chord]:
 		if traste:
 			return false
@@ -118,6 +121,13 @@ func _vacio() -> bool:
 func _physics_process(delta: float) -> void:
 	if not enable:
 		return
+	
+	# si ha terminado la cancion
+	if actual_chord >= len(Global.song):
+		#print(actual_chord, " / ", len(Global.song))
+		Global.end_song.emit()
+		return
+	
 	if not paused:
 		# Actualizar el tiempo del beat
 		var beat_time = 60.0 / bpm
@@ -126,7 +136,7 @@ func _physics_process(delta: float) -> void:
 			if Global.sound != null:
 				Global.sound.play_sfx("metronom_klack")
 			elapsed_b_time -= beat_time
-			if pulses_to_start <2: pulses_to_start += 1
+			if pulses_to_start < 2 : pulses_to_start += 1
 	
 		# Actualizar sub-beat (medio tiempo)
 		elapsed_sb_time += delta
@@ -171,5 +181,7 @@ func fail():
 	#print("Fail")
 	# FAIL SOUND
 	disco.fail()
+	elapsed_sb_time = 60.0 / bpm
+	elapsed_sb_time = (60.0 / bpm) * 0.5
 	acierto = false
 	paused = true
