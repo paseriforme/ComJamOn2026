@@ -5,10 +5,10 @@ enum states {WALK, TALK, PLAY}
 
 @onready var character: CharacterController = $Character
 @onready var canvas_layer: UI = $CanvasLayer
-@onready var camara: PhantomCamera2D = $Character/PlayerPhantomCamera2D
+@onready var camara: PhantomCamera2D = $PlayerPhantomCamera2D
 @onready var fondo : TextureRect = $CanvasLayer/Panel/Fondo
-@onready var area_camara : String = "../../Colisiones/Area/AreaShape"
-@onready var area_camara_talk : String = "../../Colisiones/Area/AreaShape2"
+@onready var area_camara : String = "Colisiones/Area/AreaShape"
+@onready var area_camara_talk : String = "Colisiones/Area/AreaShape2"
 
 @export var fondo_ini_x : float = -1280.0
 @export var fondo_talk_x : float = -340.0
@@ -39,17 +39,16 @@ func set_state(st : states):
 	match st:
 		states.WALK:
 			print("WALK")
+			character.set_process(true)
 			camara.follow_target = $Character
 #			camara.tween_resource = tween_seguir
 			character.canwalk = true
-			character.set_process(true)
-			canvas_layer.visible(false)
+#			canvas_layer.visible(false)
 			Global.npc_chocado = false
 			camara.limit_target = area_camara
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_walk)
 			tween2.tween_property(fondo, "position", Vector2(fondo_ini_x, 0), fondo_tween_time).set_trans(fondo_tween_trans)
-			print_debug(camara.limit_target)
 			pass
 		states.TALK:
 			print("TALK")
@@ -73,6 +72,7 @@ func set_state(st : states):
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_play)
 			tween2.tween_property(fondo, "position", Vector2(fondo_play_x, 0), fondo_tween_time).set_trans(fondo_tween_trans)
+			tween2.finished.connect(func(): set_state(states.WALK))
 			pass
 		_:
 			pass

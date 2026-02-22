@@ -12,10 +12,10 @@ func _ready() -> void:
 
 func visible(vis):
 	if vis:
-		panel.visible = true
+		dialogue_manager.visible = true
 		control_disco.stop_song()
 	else:
-		panel.visible = false
+		dialogue_manager.visible = false
 		panel.set_process(false)
 
 func show_dialogue(character):

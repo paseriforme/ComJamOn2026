@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bcts5vf22lxia" path="res://assets/image/Backgrounds/FONDO_detras.png" id="4_r4itm"]
 [ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="5_r4itm"]
 [ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scripts/game/UI.gd" id="5_s7rui"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_ihtxl"]
 [ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="6_kjaud"]
+[ext_resource type="Resource" uid="uid://euybd2w0bax" path="res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_2d_tween.tres" id="7_u8e5d"]
 [ext_resource type="Texture2D" uid="uid://kw5pykq6pu5w" path="res://assets/image/Backgrounds/FONDO_delante.png" id="9_1x3un"]
 [ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="9_2eiin"]
 [ext_resource type="Texture2D" uid="uid://n0ob011ts0le" path="res://assets/image/Characters/UI PRACTICA.png" id="12_1x3un"]
@@ -43,10 +45,21 @@ texture = ExtResource("4_r4itm")
 [node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("4_6bit8")]
 zoom = Vector2(0.6, 0.6)
 process_callback = 0
-limit_left = -1187
-limit_top = -702
-limit_right = 1124
-limit_bottom = 693
+
+[node name="PlayerPhantomCamera2D" type="Node2D" parent="." unique_id=1832631289 node_paths=PackedStringArray("follow_target")]
+unique_name_in_owner = true
+process_priority = -1
+top_level = true
+script = ExtResource("6_ihtxl")
+priority = 10
+follow_mode = 2
+follow_target = NodePath("../Character")
+zoom = Vector2(0.6, 0.6)
+frame_preview = false
+tween_resource = ExtResource("7_u8e5d")
+follow_damping = true
+follow_damping_value = Vector2(1, 1)
+draw_limits = true
 
 [node name="Colisiones" type="Node" parent="." unique_id=19771807]
 
@@ -95,13 +108,7 @@ texture = ExtResource("5_r4itm")
 [node name="Character" parent="." unique_id=294427056 instance=ExtResource("2_uxfon")]
 speed = 500.0
 
-[node name="PlayerPhantomCamera2D" parent="Character" index="2" unique_id=1361599555]
-zoom = Vector2(0.6, 0.6)
-tween_resource = ExtResource("4_7nmud")
-tween_on_load = true
-limit_target = NodePath("../../Colisiones/Area/AreaShape")
-
-[node name="Segundo" parent="Character" index="3" unique_id=1371953691]
+[node name="Segundo" parent="Character" index="2" unique_id=1371953691]
 position = Vector2(-500, 0)
 
 [node name="Refondo" type="Sprite2D" parent="." unique_id=329199081]
