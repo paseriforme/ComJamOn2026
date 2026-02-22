@@ -47,8 +47,10 @@ var trastes: Array[bool] = [false, false, false, false, false];
 enum acordes {DO, RE, MI, SOL, NONE}
 const DO  = [true, false, false, false, false]
 const RE  = [false, true, false, false, false]
+const FA  = [true, true, false, false, false]
 const MI  = [false, false, true, false, false]
 const SOL  = [false, false, false, true, false]
+const LA  = [false, false, false, true, true]
 const NONE  = [false, false, false, false, false]
 
 var song := [
