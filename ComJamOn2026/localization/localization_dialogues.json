@@ -4,73 +4,80 @@
       "DialogueID": 0,
       "Texts": [
         {
-          "ID": 6,
+          "ID": 2,
           "Type": "START",
           "Character": "Colega",
           "Text": "1",
-          "Next": 7
+          "Next": 3
         },
         {
-          "ID": 7,
+          "ID": 3,
           "Type": "DIALOGUE",
           "Character": "Muchacha",
           "Text": "2",
-          "Next": 8
+          "Next": 4
         },
         {
-          "ID": 8,
+          "ID": 4,
           "Type": "DIALOGUE",
           "Character": "Tronca",
           "Text": "3",
-          "Next": 9
+          "Next": 5
         },
         {
-          "ID": 9,
+          "ID": 5,
           "Type": "DECISION",
           "Character": "Chavala",
           "Text": "4",
-          "Next": 13,
+          "Next": 6,
           "Options": [
             {
               "Text": "Si",
-              "Next": 13
+              "Next": 6
             },
             {
               "Text": "No",
-              "Next": 11
+              "Next": 8
             }
           ]
         },
         {
-          "ID": 13,
+          "ID": 6,
           "Type": "ACTION",
           "Character": "",
           "Text": "aceptar",
-          "Next": 10
+          "Next": 7
         },
         {
-          "ID": 10,
+          "ID": 7,
           "Type": "END",
           "Character": "Colega",
           "Text": "has aceptado",
           "Next": null
         },
         {
-          "ID": 11,
+          "ID": 8,
           "Type": "ACTION",
           "Character": "",
           "Text": "negarse",
-          "Next": 12
+          "Next": 11
         },
         {
-          "ID": 12,
+          "ID": 11,
+          "Type": "DIALOGUE",
+          "Character": "Chavala",
+          "Text": "no soy el ultimo nodo y te has negado",
+          "Next": 9
+        },
+        {
+          "ID": 9,
           "Type": "END",
           "Character": "Colega",
-          "Text": "te has negado",
+          "Text": "te has negado y esto no se va a ver",
           "Next": null
         }
       ]
     }
   ],
-  "LastModified": "2026-02-22T03:51:31.854853"
+  "LastModified": "2026-02-22T05:37:47.475692"
 }
