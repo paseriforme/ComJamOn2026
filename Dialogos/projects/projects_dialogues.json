@@ -1,0 +1,76 @@
+{
+  "Dialogues": [
+    {
+      "DialogueID": 0,
+      "Texts": [
+        {
+          "ID": 6,
+          "Type": "START",
+          "Character": "Colega",
+          "Text": "1",
+          "Next": 7
+        },
+        {
+          "ID": 7,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "2",
+          "Next": 8
+        },
+        {
+          "ID": 8,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "3",
+          "Next": 9
+        },
+        {
+          "ID": 9,
+          "Type": "DECISION",
+          "Character": "Chavala",
+          "Text": "4",
+          "Next": 11,
+          "Options": [
+            {
+              "Text": "Si",
+              "Next": 11
+            },
+            {
+              "Text": "No",
+              "Next": 13
+            }
+          ]
+        },
+        {
+          "ID": 11,
+          "Type": "ACTION",
+          "Character": "",
+          "Text": "negarse",
+          "Next": 12
+        },
+        {
+          "ID": 12,
+          "Type": "END",
+          "Character": "Colega",
+          "Text": "te has negado",
+          "Next": null
+        },
+        {
+          "ID": 13,
+          "Type": "ACTION",
+          "Character": "",
+          "Text": "aceptar",
+          "Next": 10
+        },
+        {
+          "ID": 10,
+          "Type": "END",
+          "Character": "Colega",
+          "Text": "5",
+          "Next": null
+        }
+      ]
+    }
+  ],
+  "LastModified": "2026-02-22T03:27:24.178668"
+}

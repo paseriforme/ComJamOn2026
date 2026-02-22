@@ -1,12 +1,12 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1771722133
+::res://::1771727335
 export_presets.cfg::TextFile::-1::1771703415::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::7926403344590722640::1771684193::1771685505::1::::<><><>0<>0<>5bfdcb6fbedbdd8bb55dee81a5aa623c<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 TODO.md::TextFile::-1::1771684191::0::1::::<><><>0<>0<><>::
 ::res://addons/::1771684193
-::res://addons/DialogueSystem/::1771684191
+::res://addons/DialogueSystem/::1771727217
 DialogueLoader.gd::GDScript::7345557183953942985::1771684191::0::1::::DialogueLoader<>Node<><>0<>0<><>::
-DialogueManager.gd::GDScript::7730362764733024::1771684191::0::1::::DialogueManager<>Control<><>0<>0<><>::
+DialogueManager.gd::GDScript::7730362764733024::1771727217::0::1::::DialogueManager<>Control<><>0<>0<><>::
 DialogueManager.tscn::PackedScene::4366936806017138012::1771684191::0::1::::<><><>0<>0<><>::uid://d0k2sr1gxl5::::res://addons/DialogueSystem/DialogueManager.gd
 ::res://addons/DialogueSystem/examples/::1771684191
 example1.tscn::PackedScene::3273763770178724118::1771684191::0::1::::<><><>0<>0<><>::uid://b3hm2tyr5qb37::::res://addons/DialogueSystem/DialogueManager.tscn
@@ -249,7 +249,7 @@ Colega.png::CompressedTexture2D::432426828702070001::1771708536::1771708591::1::
 Muchacha.png::CompressedTexture2D::8810821212562826382::1771708536::1771708591::1::::<><><>0<>0<>aab438b3b92dd7262791e7c1ae34a40d<>res://.godot/imported/Muchacha.png-02258079432e588b50339dcd89dcc051.ctex::
 Tronca.png::CompressedTexture2D::7487904716389132542::1771708536::1771708591::1::::<><><>0<>0<>e89be2690d68d873012e0864ca9b97ab<>res://.godot/imported/Tronca.png-cafaea99af793925b985763b3bf5a687.ctex::
 UI PRACTICA.png::CompressedTexture2D::964917589294667358::1771719312::1771719328::1::::<><><>0<>0<>b1b1dfd214364899aa1b2d01c4bba7ab<>res://.godot/imported/UI PRACTICA.png-d199e5ed25a7ca5341dc0e2484e66273.ctex::
-::res://assets/image/UI/::1771726070
+::res://assets/image/UI/::1771726086
 UI PRACTICA.png::CompressedTexture2D::3191677291273944924::1771708536::1771708592::1::::<><><>0<>0<>72df1ff28f518aab3bfea325d1f9be34<>res://.godot/imported/UI PRACTICA.png-0622bcf1cc473983830d9d109e26efbb.ctex::
 vinilo.png::CompressedTexture2D::42606263121356778::1771726070::1771726086::1::::<><><>0<>0<>3a04e62f4ffc8d0ee26a257e2a1f8e9f<>res://.godot/imported/vinilo.png-33fd051427b643d7797cb533e4384bd9.ctex::
 ::res://assets/tweens/::1771726070
@@ -268,11 +268,15 @@ metronom_klack.wav::AudioStreamWAV::5082556023057685494::1771708178::1771708178:
 ::res://fmod/audioManager/::1771684193
 AudioManager.gd::GDScript::6593387181360101679::1771684193::0::1::::<>Node<><>0<>0<><>::
 AudioManager.tscn::PackedScene::112398173168944806::1771684193::0::1::::<><><>0<>0<><>::uid://c065eg33qk3hb::::res://fmod/audioManager/AudioManager.gd
-::res://localization/::1771685504
+::res://localization/::1771727384
 Dando la nota_characters.json::JSON::-1::1771684193::0::1::::<><><>0<>0<><>::
-Dando la nota_dialogues.json::JSON::-1::1771684193::0::1::::<><><>0<>0<><>::
+Dando la nota_dialogues.json::JSON::-1::1771727343::0::1::::<><><>0<>0<><>::
 Dando la nota_translations.csv::Translation::2505923618532999108::1771684193::1771685504::1::::<><><>0<>0<>fe8cabadfae030ed815b28cc03966db8<>res://localization/Dando la nota_translations.en.translation::
 Dando la nota_translations.en.translation::OptimizedTranslation::2429514754781710418::1771685504::0::1::::<><><>0<>0<><>::
+localization_characters.json::JSON::-1::1771727343::0::1::::<><><>0<>0<><>::
+localization_dialogues.json::JSON::-1::1771727343::0::1::::<><><>0<>0<><>::
+localization_translations.csv::Translation::6629149449762259644::1771727343::1771727389::1::::<><><>0<>0<>18218135de1d7b43e4bea7da5d8d3fa0<>res://localization/localization_translations.en.translation::
+localization_translations.en.translation::OptimizedTranslation::4588615901499813086::1771727389::0::1::::<><><>0<>0<><>::
 ::res://localization/Example/::1771685504
 mi_proyecto_characters.json::JSON::-1::1771684193::0::1::::<><><>0<>0<><>::
 mi_proyecto_dialogues.json::JSON::-1::1771684193::0::1::::<><><>0<>0<><>::
@@ -300,12 +304,12 @@ character.tscn::PackedScene::7041259439731472841::1771721697::0::1::::<><><>0<>0
 control_disco.tscn::PackedScene::4913938026740192057::1771684193::0::1::::<><><>0<>0<><>::uid://ck10m815fx7p3::::res://scripts/game/gameGuitar.gd
 player_phantom_camera_2d.tscn::PackedScene::2929059679484312429::1771708179::0::1::::<><><>0<>0<><>::uid://bhexx6mj1xv3q::::res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd<>uid://euybd2w0bax::::res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_2d_tween.tres
 pulso.tscn::PackedScene::7969004096253160366::1771720290::0::1::::<><><>0<>0<><>::uid://dk6ux8aiesioe::::res://icon.svg<>uid://bpt2ut7ph3v7m::::res://scripts/game/pulso.gd
-::res://scripts/::1771726049
+::res://scripts/::1771727193
 context_scene.gd::GDScript::8447124362289548691::1771696019::0::1::::<>Scene<><>0<>0<><>::
 fade.gd::GDScript::5620104609293564239::1771684193::0::1::::<>CanvasLayer<><>0<>0<><>::
-game_behaivour.gd::GDScript::6218074751994197514::1771726049::0::1::::GameState<>Node2D<><>0<>0<><>::
+game_behaivour.gd::GDScript::6218074751994197514::1771726190::0::1::::GameState<>Node2D<><>0<>0<><>::
 game_scene.gd::GDScript::4252162467249096227::1771696019::0::1::::game_scene<>Scene<><>0<>0<><>::
-global.gd::GDScript::5863350646234257055::1771711730::0::1::::<>Node<><>0<>0<><>::
+global.gd::GDScript::5863350646234257055::1771727193::0::1::::<>Node<><>0<>0<><>::
 intro_scene.gd::GDScript::1326479426029343830::1771684193::0::1::::<>Scene<><>0<>0<><>::
 null_scene.gd::GDScript::5162818512082560071::1771696019::0::1::::null_scene<>Scene<><>0<>0<><>::
 scene.gd::GDScript::5981117492203067888::1771696019::0::1::::Scene<>Control<><>0<>0<><>::

@@ -1,0 +1,25 @@
+{
+  "characters": {
+    "Colega": {
+      "font": "Sin fuente",
+      "sound": "Sin audio",
+      "Color": "#2db044"
+    },
+    "Muchacha": {
+      "font": "Sin fuente",
+      "sound": "Sin audio",
+      "Color": "#452998"
+    },
+    "Tronca": {
+      "font": "Sin fuente",
+      "sound": "Sin audio",
+      "Color": "#e6ab31"
+    },
+    "Chavala": {
+      "font": "Sin fuente",
+      "sound": "Sin audio",
+      "Color": "#cb6725"
+    }
+  },
+  "lastModified": "2026-02-22T03:27:24.178540"
+}

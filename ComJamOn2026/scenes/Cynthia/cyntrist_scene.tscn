@@ -140,8 +140,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
-charactersPath = "res://localization/Dando la nota_characters.json"
-dialoguesPath = "res://localization/Dando la nota_dialogues.json"
+charactersPath = "res://localization/localization_characters.json"
+dialoguesPath = "res://localization/localization_dialogues.json"
 metadata/_edit_use_anchors_ = true
 
 [node name="Fondo" type="TextureRect" parent="CanvasLayer/Panel" unique_id=756236629]
