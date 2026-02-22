@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dj02lwf6l4f2e" path="res://assets/image/Characters/Chavala.png" id="2_7ovhn"]
 [ext_resource type="Texture2D" uid="uid://c81ox65ootg5l" path="res://assets/image/UI/dialogo_pito.png" id="3_a7yx3"]
 [ext_resource type="Texture2D" uid="uid://bfi8dqrxnhjv2" path="res://assets/image/UI/dialogo_box.png" id="3_cxesa"]
+[ext_resource type="FontFile" uid="uid://dearr2yxd2r4l" path="res://assets/font/ChelseaMarket-Regular.ttf" id="5_vf4e3"]
+[ext_resource type="FontFile" uid="uid://d0v6mgc6xs3lu" path="res://assets/font/Pangolin-Regular.ttf" id="6_lso5e"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ovhn"]
 
@@ -60,8 +62,16 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_7ovhn")
 
 [node name="LabelCharacter" type="Label" parent="Fondo/Panel" unique_id=112576036]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -218.0
+offset_top = -40.0
+offset_right = 91.0
+offset_bottom = 18.5
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("5_vf4e3")
+theme_override_font_sizes/font_size = 36
 text = "Character_name"
 
 [node name="LabelText" type="RichTextLabel" parent="Fondo/Panel" unique_id=50363526]
@@ -69,9 +79,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 28.0
+offset_left = -240.0
+offset_top = 21.5
+offset_right = -48.0
+offset_bottom = 25.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_lso5e")
+theme_override_font_sizes/normal_font_size = 48
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sem metus, varius vel fermentum at, vestibulum rhoncus risus. Vivamus ex tellus, congue eu condimentum in, euismod at ligula. Pellentesque iaculis enim sed elementum rhoncus. Praesent dapibus varius vulputate. Cras elementum dictum arcu. Maecenas vitae diam venenatis, dignissim odio ut, volutpat ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis lectus mi, volutpat ac enim vitae, egestas vestibulum velit."
 
 [node name="ButtonContinue" type="Button" parent="." unique_id=1936068197]

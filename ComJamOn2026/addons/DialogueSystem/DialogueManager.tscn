@@ -186,6 +186,16 @@ offset_right = 65.35211
 offset_bottom = 138.59155
 pivot_offset_ratio = Vector2(0.5, 0.5)
 
+[node name="Imagen2" type="TextureRect" parent="Feedback/Aceptar" unique_id=2100746113]
+modulate = Color(0, 0, 0, 0.47058824)
+layout_mode = 0
+offset_left = -25.051495
+offset_top = -66.78236
+offset_right = 103.9485
+offset_bottom = 123.21764
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_7aboq")
+
 [node name="Imagen" type="TextureRect" parent="Feedback/Aceptar" unique_id=1674998966]
 layout_mode = 0
 offset_left = -36.9237
@@ -216,6 +226,16 @@ offset_left = 201.4085
 offset_top = 98.59156
 offset_right = 241.4085
 offset_bottom = 138.59155
+
+[node name="Imagen2" type="TextureRect" parent="Feedback/Rechazar" unique_id=637043428]
+modulate = Color(0, 0, 0, 0.57254905)
+layout_mode = 0
+offset_left = -58.365116
+offset_top = -74.54213
+offset_right = 70.63489
+offset_bottom = 115.45787
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("3_ujjxx")
 
 [node name="Imagen" type="TextureRect" parent="Feedback/Rechazar" unique_id=1548561109]
 layout_mode = 0
