@@ -65,9 +65,12 @@ func _update_bgm_for_scene() -> void:
 	match Global.current_scene:
 		Global.Scenes.CONTEXT:
 			# Global.sound.play_bgm("intro_theme")
-			Global.sound.stop_bgm()
+#			Global.sound.stop_bgm()
+			pass
 		Global.Scenes.GAME:
 			# sample de prueba luego se cambia por el real
-			Global.sound.play_bgm("bgmusicSample")
+#			Global.sound.play_bgm("bgmusicSample")
+			pass
 		Global.Scenes.NULL:
-			Global.sound.stop_bgm()
+#			Global.sound.stop_bgm()
+			pass
