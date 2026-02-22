@@ -83,6 +83,7 @@ visible = false
 polygon = PackedVector2Array(-1044, -199, -1054, -154, -994, 372, -928, 571, -794, 705, 274, 740, 841, 685, 966, 491, 1001, -41, 1007, -233, 857, -280, 681, -307, 641, -389, 524, -398, 488, -471, 381, -446, 287, -490, 170, -457, 53, -503, -32, -439, -117, -488, -231, -436, -314, -417, -367, -431, -460, -380, -642, -412, -681, -351, -730, -383, -834, -324, -936, -295)
 
 [node name="Area" type="StaticBody2D" parent="Colisiones" unique_id=114390528]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -113,6 +114,7 @@ texture = ExtResource("5_r4itm")
 
 [node name="Character" parent="." unique_id=294427056 instance=ExtResource("2_uxfon")]
 speed = 500.0
+control_feedback_time = 3.0
 
 [node name="Segundo" parent="Character" index="2" unique_id=1371953691]
 position = Vector2(-500, 0)

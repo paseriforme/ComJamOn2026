@@ -28,13 +28,34 @@ var factor_steps_2 : float = 0.75
 
 var colision = false
 
+var control_current_time : float = 0.0
+@export var control_feedback_time : float = 1.0
+@onready var animator : AnimationPlayer = $AnimationPlayer 
+var mostrando : bool = false
+
 func _ready() -> void:
+	control_current_time = control_feedback_time
 	init_scale = $Sprite2D.scale;
 
 func _physics_process(delta: float) -> void:
+	
 	colision = false
 	if not canwalk: return
 	
+	control_current_time += delta
+#	if (Input.is_anything_pressed()): # se ha pulsado algo
+	if not strumPressed and Input.is_action_pressed("rasgar",true): 
+		animator.play("despensamiento")
+		print_debug(">>> HAS PULSADO ALGO")
+		control_current_time = 0.0
+		mostrando = false
+	if control_current_time >= control_feedback_time and not mostrando and canwalk:
+		control_current_time = 0.0
+		print_debug(">>> PENSAMIENTO")
+		animator.play("pensamiento")
+		mostrando = true
+		pass
+		
 	# VERDE
 	if not greenPressed and Input.is_action_pressed("verde",true):
 		greenPressed = true

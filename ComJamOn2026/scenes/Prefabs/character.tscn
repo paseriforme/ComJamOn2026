@@ -2,9 +2,245 @@
 
 [ext_resource type="Script" uid="uid://rrj77v2uye7p" path="res://scripts/game/CharacterController.gd" id="1_8iokl"]
 [ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="2_xhxll"]
+[ext_resource type="Texture2D" uid="uid://bg6obgr80fbap" path="res://assets/tweens/UI_bocadillo_separado_03.png" id="3_xhxll"]
+[ext_resource type="Texture2D" uid="uid://clomtys4m4bff" path="res://assets/tweens/UI_bocadillo_separado_02.png" id="4_cx57j"]
+[ext_resource type="Texture2D" uid="uid://bodu7d7ug7tyg" path="res://assets/tweens/UI_bocadillo_separado_01.png" id="5_np3hh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8iokl"]
 radius = 70.0
+
+[sub_resource type="Animation" id="Animation_xhxll"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pensamiento/Parte1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pensamiento/Parte1:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pensamiento/Parte1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(88, 193)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pensamiento/Parte2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(116, 137.99998)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pensamiento/Burbuja:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -9)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pensamiento/Parte1:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dvl2a"]
+resource_name = "despensamiento"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pensamiento/Parte1:modulate")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pensamiento/Parte2:modulate")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pensamiento/Burbuja:modulate")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6h1tk"]
+resource_name = "pensamiento"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pensamiento/Parte1:rotation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.5235987755982988, 0.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pensamiento/Parte1:modulate:a")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pensamiento/Parte2:rotation")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.626019, 0.826019, 1.026019),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.3490658503988659, 0.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pensamiento/Parte2:modulate:a")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.62198013),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pensamiento/Burbuja:rotation")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.2, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.17453292519943295, 0.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pensamiento/Burbuja:modulate:a")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.2076108),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, 1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Pensamiento/Parte1:position")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.20194161),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(88, 179.07), Vector2(88, 187.515)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Pensamiento/Parte2:position")
+tracks/7/interp = 0
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.6333333, 0.8333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(116, 125.665), Vector2(116, 137.99998)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Pensamiento/Burbuja:position")
+tracks/8/interp = 0
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, -26.98), Vector2(2, -9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ffjvi"]
+_data = {
+&"RESET": SubResource("Animation_xhxll"),
+&"despensamiento": SubResource("Animation_dvl2a"),
+&"pensamiento": SubResource("Animation_6h1tk")
+}
 
 [node name="Character" type="RigidBody2D" unique_id=294427056]
 gravity_scale = 0.0
@@ -24,3 +260,31 @@ texture = ExtResource("2_xhxll")
 
 [node name="Segundo" type="Node2D" parent="." unique_id=1371953691]
 position = Vector2(-1583, 28)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1876696374]
+libraries/ = SubResource("AnimationLibrary_ffjvi")
+
+[node name="Pensamiento" type="Node2D" parent="." unique_id=36495212]
+position = Vector2(17, -188)
+
+[node name="Burbuja" type="Sprite2D" parent="Pensamiento" unique_id=1261536454]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(2, -9)
+rotation = -0.17453292
+texture = ExtResource("3_xhxll")
+centered = false
+offset = Vector2(-250, -208.91)
+
+[node name="Parte2" type="Sprite2D" parent="Pensamiento" unique_id=1160587547]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(116, 137.99998)
+rotation = -0.34906584
+texture = ExtResource("4_cx57j")
+centered = false
+offset = Vector2(-377.65, -355.99)
+
+[node name="Parte1" type="Sprite2D" parent="Pensamiento" unique_id=1475054074]
+position = Vector2(88, 193)
+texture = ExtResource("5_np3hh")
+centered = false
+offset = Vector2(-354.515, -397.905)
