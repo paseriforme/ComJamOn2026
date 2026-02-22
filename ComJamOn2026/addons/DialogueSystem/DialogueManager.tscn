@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d0k2sr1gxl5" path="res://addons/DialogueSystem/DialogueManager.gd" id="1_7tull"]
 [ext_resource type="Texture2D" uid="uid://cv6nl3h36k31b" path="res://assets/image/UI/aceptar.png" id="2_7aboq"]
+[ext_resource type="FontFile" uid="uid://dearr2yxd2r4l" path="res://assets/font/ChelseaMarket-Regular.ttf" id="3_3nll5"]
 [ext_resource type="Texture2D" uid="uid://gc7jog0oq7b" path="res://assets/image/UI/rechazar.png" id="3_ujjxx"]
 
 [sub_resource type="Animation" id="Animation_7aboq"]
@@ -196,11 +197,16 @@ texture = ExtResource("2_7aboq")
 
 [node name="Texto" type="RichTextLabel" parent="Feedback/Aceptar" unique_id=559533014]
 layout_mode = 0
-offset_left = 6.0762997
-offset_top = -5.561097
-offset_right = 46.0763
-offset_bottom = 34.438904
-text = "SÍ"
+offset_left = -29.235346
+offset_top = -64.39508
+offset_right = 81.38795
+offset_bottom = 93.27289
+theme_override_colors/default_color = Color(0, 0, 0.13725491, 1)
+theme_override_fonts/normal_font = ExtResource("3_3nll5")
+theme_override_font_sizes/normal_font_size = 43
+text = "VALE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Rechazar" type="Control" parent="Feedback" unique_id=1024495857]
 anchors_preset = 0
@@ -220,12 +226,20 @@ texture = ExtResource("3_ujjxx")
 
 [node name="Texto" type="RichTextLabel" parent="Feedback/Rechazar" unique_id=1652244872]
 layout_mode = 0
-offset_left = -9.559862
-offset_top = -16.906677
-offset_right = 30.440138
-offset_bottom = 23.093323
-text = "NO
+offset_left = -42.26384
+offset_top = -66.97443
+offset_right = 63.14412
+offset_bottom = 73.16107
+theme_override_colors/default_color = Color(0, 0, 0.13725491, 1)
+theme_override_fonts/normal_font = ExtResource("3_3nll5")
+theme_override_font_sizes/normal_font_size = 45
+theme_override_font_sizes/bold_font_size = 53
+theme_override_font_sizes/bold_italics_font_size = 49
+bbcode_enabled = true
+text = "NAH
 "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Feedback" unique_id=1101897839]
 root_node = NodePath("../..")
