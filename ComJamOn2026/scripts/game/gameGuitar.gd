@@ -226,7 +226,7 @@ func correct():
 	acierto = true
 	paused = false
 	
-	Global.sound.play_bgm("CancionEnteraSinGuitarra", false, actual_cancion)
+	Global.sound.play_bgm(Global.cancion, false, actual_cancion)
 	#print("CORRECTO, ", Global.song[actual_chord])
 	match Global.song[actual_chord]:
 		Global.DO:
