@@ -52,15 +52,15 @@ func start(dialogue_id):
 	var sprite2 = $DialogueBox/Fondo
 	var tween2 = get_tree().create_tween()
 	tween2.set_ease(Tween.EASE_OUT)
-	tween2.tween_property(sprite2, "position", Vector2(-1280,-720), tween_char_time).set_trans(Tween.TRANS_BACK)
+	tween2.tween_property(sprite2, "position", Vector2(-1280,-720), tween_char_time * 1.2 ).set_trans(Tween.TRANS_BACK)
 	_show_node()
-	await Global.timer(0.2)
+	await Global.timer(0.5)
 	
 	# sprite
 	var sprite3 = $DialogueBox/CharacterSprite
 	var tween3 = get_tree().create_tween()
 	tween3.set_ease(Tween.EASE_OUT)
-	tween3.tween_property(sprite3, "position", Vector2(-1280,-720), tween_char_time).set_trans(Tween.TRANS_BACK)
+	tween3.tween_property(sprite3, "position", Vector2(-1280,-720), tween_char_time * 1.5).set_trans(Tween.TRANS_BACK)
 	_show_node()
 	tween3.finished.connect(func(): starting = false)
 

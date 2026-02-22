@@ -33,9 +33,7 @@ radius = 70.0
 
 [node name="CyntristScene" type="Node2D" unique_id=581873652]
 script = ExtResource("1_a6vk8")
-fondo_tween_time_walk = 2.0
-fondo_tween_time_talk = 2.0
-fondo_tween_time_play = 2.0
+fondo_tween_trans = 10
 tween_seguir = ExtResource("4_7nmud")
 tween_hablar = ExtResource("3_r4itm")
 
