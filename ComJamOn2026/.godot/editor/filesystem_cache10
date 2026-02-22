@@ -232,7 +232,7 @@ button_hover.tres::StyleBoxFlat::2151354179275418664::1771538832::0::1::::<><><>
 button_normal.tres::StyleBoxFlat::2549607310371774247::1771538832::0::1::::<><><>0<>0<><>::
 theme.tres::Theme::2909626652912860453::1771770497::0::1::::<><><>0<>0<><>::uid://dve7mgsjik4dg::::res://addons/phantom_camera/fonts/Nunito-Regular.ttf<>uid://5weqvkjsfso3::::res://addons/phantom_camera/themes/button_hover.tres<>uid://bclbwo3xrdat0::::res://addons/phantom_camera/themes/button_normal.tres
 ::res://assets/::1771708675
-::res://assets/audio/::1771784786
+::res://assets/audio/::1771784824
 blah.ogg::AudioStreamOggVorbis::7934398142140394194::1771784774::1771784824::1::::<><><>0<>0<>0b672a58d3e32f5e710b84617df40bd4<>res://.godot/imported/blah.ogg-8b24966393dbfb994a432af3a812ef8d.oggvorbisstr::
 Cuicui1.mp3::AudioStreamMP3::8325606684340748282::1771528430::1771529033::1::::<><><>0<>0<>5ba3e59cdc7b522c807135afcf11f6b2<>res://.godot/imported/Cuicui1.mp3-6b977865654fa1fef40605c8129f39a6.mp3str::
 Cuicui2.mp3::AudioStreamMP3::8013649845472440020::1771528430::1771529033::1::::<><><>0<>0<>117ef5a7b8d63cf7c0e3979e69bbecb3<>res://.godot/imported/Cuicui2.mp3-4331772184749134b2ebd9de0a62c566.mp3str::
@@ -252,9 +252,10 @@ PJ_manager.png::CompressedTexture2D::2564312475537630315::1771777558::1771777665
 PJ_muchacha.png::CompressedTexture2D::7128755843306967283::1771777558::1771777665::1::::<><><>0<>0<>0e6ba52b3e745378d58a4eb7409c0300<>res://.godot/imported/PJ_muchacha.png-7190334fe1095d9d75ee4ebe1a8afc85.ctex::
 PJ_tronca.png::CompressedTexture2D::1152221679870863462::1771777558::1771777665::1::::<><><>0<>0<>e7d0c7c99d8777b82a4d704ab4aa3868<>res://.godot/imported/PJ_tronca.png-06e165f0bf582cda5cff3d2aa1901522.ctex::
 PJ_yo.png::CompressedTexture2D::6038156969235330842::1771777558::1771777665::1::::<><><>0<>0<>97f4278bdbf13d349fa857d83a081673<>res://.godot/imported/PJ_yo.png-d115e0fc3ba503c3dbbf0976996dbc55.ctex::
-::res://assets/image/Backgrounds/::1771777666
+::res://assets/image/Backgrounds/::1771784860
 FONDO_delante.png::CompressedTexture2D::749154320438660810::1771708675::1771708687::1::::<><><>0<>0<>878c63737a743a5220e020384d6f0217<>res://.godot/imported/FONDO_delante.png-31aa3c9f3b94bb939c88127ba3035ba0.ctex::
 FONDO_detras.png::CompressedTexture2D::2567169139960916628::1771708675::1771708688::1::::<><><>0<>0<>d4a3a64ff8c7fe0ac3222daeede7dae1<>res://.godot/imported/FONDO_detras.png-8f450d2f1037cae62b2e329bcbda7632.ctex::
+LOGO_PANTALLA.png::CompressedTexture2D::1966473486182177486::1771784860::1771784868::1::::<><><>0<>0<>d46ceb7ee8c19b551d7b4848fb9090f8<>res://.godot/imported/LOGO_PANTALLA.png-5ef746263a440c6f14cc01112269a6cf.ctex::
 main_menu.png::CompressedTexture2D::4918553782604932095::1771767684::1771777666::1::::<><><>0<>0<>b0ddb3c7833494615aa60c5c99310210<>res://.godot/imported/main_menu.png-382a2c83bc9b6dd30137e8aabf0a51d2.ctex::
 ::res://assets/image/Characters/::1771782327
 Chavala.png::CompressedTexture2D::7844231254872807014::1771732622::1771708686::1::::<><><>0<>0<>53eb80c0c098667172fb4393f5f55d4d<>res://.godot/imported/Chavala.png-00c87e4dbb2e752793b0b25e0a5fe506.ctex::
