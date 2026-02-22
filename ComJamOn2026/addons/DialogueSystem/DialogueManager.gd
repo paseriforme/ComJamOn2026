@@ -162,41 +162,40 @@ func next_node():
 	current_node = current_nodes[current_node.next]
 	_show_node()
 
-func end_dialogue():
-	var sprite = $DialogueBox/CharacterSprite
-	
+func end_dialogue():	
 	if ending: return
 	ending = true
 	
 	
-#	var tween2 = get_tree().create_tween()
-#	tween2.set_ease(Tween.EASE_IN)
-#	tween2.tween_property(sprite, "position", Vector2(-1280,400), tween_char_time).set_trans(Tween.TRANS_BACK)
-#	tween2.finished.connect(func():  ending = false; Global.end_dialogue.emit())
 	
 	var sprite3 = $DialogueBox/Triangulo
 	var sprite2 = $DialogueBox/Fondo
 	var sprite1 = $DialogueBox/CharacterSprite
-	var pos : Vector2 = Vector2(-1280,0)
+	var pos : Vector2 =  Vector2(-1280,400)
+	_show_node()
 
+#	var tween2 = get_tree().create_tween()
+#	tween2.set_ease(Tween.EASE_IN)
+#	tween2.tween_property(sprite1, "position", pos, tween_char_time).set_trans(Tween.TRANS_BACK)
+#	tween2.finished.connect(func():  ending = false; Global.end_dialogue.emit())
+	
 	# sprite
 	var tween1 = get_tree().create_tween()
-	tween1.set_ease(Tween.EASE_OUT)
-	tween1.tween_property(sprite1, "position", pos, tween_char_time * 1.5).set_trans(Tween.TRANS_BACK)
+	tween1.set_ease(Tween.EASE_IN)
+	tween1.tween_property(sprite1, "position", pos, tween_char_time).set_trans(Tween.TRANS_BACK)
 	await Global.timer(0.5)
-	
-	# mensaje
+#	
+#	# mensaje
 	var tween2 = get_tree().create_tween()
-	tween2.set_ease(Tween.EASE_OUT)
+	tween2.set_ease(Tween.EASE_IN)
 	tween2.tween_property(sprite2, "position", pos, tween_char_time * 1.2 ).set_trans(Tween.TRANS_BACK)
 	await Global.timer(0.2)
-	
-	# triangulito
+#	
+#	# triangulito
 	var tween3 = get_tree().create_tween()
-	tween3.set_ease(Tween.EASE_OUT)
-	tween3.tween_property(sprite3, "position", pos, tween_char_time).set_trans(Tween.TRANS_BACK)
+	tween3.set_ease(Tween.EASE_IN)
+	tween3.tween_property(sprite3, "position", pos, tween_char_time * 1.5).set_trans(Tween.TRANS_BACK)
 	
-	_show_node()
 	tween3.finished.connect(func():  ending = false; Global.end_dialogue.emit())
 	
 
