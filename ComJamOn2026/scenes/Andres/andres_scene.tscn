@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bjiblirkavor3" path="res://scenes/Cynthia/trastes.tscn" id="16_nl040"]
 [ext_resource type="Script" uid="uid://y3quaa0klmfh" path="res://scripts/game/disco.gd" id="17_b8sw3"]
 [ext_resource type="Texture2D" uid="uid://uvypc1m30qg" path="res://assets/image/UI/vinilo.png" id="18_ocxcs"]
-[ext_resource type="Texture2D" uid="uid://dg7nugadlujhn" path="res://assets/image/UI/seccion_disco.png" id="19_vu87w"]
+[ext_resource type="Texture2D" uid="uid://d4dtlbu4ge0j6" path="res://assets/image/UI/seccion_disco.png" id="19_vu87w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
@@ -33,9 +33,6 @@ radius = 70.0
 
 [node name="CyntristScene" type="Node2D" unique_id=581873652]
 script = ExtResource("1_nxw74")
-fondo_tween_time_walk = 2.0
-fondo_tween_time_talk = 2.0
-fondo_tween_time_play = 2.0
 tween_seguir = ExtResource("2_yu01v")
 tween_hablar = ExtResource("3_ocxcs")
 
@@ -219,6 +216,11 @@ offset_left = 473.1343
 offset_right = 2393.1343
 offset_bottom = 1080.0
 texture = ExtResource("19_vu87w")
+
+[node name="Pegatina" type="TextureRect" parent="CanvasLayer/Panel/Fondo" unique_id=878587443]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="NPC" to="NPC" method="_on_body_shape_entered"]
