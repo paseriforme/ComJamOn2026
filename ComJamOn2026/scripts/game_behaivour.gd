@@ -42,7 +42,7 @@ func _rechazar_dialogo():
 	Global.dialogo_aceptado = false
 
 func _end_song():
-	print("END SONG")
+	#print("END SONG")
 	set_state(states.WALK)
 
 func set_state(st : states):
@@ -86,7 +86,7 @@ func set_state(st : states):
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_play)
 			tween2.tween_property(fondo, "position", Vector2(fondo_play_x, 0), fondo_tween_time_play).set_trans(fondo_tween_trans)
-			tween2.finished.connect(func(): set_state(states.WALK))
+			#tween2.finished.connect(func(): set_state(states.WALK))
 			pass
 		_:
 			pass

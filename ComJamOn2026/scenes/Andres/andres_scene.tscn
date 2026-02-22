@@ -1,32 +1,100 @@
-[gd_scene format=3 uid="uid://d0fcsdwbpd1"]
+[gd_scene format=3 uid="uid://3jv1fptlr1ii"]
 
-[ext_resource type="Script" uid="uid://cuuc1u18f3t8m" path="res://scripts/game_behaivour.gd" id="1_dgn8v"]
-[ext_resource type="PackedScene" uid="uid://c7k3rqpmcf0vt" path="res://scenes/Prefabs/character.tscn" id="1_e84x4"]
-[ext_resource type="PackedScene" uid="uid://cd63p357bbkyu" path="res://scenes/Prefabs/camera_2d.tscn" id="2_8yqig"]
-[ext_resource type="Resource" uid="uid://ck4hr0752fmoa" path="res://assets/tweens/seguimiento_jugador.tres" id="2_jxgry"]
-[ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="2_w1iya"]
-[ext_resource type="Script" uid="uid://bcchepkryj7kl" path="res://scripts/game/NPC.gd" id="3_po2s8"]
-[ext_resource type="Texture2D" uid="uid://dj02lwf6l4f2e" path="res://assets/image/Characters/Chavala.png" id="4_ltust"]
-[ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="5_8yqig"]
-[ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scripts/game/UI.gd" id="5_po2s8"]
-[ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="9_p6fmi"]
-[ext_resource type="Script" uid="uid://y3quaa0klmfh" path="res://scripts/game/disco.gd" id="10_iaq8r"]
-[ext_resource type="PackedScene" uid="uid://bjiblirkavor3" path="res://scenes/Cynthia/trastes.tscn" id="12_g7yle"]
+[ext_resource type="Script" uid="uid://cuuc1u18f3t8m" path="res://scripts/game_behaivour.gd" id="1_nxw74"]
+[ext_resource type="Resource" uid="uid://ck4hr0752fmoa" path="res://assets/tweens/seguimiento_jugador.tres" id="2_yu01v"]
+[ext_resource type="Resource" uid="uid://la0sllanulfh" path="res://assets/tweens/seguimiento_hablar.tres" id="3_ocxcs"]
+[ext_resource type="Texture2D" uid="uid://bcts5vf22lxia" path="res://assets/image/Backgrounds/FONDO_detras.png" id="4_7xyf6"]
+[ext_resource type="PackedScene" uid="uid://cd63p357bbkyu" path="res://scenes/Prefabs/camera_2d.tscn" id="5_7pdon"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_k4y4d"]
+[ext_resource type="Resource" uid="uid://euybd2w0bax" path="res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_2d_tween.tres" id="7_hl4v4"]
+[ext_resource type="Script" uid="uid://bcchepkryj7kl" path="res://scripts/game/NPC.gd" id="8_vedlm"]
+[ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="9_ykxvg"]
+[ext_resource type="PackedScene" uid="uid://c7k3rqpmcf0vt" path="res://scenes/Prefabs/character.tscn" id="10_v7k1m"]
+[ext_resource type="Texture2D" uid="uid://kw5pykq6pu5w" path="res://assets/image/Backgrounds/FONDO_delante.png" id="11_5jka1"]
+[ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scripts/game/UI.gd" id="12_ojqkt"]
+[ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="13_b6w4g"]
+[ext_resource type="Texture2D" uid="uid://n0ob011ts0le" path="res://assets/image/Characters/UI PRACTICA.png" id="14_er86r"]
+[ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="15_suro2"]
+[ext_resource type="PackedScene" uid="uid://bjiblirkavor3" path="res://scenes/Cynthia/trastes.tscn" id="16_nl040"]
+[ext_resource type="Script" uid="uid://y3quaa0klmfh" path="res://scripts/game/disco.gd" id="17_b8sw3"]
+[ext_resource type="Texture2D" uid="uid://uvypc1m30qg" path="res://assets/image/UI/vinilo.png" id="17_i0foc"]
+[ext_resource type="PackedScene" uid="uid://dlsillfjnepba" path="res://scenes/Prefabs/pulso.tscn" id="18_vu87w"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ltust"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
+size = Vector2(2310.5, 1394.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1x3un"]
+size = Vector2(3926, 1379)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1x3un"]
 radius = 70.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dgn8v"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1x3un"]
 
-[node name="AndresScene" type="Node2D" unique_id=2120202095]
-script = ExtResource("1_dgn8v")
-tween_seguir = ExtResource("2_jxgry")
-tween_hablar = ExtResource("2_jxgry")
+[node name="AndresScene" type="Node2D" unique_id=581873652]
+script = ExtResource("1_nxw74")
+fondo_tween_time_walk = 2.0
+fondo_tween_time_talk = 2.0
+fondo_tween_time_play = 2.0
+tween_seguir = ExtResource("2_yu01v")
+tween_hablar = ExtResource("3_ocxcs")
 
-[node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("2_8yqig")]
+[node name="Fondo" type="Sprite2D" parent="." unique_id=1597160808]
+position = Vector2(-926, 0)
+texture = ExtResource("4_7xyf6")
+
+[node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("5_7pdon")]
+zoom = Vector2(0.6, 0.6)
 process_callback = 0
+limit_left = -1187
+limit_top = -702
+limit_right = 1124
+limit_bottom = 693
 
-[node name="NPC" type="RigidBody2D" parent="." unique_id=87190673]
+[node name="PlayerPhantomCamera2D" type="Node2D" parent="." unique_id=1832631289 node_paths=PackedStringArray("follow_target")]
+unique_name_in_owner = true
+process_priority = -1
+top_level = true
+script = ExtResource("6_k4y4d")
+priority = 10
+follow_mode = 2
+follow_target = NodePath("../Character")
+zoom = Vector2(0.6, 0.6)
+frame_preview = false
+tween_resource = ExtResource("7_hl4v4")
+follow_damping = true
+follow_damping_value = Vector2(1, 1)
+draw_limits = true
+limit_target = NodePath("../Colisiones/Area/AreaShape")
+
+[node name="Colisiones" type="Node" parent="." unique_id=19771807]
+
+[node name="Escenario" type="StaticBody2D" parent="Colisiones" unique_id=1000452435]
+position = Vector2(0, 3)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones/Escenario" unique_id=688039937]
+polygon = PackedVector2Array(-1040, -204, -1060, -144, -994, 367, -928, 574, -794, 704, 273, 741, 840, 685, 967, 487, 1010, -241, 856, -284, 681, -310, 641, -392, 523, -401, 488, -474, 380, -449, 287, -493, 168, -459, 53, -505, -30, -443, -117, -491, -232, -439, -315, -420, -368, -434, -461, -384, -643, -415, -681, -356, -730, -386, -834, -327, -938, -297, -1040, -205, -1231, -756, 1214, -742, 1206, 764, -969, 839, -1355, 688, -1274, -804, -1258, -354, -1255, -241)
+
+[node name="Invertida" type="StaticBody2D" parent="Colisiones" unique_id=1180501495]
+process_mode = 4
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones/Invertida" unique_id=66413424]
+polygon = PackedVector2Array(-1044, -199, -1054, -154, -994, 372, -928, 571, -794, 705, 274, 740, 841, 685, 966, 491, 1001, -41, 1007, -233, 857, -280, 681, -307, 641, -389, 524, -398, 488, -471, 381, -446, 287, -490, 170, -457, 53, -503, -32, -439, -117, -488, -231, -436, -314, -417, -367, -431, -460, -380, -642, -412, -681, -351, -730, -383, -834, -324, -936, -295)
+
+[node name="Area" type="StaticBody2D" parent="Colisiones" unique_id=114390528]
+collision_layer = 2
+collision_mask = 2
+
+[node name="AreaShape" type="CollisionShape2D" parent="Colisiones/Area" unique_id=2129079594]
+position = Vector2(-31.25, -4.25)
+shape = SubResource("RectangleShape2D_2eiin")
+
+[node name="AreaShape2" type="CollisionShape2D" parent="Colisiones/Area" unique_id=266058823]
+position = Vector2(-844, -4.5)
+shape = SubResource("RectangleShape2D_1x3un")
+
+[node name="NPC" type="RigidBody2D" parent="." unique_id=2089657348]
 position = Vector2(149, -186)
 mass = 9.223372e+18
 gravity_scale = 0.0
@@ -34,31 +102,38 @@ lock_rotation = true
 freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 770
-script = ExtResource("3_po2s8")
-TEXTURE = ExtResource("4_ltust")
+script = ExtResource("8_vedlm")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" unique_id=745321614]
-shape = SubResource("CircleShape2D_ltust")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC" unique_id=2003509257]
+shape = SubResource("CircleShape2D_1x3un")
 
-[node name="Sprite2D" type="Sprite2D" parent="NPC" unique_id=11502373]
+[node name="Sprite2D" type="Sprite2D" parent="NPC" unique_id=717588399]
 modulate = Color(0, 0.83137256, 0, 1)
-texture = ExtResource("2_w1iya")
+texture = ExtResource("9_ykxvg")
 
-[node name="Character" parent="." unique_id=1460752680 instance=ExtResource("1_e84x4")]
+[node name="Character" parent="." unique_id=294427056 instance=ExtResource("10_v7k1m")]
 speed = 500.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1923334515]
-script = ExtResource("5_po2s8")
+[node name="Segundo" parent="Character" index="2" unique_id=1371953691]
+position = Vector2(-500, 0)
 
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=43913169]
+[node name="Refondo" type="Sprite2D" parent="." unique_id=329199081]
+position = Vector2(-926, 0)
+texture = ExtResource("11_5jka1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1624487201]
+script = ExtResource("12_ojqkt")
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=89512763]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1x3un")
 metadata/_edit_use_anchors_ = true
 
-[node name="DialogueManager" parent="CanvasLayer/Panel" unique_id=500792603 instance=ExtResource("5_8yqig")]
+[node name="DialogueManager" parent="CanvasLayer/Panel" unique_id=500792603 instance=ExtResource("13_b6w4g")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -71,48 +146,68 @@ charactersPath = "res://localization/Dando la nota_characters.json"
 dialoguesPath = "res://localization/Dando la nota_dialogues.json"
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1435831102]
+[node name="Fondo" type="TextureRect" parent="CanvasLayer/Panel" unique_id=756236629]
 layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 800.0
-grow_vertical = 2
-texture = SubResource("ViewportTexture_dgn8v")
-metadata/_edit_use_anchors_ = true
-
-[node name="control_disco" parent="CanvasLayer/Panel/TextureRect" unique_id=1914348709 instance=ExtResource("9_p6fmi")]
-layout_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Trastes" parent="CanvasLayer/Panel/TextureRect" unique_id=427422133 instance=ExtResource("12_g7yle")]
-layout_mode = 0
-offset_top = 360.0
-offset_bottom = 360.0
+anchors_preset = -1
+anchor_left = -0.7284969
+anchor_right = -0.7284969
+offset_left = -667.5239
+offset_right = 1696.4761
+offset_bottom = 1079.0
 scale = Vector2(0.67, 0.67)
+texture = ExtResource("14_er86r")
+metadata/_edit_use_anchors_ = true
 
-[node name="Disco" type="Control" parent="CanvasLayer/Panel/TextureRect" unique_id=1747149668]
+[node name="control_disco" parent="CanvasLayer/Panel/Fondo" unique_id=1914348709 instance=ExtResource("15_suro2")]
+layout_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Disco" type="Control" parent="CanvasLayer/Panel/Fondo" unique_id=339788349]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
+offset_left = 768.6566
+offset_top = 370.94763
+offset_right = 768.6566
+offset_bottom = 370.94763
 grow_vertical = 2
-script = ExtResource("10_iaq8r")
+script = ExtResource("17_b8sw3")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/TextureRect/Disco" unique_id=1226353597]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Fondo/Disco" unique_id=989706061]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = -805.0
+offset_top = -799.0
+offset_right = 805.0
+offset_bottom = 799.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_w1iya")
+texture = ExtResource("17_i0foc")
+
+[node name="Pulso" parent="CanvasLayer/Panel/Fondo/Disco" unique_id=1177493615 instance=ExtResource("18_vu87w")]
+layout_mode = 1
+rotation = 1.5707964
+scale = Vector2(0.66, 0.66)
+
+[node name="Trastes" parent="CanvasLayer/Panel/Fondo" unique_id=427422133 instance=ExtResource("16_nl040")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 1126.8656
+offset_top = 370.94775
+offset_right = 1126.8656
+offset_bottom = 370.94775
+grow_vertical = 2
+scale = Vector2(0.43, 0.43)
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
+[connection signal="body_shape_entered" from="NPC" to="NPC" method="_on_body_shape_entered"]
+[connection signal="body_entered" from="Character" to="Character" method="_on_body_entered"]
 
 [editable path="Character"]

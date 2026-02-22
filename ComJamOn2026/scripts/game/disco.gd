@@ -40,7 +40,6 @@ func fail() -> void:
 
 func correct() -> void:
 	pause = false
-	
 
 func start() -> void:
 	pause = false
