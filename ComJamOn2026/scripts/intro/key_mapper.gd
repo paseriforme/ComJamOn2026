@@ -12,16 +12,25 @@ var actions := ["verde", "rojo", "amarillo", "azul", "naranja", "rasgar"]
 @onready var flecha_confirmar : TextureRect = $Confirmar
 @onready var flecha_reintentar : TextureRect = $Reintentar
 
+var somethingpressed = false
 func _ready() -> void:
 	next_key()
 
 func _input(event: InputEvent) -> void:
-	if key >= len(actions): return
-	if Input.is_anything_pressed():
+#	if key >= len(actions): return
+	if Input.is_anything_pressed() and not somethingpressed:
+		somethingpressed = true
 		if key < len(actions):
 			InputMap.action_add_event(actions[key], event)
 			print(actions[key], event.get_class())
 			next_key()
+		else:
+			if event.is_action_pressed("rasgar"):
+				_reiniciar()
+			elif event.is_action_pressed("verde"):
+				_confirmar()
+	else:
+		somethingpressed = false
 
 func next_key() -> void:
 	if (key >= 0):
@@ -48,3 +57,12 @@ func next_key() -> void:
 	
 #	if key >= len(actions):
 #		Global.change_scene(Global.Scenes.GAME)
+
+
+func _confirmar():
+	print_debug("CONFIRMAR")
+	pass
+	
+func _reiniciar():
+	print_debug("REPETIR")
+	pass
