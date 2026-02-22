@@ -160,7 +160,9 @@ func _physics_process(delta: float) -> void:
 		disco.end()
 		Global.sound.stop_bgm()
 		if Global.npc_chocado == $"../../../../manager2":
-			queue_free()
+			#TODO: telón final
+			#get_tree().quit() #esto será callback on finished del tween 
+			pass
 		return
 	
 	var beat_time = 60.0 / bpm

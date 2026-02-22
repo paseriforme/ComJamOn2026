@@ -106,6 +106,7 @@ texture = ExtResource("6_a7k1q")
 [node name="control_disco" parent="Fondo" unique_id=1914348709 instance=ExtResource("3_3ovq8")]
 layout_mode = 1
 pegatinas = Array[Texture2D]([ExtResource("7_n1hje"), ExtResource("8_jbghi"), ExtResource("6_nc4t1")])
+bpm = 60.0
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fondo/control_disco" unique_id=538621387]
@@ -151,6 +152,23 @@ scale = Vector2(0.43, 0.43)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Telon" type="Control" parent="Fondo" unique_id=1036940807]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Izq" type="TextureRect" parent="Fondo/Telon" unique_id=961408094]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Der" type="TextureRect" parent="Fondo/Telon" unique_id=1869631707]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fondo/Telon" unique_id=212806624]
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="Fondo" unique_id=750639163]
 

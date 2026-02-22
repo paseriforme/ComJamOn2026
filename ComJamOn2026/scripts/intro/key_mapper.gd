@@ -11,10 +11,10 @@ var actions := ["verde", "rojo", "amarillo", "azul", "naranja", "rasgar"]
 @export var animators : Array[AnimationPlayer]
 @onready var flecha_confirmar : TextureRect = $Confirmar
 @onready var flecha_reintentar : TextureRect = $Reintentar
-var trans : bool =false
+var trans : bool = false
 var ini_map
-
 var somethingpressed = false
+
 func _ready() -> void:
 	next_key()
 
@@ -65,6 +65,7 @@ func _reiniciar():
 	for a in actions:
 		for e in InputMap.action_get_events(a):
 			InputMap.action_erase_event(a, e)
+	_remap()
 	key = -1
 	for button in buttons:
 		button.visible = false
@@ -77,4 +78,8 @@ func _reiniciar():
 	tween3.set_ease(Tween.EASE_OUT)
 	tween3.tween_property(flecha_reintentar, "position", Vector2(760, 0), 1.0).set_trans(Tween.TRANS_ELASTIC)
 	print_debug("REPETIR")
+	pass
+
+func _remap():
+#	InputMap.action_add_event("")
 	pass
