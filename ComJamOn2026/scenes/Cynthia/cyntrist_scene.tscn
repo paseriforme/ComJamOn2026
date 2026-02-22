@@ -22,7 +22,7 @@
 size = Vector2(2310.5, 1394.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x3un"]
-size = Vector2(3926, 1379)
+size = Vector2(3926, 1394.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1x3un"]
 radius = 70.0
@@ -68,6 +68,7 @@ limit_target = NodePath("../Colisiones/Area/AreaShape")
 [node name="Colisiones" type="Node" parent="." unique_id=19771807]
 
 [node name="Escenario" type="StaticBody2D" parent="Colisiones" unique_id=1000452435]
+visible = false
 position = Vector2(0, 3)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones/Escenario" unique_id=688039937]

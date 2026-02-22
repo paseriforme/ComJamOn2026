@@ -110,12 +110,12 @@ func _acertado_on_time() -> bool:
 			print("BIEN")
 		return true
 	return false
+
 func _vacio() -> bool:
 	if waiting_chord < 0 or waiting_chord >= len(Global.song):
 		return true
-	for traste in Global.song[actual_chord]:
+	for traste in Global.song[waiting_chord]:
 		if traste:
-			#print(traste)
 			return false
 	return true
 
@@ -126,7 +126,6 @@ func _physics_process(delta: float) -> void:
 	# Actualizar el tiempo del beat
 	var beat_time = 60.0 / bpm
 	elapsed_b_time += delta
-	
 	if elapsed_b_time >= beat_time:
 		if Global.sound != null:
 			Global.sound.play_sfx("metronom_klack")
@@ -150,9 +149,7 @@ func _physics_process(delta: float) -> void:
 	# Detectar input solo cuando estamos esperando acierto
 	if pulses_to_start >= 2 and esperando_acierto:
 		if _vacio():
-			# Si no hay que pulsar nada, auto-avanzar
-			print("vacio")
-			correct()
+			acierto = true
 		elif not pulsed and Input.is_action_just_pressed("rasgar"):
 			if _matching_keys() and _acertado_on_time():
 				print("Pulsado correcto")

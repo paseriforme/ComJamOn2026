@@ -135,10 +135,10 @@ func choose(next_id):
 	_show_node()
 	
 func _process(delta: float) -> void:
-#	if Input.is_action_just_pressed("verde",true) and decision_box.visible:
-#		choose(current_node.options[0].next)
-#		pass
-	if Input.is_action_just_pressed("rojo",true) and decision_box.visible and not dialogue_box.visible:
+	if Input.is_action_pressed("verde",true) and decision_box.visible and not dialogue_box.visible:
+		choose(current_node.options[0].next)
+		pass
+	if Input.is_action_pressed("rojo",true) and decision_box.visible and not dialogue_box.visible:
 		choose(current_node.options[1].next)
 		pass
 	pass
