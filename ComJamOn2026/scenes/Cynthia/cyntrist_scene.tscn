@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://kw5pykq6pu5w" path="res://assets/image/Backgrounds/FONDO_delante.png" id="9_1x3un"]
 [ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="9_2eiin"]
 [ext_resource type="Texture2D" uid="uid://n0ob011ts0le" path="res://assets/image/Characters/UI PRACTICA.png" id="12_1x3un"]
+[ext_resource type="Script" uid="uid://y3quaa0klmfh" path="res://scripts/game/disco.gd" id="15_h3u08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
@@ -160,6 +161,29 @@ offset_bottom = -82.0
 grow_vertical = 0
 rotation = -0.7853982
 scale = Vector2(0.37, 0.37)
+
+[node name="Disco" type="Control" parent="CanvasLayer/Panel/Fondo" unique_id=339788349]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+script = ExtResource("15_h3u08")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Fondo/Disco" unique_id=989706061]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_r4itm")
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="NPC" to="NPC" method="_on_body_shape_entered"]
