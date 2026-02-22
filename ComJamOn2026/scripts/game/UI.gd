@@ -29,6 +29,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("rasgar",true) and dialogue_manager.dialogue_box.visible and not dialogue_manager.ending and not dialogue_manager.starting:
 		dialogue_manager.dialogue_box.pressed()
 
-func _end_dialogue():
+func _end_dialogue(ini = null, fin = null):
 	if (Global.dialogo_aceptado):
 		game_state.set_state(GameState.states.PLAY)

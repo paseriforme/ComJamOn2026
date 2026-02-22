@@ -10,6 +10,9 @@ enum NPC_type {COLEGA, MUCHACHA, TRONCA, CHAVALA, MANAGER}
 @export var startDialogue : int = 0
 @onready var gameState: GameState = $".."
 
+@export var firstChord := 0
+@export var lastChord := len(Global.song)
+
 var inipos: Vector2 
 @export var distance_factor : float = 0.05
 @export var tween_time : float = 0.5
@@ -38,6 +41,8 @@ func _on_body_entered(body: Node) -> void:
 #	print("CHOQUE", newpos)
 
 func _iniciar_dialogo():
+	gameState.ini	= firstChord
+	gameState.fin = lastChord
 	if Global.npc_chocado: 
 		gameState.set_state(GameState.states.TALK)
 		canvas_layer.show_dialogue(startDialogue)	

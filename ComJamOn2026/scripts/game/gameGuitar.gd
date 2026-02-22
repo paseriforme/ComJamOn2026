@@ -2,8 +2,9 @@ extends Control
 const PULSO = preload("res://scenes/Prefabs/pulso.tscn")
 
 var pool_pulsos : Array[Node]= []
-var actual_pulso := 0  # MANTENER ESTE INDICE, no recalcular
+var actual_pulso := 0  
 var actual_chord := 0
+var last_chord := len(Global.song)
 var last_klk_time : float = 0
 
 @onready var audio_player: AudioStreamPlayer2D = $"../AudioPlayer"
@@ -55,7 +56,7 @@ func _get_pulso_en_hit_zone() -> int:
 	
 	return closest
 
-func start_song():
+func start_song(start, fin):
 	enable = true
 	paused = false
 	
@@ -68,7 +69,8 @@ func start_song():
 		rot -= 45
 	
 	# reset de indices
-	actual_chord = 0
+	actual_chord = start
+	last_chord = fin
 	
 	# reset estados
 	pulsed = false
@@ -157,7 +159,7 @@ func _physics_process(delta: float) -> void:
 	if not enable:
 		return
 	
-	if actual_chord >= len(Global.song):
+	if actual_chord >= last_chord:
 		disco.end()
 		return
 	
