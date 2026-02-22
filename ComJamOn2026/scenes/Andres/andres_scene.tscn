@@ -9,7 +9,6 @@
 [ext_resource type="Resource" uid="uid://euybd2w0bax" path="res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_2d_tween.tres" id="7_hl4v4"]
 [ext_resource type="Script" uid="uid://bcchepkryj7kl" path="res://scripts/game/NPC.gd" id="8_vedlm"]
 [ext_resource type="Texture2D" uid="uid://b8ka77slh8orw" path="res://assets/image/Amigas/PJ_colega.png" id="9_fffxv"]
-[ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="9_ykxvg"]
 [ext_resource type="Texture2D" uid="uid://c8thtjx23eqbr" path="res://assets/image/Amigas/PJ_muchacha.png" id="10_slwiy"]
 [ext_resource type="PackedScene" uid="uid://c7k3rqpmcf0vt" path="res://scenes/Prefabs/character.tscn" id="10_v7k1m"]
 [ext_resource type="Texture2D" uid="uid://qoe6mw2w882e" path="res://assets/image/Amigas/PJ_tronca.png" id="11_3hxkh"]
@@ -18,7 +17,15 @@
 [ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scripts/game/UI.gd" id="12_ojqkt"]
 [ext_resource type="PackedScene" uid="uid://bks1yclxa8xyy" path="res://scenes/Prefabs/panel.tscn" id="13_g7yle"]
 [ext_resource type="Texture2D" uid="uid://bcsf37x8s2y24" path="res://assets/image/Amigas/PJ_manager.png" id="13_y884l"]
+[ext_resource type="Texture2D" uid="uid://cp5ahioqhx588" path="res://assets/image/Direcciones/norte.png" id="15_3hxkh"]
 [ext_resource type="Texture2D" uid="uid://csa6te68rejsc" path="res://assets/image/Amigas/PJ_yo.png" id="16_3hxkh"]
+[ext_resource type="Texture2D" uid="uid://bj67wmu6qtfgr" path="res://assets/image/Direcciones/noreste.png" id="16_dghs7"]
+[ext_resource type="Texture2D" uid="uid://c23uj8aqhgdbh" path="res://assets/image/Direcciones/este.png" id="17_y884l"]
+[ext_resource type="Texture2D" uid="uid://dbmcxslvrmuvh" path="res://assets/image/Direcciones/sureste.png" id="18_7as73"]
+[ext_resource type="Texture2D" uid="uid://b00kjd6ghq1nh" path="res://assets/image/Direcciones/sur.png" id="19_6u4vf"]
+[ext_resource type="Texture2D" uid="uid://duonodj4hgetl" path="res://assets/image/Direcciones/suroeste.png" id="20_45fkh"]
+[ext_resource type="Texture2D" uid="uid://cywf2cin76cxc" path="res://assets/image/Direcciones/oeste.png" id="21_lo86p"]
+[ext_resource type="Texture2D" uid="uid://b3px0qd1erdfg" path="res://assets/image/Direcciones/noroeste.png" id="22_h6qve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
@@ -193,7 +200,7 @@ texture = ExtResource("13_y884l")
 
 [node name="Character" parent="." unique_id=294427056 instance=ExtResource("10_v7k1m")]
 speed = 500.0
-sprite_directions = Array[Texture2D]([ExtResource("9_ykxvg"), ExtResource("9_ykxvg"), ExtResource("9_ykxvg"), ExtResource("9_ykxvg"), ExtResource("9_ykxvg"), ExtResource("9_ykxvg"), ExtResource("9_ykxvg"), ExtResource("9_ykxvg"), ExtResource("16_3hxkh")])
+sprite_directions = Array[Texture2D]([ExtResource("15_3hxkh"), ExtResource("16_dghs7"), ExtResource("17_y884l"), ExtResource("18_7as73"), ExtResource("19_6u4vf"), ExtResource("20_45fkh"), ExtResource("21_lo86p"), ExtResource("22_h6qve"), ExtResource("16_3hxkh")])
 
 [node name="Segundo" parent="Character" index="2" unique_id=1371953691]
 position = Vector2(-500, 0)

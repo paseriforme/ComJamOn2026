@@ -12,7 +12,15 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_ihtxl"]
 [ext_resource type="Resource" uid="uid://euybd2w0bax" path="res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_2d_tween.tres" id="7_u8e5d"]
 [ext_resource type="Texture2D" uid="uid://kw5pykq6pu5w" path="res://assets/image/Backgrounds/FONDO_delante.png" id="9_1x3un"]
+[ext_resource type="Texture2D" uid="uid://cp5ahioqhx588" path="res://assets/image/Direcciones/norte.png" id="11_eh0fj"]
+[ext_resource type="Texture2D" uid="uid://bj67wmu6qtfgr" path="res://assets/image/Direcciones/noreste.png" id="12_14o7x"]
 [ext_resource type="PackedScene" uid="uid://bks1yclxa8xyy" path="res://scenes/Prefabs/panel.tscn" id="13_2eiin"]
+[ext_resource type="Texture2D" uid="uid://c23uj8aqhgdbh" path="res://assets/image/Direcciones/este.png" id="13_gd8cj"]
+[ext_resource type="Texture2D" uid="uid://dbmcxslvrmuvh" path="res://assets/image/Direcciones/sureste.png" id="14_ejyh6"]
+[ext_resource type="Texture2D" uid="uid://b00kjd6ghq1nh" path="res://assets/image/Direcciones/sur.png" id="15_8v88k"]
+[ext_resource type="Texture2D" uid="uid://duonodj4hgetl" path="res://assets/image/Direcciones/suroeste.png" id="16_iiaoe"]
+[ext_resource type="Texture2D" uid="uid://cywf2cin76cxc" path="res://assets/image/Direcciones/oeste.png" id="17_ou84o"]
+[ext_resource type="Texture2D" uid="uid://b3px0qd1erdfg" path="res://assets/image/Direcciones/noroeste.png" id="18_wjnqx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
@@ -104,6 +112,7 @@ texture = ExtResource("5_r4itm")
 
 [node name="Character" parent="." unique_id=294427056 instance=ExtResource("2_uxfon")]
 speed = 500.0
+sprite_directions = Array[Texture2D]([ExtResource("11_eh0fj"), ExtResource("12_14o7x"), ExtResource("13_gd8cj"), ExtResource("14_ejyh6"), ExtResource("15_8v88k"), ExtResource("16_iiaoe"), ExtResource("17_ou84o"), ExtResource("18_wjnqx")])
 control_feedback_time = 2.0
 
 [node name="Segundo" parent="Character" index="2" unique_id=1371953691]

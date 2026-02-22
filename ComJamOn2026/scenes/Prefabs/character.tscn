@@ -1,13 +1,39 @@
 [gd_scene format=3 uid="uid://c7k3rqpmcf0vt"]
 
 [ext_resource type="Script" uid="uid://rrj77v2uye7p" path="res://scripts/game/CharacterController.gd" id="1_8iokl"]
-[ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="2_xhxll"]
 [ext_resource type="Texture2D" uid="uid://bg6obgr80fbap" path="res://assets/tweens/UI_bocadillo_separado_03.png" id="3_xhxll"]
 [ext_resource type="Texture2D" uid="uid://clomtys4m4bff" path="res://assets/tweens/UI_bocadillo_separado_02.png" id="4_cx57j"]
 [ext_resource type="Texture2D" uid="uid://bodu7d7ug7tyg" path="res://assets/tweens/UI_bocadillo_separado_01.png" id="5_np3hh"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xhxll"]
+load_path = "res://.godot/imported/norte.png-b131ab18bd42e6ebef4f8afce9b07eab.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cx57j"]
+load_path = "res://.godot/imported/noreste.png-5751dcb65bf76f60dd0e7dec41494735.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_np3hh"]
+load_path = "res://.godot/imported/este.png-6c738dadb4c03d75cac5656829968257.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p2uxh"]
+load_path = "res://.godot/imported/sureste.png-3ab5d463135a9d70e43493620cf78e8f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dvl2a"]
+load_path = "res://.godot/imported/sur.png-0d1aafb10f033392005918978b32692c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6h1tk"]
+load_path = "res://.godot/imported/suroeste.png-35ebf00caf163579e2513c17bad59421.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ffjvi"]
+load_path = "res://.godot/imported/oeste.png-e9a76fb34ec566f2dbfeef085ad604ba.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lj7f7"]
+load_path = "res://.godot/imported/noroeste.png-5c564f38257872324f92b0d1bb4ca591.ctex"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_8iokl"]
 radius = 70.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8iokl"]
+load_path = "res://.godot/imported/sur.png-0d1aafb10f033392005918978b32692c.ctex"
 
 [sub_resource type="Animation" id="Animation_xhxll"]
 length = 0.001
@@ -304,13 +330,13 @@ max_contacts_reported = 59
 linear_damp = 6.0
 script = ExtResource("1_8iokl")
 speed = 100.0
-sprite_directions = Array[Texture2D]([ExtResource("2_xhxll"), ExtResource("2_xhxll"), ExtResource("2_xhxll"), ExtResource("2_xhxll"), ExtResource("2_xhxll"), ExtResource("2_xhxll"), ExtResource("2_xhxll"), ExtResource("2_xhxll")])
+sprite_directions = Array[Texture2D]([SubResource("CompressedTexture2D_xhxll"), SubResource("CompressedTexture2D_cx57j"), SubResource("CompressedTexture2D_np3hh"), SubResource("CompressedTexture2D_p2uxh"), SubResource("CompressedTexture2D_dvl2a"), SubResource("CompressedTexture2D_6h1tk"), SubResource("CompressedTexture2D_ffjvi"), SubResource("CompressedTexture2D_lj7f7")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1373909019]
 shape = SubResource("CircleShape2D_8iokl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1389860513]
-texture = ExtResource("2_xhxll")
+texture = SubResource("CompressedTexture2D_8iokl")
 
 [node name="Segundo" type="Node2D" parent="." unique_id=1371953691]
 position = Vector2(-1583, 28)
