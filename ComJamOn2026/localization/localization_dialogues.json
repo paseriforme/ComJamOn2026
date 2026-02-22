@@ -93,7 +93,7 @@
 		},
 		{
 		  "ID": 16,
-		  "Type": "ACTION",
+		  "Type": "END",
 		  "Character": "Colega",
 		  "Text": "¡Dale!",
 		  "Next": null
@@ -164,7 +164,7 @@
 		},
 		{
 		  "ID": 23,
-		  "Type": "ACTION",
+		  "Type": "END",
 		  "Character": "Chavala",
 		  "Text": "Qué chavala... Anda, pasa el cubata",
 		  "Next": null
