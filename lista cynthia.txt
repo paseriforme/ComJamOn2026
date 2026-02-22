@@ -1,10 +1,6 @@
-> cámara tween al pj
-> cámara tween área
-
 > controles de dialogo
 
-> TWEENS A TODO
-> maquetar
+> maquetar y tweens
 
 > pensamiento
 

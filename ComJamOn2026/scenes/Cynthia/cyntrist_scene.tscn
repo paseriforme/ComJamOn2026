@@ -31,10 +31,9 @@ radius = 70.0
 
 [node name="CyntristScene" type="Node2D" unique_id=581873652]
 script = ExtResource("1_a6vk8")
-fondo_ini_x = -1600.0
-fondo_talk_x = -660.0
-fondo_play_x = -320.0
-fondo_tween_time = 2.0
+fondo_tween_time_walk = 2.0
+fondo_tween_time_talk = 2.0
+fondo_tween_time_play = 2.0
 tween_seguir = ExtResource("4_7nmud")
 tween_hablar = ExtResource("3_r4itm")
 
@@ -45,6 +44,10 @@ texture = ExtResource("4_r4itm")
 [node name="Camera2D" parent="." unique_id=1454112614 instance=ExtResource("4_6bit8")]
 zoom = Vector2(0.6, 0.6)
 process_callback = 0
+limit_left = -1187
+limit_top = -702
+limit_right = 1124
+limit_bottom = 693
 
 [node name="PlayerPhantomCamera2D" type="Node2D" parent="." unique_id=1832631289 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
@@ -60,6 +63,7 @@ tween_resource = ExtResource("7_u8e5d")
 follow_damping = true
 follow_damping_value = Vector2(1, 1)
 draw_limits = true
+limit_target = NodePath("../Colisiones/Area/AreaShape")
 
 [node name="Colisiones" type="Node" parent="." unique_id=19771807]
 
