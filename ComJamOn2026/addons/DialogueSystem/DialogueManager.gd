@@ -31,6 +31,11 @@ func _ready() -> void:
 func start(dialogue_id):
 	current_nodes = loader.dialogues[dialogue_id]
 	current_node = _find_start_node()
+	$DialogueBox.visible = true
+	var sprite = $DialogueBox/CharacterSprite
+	var tween2 = get_tree().create_tween()
+	tween2.set_ease(Tween.EASE_OUT)
+	tween2.tween_property(sprite, "position", Vector2(-1280,-720), 1.0).set_trans(Tween.TRANS_BACK)
 	_show_node()
 
 func _find_start_node():

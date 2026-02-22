@@ -249,13 +249,15 @@ Colega.png::CompressedTexture2D::432426828702070001::1771734882::1771731668::1::
 Muchacha.png::CompressedTexture2D::8810821212562826382::1771734882::1771731668::1::::<><><>0<>0<>aab438b3b92dd7262791e7c1ae34a40d<>res://.godot/imported/Muchacha.png-02258079432e588b50339dcd89dcc051.ctex::
 Tronca.png::CompressedTexture2D::7487904716389132542::1771734882::1771731668::1::::<><><>0<>0<>e89be2690d68d873012e0864ca9b97ab<>res://.godot/imported/Tronca.png-cafaea99af793925b985763b3bf5a687.ctex::
 UI PRACTICA.png::CompressedTexture2D::964917589294667358::1771719312::1771719328::1::::<><><>0<>0<>b1b1dfd214364899aa1b2d01c4bba7ab<>res://.godot/imported/UI PRACTICA.png-d199e5ed25a7ca5341dc0e2484e66273.ctex::
-::res://assets/image/UI/::1771734939
+::res://assets/image/UI/::1771735937
+aceptar.png::CompressedTexture2D::6311613241581132645::1771735937::1771735985::1::::<><><>0<>0<>4573956e3827f0dddeed802ccf9d83a3<>res://.godot/imported/aceptar.png-e1931977b7b11f0da982187a62867fc1.ctex::
 dialogo_box.png::CompressedTexture2D::2755889809756699953::1771734939::1771734944::1::::<><><>0<>0<>d69124e4c24b8d515b176f153cacaf40<>res://.godot/imported/dialogo_box.png-640b9e2c4099dddf7e74b7c8995b0198.ctex::
 dialogo_pito.png::CompressedTexture2D::7143639815428914391::1771734939::1771734944::1::::<><><>0<>0<>6be30ab4668b2e7d0a2015d6039d3c6d<>res://.godot/imported/dialogo_pito.png-7255f1af843308f018e57487131b5e50.ctex::
 dialogo_total.png::CompressedTexture2D::8899650750955553333::1771734939::1771734944::1::::<><><>0<>0<>ed6c448d79bf654e9cb5ed9afaff14a9<>res://.godot/imported/dialogo_total.png-28da13bf55668d7aad5a4cdf3c63ec61.ctex::
 PEGATINA_BIEN.png::CompressedTexture2D::8910148434845587889::1771729856::1771729876::1::::<><><>0<>0<>0ffc7f15a35c9839ab1777367782b2cd<>res://.godot/imported/PEGATINA_BIEN.png-d9be6392d8b17af55b4877c676f3e83a.ctex::
 PEGATINA_MAL.png::CompressedTexture2D::2378914365672476635::1771729856::1771729876::1::::<><><>0<>0<>37010e85a01d129d179bfd39c61fccd4<>res://.godot/imported/PEGATINA_MAL.png-bacf49c05aa20852e72042a5b5aee614.ctex::
 PEGATINA_PERFECTO.png::CompressedTexture2D::2539601402781826455::1771729856::1771729876::1::::<><><>0<>0<>2e093bc63505dc46f3d2d90b9edf1b8e<>res://.godot/imported/PEGATINA_PERFECTO.png-ed7940422d6769b5c93afc2bb81c1bf5.ctex::
+rechazar.png::CompressedTexture2D::12565340558852161::1771735937::1771735985::1::::<><><>0<>0<>3a93645cf8f69b6f85231956f0771c35<>res://.godot/imported/rechazar.png-d0e6f32466c6a7acad3f4d8f1a81d139.ctex::
 UI PRACTICA.png::CompressedTexture2D::3191677291273944924::1771708536::1771708592::1::::<><><>0<>0<>72df1ff28f518aab3bfea325d1f9be34<>res://.godot/imported/UI PRACTICA.png-0622bcf1cc473983830d9d109e26efbb.ctex::
 vinilo.png::CompressedTexture2D::42606263121356778::1771726070::1771726086::1::::<><><>0<>0<>3a04e62f4ffc8d0ee26a257e2a1f8e9f<>res://.godot/imported/vinilo.png-33fd051427b643d7797cb533e4384bd9.ctex::
 ::res://assets/tweens/::1771726070
@@ -275,9 +277,9 @@ metronom_klack.wav::AudioStreamWAV::5082556023057685494::1771708178::1771708178:
 AudioManager.gd::GDScript::6593387181360101679::1771684193::0::1::::<>Node<><>0<>0<><>::
 AudioManager.tscn::PackedScene::112398173168944806::1771684193::0::1::::<><><>0<>0<><>::uid://c065eg33qk3hb::::res://fmod/audioManager/AudioManager.gd
 ::res://localization/::1771728495
-localization_characters.json::JSON::-1::1771728691::0::1::::<><><>0<>0<><>::
-localization_dialogues.json::JSON::-1::1771728691::0::1::::<><><>0<>0<><>::
-localization_translations.csv::Translation::6629149449762259644::1771728691::1771727389::1::::<><><>0<>0<>18218135de1d7b43e4bea7da5d8d3fa0<>res://localization/localization_translations.en.translation::
+localization_characters.json::JSON::-1::1771735067::0::1::::<><><>0<>0<><>::
+localization_dialogues.json::JSON::-1::1771735067::0::1::::<><><>0<>0<><>::
+localization_translations.csv::Translation::6629149449762259644::1771735067::1771727389::1::::<><><>0<>0<>18218135de1d7b43e4bea7da5d8d3fa0<>res://localization/localization_translations.en.translation::
 localization_translations.en.translation::OptimizedTranslation::4588615901499813086::1771727389::0::1::::<><><>0<>0<><>::
 ::res://localization/Example/::1771685504
 mi_proyecto_characters.json::JSON::-1::1771684193::0::1::::<><><>0<>0<><>::
@@ -306,10 +308,10 @@ character.tscn::PackedScene::7041259439731472841::1771721697::0::1::::<><><>0<>0
 control_disco.tscn::PackedScene::4913938026740192057::1771684193::0::1::::<><><>0<>0<><>::uid://ck10m815fx7p3::::res://scripts/game/gameGuitar.gd
 player_phantom_camera_2d.tscn::PackedScene::2929059679484312429::1771708179::0::1::::<><><>0<>0<><>::uid://bhexx6mj1xv3q::::res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd<>uid://euybd2w0bax::::res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_2d_tween.tres
 pulso.tscn::PackedScene::7969004096253160366::1771734939::0::1::::<><><>0<>0<><>::uid://dk6ux8aiesioe::::res://icon.svg<>uid://bpt2ut7ph3v7m::::res://scripts/game/pulso.gd
-::res://scripts/::1771734939
+::res://scripts/::1771735853
 context_scene.gd::GDScript::8447124362289548691::1771696019::0::1::::<>Scene<><>0<>0<><>::
 fade.gd::GDScript::5620104609293564239::1771684193::0::1::::<>CanvasLayer<><>0<>0<><>::
-game_behaivour.gd::GDScript::6218074751994197514::1771734939::0::1::::GameState<>Node2D<><>0<>0<><>::
+game_behaivour.gd::GDScript::6218074751994197514::1771735853::0::1::::GameState<>Node2D<><>0<>0<><>::
 game_scene.gd::GDScript::4252162467249096227::1771696019::0::1::::game_scene<>Scene<><>0<>0<><>::
 global.gd::GDScript::5863350646234257055::1771728919::0::1::::<>Node<><>0<>0<><>::
 intro_scene.gd::GDScript::1326479426029343830::1771684193::0::1::::<>Scene<><>0<>0<><>::
@@ -323,7 +325,7 @@ CharacterController.gd::GDScript::1228910076447951103::1771711516::0::1::::Chara
 disco.gd::GDScript::1743342013338507641::1771734939::0::1::::Disco<>Control<><>0<>0<><>::
 gameGuitar.gd::GDScript::5529944754524255970::1771734939::0::1::::<>Control<><>0<>0<><>::
 NPC.gd::GDScript::2531360092705431879::1771711841::0::1::::NPC<>RigidBody2D<><>0<>0<><>::
-pulso.gd::GDScript::3480152638342920656::1771734939::0::1::::pulso<>Control<><>0<>0<><>::
+pulso.gd::GDScript::3480152638342920656::1771734939::0::1::::Pulso<>Control<><>0<>0<><>::
 UI.gd::GDScript::2087867393838463794::1771734939::0::1::::UI<>Node<><>0<>0<><>::
 ::res://scripts/intro/::1771696019
 key_mapper.gd::GDScript::1852004060272264301::1771696019::0::1::::key_mapper<>HBoxContainer<><>0<>0<><>::

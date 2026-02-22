@@ -16,10 +16,9 @@ script = ExtResource("1_multg")
 
 [node name="CharacterSprite" type="TextureRect" parent="." unique_id=2077406374]
 layout_mode = 1
-offset_left = -1276.9999
-offset_top = -714.99994
-offset_right = 643.0001
-offset_bottom = 365.00006
+offset_left = -1280.0
+offset_right = 640.0
+offset_bottom = 1080.0
 scale = Vector2(0.666, 0.666)
 texture = ExtResource("2_7ovhn")
 stretch_mode = 2
