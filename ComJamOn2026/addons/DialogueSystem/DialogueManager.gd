@@ -14,8 +14,8 @@ var current_nodes
 var current_node
 var language = "es"
 
-var dialogue_box
-var decision_box
+var dialogue_box : DialogueBox
+var decision_box : DecisionBox
 
 func _ready() -> void:
 	dialogue_box = DIALOGUE_BOX.instantiate()
