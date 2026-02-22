@@ -28,6 +28,10 @@ enum states {WALK, TALK, PLAY}
 
 var state := states.WALK
 
+# cacho que dura la cancion a reproducir
+var ini := 0
+var fin := len(Global.song)
+
 func _ready() -> void:
 	set_state(states.WALK)
 	Global.aceptar.connect(_aceptar_dialogo)
@@ -48,8 +52,6 @@ func _end_dialogo():
 	if not Global.dialogo_aceptado and not dialogue_man.starting:
 #		print_debug("ESTOY FALLANDO AQUI")
 		set_state(states.WALK)	
-
-
 
 func _end_song():
 	print("END SONG")
@@ -97,11 +99,11 @@ func set_state(st : states):
 			character.set_process(false)	
 			canvas_layer.visible(true)
 			Global.playing = true
-			canvas_layer.control_disco.start_song()
+			canvas_layer.control_disco.start_song(ini, fin)
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_play)
 			tween2.tween_property(fondo, "position", Vector2(fondo_play_x, 0), fondo_tween_time_play).set_trans(fondo_tween_trans)
-			tween2.finished.connect(func(): set_state(states.WALK))
+			#tween2.finished.connect(func(): set_state(states.WALK))
 			pass
 		_:
 			pass

@@ -3,7 +3,8 @@ class_name Disco
 
 @export var bpm : float = 120 # pulsos por minuto
 @export var b_x_vuelta : float = 4 # pulsos por vuelta
-@export var desfase: float = -30
+@export var desfase: float = 0
+@export var hit_zone_angle: float = 90
 
 var vel:float = 0
 var pause := false
@@ -13,45 +14,46 @@ func _ready() -> void:
 	
 
 func end() -> void:
-	pause = true
+	#pause = true
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "rotation", deg_to_rad(rotation + desfase), 2).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(self, "rotation", deg_to_rad(rotation + desfase), 1.5).set_trans(Tween.TRANS_BACK)
 	tween.finished.connect(func(): Global.end_song.emit())
 
-func fail() -> void:
+func fail(pulso_rotation: float) -> void:
 	pause = true
-	#var rot = rad_to_deg(rotation)
-	#var tween = get_tree().create_tween()
-	#if rot < 45 + desfase:
-		#tween.set_ease(Tween.EASE_OUT)
-		#tween.tween_property(self, "rotation", deg_to_rad(0 + desfase), 0.25).set_trans(Tween.TRANS_BOUNCE)
-		##rotation = deg_to_rad(0)
-	#elif rot < 135 + desfase:
-		#tween.set_ease(Tween.EASE_OUT)
-		#tween.tween_property(self, "rotation", deg_to_rad(90 + desfase), 0.25).set_trans(Tween.TRANS_BOUNCE)
-		##rotation = deg_to_rad(90)
-	#elif rot < 225 + desfase:
-		#tween.set_ease(Tween.EASE_OUT)
-		#tween.tween_property(self, "rotation", deg_to_rad(180 + desfase), 0.25).set_trans(Tween.TRANS_BOUNCE)
-		##rotation = deg_to_rad(180)
-	#elif rot < 315 + desfase:
-		#tween.set_ease(Tween.EASE_OUT)
-		#tween.tween_property(self, "rotation", deg_to_rad(270 + desfase), 0.25).set_trans(Tween.TRANS_BOUNCE)
-		##rotation = deg_to_rad(270)
-	#else:
-		#tween.set_ease(Tween.EASE_OUT)
-		#tween.tween_property(self, "rotation", deg_to_rad(0 + desfase), 0.25).set_trans(Tween.TRANS_BOUNCE)
-		##rotation = deg_to_rad(0)
+	
+	var target_rotation = deg_to_rad(hit_zone_angle) - pulso_rotation
+	
+	# Normalizar a -2π a 2π para evitar giros innecesarios
+	while target_rotation - rotation > PI:
+		target_rotation -= TAU
+	while target_rotation - rotation < -PI:
+		target_rotation += TAU
+	
+	var tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "rotation", target_rotation, 0.25).set_trans(Tween.TRANS_BOUNCE)
+	
+	tween.finished.connect(func(): _on_fail_tween_finished())
+
+func _on_fail_tween_finished() -> void:
+	var parent = get_parent()
+	if parent.has_method("_recalcular_pulso_actual"):
+		parent._recalcular_pulso_actual()
 
 func correct() -> void:
-	pause = false
+	var tween = create_tween()
+	
+	tween.tween_property(self, "rotation", deg_to_rad(rad_to_deg(rotation) + 45), (60/bpm)*0.5)
+
 
 func start() -> void:
-	pause = false
+	rotation = deg_to_rad(0)
+	pause = true
 
 func _physics_process(delta: float) -> void:
 	if pause: return
 	
-	rotation += deg_to_rad(delta * vel)
+	#rotation += deg_to_rad(delta * vel)
 	#print(rotation)
