@@ -8,6 +8,9 @@ var last_chord := len(Global.song)
 var last_klk_time : float = 0
 
 @onready var audio_player: AudioStreamPlayer2D = $"../AudioPlayer"
+@onready var pegatina: TextureRect = $Pegatina
+@onready var animator: AnimationPlayer = $AnimationPlayer
+@export var pegatinas : Array[Texture2D]
 
 @export var bien_time = 0.15
 @export var perfe_time = 0.1
@@ -137,18 +140,25 @@ func _matching_keys() -> bool:
 	return true
 
 func _acertado_on_time() -> bool:
+	pegatina.visible = true
 	if paused:
 		print("MAL")
+		pegatina.texture = pegatinas[0]
+		animator.play("pegar")
 		return true
 	var dif_at = abs(Time.get_ticks_msec() - last_klk_time) * 0.001
 	var dif_nt = abs(Time.get_ticks_msec() - last_klk_time + (0.25/(bpm/60))) * 0.001
 	if (dif_at < bien_time or dif_nt < bien_time/3):
 		if dif_at < perfe_time:
+			pegatina.texture = pegatinas[2]
 			print("PERFECTO")
 		elif(dif_at > bien_time ):
+			pegatina.texture = pegatinas[0]
 			print("MAL")
 		else:
+			pegatina.texture = pegatinas[1]
 			print("BIEN")
+		animator.play("pegar")
 		return true
 	return false
 

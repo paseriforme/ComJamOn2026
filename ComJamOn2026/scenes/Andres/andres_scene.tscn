@@ -16,16 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://kw5pykq6pu5w" path="res://assets/image/Backgrounds/FONDO_delante.png" id="11_5jka1"]
 [ext_resource type="Texture2D" uid="uid://cvyr7eii15wki" path="res://assets/image/Amigas/PJ_CHAVALA.png" id="12_dghs7"]
 [ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scripts/game/UI.gd" id="12_ojqkt"]
-[ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="13_b6w4g"]
+[ext_resource type="PackedScene" uid="uid://bks1yclxa8xyy" path="res://scenes/Prefabs/panel.tscn" id="13_g7yle"]
 [ext_resource type="Texture2D" uid="uid://bcsf37x8s2y24" path="res://assets/image/Amigas/PJ_manager.png" id="13_y884l"]
-[ext_resource type="Texture2D" uid="uid://n0ob011ts0le" path="res://assets/image/Characters/UI PRACTICA.png" id="14_er86r"]
-[ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="15_suro2"]
 [ext_resource type="Texture2D" uid="uid://csa6te68rejsc" path="res://assets/image/Amigas/PJ_yo.png" id="16_3hxkh"]
-[ext_resource type="PackedScene" uid="uid://bjiblirkavor3" path="res://scenes/Cynthia/trastes.tscn" id="16_nl040"]
-[ext_resource type="Texture2D" uid="uid://ci4a5gkijkp4m" path="res://assets/image/UI/sombra_vinilo.png" id="17_6p77y"]
-[ext_resource type="Script" uid="uid://y3quaa0klmfh" path="res://scripts/game/disco.gd" id="17_b8sw3"]
-[ext_resource type="Texture2D" uid="uid://uvypc1m30qg" path="res://assets/image/UI/vinilo.png" id="18_ocxcs"]
-[ext_resource type="Texture2D" uid="uid://d4dtlbu4ge0j6" path="res://assets/image/UI/seccion_disco.png" id="19_vu87w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
@@ -35,8 +28,6 @@ size = Vector2(3926, 1379)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1x3un"]
 radius = 70.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1x3un"]
 
 [node name="CyntristScene" type="Node2D" unique_id=581873652]
 script = ExtResource("1_nxw74")
@@ -214,106 +205,7 @@ texture = ExtResource("11_5jka1")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1624487201]
 script = ExtResource("12_ojqkt")
 
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=89512763]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_1x3un")
-metadata/_edit_use_anchors_ = true
-
-[node name="DialogueManager" parent="CanvasLayer/Panel" unique_id=500792603 instance=ExtResource("13_b6w4g")]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="Fondo" type="TextureRect" parent="CanvasLayer/Panel" unique_id=756236629]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.7284969
-anchor_right = -0.7284969
-offset_left = -667.5239
-offset_right = 1696.4761
-offset_bottom = 1079.0
-scale = Vector2(0.67, 0.67)
-texture = ExtResource("14_er86r")
-metadata/_edit_use_anchors_ = true
-
-[node name="control_disco" parent="CanvasLayer/Panel/Fondo" unique_id=1914348709 instance=ExtResource("15_suro2")]
-layout_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Sombra vinilo" type="TextureRect" parent="CanvasLayer/Panel/Fondo" unique_id=894602778]
-layout_mode = 0
-offset_left = 480.59692
-offset_top = 7.462672
-offset_right = 2400.5972
-offset_bottom = 1087.4626
-texture = ExtResource("17_6p77y")
-
-[node name="Disco" type="Control" parent="CanvasLayer/Panel/Fondo" unique_id=160732343]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 768.657
-offset_top = 370.948
-offset_right = 768.657
-offset_bottom = 370.948
-grow_vertical = 2
-rotation = 1.6388642
-script = ExtResource("17_b8sw3")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Fondo/Disco" unique_id=1166698560]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -805.0001
-offset_top = -799.0
-offset_right = 804.9999
-offset_bottom = 799.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("18_ocxcs")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Fondo" unique_id=395180740]
-z_index = 2
-layout_mode = 0
-offset_left = 473.1343
-offset_right = 2393.1343
-offset_bottom = 1080.0
-texture = ExtResource("19_vu87w")
-
-[node name="Trastes" parent="CanvasLayer/Panel/Fondo/TextureRect" unique_id=1785847443 instance=ExtResource("16_nl040")]
-z_index = 60
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 594.0298
-offset_top = 168.9552
-offset_right = 594.0298
-offset_bottom = 168.9552
-grow_vertical = 2
-rotation = -0.5235988
-scale = Vector2(0.43, 0.43)
-
-[node name="Pegatina" type="TextureRect" parent="CanvasLayer/Panel/Fondo" unique_id=878587443]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="CanvasLayer/Panel/Fondo" unique_id=792159061]
+[node name="Panel" parent="CanvasLayer" unique_id=1301705266 instance=ExtResource("13_g7yle")]
 
 [connection signal="body_entered" from="colega" to="colega" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="colega" to="colega" method="_on_body_shape_entered"]
@@ -328,4 +220,3 @@ offset_bottom = 40.0
 [connection signal="body_entered" from="Character" to="Character" method="_on_body_entered"]
 
 [editable path="Character"]
-[editable path="CanvasLayer/Panel/Fondo/TextureRect/Trastes"]
