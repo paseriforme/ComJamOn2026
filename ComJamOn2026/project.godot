@@ -18,12 +18,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Dando la nota"
+config/name="Hoy tocan Las Magnolias"
 config/version="0.1"
 run/main_scene="uid://c161kl18xdbk1"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0.13725491, 1)
-config/icon="res://icon.svg"
+config/icon="uid://j2brfboyjw2h"
 
 [autoload]
 
