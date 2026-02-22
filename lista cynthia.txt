@@ -1,5 +1,16 @@
-> tween cámara al hablar
+> cámara tween al pj
+> cámara tween área
+
 > controles de dialogo
+
+> TWEENS A TODO
+> maquetar
+
+> pensamiento
+
+
+
+
 
 las ruelias
 las durianas

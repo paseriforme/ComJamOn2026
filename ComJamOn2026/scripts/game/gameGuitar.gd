@@ -96,7 +96,8 @@ func _physics_process(delta: float) -> void:
 	elapsed_b_time += delta
 	if elapsed_b_time >= 1/(bpm/60):
 		#print(1/(bpm/60))
-		Global.sound.play_sfx("metronom_klack")
+		if (Global.sound != null):
+			Global.sound.play_sfx("metronom_klack")
 		elapsed_b_time = 0
 	elapsed_sb_time += delta
 	if elapsed_sb_time >= 0.5/(bpm/60):

@@ -40,4 +40,4 @@ follow_damping_value = Vector2(1, 1)
 draw_limits = true
 
 [node name="Segundo" type="Node2D" parent="." unique_id=1371953691]
-position = Vector2(-350, 0)
+position = Vector2(-1583, 28)
