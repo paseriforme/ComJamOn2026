@@ -16,6 +16,7 @@ var language = "es"
 
 var dialogue_box : DialogueBox
 var decision_box : DecisionBox
+@onready var feedback = $Feedback
 
 func _ready() -> void:
 	dialogue_box = DIALOGUE_BOX.instantiate()
@@ -100,6 +101,8 @@ func show_decision():
 		audio
 	)
 	
+	feedback.visible = true
+	
 	dialogue_box.visible = false
 	decision_box.visible = true
 	
@@ -132,6 +135,7 @@ func end_dialogue():
 
 func choose(next_id):
 	current_node = current_nodes[next_id]
+	feedback.visible = false
 	_show_node()
 	
 func _process(delta: float) -> void:

@@ -31,6 +31,7 @@ func _ready() -> void:
 	set_state(states.WALK)
 	Global.aceptar.connect(_aceptar_dialogo)
 	Global.negarse.connect(_rechazar_dialogo)
+	Global.end_dialogue.connect(_end_dialogo)
 	Global.end_song.connect(_end_song)
 #	camara.tween_resource.duration = 20
 
@@ -38,8 +39,12 @@ func _aceptar_dialogo():
 	Global.dialogo_aceptado = true
 	
 func _rechazar_dialogo():
-	set_state(states.WALK)	
+#	set_state(states.WALK)	
 	Global.dialogo_aceptado = false
+
+func _end_dialogo():
+	if not Global.dialogo_aceptado:
+		set_state(states.WALK)	
 
 func _end_song():
 	#print("END SONG")
@@ -51,7 +56,6 @@ func set_state(st : states):
 		states.WALK:
 			print("WALK")
 			character.set_process(true)
-			character.canwalk = true
 			canvas_layer.visible(false)
 			Global.npc_chocado = false
 			
@@ -62,6 +66,8 @@ func set_state(st : states):
 			tween2.tween_property(fondo, "position", Vector2(fondo_ini_x, 0), fondo_tween_time_walk).set_trans(fondo_tween_trans)
 			tween2.finished.connect(func(): camara.set_limit_target(area_camara))
 			print_debug(camara.limit_target)	
+			await Global.timer(0.1)
+			character.canwalk = true
 			pass
 		states.TALK:
 			print("TALK")
