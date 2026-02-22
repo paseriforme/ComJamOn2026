@@ -7,8 +7,8 @@ enum states {WALK, TALK, PLAY}
 @onready var canvas_layer: UI = $CanvasLayer
 @onready var camara: PhantomCamera2D = $PlayerPhantomCamera2D
 @onready var fondo : TextureRect = $CanvasLayer/Panel/Fondo
-@onready var area_camara : String = "Colisiones/Area/AreaShape"
-@onready var area_camara_talk : String = "Colisiones/Area/AreaShape2"
+@onready var area_camara : String = "../Colisiones/Area/AreaShape"
+@onready var area_camara_talk : String = "../Colisiones/Area/AreaShape2"
 
 @export var fondo_ini_x : float = -1600.0
 @export var fondo_talk_x : float = -800.0
@@ -45,7 +45,8 @@ func set_state(st : states):
 			camara.follow_target = $Character
 #			camara.tween_resource = tween_seguir
 			character.canwalk = true
-#			canvas_layer.visible(false)
+			print_debug(camara.limit_target)
+			canvas_layer.visible(false)
 			Global.npc_chocado = false
 			camara.limit_target = area_camara
 			var tween2 = get_tree().create_tween()
