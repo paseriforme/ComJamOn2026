@@ -46,12 +46,12 @@ func _physics_process(delta: float) -> void:
 #	if (Input.is_anything_pressed()): # se ha pulsado algo
 	if not strumPressed and Input.is_action_pressed("rasgar",true): 
 		animator.play("despensamiento")
-		print_debug(">>> HAS PULSADO ALGO")
+#		print_debug(">>> HAS PULSADO ALGO")
 		control_current_time = 0.0
 		mostrando = false
 	if control_current_time >= control_feedback_time and not mostrando and canwalk:
 		control_current_time = 0.0
-		print_debug(">>> PENSAMIENTO")
+#		print_debug(">>> PENSAMIENTO")
 		animator.play("pensamiento")
 		mostrando = true
 		pass
