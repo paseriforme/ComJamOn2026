@@ -31,29 +31,49 @@ func _ready() -> void:
 	for i in range(8):
 		var pulso = PULSO.instantiate()
 		pulso.scale = Vector2(0.66, 0.66)
-		print(i, ": ", Global.song[i])
-		pulso.rotation = deg_to_rad(rot)
-		pulso.set_pulso(Global.song[i])
-		rot += 45
 		disco.add_child(pulso)
 		pool_pulsos.push_back(pulso)
-	next_pulse()
+	
 
 func stop_song():
 	enable = false
-	disco.stop()
 
 func start_song():
+	# Detener primero
 	enable = true
+	paused = false
+	
+	# Limpiar pulsos
+	var rot = 0
+	for i in len(pool_pulsos):
+		var pulso = pool_pulsos[i]
+		pulso.scale = Vector2(0.66, 0.66)
+		pulso.rotation = deg_to_rad(rot)
+		pulso.set_pulso(Global.song[i])
+		rot += 45
+	
+	# Reset de indices
 	actual_pulso = 0
 	anterior_pulso = -1
 	actual_chord = 0
 	waiting_chord = -1
-	pulses_to_start = 0
+	
+	# Reset estados
+	pulsed = false
 	acierto = false
-	print("StartSong")
-	disco.start()
-	disco.rotation = deg_to_rad(-90)
+	pulses_to_start = 0
+	
+	# Reset tiempos
+	elapsed_b_time = 0
+	elapsed_sb_time = 0
+	last_klk_time = 0
+	
+	# Reset visual
+	disco.rotation = deg_to_rad(-90 -30)
+	
+	#next_pulse()
+	
+	print("START")
 
 func next_pulse():
 	# quita el anterior
@@ -66,11 +86,6 @@ func next_pulse():
 		
 		# encender botones segun el acorde
 		pool_pulsos[actual_pulso].set_pulso(Global.song[actual_chord])
-		for p in len(pool_pulsos):
-			if p == actual_pulso:
-				pool_pulsos[p].set_pulso(Global.song[actual_chord])
-			else:
-				pool_pulsos[p].set_pulso([false,false,false,false,false])
 		
 		actual_chord += 1
 		
@@ -125,7 +140,7 @@ func _physics_process(delta: float) -> void:
 	# si ha terminado la cancion
 	if actual_chord >= len(Global.song):
 		#print(actual_chord, " / ", len(Global.song))
-		Global.end_song.emit()
+		disco.end()
 		return
 	
 	if not paused:
