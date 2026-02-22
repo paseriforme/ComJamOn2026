@@ -61,8 +61,12 @@ func next_key() -> void:
 
 func _confirmar():
 	print_debug("CONFIRMAR")
+	Global.change_scene(Global.Scenes.GAME)
 	pass
 	
 func _reiniciar():
+	for a in actions:
+		for e in InputMap.action_get_events(a):
+			InputMap.action_erase_event(a, e)
 	print_debug("REPETIR")
 	pass

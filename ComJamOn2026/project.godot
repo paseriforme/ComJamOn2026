@@ -22,7 +22,7 @@ config/name="Dando la nota"
 config/version="0.1"
 run/main_scene="uid://c161kl18xdbk1"
 config/features=PackedStringArray("4.6", "Forward Plus")
-boot_splash/bg_color=Color(0.09411765, 0.09411765, 0.09019608, 1)
+boot_splash/bg_color=Color(0, 0, 0.13725491, 1)
 config/icon="res://icon.svg"
 
 [autoload]
