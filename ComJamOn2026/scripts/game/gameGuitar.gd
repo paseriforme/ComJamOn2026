@@ -17,7 +17,6 @@ var pulsed = false
 var enable = false
 var paused = false
 var acierto = false
-var esperando_acierto = true
 
 @onready var disco: Disco = $"../Disco"
 
@@ -51,7 +50,6 @@ func start_song():
 	actual_chord = 0
 	waiting_chord = -1
 	pulses_to_start = 0
-	esperando_acierto = false
 	acierto = false
 	print("StartSong")
 	disco.start()
@@ -75,30 +73,30 @@ func next_pulse():
 		# encender botones segun el acorde
 		pool_pulsos[actual_pulso].set_pulso(Global.song[actual_chord])
 		
-		waiting_chord = actual_chord
 		actual_chord += 1
 		
-		esperando_acierto = true
 		acierto = false
 	else:
 		actual_chord += 1
 		next_pulse()
 
 func _matching_keys() -> bool:
-	if waiting_chord < 0 or waiting_chord >= len(Global.song):
-		return false
 	for i in range(len(Global.trastes)):
-		if Global.trastes[i] != Global.song[waiting_chord][i]:
+		if Global.trastes[i] != Global.song[actual_chord][i]:
+			print("_matching_keys: FALSE")
 			return false
 	return true
 
 func _acertado_on_time() -> bool:
+	if paused:
+		print("MAL")
+		return true
 	# diferencia con el tiempo anterior
 	var dif_at = abs(Time.get_ticks_msec() - last_klk_time) * 0.001
 	# diferencia con el tiempo siguiente
 	var dif_nt = abs(Time.get_ticks_msec() - last_klk_time + (0.25/(bpm/60))) * 0.001
 	#print(dif_at, " / ", dif_nt, ": ", bien_time, "-", perfe_time)
-	if (dif_at < bien_time or dif_nt < bien_time/3 or paused):
+	if (dif_at < bien_time or dif_nt < bien_time/3):
 		if dif_at < perfe_time:
 			# PERFECTO
 			print("PERFECTO")
@@ -112,9 +110,7 @@ func _acertado_on_time() -> bool:
 	return false
 
 func _vacio() -> bool:
-	if waiting_chord < 0 or waiting_chord >= len(Global.song):
-		return true
-	for traste in Global.song[waiting_chord]:
+	for traste in Global.song[actual_chord]:
 		if traste:
 			return false
 	return true
@@ -122,43 +118,44 @@ func _vacio() -> bool:
 func _physics_process(delta: float) -> void:
 	if not enable:
 		return
+	if not paused:
+		# Actualizar el tiempo del beat
+		var beat_time = 60.0 / bpm
+		elapsed_b_time += delta
+		if elapsed_b_time >= beat_time:
+			if Global.sound != null:
+				Global.sound.play_sfx("metronom_klack")
+			elapsed_b_time -= beat_time
+			if pulses_to_start <2: pulses_to_start += 1
 	
-	# Actualizar el tiempo del beat
-	var beat_time = 60.0 / bpm
-	elapsed_b_time += delta
-	if elapsed_b_time >= beat_time:
-		if Global.sound != null:
-			Global.sound.play_sfx("metronom_klack")
-		elapsed_b_time -= beat_time
+		# Actualizar sub-beat (medio tiempo)
+		elapsed_sb_time += delta
+		if elapsed_sb_time >= beat_time * 0.5:
+			last_klk_time = Time.get_ticks_msec()
+			elapsed_sb_time -= beat_time * 0.5
 		
-		if pulses_to_start < 2:
-			pulses_to_start += 1
-	
-	# Actualizar sub-beat (medio tiempo)
-	elapsed_sb_time += delta
-	if elapsed_sb_time >= beat_time * 0.5:
-		last_klk_time = Time.get_ticks_msec()
-		elapsed_sb_time -= beat_time * 0.5
-		
-		if pulses_to_start >= 2 and esperando_acierto and acierto:
-			esperando_acierto = false
-			acierto = false
-			pulsed = false  # Reset para el siguiente pulso
-			next_pulse()
+			if pulses_to_start >= 2 and acierto:
+				acierto = false
+				pulsed = false  # Reset para el siguiente pulso
+				next_pulse()
 	
 	# Detectar input solo cuando estamos esperando acierto
-	if pulses_to_start >= 2 and esperando_acierto:
+	if pulses_to_start >= 2 :
 		if _vacio():
+			print("vacio")
 			acierto = true
-		elif not pulsed and Input.is_action_just_pressed("rasgar"):
+		elif not pulsed and Input.is_action_just_pressed("rasgar", true):
+			print("RASGAR")
+			pulsed = true
 			if _matching_keys() and _acertado_on_time():
 				print("Pulsado correcto")
-				pulsed = true
 				correct()
 			else:
 				print("Fallo en la deteccion")
-				pulsed = true
 				fail()
+		else:
+			#print("Falloa")
+			fail()
 	
 	# Liberar pulsacion
 	if Input.is_action_just_released("rasgar"):
@@ -167,6 +164,7 @@ func _physics_process(delta: float) -> void:
 func correct():
 	print("Correct")
 	acierto = true
+	paused = false
 	disco.correct()
 
 func fail():
@@ -174,3 +172,4 @@ func fail():
 	# FAIL SOUND
 	disco.fail()
 	acierto = false
+	paused = true
