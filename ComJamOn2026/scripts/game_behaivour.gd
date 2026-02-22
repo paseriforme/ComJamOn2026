@@ -29,9 +29,18 @@ var state := states.WALK
 
 func _ready() -> void:
 	set_state(states.WALK)
+	Global.aceptar.connect(_aceptar_dialogo)
+	Global.negarse.connect(_rechazar_dialogo)
 	Global.end_song.connect(_end_song)
 #	camara.tween_resource.duration = 20
+
+func _aceptar_dialogo():
+	Global.dialogo_aceptado = true
 	
+func _rechazar_dialogo():
+	set_state(states.WALK)	
+	Global.dialogo_aceptado = false
+
 func _end_song():
 	print("END SONG")
 	set_state(states.WALK)
@@ -46,7 +55,7 @@ func set_state(st : states):
 			canvas_layer.visible(false)
 			Global.npc_chocado = false
 			
-			
+			Global.dialogo_aceptado = false
 			camara.follow_target = $Character
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_walk)

@@ -18,6 +18,10 @@ signal end_dialogue()
 signal end_song()
 @warning_ignore("unused_signal")
 signal chocar_npc()
+@warning_ignore("unused_signal")
+signal aceptar()
+@warning_ignore("unused_signal")
+signal negarse()
 
 ## maquina de estados y variables de flujo
 var sm # state machine
@@ -38,6 +42,7 @@ var random = RandomNumberGenerator.new()
 var direccion_jugador : Vector2 = Vector2.ZERO
 var trastes: Array[bool] = [false, false, false, false, false];
 
+
 enum acordes {DO, RE, MI, SOL, NONE}
 const DO  = [true, false, false, false, false]
 const RE  = [false, true, false, false, false]
@@ -51,6 +56,7 @@ var song := [
 	]
 	
 var npc_chocado = false
+var dialogo_aceptado = false;
 
 func _ready() -> void:
 	pass

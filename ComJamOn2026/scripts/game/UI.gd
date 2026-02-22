@@ -22,4 +22,5 @@ func show_dialogue(character):
 	dialogue_manager.start(0)
 
 func _end_dialogue():
-	game_state.set_state(GameState.states.PLAY)
+	if (Global.dialogo_aceptado):
+		game_state.set_state(GameState.states.PLAY)

@@ -109,7 +109,17 @@ func show_decision():
 
 func do_action():
 	# Mandar la senyal
+	match current_node.text_key:
+		"negarse":
+			print_debug("TE HAS NEGADO")
+			Global.negarse.emit()
+			pass
+		"aceptar":
+			print_debug("HAS ACEPTADO")
+			Global.aceptar.emit()
+			pass
 	current_node.text_key
+	next_node()
 
 func next_node():
 	if current_node.next == -1:
