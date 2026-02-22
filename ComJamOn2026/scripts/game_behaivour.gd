@@ -72,14 +72,12 @@ func set_state(st : states):
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_walk)
 			tween2.tween_property(fondo, "position", Vector2(fondo_ini_x, 0), fondo_tween_time_walk).set_trans(fondo_tween_trans)
-			tween2.finished.connect(func(): camara.set_limit_target(area_camara))
-#			print_debug(camara.limit_target)	
+			tween2.finished.connect(func(): await Global.timer(0.1); if state == states.WALK: camara.set_limit_target(area_camara))
 			await Global.timer(0.1)
 			character.canwalk = true
 			pass
 		states.TALK:
 			print("TALK")
-#			camara.tween_resource = tween_hablar
 			character.canwalk = false
 			character.set_process(false)
 			canvas_layer.visible(true)

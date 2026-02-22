@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cqsaa8m5gcbww"]
 
-[ext_resource type="PackedScene" uid="uid://bjiblirkavor3" path="res://scenes/Cynthia/trastes.tscn" id="1_5lwix"]
 [ext_resource type="Script" uid="uid://cuuc1u18f3t8m" path="res://scripts/game_behaivour.gd" id="1_a6vk8"]
 [ext_resource type="PackedScene" uid="uid://c7k3rqpmcf0vt" path="res://scenes/Prefabs/character.tscn" id="2_uxfon"]
 [ext_resource type="Script" uid="uid://bcchepkryj7kl" path="res://scripts/game/NPC.gd" id="3_1syo1"]
@@ -11,26 +10,18 @@
 [ext_resource type="Texture2D" uid="uid://dk6ux8aiesioe" path="res://icon.svg" id="5_r4itm"]
 [ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://scripts/game/UI.gd" id="5_s7rui"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_ihtxl"]
-[ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="6_kjaud"]
 [ext_resource type="Resource" uid="uid://euybd2w0bax" path="res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_2d_tween.tres" id="7_u8e5d"]
 [ext_resource type="Texture2D" uid="uid://kw5pykq6pu5w" path="res://assets/image/Backgrounds/FONDO_delante.png" id="9_1x3un"]
-[ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="9_2eiin"]
-[ext_resource type="Texture2D" uid="uid://n0ob011ts0le" path="res://assets/image/Characters/UI PRACTICA.png" id="12_1x3un"]
-[ext_resource type="Script" uid="uid://y3quaa0klmfh" path="res://scripts/game/disco.gd" id="15_h3u08"]
-[ext_resource type="Texture2D" uid="uid://ci4a5gkijkp4m" path="res://assets/image/UI/sombra_vinilo.png" id="16_q5vl3"]
-[ext_resource type="Texture2D" uid="uid://uvypc1m30qg" path="res://assets/image/UI/vinilo.png" id="18_k7xfu"]
-[ext_resource type="Texture2D" uid="uid://d4dtlbu4ge0j6" path="res://assets/image/UI/seccion_disco.png" id="19_q5vl3"]
+[ext_resource type="PackedScene" uid="uid://bks1yclxa8xyy" path="res://scenes/Prefabs/panel.tscn" id="13_2eiin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x3un"]
-size = Vector2(3926, 1394.5)
+size = Vector2(5796, 1394.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1x3un"]
 radius = 70.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ihtxl"]
 
 [node name="CyntristScene" type="Node2D" unique_id=581873652]
 script = ExtResource("1_a6vk8")
@@ -70,7 +61,6 @@ limit_target = NodePath("../Colisiones/Area/AreaShape")
 [node name="Colisiones" type="Node" parent="." unique_id=19771807]
 
 [node name="Escenario" type="StaticBody2D" parent="Colisiones" unique_id=1000452435]
-visible = false
 position = Vector2(0, 3)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones/Escenario" unique_id=688039937]
@@ -84,7 +74,6 @@ visible = false
 polygon = PackedVector2Array(-1044, -199, -1054, -154, -994, 372, -928, 571, -794, 705, 274, 740, 841, 685, 966, 491, 1001, -41, 1007, -233, 857, -280, 681, -307, 641, -389, 524, -398, 488, -471, 381, -446, 287, -490, 170, -457, 53, -503, -32, -439, -117, -488, -231, -436, -314, -417, -367, -431, -460, -380, -642, -412, -681, -351, -730, -383, -834, -324, -936, -295)
 
 [node name="Area" type="StaticBody2D" parent="Colisiones" unique_id=114390528]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -93,7 +82,7 @@ position = Vector2(-31.25, -4.25)
 shape = SubResource("RectangleShape2D_2eiin")
 
 [node name="AreaShape2" type="CollisionShape2D" parent="Colisiones/Area" unique_id=266058823]
-position = Vector2(-844, -4.5)
+position = Vector2(-1779, -4.5)
 shape = SubResource("RectangleShape2D_1x3un")
 
 [node name="NPC" type="RigidBody2D" parent="." unique_id=2089657348]
@@ -127,110 +116,10 @@ texture = ExtResource("9_1x3un")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1624487201]
 script = ExtResource("5_s7rui")
 
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=89512763]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_ihtxl")
-metadata/_edit_use_anchors_ = true
-
-[node name="DialogueManager" parent="CanvasLayer/Panel" unique_id=500792603 instance=ExtResource("6_kjaud")]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="Fondo" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1046680234]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.7284969
-anchor_right = -0.7284969
-offset_left = -667.5239
-offset_right = 1696.4761
-offset_bottom = 1079.0
-scale = Vector2(0.67, 0.67)
-texture = ExtResource("12_1x3un")
-metadata/_edit_use_anchors_ = true
-
-[node name="control_disco" parent="CanvasLayer/Panel/Fondo" unique_id=1914348709 instance=ExtResource("9_2eiin")]
-layout_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Sombra vinilo" type="TextureRect" parent="CanvasLayer/Panel/Fondo" unique_id=267096067]
-layout_mode = 0
-offset_left = 480.59692
-offset_top = 7.462672
-offset_right = 2400.5972
-offset_bottom = 1087.4626
-texture = ExtResource("16_q5vl3")
-
-[node name="Disco" type="Control" parent="CanvasLayer/Panel/Fondo" unique_id=413917649]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 768.657
-offset_top = 370.948
-offset_right = 768.657
-offset_bottom = 370.948
-grow_vertical = 2
-rotation = 1.6388642
-script = ExtResource("15_h3u08")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Fondo/Disco" unique_id=943252640]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -805.0001
-offset_top = -799.0
-offset_right = 804.9999
-offset_bottom = 799.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("18_k7xfu")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Fondo" unique_id=1525226247]
-z_index = 2
-layout_mode = 0
-offset_left = 473.1343
-offset_right = 2393.1343
-offset_bottom = 1080.0
-texture = ExtResource("19_q5vl3")
-
-[node name="Trastes" parent="CanvasLayer/Panel/Fondo/TextureRect" unique_id=427422133 instance=ExtResource("1_5lwix")]
-z_index = 60
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 594.0298
-offset_top = 168.9552
-offset_right = 594.0298
-offset_bottom = 168.9552
-grow_vertical = 2
-rotation = -0.5235988
-scale = Vector2(0.43, 0.43)
-
-[node name="Pegatina" type="TextureRect" parent="CanvasLayer/Panel/Fondo" unique_id=1188801248]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="CanvasLayer/Panel/Fondo" unique_id=775438034]
+[node name="Panel" parent="CanvasLayer" unique_id=1301705266 instance=ExtResource("13_2eiin")]
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="NPC" to="NPC" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="Character" to="Character" method="_on_body_entered"]
 
 [editable path="Character"]
-[editable path="CanvasLayer/Panel/Fondo/TextureRect/Trastes"]
