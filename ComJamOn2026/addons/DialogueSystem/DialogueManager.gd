@@ -133,3 +133,15 @@ func end_dialogue():
 func choose(next_id):
 	current_node = current_nodes[next_id]
 	_show_node()
+	
+func _process(delta: float) -> void:
+#	if Input.is_action_just_pressed("verde",true) and decision_box.visible:
+#		choose(current_node.options[0].next)
+#		pass
+#	if Input.is_action_just_pressed("rojo",true) and decision_box.visible and not dialogue_box.visible:
+#		choose(current_node.options[1].next)
+#		pass
+	pass
+	
+	
+	

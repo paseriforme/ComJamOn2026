@@ -11,7 +11,7 @@ enum states {WALK, TALK, PLAY}
 @onready var area_camara_talk : String = "../Colisiones/Area/AreaShape2"
 
 @export var fondo_ini_x : float = -1600.0
-@export var fondo_talk_x : float = -800.0
+@export var fondo_talk_x : float = -860.0
 @export var fondo_play_x : float = -320.0
 
 @export var fondo_tween_trans : Tween.TransitionType = Tween.TRANS_ELASTIC

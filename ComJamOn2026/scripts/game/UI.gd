@@ -22,7 +22,7 @@ func show_dialogue(character):
 	
 #func continue_dialogue(character):
 func _process(delta: float) -> void:
-	if (Input.is_action_just_pressed("verde",true)):
+	if Input.is_action_just_pressed("verde",true) and dialogue_manager.dialogue_box.visible:
 		dialogue_manager.dialogue_box.pressed()
 
 func _end_dialogue():

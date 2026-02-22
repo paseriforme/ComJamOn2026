@@ -16,17 +16,11 @@ script = ExtResource("1_multg")
 
 [node name="CharacterSprite" type="TextureRect" parent="." unique_id=2077406374]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 707.0
-offset_bottom = 737.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(0.8, 0.8)
-pivot_offset_ratio = Vector2(-4, -4)
+offset_left = -1276.9999
+offset_top = -714.99994
+offset_right = 643.0001
+offset_bottom = 365.00006
+scale = Vector2(0.666, 0.666)
 texture = ExtResource("2_7ovhn")
 stretch_mode = 2
 
