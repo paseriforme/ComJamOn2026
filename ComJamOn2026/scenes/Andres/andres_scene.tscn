@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bjiblirkavor3" path="res://scenes/Cynthia/trastes.tscn" id="16_nl040"]
 [ext_resource type="Script" uid="uid://y3quaa0klmfh" path="res://scripts/game/disco.gd" id="17_b8sw3"]
 [ext_resource type="Texture2D" uid="uid://uvypc1m30qg" path="res://assets/image/UI/vinilo.png" id="18_ocxcs"]
+[ext_resource type="Texture2D" uid="uid://dg7nugadlujhn" path="res://assets/image/UI/seccion_disco.png" id="19_vu87w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
@@ -204,15 +205,24 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 1126.8656
-offset_top = 370.94775
-offset_right = 1126.8656
-offset_bottom = 370.94775
+offset_left = 1067.1641
+offset_top = 169.4552
+offset_right = 1067.1641
+offset_bottom = 169.4552
 grow_vertical = 2
+rotation = -0.5235988
 scale = Vector2(0.43, 0.43)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel/Fondo" unique_id=395180740]
+layout_mode = 0
+offset_left = 473.1343
+offset_right = 2393.1343
+offset_bottom = 1080.0
+texture = ExtResource("19_vu87w")
 
 [connection signal="body_entered" from="NPC" to="NPC" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="NPC" to="NPC" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="Character" to="Character" method="_on_body_entered"]
 
 [editable path="Character"]
+[editable path="CanvasLayer/Panel/Fondo/Trastes2"]
