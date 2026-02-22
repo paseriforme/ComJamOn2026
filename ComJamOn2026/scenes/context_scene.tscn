@@ -28,153 +28,79 @@ offset_bottom = 1080.0
 scale = Vector2(0.666, 0.666)
 texture = ExtResource("2_6qt28")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1243645281 node_paths=PackedStringArray("buttons")]
+[node name="Control" type="Control" parent="." unique_id=1936184046 node_paths=PackedStringArray("buttons")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = 6.0
-offset_right = 1844.0
-offset_bottom = 406.0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -0.16580628
 script = ExtResource("2_4nk5g")
 buttons = [NodePath("Verde"), NodePath("Rojo"), NodePath("Amarillo"), NodePath("Azul"), NodePath("Naranja"), NodePath("Rasgueo")]
 
-[node name="Verde" type="TextureRect" parent="HBoxContainer2" unique_id=1704656196]
+[node name="Verde" type="TextureRect" parent="Control" unique_id=1704656196]
 modulate = Color(0, 1, 0, 1)
-layout_mode = 2
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 181.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("4_ri61y")
 stretch_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer2/Verde" unique_id=1987823601]
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 49
-text = "GREEN"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Rojo" type="TextureRect" parent="HBoxContainer2" unique_id=821390965]
+[node name="Rojo" type="TextureRect" parent="Control" unique_id=821390965]
 modulate = Color(1, 0, 0, 1)
-layout_mode = 2
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 181.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("5_23oyl")
 stretch_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer2/Rojo" unique_id=1853163579]
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 49
-text = "RED"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Amarillo" type="TextureRect" parent="HBoxContainer2" unique_id=1012652153]
+[node name="Amarillo" type="TextureRect" parent="Control" unique_id=1012652153]
 modulate = Color(1, 1, 0, 1)
-layout_mode = 2
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 181.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("6_52in3")
 stretch_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer2/Amarillo" unique_id=1452005710]
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 49
-text = "YELLOW"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Azul" type="TextureRect" parent="HBoxContainer2" unique_id=1587230987]
+[node name="Azul" type="TextureRect" parent="Control" unique_id=1587230987]
 modulate = Color(0, 0, 1, 1)
-layout_mode = 2
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 181.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("7_8hy63")
 stretch_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer2/Azul" unique_id=1087887015]
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 49
-text = "BLUE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Naranja" type="TextureRect" parent="HBoxContainer2" unique_id=1650109053]
+[node name="Naranja" type="TextureRect" parent="Control" unique_id=1650109053]
 modulate = Color(1, 0.49019608, 0, 1)
-layout_mode = 2
+layout_mode = 0
+offset_right = 156.0
+offset_bottom = 181.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("8_3lhbi")
 stretch_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer2/Naranja" unique_id=465926276]
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 49
-text = "ORANGE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Rasgueo" type="TextureRect" parent="HBoxContainer2" unique_id=1328082055]
-layout_mode = 2
+[node name="Rasgueo" type="TextureRect" parent="Control" unique_id=1328082055]
+layout_mode = 0
+offset_right = 333.0
+offset_bottom = 187.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("9_gpbvq")
 stretch_mode = 2
-
-[node name="Label" type="Label" parent="HBoxContainer2/Rasgueo" unique_id=356311465]
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 49
-text = "scrape"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="." unique_id=686748360]
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 92.0
-offset_bottom = 160.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 49
-text = "¡¡¡ PRESS IT !!!"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1721709650]

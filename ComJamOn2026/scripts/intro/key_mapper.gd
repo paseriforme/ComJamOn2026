@@ -1,4 +1,4 @@
-extends HBoxContainer
+extends Control
 class_name key_mapper
 
 var key := -1
