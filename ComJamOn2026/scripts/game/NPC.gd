@@ -47,6 +47,7 @@ func _iniciar_dialogo():
 		gameState.set_state(GameState.states.TALK)
 		print("START DIALOGUE: ", startDialogue)
 		canvas_layer.show_dialogue(startDialogue)
+		
 	pass
 
 
