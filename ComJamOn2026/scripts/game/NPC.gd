@@ -47,7 +47,8 @@ func _iniciar_dialogo():
 		gameState.set_state(GameState.states.TALK)
 		print("START DIALOGUE: ", startDialogue)
 		canvas_layer.show_dialogue(startDialogue)
-		
+		if selfNPC == NPC_type.MANAGER:
+			$"../CanvasLayer/Panel/Fondo".texture = preload("uid://dkjqyqi73dt1o")
 	pass
 
 
