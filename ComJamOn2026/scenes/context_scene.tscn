@@ -22,6 +22,8 @@
 [ext_resource type="Animation" uid="uid://bv6fkc8v70pra" path="res://assets/tweens/animations/pegar_naranja.res" id="14_5nyix"]
 [ext_resource type="Animation" uid="uid://da52aim7hawio" path="res://assets/tweens/animations/pegar_rasgeo.res" id="15_rdrxq"]
 [ext_resource type="AnimationLibrary" uid="uid://doqugb4ecg78g" path="res://assets/tweens/animations/calibrar_anims.res" id="22_oiic2"]
+[ext_resource type="Texture2D" uid="uid://be5cx0ivk5xsa" path="res://assets/image/UI/PEGATAS/CONFIRMAR.png" id="23_enjpd"]
+[ext_resource type="Texture2D" uid="uid://cv815jqb372f3" path="res://assets/image/UI/PEGATAS/REPETIR.png" id="24_yo0gm"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f88sm"]
 _data = {
@@ -200,3 +202,17 @@ libraries/ = SubResource("AnimationLibrary_m8bm1")
 [node name="ARasgeo" type="AnimationPlayer" parent="Control" unique_id=1710315397]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_cjjoh")
+
+[node name="Confirmar" type="TextureRect" parent="Control" unique_id=1750839680]
+layout_mode = 0
+offset_left = -451.95193
+offset_right = 1468.0481
+offset_bottom = 1080.0
+texture = ExtResource("23_enjpd")
+
+[node name="Reintentar" type="TextureRect" parent="Control" unique_id=2045899531]
+layout_mode = 0
+offset_left = 760.0
+offset_right = 2680.0
+offset_bottom = 1080.0
+texture = ExtResource("24_yo0gm")
