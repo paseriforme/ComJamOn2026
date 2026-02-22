@@ -1,12 +1,5 @@
-
-
-> pegatinas
-> maquetar dialogos
-
-
-
 > opción dialogo loop pegado?
-
+> sonido de doblaje
 > manager y fin de juego
 
 
