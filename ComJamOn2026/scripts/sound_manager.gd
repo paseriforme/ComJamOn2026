@@ -60,20 +60,19 @@ func play_bgm(name: String, loop: bool = true, from_position: float = 0.0) -> vo
 	if not bgm_tracks.has(name):
 		push_warning("SoundManager: BGM '%s' no encontrado" % name)
 		return
+
 	current_bgm_name = name
 	bgm.stop()
 	bgm.stream = bgm_tracks[name]
-	var stream = bgm.stream
 	
-	if stream is AudioStreamWAV:
-		if loop:
-			stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
-		else:
-			stream.loop_mode = AudioStreamWAV.LOOP_DISABLED
-	elif stream is AudioStreamOggVorbis:
-		stream.loop = loop
+	# Ajustar loop
+	if bgm.stream is AudioStreamOggVorbis:
+		bgm.stream.loop = loop
+	elif bgm.stream is AudioStreamWAV:
+		bgm.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD if loop else AudioStreamWAV.LOOP_DISABLED
 	bgm.volume_db = bgm_volume_db
-	bgm.play(from_position)
+	bgm.play()
+	bgm.seek(from_position)
 
 
 func stop_bgm() -> void:

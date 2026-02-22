@@ -66,7 +66,8 @@ func start_song(start, fin):
 	paused = false
 	
 	var start_sec = start * ((60/bpm) * 0.5)
-	Global.sound.play_bgm("CancionEnteraSinGuitarra", false, start_sec)
+	print(start_sec)
+	Global.sound.play_bgm(Global.cancion, false, start_sec)
 	
 	# limpiar pulsos y establecer rotaciones fijas
 	var rot = 0
@@ -199,7 +200,7 @@ func _physics_process(delta: float) -> void:
 				acierto = false
 				pulsed = false
 				next_pulse()
-				print("next")
+				#print("next")
 	
 	# Detectar input solo cuando estamos esperando acierto
 	if pulses_to_start >= 2:
@@ -226,7 +227,7 @@ func correct():
 	paused = false
 	
 	Global.sound.play_bgm("CancionEnteraSinGuitarra", false, actual_cancion)
-	print("CORRECTO, ", Global.song[actual_chord])
+	#print("CORRECTO, ", Global.song[actual_chord])
 	match Global.song[actual_chord]:
 		Global.DO:
 			audio_player.stream = load("res://audio/sfx/DO.wav")
