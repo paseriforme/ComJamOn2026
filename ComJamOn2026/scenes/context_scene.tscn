@@ -23,6 +23,42 @@
 [ext_resource type="Animation" uid="uid://da52aim7hawio" path="res://assets/tweens/animations/pegar_rasgeo.res" id="15_rdrxq"]
 [ext_resource type="AnimationLibrary" uid="uid://doqugb4ecg78g" path="res://assets/tweens/animations/calibrar_anims.res" id="22_oiic2"]
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f88sm"]
+_data = {
+&"loop": ExtResource("4_f88sm"),
+&"pegar": ExtResource("10_rcnnb")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u8rhp"]
+_data = {
+&"loop": ExtResource("5_u8rhp"),
+&"pegar": ExtResource("11_jykjm")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_enjpd"]
+_data = {
+&"loop": ExtResource("6_enjpd"),
+&"pegar": ExtResource("12_hqjhl")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yo0gm"]
+_data = {
+&"loop": ExtResource("7_yo0gm"),
+&"pegar": ExtResource("13_5b0pt")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8bm1"]
+_data = {
+&"loop": ExtResource("8_m8bm1"),
+&"pegar": ExtResource("14_5nyix")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cjjoh"]
+_data = {
+&"loop": ExtResource("9_cjjoh"),
+&"pegar": ExtResource("15_rdrxq")
+}
+
 [node name="ContextScene" type="Control" unique_id=913253790]
 layout_mode = 3
 anchors_preset = 15
@@ -41,7 +77,7 @@ offset_bottom = 1080.0
 scale = Vector2(0.666, 0.666)
 texture = ExtResource("2_6qt28")
 
-[node name="Control" type="Control" parent="." unique_id=1936184046 node_paths=PackedStringArray("buttons")]
+[node name="Control" type="Control" parent="." unique_id=1936184046 node_paths=PackedStringArray("buttons", "animators")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -54,18 +90,19 @@ offset_right = -640.0
 offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.666, 0.666)
 script = ExtResource("2_4nk5g")
 buttons = [NodePath("Verde"), NodePath("Rojo"), NodePath("Amarillo"), NodePath("Azul"), NodePath("Naranja"), NodePath("Rasgueo")]
 loop_animations = Array[Animation]([ExtResource("4_f88sm"), ExtResource("5_u8rhp"), ExtResource("6_enjpd"), ExtResource("7_yo0gm"), ExtResource("8_m8bm1"), ExtResource("9_cjjoh")])
 pegar_animations = Array[Animation]([ExtResource("10_rcnnb"), ExtResource("11_jykjm"), ExtResource("12_hqjhl"), ExtResource("13_5b0pt"), ExtResource("14_5nyix"), ExtResource("15_rdrxq")])
+animators = [NodePath("AVerde"), NodePath("ARojo"), NodePath("AAmarillo"), NodePath("AAzul"), NodePath("ANaranja"), NodePath("ARasgeo")]
 
 [node name="Verde" type="TextureRect" parent="Control" unique_id=1704656196]
-visible = false
 modulate = Color(0, 1, 0, 1)
 layout_mode = 0
-offset_right = 156.0
-offset_bottom = 181.0
-rotation = -0.17453292
+offset_right = 1920.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(470.6421, 721.9659)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("4_ri61y")
@@ -75,9 +112,9 @@ stretch_mode = 2
 visible = false
 modulate = Color(1, 0, 0, 1)
 layout_mode = 0
-offset_right = 156.0
-offset_bottom = 181.0
-rotation = -0.17453292
+offset_right = 1920.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(728.1843, 678.79474)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("5_23oyl")
@@ -87,9 +124,9 @@ stretch_mode = 2
 visible = false
 modulate = Color(1, 1, 0, 1)
 layout_mode = 0
-offset_right = 156.0
-offset_bottom = 181.0
-rotation = -0.17453292
+offset_right = 1920.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(975.08405, 678.0385)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("6_52in3")
@@ -99,9 +136,9 @@ stretch_mode = 2
 visible = false
 modulate = Color(0, 0, 1, 1)
 layout_mode = 0
-offset_right = 156.0
-offset_bottom = 181.0
-rotation = -0.17453292
+offset_right = 1920.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(1222.1616, 658.33154)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("7_8hy63")
@@ -111,20 +148,19 @@ stretch_mode = 2
 visible = false
 modulate = Color(1, 0.49019608, 0, 1)
 layout_mode = 0
-offset_right = 156.0
-offset_bottom = 181.0
-rotation = -0.17453292
+offset_right = 1920.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(1487.2856, 625.9883)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("8_3lhbi")
 stretch_mode = 2
 
 [node name="Rasgueo" type="TextureRect" parent="Control" unique_id=1328082055]
-visible = false
 layout_mode = 0
-offset_right = 333.0
-offset_bottom = 187.0
-rotation = -0.17453292
+offset_right = 1920.0
+offset_bottom = 1080.0
+pivot_offset = Vector2(986.48645, 909.90985)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("9_gpbvq")
@@ -133,3 +169,27 @@ stretch_mode = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=1721709650]
 root_node = NodePath("../..")
 libraries/ = ExtResource("22_oiic2")
+
+[node name="AVerde" type="AnimationPlayer" parent="Control" unique_id=583447121]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_f88sm")
+
+[node name="ARojo" type="AnimationPlayer" parent="Control" unique_id=1649001620]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_u8rhp")
+
+[node name="AAmarillo" type="AnimationPlayer" parent="Control" unique_id=1210454188]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_enjpd")
+
+[node name="AAzul" type="AnimationPlayer" parent="Control" unique_id=1298175699]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_yo0gm")
+
+[node name="ANaranja" type="AnimationPlayer" parent="Control" unique_id=912780564]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_m8bm1")
+
+[node name="ARasgeo" type="AnimationPlayer" parent="Control" unique_id=1710315397]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_cjjoh")
