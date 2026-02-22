@@ -39,12 +39,30 @@ func start(dialogue_id):
 	$DialogueBox.visible = true
 	if starting: return
 	starting = true
-	var sprite = $DialogueBox/CharacterSprite
+	
+	# triangulito
+	var sprite1 = $DialogueBox/Triangulo
+	var tween1 = get_tree().create_tween()
+	tween1.set_ease(Tween.EASE_OUT)
+	tween1.tween_property(sprite1, "position", Vector2(-1280,-720), tween_char_time).set_trans(Tween.TRANS_BACK)
+	_show_node()
+	await Global.timer(0.2)
+	
+	# mensaje
+	var sprite2 = $DialogueBox/Fondo
 	var tween2 = get_tree().create_tween()
 	tween2.set_ease(Tween.EASE_OUT)
-	tween2.tween_property(sprite, "position", Vector2(-1280,-720), tween_char_time).set_trans(Tween.TRANS_BACK)
+	tween2.tween_property(sprite2, "position", Vector2(-1280,-720), tween_char_time).set_trans(Tween.TRANS_BACK)
 	_show_node()
-	tween2.finished.connect(func(): starting = false)
+	await Global.timer(0.2)
+	
+	# sprite
+	var sprite3 = $DialogueBox/CharacterSprite
+	var tween3 = get_tree().create_tween()
+	tween3.set_ease(Tween.EASE_OUT)
+	tween3.tween_property(sprite3, "position", Vector2(-1280,-720), tween_char_time).set_trans(Tween.TRANS_BACK)
+	_show_node()
+	tween3.finished.connect(func(): starting = false)
 
 func _find_start_node():
 	for n in current_nodes.values():

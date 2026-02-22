@@ -2,9 +2,9 @@ extends Control
 
 class_name DecisionBox
 
-@onready var question_label = $Panel/LabelQuestion
-@onready var label_character = $Panel/LabelCharacter
-@onready var options_container = $Panel/OptionsContainer
+@onready var question_label = $Fondo/Panel/LabelQuestion
+@onready var label_character = $Fondo/Panel/LabelCharacter
+@onready var options_container = $Fondo/Panel/OptionsContainer
 @onready var audio_player: AudioStreamPlayer = $AudioPlayer
 @onready var character_sprite: TextureRect = $CharacterSprite
 

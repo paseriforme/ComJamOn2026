@@ -2,8 +2,8 @@ extends Control
 
 class_name DialogueBox
 
-@onready var label_character = $Panel/LabelCharacter
-@onready var label_text = $Panel/LabelText
+@onready var label_character = $Fondo/Panel/LabelCharacter
+@onready var label_text = $Fondo/Panel/LabelText
 @onready var continue_btn = $ButtonContinue
 @onready var audio_player: AudioStreamPlayer = $AudioPlayer
 @onready var character_sprite: TextureRect = $CharacterSprite

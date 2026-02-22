@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://j5cotml288fn" path="res://addons/DialogueSystem/ui/DescisionBox/DecisionBox.gd" id="1_3lveg"]
 [ext_resource type="Texture2D" uid="uid://dj02lwf6l4f2e" path="res://assets/image/Characters/Chavala.png" id="2_gh3ow"]
+[ext_resource type="Texture2D" uid="uid://c81ox65ootg5l" path="res://assets/image/UI/dialogo_pito.png" id="3_vmuhg"]
+[ext_resource type="Texture2D" uid="uid://bfi8dqrxnhjv2" path="res://assets/image/UI/dialogo_box.png" id="4_373wl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gh3ow"]
 
@@ -27,28 +29,46 @@ texture = ExtResource("2_gh3ow")
 expand_mode = 1
 stretch_mode = 2
 
-[node name="Panel" type="Panel" parent="." unique_id=922935107]
+[node name="Triangulo" type="TextureRect" parent="." unique_id=1688724320]
+layout_mode = 0
+offset_left = -1280.0
+offset_top = -720.0
+offset_right = 640.0
+offset_bottom = 360.0
+scale = Vector2(0.666, 0.666)
+texture = ExtResource("3_vmuhg")
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=341959324]
+layout_mode = 0
+offset_left = -1280.0
+offset_top = -720.0
+offset_right = 640.0
+offset_bottom = 360.0
+scale = Vector2(0.666, 0.666)
+texture = ExtResource("4_373wl")
+
+[node name="Panel" type="Panel" parent="Fondo" unique_id=922935107]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -446.0
-offset_top = -198.0
-offset_right = -48.0
-offset_bottom = -38.5
+offset_left = -631.7118
+offset_top = -228.64868
+offset_right = -233.71179
+offset_bottom = -69.14868
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gh3ow")
 
-[node name="LabelCharacter" type="Label" parent="Panel" unique_id=1019314345]
+[node name="LabelCharacter" type="Label" parent="Fondo/Panel" unique_id=1019314345]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Character_name"
 
-[node name="LabelQuestion" type="RichTextLabel" parent="Panel" unique_id=407567711]
+[node name="LabelQuestion" type="RichTextLabel" parent="Fondo/Panel" unique_id=407567711]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,7 +79,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sem metus, varius vel fermentum at, vestibulum rhoncus risus. Vivamus ex tellus, congue eu condimentum in, euismod at ligula. Pellentesque iaculis enim sed elementum rhoncus. Praesent dapibus varius vulputate. Cras elementum dictum arcu. Maecenas vitae diam venenatis, dignissim odio ut, volutpat ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis lectus mi, volutpat ac enim vitae, egestas vestibulum velit."
 
-[node name="OptionsContainer" type="VBoxContainer" parent="Panel" unique_id=1244514026]
+[node name="OptionsContainer" type="VBoxContainer" parent="Fondo/Panel" unique_id=1244514026]
 visible = false
 layout_mode = 1
 anchors_preset = 12
