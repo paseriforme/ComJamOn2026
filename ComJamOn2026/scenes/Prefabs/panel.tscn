@@ -124,9 +124,9 @@ stretch_mode = 2
 [node name="TextureRect" type="TextureRect" parent="Fondo" unique_id=2110772926]
 z_index = 2
 layout_mode = 0
-offset_left = 497.859
+offset_left = 495.799
 offset_top = 26.405
-offset_right = 2417.8604
+offset_right = 2415.8027
 offset_bottom = 1106.405
 rotation = -0.2617994
 pivot_offset = Vector2(282.08948, 913.4328)

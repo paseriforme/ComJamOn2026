@@ -11,6 +11,7 @@ var actions := ["verde", "rojo", "amarillo", "azul", "naranja", "rasgar"]
 @export var animators : Array[AnimationPlayer]
 @onready var flecha_confirmar : TextureRect = $Confirmar
 @onready var flecha_reintentar : TextureRect = $Reintentar
+var trans : bool =false
 
 var somethingpressed = false
 func _ready() -> void:
@@ -62,9 +63,11 @@ func next_key() -> void:
 func _confirmar():
 	print_debug("CONFIRMAR")
 	Global.change_scene(Global.Scenes.GAME)
+	trans = true
 	pass
 	
 func _reiniciar():
+	if trans: return
 	for a in actions:
 		for e in InputMap.action_get_events(a):
 			InputMap.action_erase_event(a, e)

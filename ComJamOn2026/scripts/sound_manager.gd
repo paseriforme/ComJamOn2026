@@ -71,8 +71,9 @@ func play_bgm(name: String, loop: bool = true, from_position: float = 0.0) -> vo
 	elif bgm.stream is AudioStreamWAV:
 		bgm.stream.loop_mode = AudioStreamWAV.LOOP_FORWARD if loop else AudioStreamWAV.LOOP_DISABLED
 	bgm.volume_db = bgm_volume_db
-	bgm.play()
-	bgm.seek(from_position)
+	bgm.play(from_position)
+#	bgm.play()
+#	bgm.seek(from_position)
 
 
 func stop_bgm() -> void:
