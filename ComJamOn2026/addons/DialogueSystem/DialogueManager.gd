@@ -29,6 +29,7 @@ func _ready() -> void:
 	self.add_child(decision_box)
 	
 	loader.load_all(charactersPath, dialoguesPath)
+	$Feedback/AnimationPlayer.play("loop")
 	#Descomentar para probar
 	#start(0)
 
