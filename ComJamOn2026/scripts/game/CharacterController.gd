@@ -3,7 +3,8 @@ class_name CharacterController
 
 @export var speed : float = 10
 
-# N, NE, E, SE, S, SW, W, NW
+# N, NE, E, SE, S, SW, W, NW NOOOO
+# S SW W NW N NE E SE
 var directions := [Vector2(0,1), Vector2(0.75,0.75),Vector2(1,0), Vector2(0.75,-0.75),Vector2(0,-1), Vector2(-0.75,-0.75),Vector2(-1,0), Vector2(-0.75,0.75)]
 @export var sprite_directions : Array[Texture2D] 
 var direction := 0
