@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://bks1yclxa8xyy"]
+
+[ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="1_xe1fm"]
+[ext_resource type="Texture2D" uid="uid://n0ob011ts0le" path="res://assets/image/Characters/UI PRACTICA.png" id="2_tfbk7"]
+[ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="3_3ovq8"]
+[ext_resource type="Texture2D" uid="uid://ci4a5gkijkp4m" path="res://assets/image/UI/sombra_vinilo.png" id="4_n1hje"]
+[ext_resource type="Script" uid="uid://y3quaa0klmfh" path="res://scripts/game/disco.gd" id="5_jbghi"]
+[ext_resource type="Texture2D" uid="uid://uvypc1m30qg" path="res://assets/image/UI/vinilo.png" id="6_a7k1q"]
+[ext_resource type="Texture2D" uid="uid://d4dtlbu4ge0j6" path="res://assets/image/UI/seccion_disco.png" id="7_nc4t1"]
+[ext_resource type="PackedScene" uid="uid://bjiblirkavor3" path="res://scenes/Cynthia/trastes.tscn" id="8_04h05"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1x3un"]
+
+[node name="Panel" type="Panel" unique_id=1301705266]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1x3un")
+metadata/_edit_use_anchors_ = true
+
+[node name="DialogueManager" parent="." unique_id=500792603 instance=ExtResource("1_xe1fm")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=93661975]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.7284969
+anchor_right = -0.7284969
+offset_left = -667.5239
+offset_right = 1696.4761
+offset_bottom = 1079.0
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("2_tfbk7")
+metadata/_edit_use_anchors_ = true
+
+[node name="control_disco" parent="Fondo" unique_id=1914348709 instance=ExtResource("3_3ovq8")]
+layout_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sombra vinilo" type="TextureRect" parent="Fondo" unique_id=284944054]
+layout_mode = 0
+offset_left = 480.59692
+offset_top = 7.462672
+offset_right = 2400.5972
+offset_bottom = 1087.4626
+texture = ExtResource("4_n1hje")
+
+[node name="Disco" type="Control" parent="Fondo" unique_id=2129852190]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 768.657
+offset_top = 370.948
+offset_right = 768.657
+offset_bottom = 370.948
+grow_vertical = 2
+rotation = 1.6388642
+script = ExtResource("5_jbghi")
+
+[node name="TextureRect" type="TextureRect" parent="Fondo/Disco" unique_id=2028183125]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -805.0001
+offset_top = -799.0
+offset_right = 804.9999
+offset_bottom = 799.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_a7k1q")
+
+[node name="TextureRect" type="TextureRect" parent="Fondo" unique_id=2110772926]
+z_index = 2
+layout_mode = 0
+offset_left = 473.1343
+offset_right = 2393.1343
+offset_bottom = 1080.0
+texture = ExtResource("7_nc4t1")
+
+[node name="Trastes" parent="Fondo/TextureRect" unique_id=427422133 instance=ExtResource("8_04h05")]
+z_index = 60
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 594.0298
+offset_top = 168.9552
+offset_right = 594.0298
+offset_bottom = 168.9552
+grow_vertical = 2
+rotation = -0.5235988
+scale = Vector2(0.43, 0.43)
+
+[node name="Pegatina" type="TextureRect" parent="Fondo" unique_id=1529530381]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="Fondo" unique_id=750639163]
+
+[editable path="Fondo/TextureRect/Trastes"]
