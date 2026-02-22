@@ -4,6 +4,7 @@ class_name key_mapper
 var key := -1
 
 var actions := ["verde", "rojo", "amarillo", "azul", "naranja", "rasgar"]
+@export var buttons : Array[Node]
 
 
 func _ready() -> void:
@@ -18,11 +19,11 @@ func _input(event: InputEvent) -> void:
 
 func next_key() -> void:
 	key += 1
-	for c in range(get_child_count()):
-		if c == key:
-			get_child(c).self_modulate = Color(42.356, 42.356, 42.356, 1.0)
-		else:
-			get_child(c).self_modulate = Color(0.1, 0.1, 0.1, 0.5)
+#	for c in range(get_child_count()):
+#		if c == key:
+#			get_child(c).self_modulate = Color(42.356, 42.356, 42.356, 1.0)
+#		else:
+#			get_child(c).self_modulate = Color(0.1, 0.1, 0.1, 1)
 	
 	if key >= len(actions):
 		Global.change_scene(Global.Scenes.GAME)

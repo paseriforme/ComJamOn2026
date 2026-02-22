@@ -2,9 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dsl350fagpmch" path="res://scripts/context_scene.gd" id="1_p5nvv"]
 [ext_resource type="Script" uid="uid://1neibfg3x4pd" path="res://scripts/intro/key_mapper.gd" id="2_4nk5g"]
-[ext_resource type="Texture2D" uid="uid://dhs1urrssbq2e" path="res://assets/image/traste.png" id="3_dyxlt"]
-[ext_resource type="Script" uid="uid://duym7tbol3144" path="res://scripts/traste.gd" id="4_cvm68"]
-[ext_resource type="Texture2D" uid="uid://fgp2undq26sl" path="res://assets/image/traste_pulsado.png" id="5_md4w7"]
+[ext_resource type="Texture2D" uid="uid://ccct4kxrjh38f" path="res://assets/image/Backgrounds/main_menu.png" id="2_6qt28"]
+[ext_resource type="Texture2D" uid="uid://dxl342sc1u5jg" path="res://assets/image/UI/PEGATAS/PEG_VERDE.png" id="4_ri61y"]
+[ext_resource type="Texture2D" uid="uid://dk3bba52ryyx2" path="res://assets/image/UI/PEGATAS/PEG_ROJO.png" id="5_23oyl"]
+[ext_resource type="Texture2D" uid="uid://c1b7b4g6fvm2k" path="res://assets/image/UI/PEGATAS/PEG_AMARILLO.png" id="6_52in3"]
+[ext_resource type="Texture2D" uid="uid://duershgbknewt" path="res://assets/image/UI/PEGATAS/PEG_AZUL.png" id="7_8hy63"]
+[ext_resource type="Texture2D" uid="uid://b5i3g0xtwprvx" path="res://assets/image/UI/PEGATAS/PEG_NARANJA.png" id="8_3lhbi"]
+[ext_resource type="Texture2D" uid="uid://bc4ac2pporq0t" path="res://assets/image/UI/PEGATAS/PEG_RASGUEO.png" id="9_gpbvq"]
 
 [node name="ContextScene" type="Control" unique_id=913253790]
 layout_mode = 3
@@ -17,34 +21,40 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_p5nvv")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1243645281]
+[node name="Fondo" type="TextureRect" parent="." unique_id=683123072]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.666, 0.666)
+texture = ExtResource("2_6qt28")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1243645281 node_paths=PackedStringArray("buttons")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -621.0
-offset_top = -47.0
-offset_right = 1799.0
-offset_bottom = 353.0
+offset_left = -576.0
+offset_top = 6.0
+offset_right = 1844.0
+offset_bottom = 406.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.51, 0.51)
+rotation = -0.16580628
 script = ExtResource("2_4nk5g")
+buttons = [NodePath("Verde"), NodePath("Rojo"), NodePath("Amarillo"), NodePath("Azul"), NodePath("Naranja"), NodePath("Rasgueo")]
 
 [node name="Verde" type="TextureRect" parent="HBoxContainer2" unique_id=1704656196]
 modulate = Color(0, 1, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_dyxlt")
+texture = ExtResource("4_ri61y")
 stretch_mode = 2
-script = ExtResource("4_cvm68")
-traste_spr = ExtResource("3_dyxlt")
-traste_pulsado_spr = ExtResource("5_md4w7")
 
 [node name="Label" type="Label" parent="HBoxContainer2/Verde" unique_id=1987823601]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -60,13 +70,11 @@ modulate = Color(1, 0, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_dyxlt")
+texture = ExtResource("5_23oyl")
 stretch_mode = 2
-script = ExtResource("4_cvm68")
-traste_spr = ExtResource("3_dyxlt")
-traste_pulsado_spr = ExtResource("5_md4w7")
 
 [node name="Label" type="Label" parent="HBoxContainer2/Rojo" unique_id=1853163579]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -82,13 +90,11 @@ modulate = Color(1, 1, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_dyxlt")
+texture = ExtResource("6_52in3")
 stretch_mode = 2
-script = ExtResource("4_cvm68")
-traste_spr = ExtResource("3_dyxlt")
-traste_pulsado_spr = ExtResource("5_md4w7")
 
 [node name="Label" type="Label" parent="HBoxContainer2/Amarillo" unique_id=1452005710]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -104,13 +110,11 @@ modulate = Color(0, 0, 1, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_dyxlt")
+texture = ExtResource("7_8hy63")
 stretch_mode = 2
-script = ExtResource("4_cvm68")
-traste_spr = ExtResource("3_dyxlt")
-traste_pulsado_spr = ExtResource("5_md4w7")
 
 [node name="Label" type="Label" parent="HBoxContainer2/Azul" unique_id=1087887015]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -126,13 +130,11 @@ modulate = Color(1, 0.49019608, 0, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_dyxlt")
+texture = ExtResource("8_3lhbi")
 stretch_mode = 2
-script = ExtResource("4_cvm68")
-traste_spr = ExtResource("3_dyxlt")
-traste_pulsado_spr = ExtResource("5_md4w7")
 
 [node name="Label" type="Label" parent="HBoxContainer2/Naranja" unique_id=465926276]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -143,17 +145,15 @@ text = "ORANGE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Naranja2" type="TextureRect" parent="HBoxContainer2" unique_id=1328082055]
+[node name="Rasgueo" type="TextureRect" parent="HBoxContainer2" unique_id=1328082055]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_dyxlt")
+texture = ExtResource("9_gpbvq")
 stretch_mode = 2
-script = ExtResource("4_cvm68")
-traste_spr = ExtResource("3_dyxlt")
-traste_pulsado_spr = ExtResource("5_md4w7")
 
-[node name="Label" type="Label" parent="HBoxContainer2/Naranja2" unique_id=356311465]
+[node name="Label" type="Label" parent="HBoxContainer2/Rasgueo" unique_id=356311465]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -165,6 +165,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=686748360]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -175,3 +176,5 @@ theme_override_font_sizes/font_size = 49
 text = "¡¡¡ PRESS IT !!!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1721709650]
