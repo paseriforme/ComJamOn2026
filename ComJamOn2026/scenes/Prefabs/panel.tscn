@@ -64,6 +64,7 @@ offset_right = 1696.4761
 offset_bottom = 1079.0
 scale = Vector2(0.67, 0.67)
 texture = ExtResource("2_tfbk7")
+stretch_mode = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Sombra vinilo" type="TextureRect" parent="Fondo" unique_id=284944054]
