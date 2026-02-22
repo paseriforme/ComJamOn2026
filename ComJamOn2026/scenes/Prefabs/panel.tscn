@@ -3,14 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="1_xe1fm"]
 [ext_resource type="Texture2D" uid="uid://n0ob011ts0le" path="res://assets/image/Characters/UI PRACTICA.png" id="2_tfbk7"]
 [ext_resource type="PackedScene" uid="uid://ccal3uvapfrev" path="res://scenes/Prefabs/control_disco.tscn" id="3_3ovq8"]
-[ext_resource type="Texture2D" uid="uid://85mmwcu7tyr8" path="res://assets/image/UI/PEGATINA_MAL.png" id="4_jbghi"]
 [ext_resource type="Texture2D" uid="uid://ci4a5gkijkp4m" path="res://assets/image/UI/sombra_vinilo.png" id="4_n1hje"]
-[ext_resource type="Texture2D" uid="uid://dy7e3wovvardx" path="res://assets/image/UI/PEGATINA_BIEN.png" id="5_a7k1q"]
 [ext_resource type="Script" uid="uid://y3quaa0klmfh" path="res://scripts/game/disco.gd" id="5_jbghi"]
 [ext_resource type="Texture2D" uid="uid://uvypc1m30qg" path="res://assets/image/UI/vinilo.png" id="6_a7k1q"]
 [ext_resource type="Texture2D" uid="uid://bcgg4m4fbkvs6" path="res://assets/image/UI/PEGATINA_PERFECTO.png" id="6_nc4t1"]
+[ext_resource type="Texture2D" uid="uid://85mmwcu7tyr8" path="res://assets/image/UI/PEGATINA_MAL.png" id="7_n1hje"]
 [ext_resource type="Texture2D" uid="uid://d4dtlbu4ge0j6" path="res://assets/image/UI/seccion_disco.png" id="7_nc4t1"]
 [ext_resource type="PackedScene" uid="uid://bjiblirkavor3" path="res://scenes/Cynthia/trastes.tscn" id="8_04h05"]
+[ext_resource type="Texture2D" uid="uid://dy7e3wovvardx" path="res://assets/image/UI/PEGATINA_BIEN.png" id="8_jbghi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1x3un"]
 
@@ -104,7 +104,7 @@ texture = ExtResource("6_a7k1q")
 
 [node name="control_disco" parent="Fondo" unique_id=1914348709 instance=ExtResource("3_3ovq8")]
 layout_mode = 1
-pegatinas = Array[Texture2D]([ExtResource("4_jbghi"), ExtResource("5_a7k1q"), ExtResource("6_nc4t1")])
+pegatinas = Array[Texture2D]([ExtResource("7_n1hje"), ExtResource("8_jbghi"), ExtResource("6_nc4t1")])
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fondo/control_disco" unique_id=538621387]
