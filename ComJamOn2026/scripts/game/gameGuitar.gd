@@ -158,7 +158,7 @@ func check() -> bool:
 func _physics_process(delta: float) -> void:
 	if not enable:
 		return
-		
+#	actual_chord = last_chord
 	if actual_chord >= last_chord and not ending:
 		ending = true
 		disco.end()
@@ -167,19 +167,19 @@ func _physics_process(delta: float) -> void:
 			#TODO: telón final
 #			ending_animator.play("end")
 
-#			await Global.timer(1.0)
-#			var time = 5.0
-#			var ini_pos_1 = telon_izq.position
-#			var ini_pos_2 = telon_der.position
-#			var offset = 1000
-#			var tween1 = get_tree().create_tween()
-#			tween1.set_ease(Tween.EASE_OUT)
-#			tween1.tween_property(telon_izq, "position", ini_pos_1 + Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
-#			
-#			var tween2 = get_tree().create_tween()
-#			tween2.set_ease(Tween.EASE_OUT)
-#			tween2.tween_property(telon_der, "position", ini_pos_2 - Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
-#			tween2.finished.connect(func(): get_tree().quit())
+			await Global.timer(1.0)
+			var time = 5.0
+			var ini_pos_1 = telon_izq.position
+			var ini_pos_2 = telon_der.position
+			var offset = 960
+			var tween1 = get_tree().create_tween()
+			tween1.set_ease(Tween.EASE_OUT)
+			tween1.tween_property(telon_izq, "position", ini_pos_1 + Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
+
+			var tween2 = get_tree().create_tween()
+			tween2.set_ease(Tween.EASE_OUT)
+			tween2.tween_property(telon_der, "position", ini_pos_2 - Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
+			tween2.finished.connect(func(): get_tree().quit())
 			
 			#get_tree().quit() #esto será callback on finished del tween 
 			pass
