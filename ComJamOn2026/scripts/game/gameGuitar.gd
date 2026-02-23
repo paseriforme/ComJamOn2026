@@ -153,119 +153,107 @@ func get_nearest_pulse() -> Pulso:
 	
 	return nearest_pulse
 
-func _matching_keys_with_pulse(pulse: Pulso) -> bool:
-	if not pulse:
-		return false
-	
-	# Obtener datos del pulso - acceder a la variable pulso directamente
-	var pulso_data = []
-	if pulse.has_meta("pulso_data"):
-		pulso_data = pulse.get_meta("pulso_data")
-	elif "pulso" in pulse:
-		pulso_data = pulse.pulso
-	else:
-		return false
-	
-	if pulso_data == null or len(pulso_data) == 0:
-		return false
-	
-	# Verificar que los inputs coincidan
-	for i in range(min(len(Global.trastes), len(pulso_data))):
-		if Global.trastes[i] != pulso_data[i]:
-			return false
-	
-	return true
-
-func _is_pulse_empty(pulse: Pulso) -> bool:
-	if not pulse:
-		return true
-	
-	# Obtener datos del pulso
-	var pulso_data = []
-	if pulse.has_meta("pulso_data"):
-		pulso_data = pulse.get_meta("pulso_data")
-	elif "pulso" in pulse:
-		pulso_data = pulse.pulso
-	else:
-		return true
-	
-	if pulso_data == null or len(pulso_data) == 0:
-		return true
-	
-	for traste in pulso_data:
-		if traste:
-			return false
-	
-	return true
-
 func _any_key_pressed() -> bool:
 	for traste in Global.trastes:
 		if traste:
 			return true
 	return false
-
-# Devuelve: 2 = perfecto, 1 = bien, 0 = fuera de ventana 
-func _acertado_on_time() -> int:
-	var time_diff = song_time - next_beat_time
 	
-	if time_diff < -tiempo_anticipacion or time_diff > tiempo_retardo:
-		return 0  # Fuera de ventana completamente
+func _time_diff_for_pulse(pulse: Pulso) -> float:
+	if not pulse:
+		return 9999.0
+	var total_duration = (60.0 / bpm) * 4.0
+	var start_rot = rotacion_inicial
+	var end_rot = rotacion_final
+	var delta_rot = end_rot - start_rot
+	var rot_speed = delta_rot / total_duration
+	var angle_diff = rotation_to_check - pulse.rotation_degrees
+	# normalizar a [-180,180]
+	while angle_diff > 180.0:
+		angle_diff -= 360.0
+	while angle_diff < -180.0:
+		angle_diff += 360.0
+	# tiempo restante hasta target
+	if abs(rot_speed) < 0.00001:
+		return 9999.0
+	var time_until_target = angle_diff / rot_speed
+	# expected hit time = song_time + time_until_target
+	var expected_hit_time = song_time + time_until_target
+	var time_diff = song_time - expected_hit_time  # == -time_until_target
+	#print_debug("pulse.angle=", pulse.rotation_degrees, "angle_diff=", angle_diff, "rot_speed=", rot_speed, "time_until=", time_until_target, "time_diff=", time_diff)
+	return time_diff
 	
+# Devuelve: 2 = perfecto, 1 = bien, 0 = fuera de ventana.
+func _acertado_on_time(pulse: Pulso) -> int:
+	var time_diff = _time_diff_for_pulse(pulse)
+	# fuera de ventana
+	if time_diff < - tiempo_anticipacion or time_diff > tiempo_retardo:
+		return 0
+	# perfecto
 	if abs(time_diff) < perfe_time:
-		return 2  # PERFECTO
-	else:
-		return 1  # BIEN
+		return 2
+	# bien
+	return 1
+
+func _is_press_late(pulse: Pulso) -> bool:
+	var time_diff = _time_diff_for_pulse(pulse)
+	return time_diff > tiempo_retardo
 
 func check_input():
 	if not can_hit_this_beat:
 		return
-	
-	# Obtener el pulso mas cercano a la rotacion de rasgueo (90 grados)
-	nearest_pulse_to_hit = get_pulse_nearest_to_rotation(rotation_to_check)
-	
-	# Si no hay pulso valido, no hacer nada
-	if not nearest_pulse_to_hit:
-		print_debug("No pulse found at rotation ", rotation_to_check)
-		return
-	
-	# Si el pulso esta vacio, se considera correcto
-	if _is_pulse_empty(nearest_pulse_to_hit):
-		correct(1)
-		return
-	
-	# Si se ha pulsado, verificar
-	if pulsed:
-		var timing = _acertado_on_time()
 		
-		if timing > 0 and _matching_keys_with_pulse(nearest_pulse_to_hit):
-			# timing 2=perfecto, 1=bien
-			correct(timing)
-		elif timing > 0:
-			# Buen timing pero inputs no coinciden
+	nearest_pulse_to_hit = get_pulse_nearest_to_rotation(rotation_to_check)
+	if not nearest_pulse_to_hit:
+		return
+		
+	# Si se ha pulsado
+	if pulsed:
+		if nearest_pulse_to_hit._is_pulse_empty():
+			print("FAIL PULSA EN VACIO")
 			fail()
-		# Si timing <= 0, esperar a que se salga de ventana
-
+			return
+		if _is_press_late(nearest_pulse_to_hit):
+			print("FAIL PULSA TARDE")
+			fail()
+			return
+		var timing = _acertado_on_time(nearest_pulse_to_hit)
+		if timing > 0 and nearest_pulse_to_hit._matching_keys_with_pulse():
+			# perfecto / bien
+			correct(timing)
+			return
+		elif timing > 0:
+			# buen timing pero combinacion incorrecta -> fallo
+			print("FAIL COMBINACION NO COINCIDE")
+			fail()
+			return
+		else:
+			print("OTRO")
+			return
+var last_evaluated_pulse: Pulso = null
 func _physics_process(delta: float) -> void:
 	if not enable:
 		return
 	
 	song_time += delta
-	
-	var beat_time = 60.0 / bpm
 	elapsed_sb_time += delta
-	
-	if elapsed_sb_time >= beat_time * 0.5:
-		elapsed_sb_time -= beat_time * 0.5
-		next_pulse()
-	
 	# Actualizar referencia del pulso mas cercano al punto de rasgueo
 	nearest_pulse_to_hit = get_pulse_nearest_to_rotation(rotation_to_check)
 	
-	# Verificar input cuando se rasguea
+	if nearest_pulse_to_hit \
+	and not pulsed \
+	and nearest_pulse_to_hit != last_evaluated_pulse:
+		if not nearest_pulse_to_hit._is_pulse_empty():
+			var time_diff = _time_diff_for_pulse(nearest_pulse_to_hit)
+			if time_diff > tiempo_retardo:
+				print("FAIL NO PULSA EN PULSO NO VACIO (UNA SOLA VEZ)")
+				fail()
+				last_evaluated_pulse = nearest_pulse_to_hit
+		next_pulse()
+	
 	if Input.is_action_just_pressed("rasgar", true):
 		pulsed = true
 		check_input()
-	
 	if Input.is_action_just_released("rasgar"):
 		pulsed = false
 
@@ -275,6 +263,7 @@ func correct(timing_quality: int):
 	
 	correct_this_beat = true
 	can_hit_this_beat = false
+	last_evaluated_pulse = nearest_pulse_to_hit
 	
 	# Mostrar pegatina segun calidad
 	pegatina.visible = true
