@@ -56,7 +56,7 @@
           "ID": 39,
           "Type": "DIALOGUE",
           "Character": "Manager",
-          "Text": "En esta sala no toca cualquiera",
+          "Text": "En la Sala Cadenas no toca cualquiera",
           "Next": 40
         },
         {
@@ -70,7 +70,7 @@
           "ID": 41,
           "Type": "DIALOGUE",
           "Character": "Manager",
-          "Text": "¿Cómo no os va a ir genial?",
+          "Text": "¿Cómo NO os va a ir genial?",
           "Next": 42
         },
         {
@@ -98,7 +98,7 @@
           "ID": 3,
           "Type": "DECISION",
           "Character": "Manager",
-          "Text": "Bueno, qué, ¿Listas para salir?",
+          "Text": "Bueno, qué, ¿listas para salir?",
           "Next": 4,
           "Options": [
             {
@@ -465,14 +465,154 @@
           "ID": 20,
           "Type": "START",
           "Character": "Tronca",
-          "Text": "¿Qué pasa tron?",
+          "Text": "Ey",
+          "Next": 87
+        },
+        {
+          "ID": 87,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "¿Cómo te encuentras?",
+          "Next": 88
+        },
+        {
+          "ID": 88,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "Venga, dímelo, que no muerdo",
+          "Next": 89
+        },
+        {
+          "ID": 89,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "...",
+          "Next": 90
+        },
+        {
+          "ID": 90,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "¿En serio?",
+          "Next": 91
+        },
+        {
+          "ID": 91,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "Sí, todo bien, solo que no pensaba que...",
+          "Next": 92
+        },
+        {
+          "ID": 92,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "No sé, creí que esta vez no se te olvidaría",
+          "Next": 93
+        },
+        {
+          "ID": 93,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "¿Has practicado ya con las chicas?",
+          "Next": 94
+        },
+        {
+          "ID": 94,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "Están siempre dispuestas a ayudar",
+          "Next": 95
+        },
+        {
+          "ID": 95,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "...",
+          "Next": 96
+        },
+        {
+          "ID": 96,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "¿Cómo dices? ¿Practicar juntas? ¿Tú y yo?",
+          "Next": 97
+        },
+        {
+          "ID": 97,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "¡Claro! Pero antes de nada, toma esto",
+          "Next": 98
+        },
+        {
+          "ID": 98,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "Es el borrador original de la canción",
+          "Next": 99
+        },
+        {
+          "ID": 99,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "Tiene tus anotaciones, de aquel día",
+          "Next": 100
+        },
+        {
+          "ID": 100,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "Te ayudarán a seguir mi voz",
+          "Next": 101
+        },
+        {
+          "ID": 101,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "No tienes nada que temer",
+          "Next": 102
+        },
+        {
+          "ID": 102,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "El escenario es nuestro",
+          "Next": 106
+        },
+        {
+          "ID": 106,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "¡Las Magnolias lo conquistarán!",
+          "Next": 103
+        },
+        {
+          "ID": 103,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "Noto tu respiración agitada...",
+          "Next": 104
+        },
+        {
+          "ID": 104,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "Puedes respirar tranquila a mi lado",
+          "Next": 105
+        },
+        {
+          "ID": 105,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "A nuestro lado",
           "Next": 21
         },
         {
           "ID": 21,
           "Type": "DECISION",
           "Character": "Tronca",
-          "Text": "¿Le damos a los estribillos?",
+          "Text": "Venga, vamos a practicar juntas el estribillo",
           "Next": 22,
           "Options": [
             {
@@ -496,7 +636,7 @@
           "ID": 23,
           "Type": "END",
           "Character": "Tronca",
-          "Text": "Mete cuarta y acelera",
+          "Text": "Con calma, estoy a tu lado",
           "Next": null
         },
         {
@@ -510,14 +650,7 @@
           "ID": 25,
           "Type": "DIALOGUE",
           "Character": "Tronca",
-          "Text": "¡Pues hasta luego, Lucas!",
-          "Next": 26
-        },
-        {
-          "ID": 26,
-          "Type": "END",
-          "Character": "Tronca",
-          "Text": "¿Y esa sonrisita coqueta?",
+          "Text": "Si me lo dices con esa sonrisa...",
           "Next": null
         }
       ]
