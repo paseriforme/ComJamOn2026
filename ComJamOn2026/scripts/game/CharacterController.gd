@@ -154,5 +154,5 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 func _pensamiento_step_sound():
-	
+	Global.sound.play_sfx("step", 0.2)
 	pass
