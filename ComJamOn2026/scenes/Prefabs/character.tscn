@@ -313,6 +313,26 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(2, -48.065), Vector2(2, -9)]
 }
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.6255466, 1.204228),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"_pensamiento_step_sound"
+}, {
+"args": [],
+"method": &"_pensamiento_step_sound"
+}, {
+"args": [],
+"method": &"_pensamiento_step_sound"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ffjvi"]
 _data = {
@@ -356,9 +376,8 @@ centered = false
 offset = Vector2(-250, -208.91)
 
 [node name="Parte2" type="Sprite2D" parent="Pensamiento" unique_id=1160587547]
-modulate = Color(1, 1, 1, 0)
 position = Vector2(116, 137.99998)
-rotation = 0.6195919
+rotation = -0.34906584
 texture = ExtResource("4_cx57j")
 centered = false
 offset = Vector2(-377.65, -355.99)
