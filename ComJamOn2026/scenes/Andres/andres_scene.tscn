@@ -262,6 +262,7 @@ offset_right = 1495.1194
 z_index = 10
 
 [node name="Porcentaje" parent="CanvasLayer/Panel/Telon" index="2" unique_id=1213803891]
+visible = false
 scale = Vector2(2.5, 2.5)
 
 [node name="Label" parent="CanvasLayer/Panel/Telon/Porcentaje" index="0" unique_id=522121930]
