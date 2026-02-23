@@ -60,7 +60,7 @@ func stop_song():
 	enable = false
 
 func _create_pulse():
-#	actual_chord = last_chord
+	actual_chord = last_chord
 	if actual_chord >= last_chord or actual_chord >= len(Global.song):
 		if not ending: 
 			end()
@@ -349,7 +349,9 @@ func end():
 		tween2.set_ease(Tween.EASE_OUT)
 		tween2.tween_property(telon_der, "position", ini_pos_2 - Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
 #		tween2.finished.connect(func(): get_tree().quit())
-		calculo = (notas_acertadas / notas_totales)
+		calculo = 0
+		if (notas_totales > 0):
+			calculo = (notas_acertadas / notas_totales)
 		tween2.finished.connect(func(): porcentaje_animator.play("pegar"); Global.sound.play_sfx("duct_tape1", 0.2); porcentaje_label.text = str(int(calculo * 100))  + "%")
 		
 		Global.play_cardboard(0.2)
