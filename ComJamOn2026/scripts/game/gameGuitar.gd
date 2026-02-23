@@ -60,7 +60,7 @@ func stop_song():
 	enable = false
 
 func _create_pulse():
-	actual_chord = last_chord
+#	actual_chord = last_chord
 	if actual_chord >= last_chord or actual_chord >= len(Global.song):
 		if not ending: 
 			end()
