@@ -158,7 +158,7 @@ func check() -> bool:
 func _physics_process(delta: float) -> void:
 	if not enable:
 		return
-	actual_chord = last_chord
+#	actual_chord = last_chord
 	if actual_chord >= last_chord and not ending:
 		ending = true
 		disco.end()
