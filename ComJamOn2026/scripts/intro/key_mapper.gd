@@ -17,7 +17,7 @@ var somethingpressed = false
 
 func _ready() -> void:
 	next_key()
-	Global.sound.set_bgm_volume_db(10)
+	Global.sound.set_bgm_volume_db(7)
 	Global.sound.set_sfx_volume_db(7)
 	Global.sound.play_bgm("ambience")
 
