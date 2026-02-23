@@ -64,6 +64,7 @@ func _confirmar():
 	print_debug("CONFIRMAR")
 	Global.change_scene(Global.Scenes.GAME)
 	trans = true
+	Global.sound.play_sfx("click", 0.2)
 	pass
 	
 func _reiniciar():
