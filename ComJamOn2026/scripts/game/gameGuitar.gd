@@ -56,7 +56,7 @@ func stop_song():
 	enable = false
 
 func _create_pulse():
-	if actual_chord >= last_chord:
+	if actual_chord >= last_chord or actual_chord > len(Global.song):
 		if not ending: 
 			end()
 		return
@@ -86,13 +86,13 @@ func _create_pulse():
 func start_song(start = 0, fin = len(Global.song)):
 	enable = true
 	
-	var start_sec = start * ((60/bpm) * 0.5)
+	var start_sec = Global.npc_chocado.firstChord * ((60/bpm) * 0.5)
 	print(start_sec)
 	Global.sound.play_bgm(Global.cancion, false, start_sec)
 	
 	# reset de indices
-	actual_chord = start
-	last_chord = fin
+	actual_chord = Global.npc_chocado.firstChord
+	last_chord = Global.npc_chocado.lastChord
 	
 	# reset estados
 	pulsed = false
