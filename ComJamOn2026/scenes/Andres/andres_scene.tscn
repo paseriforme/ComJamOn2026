@@ -144,7 +144,7 @@ TEXTURE = ExtResource("12_dghs7")
 selfNPC = 3
 startDialogue = 2
 firstChord = 16
-lastChord = 96
+lastChord = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chavala2" unique_id=455408465]
 shape = SubResource("CircleShape2D_slwiy")
@@ -164,8 +164,8 @@ script = ExtResource("8_vedlm")
 TEXTURE = ExtResource("11_3hxkh")
 selfNPC = 2
 startDialogue = 3
-firstChord = 16
-lastChord = 24
+firstChord = 24
+lastChord = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tronca2" unique_id=1801251677]
 shape = SubResource("CircleShape2D_3hxkh")
@@ -185,8 +185,8 @@ script = ExtResource("8_vedlm")
 TEXTURE = ExtResource("10_slwiy")
 selfNPC = 1
 startDialogue = 4
-firstChord = 24
-lastChord = 32
+firstChord = 32
+lastChord = 40
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="muchacha2" unique_id=452507978]
 shape = SubResource("CircleShape2D_dghs7")
