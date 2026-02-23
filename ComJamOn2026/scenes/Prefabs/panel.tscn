@@ -11,7 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://d4dtlbu4ge0j6" path="res://assets/image/UI/seccion_disco.png" id="7_nc4t1"]
 [ext_resource type="PackedScene" uid="uid://bjiblirkavor3" path="res://scenes/Cynthia/trastes.tscn" id="8_04h05"]
 [ext_resource type="Texture2D" uid="uid://dy7e3wovvardx" path="res://assets/image/UI/PEGATINA_BIEN.png" id="8_jbghi"]
-[ext_resource type="Texture2D" uid="uid://ccct4kxrjh38f" path="res://assets/image/Backgrounds/main_menu.png" id="12_jbghi"]
+[ext_resource type="Texture2D" uid="uid://c508270bvh6pa" path="res://assets/image/UI/TELON_IZQ.png" id="12_a7k1q"]
+[ext_resource type="Texture2D" uid="uid://c67addngkguik" path="res://assets/image/UI/TELON_DER.png" id="13_nc4t1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1x3un"]
 
@@ -168,7 +169,7 @@ scale = Vector2(0.666, 0.666)
 layout_mode = 0
 offset_left = -1920.0
 offset_bottom = 1080.0
-texture = ExtResource("12_jbghi")
+texture = ExtResource("12_a7k1q")
 
 [node name="Der" type="TextureRect" parent="Telon" unique_id=1869631707]
 z_index = 100
@@ -176,6 +177,6 @@ layout_mode = 0
 offset_left = 1920.0
 offset_right = 3840.0
 offset_bottom = 1080.0
-texture = ExtResource("12_jbghi")
+texture = ExtResource("13_nc4t1")
 
 [editable path="Fondo/TextureRect/Trastes"]

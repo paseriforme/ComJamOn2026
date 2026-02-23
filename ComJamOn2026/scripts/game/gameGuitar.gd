@@ -158,7 +158,7 @@ func check() -> bool:
 func _physics_process(delta: float) -> void:
 	if not enable:
 		return
-#	actual_chord = last_chord
+	actual_chord = last_chord
 	if actual_chord >= last_chord and not ending:
 		ending = true
 		disco.end()
@@ -171,7 +171,8 @@ func _physics_process(delta: float) -> void:
 			var time = 5.0
 			var ini_pos_1 = telon_izq.position
 			var ini_pos_2 = telon_der.position
-			var offset = 960
+#			var offset = 960
+			var offset = 1030
 			var tween1 = get_tree().create_tween()
 			tween1.set_ease(Tween.EASE_OUT)
 			tween1.tween_property(telon_izq, "position", ini_pos_1 + Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
