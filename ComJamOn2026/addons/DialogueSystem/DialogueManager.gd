@@ -37,10 +37,12 @@ func _ready() -> void:
 
 func pegar_rojo():
 	$Feedback/ARojo.play("pegar")
+	Global.sound.play_sfx("duct_tape1", 0.3)
 	pass
 	
 func pegar_verde():
 	$Feedback/AVerde.play("pegar")
+	Global.sound.play_sfx("duct_tape1", 0.3)
 	pass
 
 func start(dialogue_id):
@@ -57,18 +59,21 @@ func start(dialogue_id):
 	var sprite3 = $DialogueBox/CharacterSprite
 	var pos : Vector2 = Vector2(-1280,-720)
 	# triangulito
+	Global.play_cardboard(0.2)
 	var tween1 = get_tree().create_tween()
 	tween1.set_ease(Tween.EASE_OUT)
 	tween1.tween_property(sprite1, "position", pos, tween_char_time).set_trans(Tween.TRANS_BACK)
 	await Global.timer(0.2)
 	
 	# mensaje
+	Global.play_cardboard(0.2)
 	var tween2 = get_tree().create_tween()
 	tween2.set_ease(Tween.EASE_OUT)
 	tween2.tween_property(sprite2, "position", pos, tween_char_time * 1.2 ).set_trans(Tween.TRANS_BACK)
 	await Global.timer(0.5)
 	
 	# sprite
+	Global.play_paper(0.2)
 	var tween3 = get_tree().create_tween()
 	tween3.set_ease(Tween.EASE_OUT)
 	tween3.tween_property(sprite3, "position", pos, tween_char_time * 1.5).set_trans(Tween.TRANS_BACK)
@@ -191,18 +196,21 @@ func end_dialogue():
 #	tween2.finished.connect(func():  ending = false; Global.end_dialogue.emit())
 	
 	# sprite
+	Global.play_paper(0.2)
 	var tween1 = get_tree().create_tween()
 	tween1.set_ease(Tween.EASE_IN)
 	tween1.tween_property(sprite1, "position", pos, tween_char_time).set_trans(Tween.TRANS_BACK)
 	await Global.timer(0.5)
 #	
 #	# mensaje
+	Global.play_cardboard(0.2)	
 	var tween2 = get_tree().create_tween()
 	tween2.set_ease(Tween.EASE_IN)
 	tween2.tween_property(sprite2, "position", pos, tween_char_time * 1.2 ).set_trans(Tween.TRANS_BACK)
 	await Global.timer(0.2)
 #	
 #	# triangulito
+	Global.play_cardboard(0.2)
 	var tween3 = get_tree().create_tween()
 	tween3.set_ease(Tween.EASE_IN)
 	tween3.tween_property(sprite3, "position", pos, tween_char_time * 1.5).set_trans(Tween.TRANS_BACK)
