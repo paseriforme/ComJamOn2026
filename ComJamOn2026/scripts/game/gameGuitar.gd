@@ -50,8 +50,8 @@ var ending = false
 @export var porcentaje_animator : AnimationPlayer
 @export var porcentaje_label : Label
 var calculo : float = 1.0
-var notas_acertadas : float = 1
-var notas_totales : float = 1
+var notas_acertadas : float = 0
+var notas_totales : float = 0
 
 func _ready() -> void:
 	pass
