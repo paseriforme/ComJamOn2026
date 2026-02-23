@@ -14,7 +14,6 @@ var current_bgm_name: String = ""
 var bgm_volume_db: float = 0.0
 var sfx_volume_db: float = 0.0
 
-
 func _ready() -> void:
 	_load_audio()
 
