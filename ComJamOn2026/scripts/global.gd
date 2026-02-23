@@ -34,7 +34,7 @@ enum Scenes { CONTEXT, GAME, NULL}
 var sfx
 var bgm
 var sound : SoundManager
-var cancion := "TuSombraEntreLosAmplisInstrumentalSINGUITAR.mp3"
+var cancion := "TuSombraEntreLosAmplisInstrumental"
 
 var coolDown = 0.5
 var startCoolDown = false

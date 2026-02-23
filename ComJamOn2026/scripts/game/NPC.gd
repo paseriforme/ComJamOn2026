@@ -51,7 +51,7 @@ func _iniciar_dialogo():
 			Global.cancion = "CancionEnteraSinGuitarra"
 			$"../CanvasLayer/Panel/Fondo".texture = preload("uid://dkjqyqi73dt1o")
 		else:		
-			Global.cancion = "TuSombraEntreLosAmplisInstrumentalSINGUITAR"
+			Global.cancion = "TuSombraEntreLosAmplisInstrumental"
 			$"../CanvasLayer/Panel/Fondo".texture = preload("uid://n0ob011ts0le")
 	pass
 
