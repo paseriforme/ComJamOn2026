@@ -82,13 +82,11 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 1114.9253
-offset_top = 21.693909
-offset_right = 1114.9253
-offset_bottom = 21.693909
+offset_left = 771.64185
+offset_top = 378.4104
+offset_right = 771.64185
+offset_bottom = 378.4104
 grow_vertical = 2
-rotation = 1.6388642
-scale = Vector2(0.6481072, 0.6481072)
 script = ExtResource("5_jbghi")
 
 [node name="TextureRect" type="TextureRect" parent="Fondo/Disco" unique_id=2028183125]
@@ -123,10 +121,9 @@ offset_left = 1228.3582
 offset_top = -25.373133
 offset_right = 1547.3582
 offset_bottom = 315.62686
-scale = Vector2(0.95, 0.95)
 pivot_offset = Vector2(158.4953, 170.74194)
 texture = ExtResource("6_nc4t1")
-stretch_mode = 2
+stretch_mode = 3
 
 [node name="TextureRect" type="TextureRect" parent="Fondo" unique_id=2110772926]
 z_index = 2

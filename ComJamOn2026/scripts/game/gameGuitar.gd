@@ -28,8 +28,9 @@ var can_hit_this_beat = true
 @onready var disco: Disco = $"../Disco"
 
 @export var bpm :float = 120
-var elapsed_b_time :float = 0
-var elapsed_sb_time :float = 0
+var _rotation_last := 0.0
+var _rotation_accum := 0.0
+const DEGREES_PER_PULSE :=  90 # 45°
 
 # Tiempo exacto del proximo beat
 var next_beat_time : float = 0
@@ -44,11 +45,11 @@ var ending = false
 
 func _ready() -> void:
 	var rot = 0
-	for i in range(8):
+	for i in range(4):
 		var pulso = PULSO.instantiate()
 		pulso.scale = Vector2(0.66, 0.66)
 		pulso.rotation = deg_to_rad(rot)
-		rot += 45
+		rot += 90
 		disco.add_child(pulso)
 		pool_pulsos.push_back(pulso)
 
@@ -78,11 +79,13 @@ func start_song(start, fin):
 	
 	# reset visual
 	disco.rotation = deg_to_rad(-90)
+	_rotation_last = rad_to_deg(disco.rotation)
+	_rotation_accum = 0.0
 	
 	for i in len(pool_pulsos):
 		var pulso_idx = (actual_pulso + i) % len(pool_pulsos)
 		pool_pulsos[pulso_idx].set_pulso(Global.song[start + i])
-	
+	next_chord_to_load = start + len(pool_pulsos)
 	print("START")
 
 func next_pulse(puls : Pulso):
@@ -102,7 +105,6 @@ func next_pulse(puls : Pulso):
 	
 	# Verificar si termino la cancion
 	if actual_chord >= len(Global.song):
-		await((60.0 / bpm) * 0.5)
 		end()
 		return
 	
@@ -110,6 +112,16 @@ func next_pulse(puls : Pulso):
 	failed_this_beat = false
 	correct_this_beat = false
 	can_hit_this_beat = true
+	
+func get_farthest_pulse() -> Pulso:
+	var puls = pool_pulsos[0]
+	var max_dist = 0.0
+	for p in pool_pulsos:
+		var dist = (p.global_position - trastes.global_position).length()
+		if dist > max_dist:
+			max_dist = dist
+			puls = p
+	return puls
 
 func get_nearest_pulse() -> Pulso:
 	var puls = pool_pulsos[0]
@@ -175,20 +187,27 @@ func check_input():
 func _physics_process(delta: float) -> void:
 	if not enable:
 		return
-	
+
 	song_time += delta
-	
-	var beat_time = 60.0 / bpm
-	elapsed_sb_time += delta
-	
-	if elapsed_sb_time >= beat_time * 0.5:
-		elapsed_sb_time -= beat_time * 0.5
-		next_pulse(get_nearest_pulse())
-	
+
+	# Calcular cuánto ha rotado el disco desde el último frame
+	var current_rot = rad_to_deg(disco.rotation)
+	var delta_rot = abs(current_rot - _rotation_last)
+	# Manejar el wraparound de 360°
+	if delta_rot > 180.0:
+		delta_rot = 360.0 - delta_rot
+	_rotation_last = current_rot
+	_rotation_accum += delta_rot
+
+	# Disparar next_pulse cada 45°
+	while _rotation_accum >= DEGREES_PER_PULSE:
+		_rotation_accum -= DEGREES_PER_PULSE
+		next_pulse(get_farthest_pulse())
+
 	if Input.is_action_just_pressed("rasgar", true):
 		pulsed = true
 		check_input()
-	
+
 	if Input.is_action_just_released("rasgar"):
 		pulsed = false
 
