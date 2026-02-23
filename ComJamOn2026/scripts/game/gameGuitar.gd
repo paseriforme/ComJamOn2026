@@ -312,7 +312,9 @@ func fail():
 	failed_this_beat = true
 	can_hit_this_beat = false
 	correct_this_beat = false
-	
+	#audio de fallo
+	audio_player.stream = load("res://audio/sfx/detuned.wav")
+	audio_player.play()
 	# Mostrar pegatina de fallo
 	pegatina.visible = true
 	pegatina.texture = pegatinas[0]
