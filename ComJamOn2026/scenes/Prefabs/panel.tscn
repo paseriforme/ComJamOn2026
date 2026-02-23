@@ -255,6 +255,7 @@ offset_bottom = 1080.0
 texture = ExtResource("13_nc4t1")
 
 [node name="Porcentaje" type="TextureRect" parent="Telon" unique_id=1213803891]
+visible = false
 z_index = 200
 layout_mode = 0
 offset_left = -9.009008
