@@ -226,10 +226,12 @@ func choose(next_id):
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("verde",true) and decision_box.visible and not dialogue_box.visible:
 		choose(current_node.options[0].next)
+		Global.sound.play_sfx("click", 0.2)
 #		pegar_verde()
 		pass
 	if Input.is_action_pressed("rojo",true) and decision_box.visible and not dialogue_box.visible:
 		choose(current_node.options[1].next)
+		Global.sound.play_sfx("click", 0.2)
 #		pegar_rojo()
 		pass
 	pass

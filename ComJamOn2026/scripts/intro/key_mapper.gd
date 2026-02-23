@@ -17,8 +17,8 @@ var somethingpressed = false
 
 func _ready() -> void:
 	next_key()
-	Global.sound.set_bgm_volume_db(14)
-	Global.sound.set_sfx_volume_db(14)
+	Global.sound.set_bgm_volume_db(7)
+	Global.sound.set_sfx_volume_db(7)
 	Global.sound.play_bgm("ambience")
 
 func _input(event: InputEvent) -> void:
@@ -64,6 +64,7 @@ func _confirmar():
 	print_debug("CONFIRMAR")
 	Global.change_scene(Global.Scenes.GAME)
 	trans = true
+	Global.sound.play_sfx("click", 0.2)
 	pass
 	
 func _reiniciar():

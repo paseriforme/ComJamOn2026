@@ -67,6 +67,7 @@ func _physics_process(delta: float) -> void:
 		if direction >= len(directions): 
 			direction = 0
 		$Sprite2D.texture = sprite_directions[direction]
+		Global.play_paper(0.2)
 		#print("TURN LEFT")
 	if Input.is_action_just_released("verde", true): greenPressed = false
 		
@@ -78,6 +79,7 @@ func _physics_process(delta: float) -> void:
 		if direction < 0: 
 			direction = len(directions) -1
 		$Sprite2D.texture = sprite_directions[direction]
+		Global.play_paper(0.2)
 		#print("TURN RIGHT")
 	if Input.is_action_just_released("rojo", true): redPressed = false
 	# RASGEO
