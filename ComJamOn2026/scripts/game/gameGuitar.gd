@@ -39,8 +39,8 @@ var song_time : float = 0
 var actual_cancion : float = 0
 var pulses_to_start := 2
 @export var ending_animator : AnimationPlayer 
-@export var telon_izq : AnimationPlayer 
-@export var telon_der : AnimationPlayer 
+@export var telon_izq : TextureRect 
+@export var telon_der : TextureRect 
 var ending = false
 
 # Parametros de rotacion
@@ -56,7 +56,7 @@ func stop_song():
 	enable = false
 
 func _create_pulse():
-	if actual_chord >= last_chord or actual_chord > len(Global.song):
+	if actual_chord >= last_chord or actual_chord >= len(Global.song):
 		if not ending: 
 			end()
 		return
