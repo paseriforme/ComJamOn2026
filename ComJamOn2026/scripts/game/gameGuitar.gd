@@ -28,8 +28,11 @@ var elapsed_b_time :float = 0
 var elapsed_sb_time :float = 0
 
 var actual_cancion : float =0
-
 var pulses_to_start := 2
+@export var ending_animator : AnimationPlayer 
+@export var telon_izq : AnimationPlayer 
+@export var telon_der : AnimationPlayer 
+var ending = false
 
 func _ready() -> void:
 	for i in range(8):
@@ -155,12 +158,29 @@ func check() -> bool:
 func _physics_process(delta: float) -> void:
 	if not enable:
 		return
-	
-	if actual_chord >= last_chord:
+		 
+	if actual_chord >= last_chord and not ending:
+		ending = true
 		disco.end()
 		Global.sound.stop_bgm()
 		if Global.npc_chocado == $"../../../../manager2":
 			#TODO: telón final
+#			ending_animator.play("end")
+
+			await Global.timer(1.0)
+			var time = 5.0
+			var ini_pos_1 = telon_izq.position
+			var ini_pos_2 = telon_der.position
+			var offset = 1000
+			var tween1 = get_tree().create_tween()
+			tween1.set_ease(Tween.EASE_OUT)
+			tween1.tween_property(telon_izq, "position", ini_pos_1 + Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
+			
+			var tween2 = get_tree().create_tween()
+			tween2.set_ease(Tween.EASE_OUT)
+			tween2.tween_property(telon_der, "position", ini_pos_2 - Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
+			tween2.finished.connect(func(): get_tree().quit())
+			
 			#get_tree().quit() #esto será callback on finished del tween 
 			pass
 		return
@@ -208,3 +228,8 @@ func fail():
 	Global.sound.stop_bgm()
 	failed_this_beat = true
 	correct_this_beat = false
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	get_tree().quit()
+	pass # Replace with function body.
