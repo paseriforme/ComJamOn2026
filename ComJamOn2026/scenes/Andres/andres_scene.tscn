@@ -242,20 +242,11 @@ offset_bottom = 1082.9851
 
 [node name="Disco" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="1" unique_id=2129852190]
 offset_left = 686.2269
-offset_top = 21.693909
 offset_right = 686.2269
-offset_bottom = 21.693909
-rotation = 1.6388642
-scale = Vector2(0.6481072, 0.6481072)
 
 [node name="control_disco" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="2" unique_id=1914348709]
 offset_left = -108.955215
 offset_right = -108.955215
-scale = Vector2(1, 1)
-
-[node name="Pegatina" parent="CanvasLayer/Panel/Fondo/control_disco" index="1" unique_id=1751531275]
-scale = Vector2(0.95, 0.95)
-stretch_mode = 2
 
 [node name="TextureRect" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="3" unique_id=2110772926]
 offset_left = 413.36896
@@ -264,15 +255,13 @@ offset_right = 2333.3726
 [node name="Trastes" parent="CanvasLayer/Panel/Fondo/TextureRect" index="0" unique_id=427422133]
 z_index = 5
 
-[node name="Pegatina" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="4" unique_id=1529530381]
-offset_left = -108.955215
-offset_right = -68.955215
+[node name="Pegatina" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="6" unique_id=200303186]
+offset_left = 1176.1194
+offset_right = 1495.1194
 
 [node name="Telon" parent="CanvasLayer/Panel" index="2" unique_id=1036940807]
+visible = true
 z_index = 10
-
-[node name="Izq" parent="CanvasLayer/Panel/Telon" index="0" unique_id=961408094]
-offset_right = 0.0014648438
 
 [connection signal="body_entered" from="colega" to="colega" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="colega" to="colega" method="_on_body_shape_entered"]

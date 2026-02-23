@@ -10,8 +10,8 @@ var last_klk_time : float = 0
 var next_chord_to_load := 0
 
 @onready var audio_player: AudioStreamPlayer2D = $"../AudioPlayer"
-@onready var pegatina: TextureRect = $Pegatina
-@onready var animator: AnimationPlayer = $AnimationPlayer
+@onready var pegatina: TextureRect = 	$"../Pegatina"
+@onready var animator: AnimationPlayer = $"../AnimationPlayer"
 @export var pegatinas : Array[Texture2D]
 @onready var trastes: Control = $"../TextureRect/Trastes"
 
@@ -219,6 +219,7 @@ func correct(timing_quality: int):
 	can_hit_this_beat = false
 	
 	# Mostrar pegatina
+	print_debug(pegatina.visible)
 	pegatina.visible = true
 	match timing_quality:
 		2:  # PERFECTO

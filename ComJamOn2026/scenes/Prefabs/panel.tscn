@@ -112,19 +112,6 @@ telon_izq = NodePath("../../Telon/Izq")
 telon_der = NodePath("../../Telon/Der")
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Fondo/control_disco" unique_id=538621387]
-libraries/ = SubResource("AnimationLibrary_jbghi")
-
-[node name="Pegatina" type="TextureRect" parent="Fondo/control_disco" unique_id=1751531275]
-layout_mode = 0
-offset_left = 1228.3582
-offset_top = -25.373133
-offset_right = 1547.3582
-offset_bottom = 315.62686
-pivot_offset = Vector2(158.4953, 170.74194)
-texture = ExtResource("6_nc4t1")
-stretch_mode = 3
-
 [node name="TextureRect" type="TextureRect" parent="Fondo" unique_id=2110772926]
 z_index = 2
 layout_mode = 0
@@ -150,12 +137,22 @@ grow_vertical = 2
 rotation = -0.5235988
 scale = Vector2(0.43, 0.43)
 
-[node name="Pegatina" type="TextureRect" parent="Fondo" unique_id=1529530381]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="Fondo" unique_id=750639163]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fondo" unique_id=298931892]
+libraries/ = SubResource("AnimationLibrary_jbghi")
+
+[node name="Pegatina" type="TextureRect" parent="Fondo" unique_id=200303186]
+z_index = 2
+layout_mode = 0
+offset_left = 1228.3582
+offset_top = -25.373133
+offset_right = 1547.3582
+offset_bottom = 315.62686
+scale = Vector2(0.95, 0.95)
+pivot_offset = Vector2(158.4953, 170.74194)
+texture = ExtResource("6_nc4t1")
+stretch_mode = 3
 
 [node name="Telon" type="Control" parent="." unique_id=1036940807]
 z_index = 100
