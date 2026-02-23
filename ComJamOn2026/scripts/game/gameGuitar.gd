@@ -1,7 +1,7 @@
 extends Control
 const PULSO = preload("res://scenes/Prefabs/pulso.tscn")
 
-var pool_pulsos : Array[Node]= []
+var pulsos : Array[Node] = []
 var actual_pulso := 0  
 var actual_chord := 0
 var last_chord := len(Global.song)
@@ -13,10 +13,9 @@ var last_klk_time : float = 0
 @export var pegatinas : Array[Texture2D]
 @onready var trastes: Control = $"../TextureRect/Trastes"
 
-# Ventana de tiempo asimétrica - MÁS PERMISIVO
-@export var tiempo_anticipacion = 0.3  # Puede tocar 300ms ANTES
-@export var tiempo_retardo = 0.2       # Puede tocar 200ms DESPUÉS
-@export var perfe_time = 0.08          # Perfecto en ±80ms del beat exacto
+@export var tiempo_anticipacion = 0.3  # 300ms antes
+@export var tiempo_retardo = 0.2       # 200ms despues
+@export var perfe_time = 0.08          # +-80ms del beat exacto
 
 var pulsed = false
 var enable = false
@@ -30,7 +29,7 @@ var can_hit_this_beat = true
 var elapsed_b_time :float = 0
 var elapsed_sb_time :float = 0
 
-# Tiempo exacto del próximo beat
+# Tiempo exacto del proximo beat
 var next_beat_time : float = 0
 var song_time : float = 0
 
@@ -41,15 +40,43 @@ var pulses_to_start := 2
 @export var telon_der : AnimationPlayer 
 var ending = false
 
+# Parámetros de rotación
+@export var num_pulsos : int = 8
+@export var rotacion_inicial : float = -180.0
+@export var rotacion_final : float = 0.0
+@export var escala_pulsos : Vector2 = Vector2(0.66, 0.66)
+
 func _ready() -> void:
-	for i in range(8):
-		var pulso = PULSO.instantiate()
-		pulso.scale = Vector2(0.66, 0.66)
-		disco.add_child(pulso)
-		pool_pulsos.push_back(pulso)
+	pass
 
 func stop_song():
 	enable = false
+
+func _create_pulse():
+	if actual_chord >= last_chord:
+		if not ending: 
+			end()
+		return
+	
+	var pl: Pulso = PULSO.instantiate()
+	add_child(pl)
+	pl.set_pulso(Global.song[actual_chord])
+	
+	# configurar posicion inicial
+	pl.rotation_degrees = rotacion_inicial
+	pl.scale = escala_pulsos
+	pl.set_pulso(Global.song[actual_chord])
+	
+	var duration = 60.0 / bpm  # Duracion de un beat
+	var tween = create_tween()
+	tween.tween_property(pl, "rotation_degrees", rotacion_final, duration *4)
+	# crear siguiente y destruir este
+	tween.finished.connect(func():
+		actual_chord += 1
+		next_beat_time += duration *4
+		_create_pulse()
+		pl.queue_free()
+	)
 
 func start_song(start, fin):
 	enable = true
@@ -57,14 +84,6 @@ func start_song(start, fin):
 	var start_sec = start * ((60/bpm) * 0.5)
 	print(start_sec)
 	Global.sound.play_bgm(Global.cancion, false, start_sec)
-	
-	# limpiar pulsos y establecer rotaciones fijas
-	var rot = 0
-	for i in len(pool_pulsos):
-		pool_pulsos[i].scale = Vector2(0.66, 0.66)
-		pool_pulsos[i].rotation = deg_to_rad(rot)
-		pool_pulsos[i].set_pulso([false,false,false,false,false])
-		rot -= 45
 	
 	# reset de indices
 	actual_chord = start
@@ -86,45 +105,32 @@ func start_song(start, fin):
 	
 	# reset visual
 	disco.rotation = deg_to_rad(-90 + 150)
+	position = Vector2(695.522, 898.507)
 	
-	# pre-cargar 3 pulsos visibles desde ese punto
-	for i in range(8):
-		var pulso_idx = (actual_pulso + i) % len(pool_pulsos)
-		if i < len(Global.song):
-			pool_pulsos[pulso_idx].set_pulso(Global.song[i])
+	# Iniciar la creación de pulsos
+	_create_pulse()
 	
 	print("START")
 
-func next_pulse(puls : Pulso):
-	puls.set_pulso([false,false,false,false,false])
-	
-	# Si llegamos al siguiente beat sin haber acertado, es fallo (a menos que sea vacío)
-	if can_hit_this_beat and not correct_this_beat and not _vacio_actual():
-		fail()
-	
-	# avanzar el acorde
-	actual_chord += 1
-	next_beat_time += (60.0 / bpm) * 0.5
-	
-	await((60.0 / bpm) * 0.5)
-	if actual_chord> len(Global.song):
-		end()
-		return
-	puls.set_pulso(Global.song[actual_chord])
-	
+func next_pulse():
 	# Reset de estados para el nuevo beat
 	failed_this_beat = false
 	correct_this_beat = false
 	can_hit_this_beat = true
 
 func get_nearest_pulse() -> Pulso:
-	var puls = pool_pulsos[0]
-	var last_n_pos = (pool_pulsos[0].global_position - trastes.global_position).length() 
-	for p in pool_pulsos:
-		if (p.global_position - trastes.global_position).length() < last_n_pos:
-			last_n_pos = (p.global_position - trastes.global_position).length()
-			puls = p
-	return puls
+	# Obtener el pulso que está más cerca de trastes
+	var nearest_pulse: Pulso = null
+	var min_distance = INF
+	
+	for child in get_children():
+		if child is Pulso:
+			var distance = (child.global_position - trastes.global_position).length()
+			if distance < min_distance:
+				min_distance = distance
+				nearest_pulse = child
+	
+	return nearest_pulse
 
 func _matching_keys() -> bool:
 	if actual_chord >= len(Global.song):
@@ -140,7 +146,7 @@ func _any_key_pressed() -> bool:
 			return true
 	return false
 
-	# Devuelve: 2 = perfecto, 1 = bien, 0 = fuera de ventana 
+# Devuelve: 2 = perfecto, 1 = bien, 0 = fuera de ventana 
 func _acertado_on_time() -> int:
 	var time_diff = song_time - next_beat_time
 	
@@ -189,7 +195,7 @@ func _physics_process(delta: float) -> void:
 	
 	if elapsed_sb_time >= beat_time * 0.5:
 		elapsed_sb_time -= beat_time * 0.5
-		next_pulse(get_nearest_pulse())
+		next_pulse()
 	
 	# Verificar input continuamente
 	if Input.is_action_just_pressed("rasgar", true):
@@ -248,14 +254,13 @@ func fail():
 	pegatina.visible = true
 	pegatina.texture = pegatinas[0]
 	animator.play("pegar")
-	
 
 func end():
 	ending = true
 	disco.end()
 	Global.sound.stop_bgm()
 	if Global.npc_chocado == $"../../../../manager2":
-		#TODO: telón final
+		#TODO: telon final
 #		ending_animator.play("end")
 		await Global.timer(1.0)
 		var time = 5.0
@@ -271,5 +276,5 @@ func end():
 		tween2.tween_property(telon_der, "position", ini_pos_2 - Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
 		tween2.finished.connect(func(): get_tree().quit())
 		
-		#get_tree().quit() #esto será callback on finished del tween 
+		#get_tree().quit() #esto sera callback on finished del tween 
 		pass
