@@ -36,8 +36,8 @@ func _input(event):
 		scene = Global.Scenes.CONTEXT
 	if event.is_action_pressed("2"):
 		scene = Global.Scenes.GAME
-	#if event.is_action_pressed("ui_cancel"):
-		#get_tree().quit()
+	if event.is_action_pressed("escape"):
+		get_tree().quit()
 	if (scene != Global.Scenes.NULL):
 		Global.change_scene(scene)
 
