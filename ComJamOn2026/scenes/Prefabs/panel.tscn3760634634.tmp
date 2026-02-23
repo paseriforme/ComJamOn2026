@@ -80,13 +80,13 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 1114.9253
-offset_top = 21.693909
-offset_right = 1114.9253
-offset_bottom = 21.693909
+offset_left = 1389.5522
+offset_top = -35.02249
+offset_right = 1389.5522
+offset_bottom = -35.02249
 grow_vertical = 2
 rotation = 1.6388642
-scale = Vector2(0.6481072, 0.6481072)
+scale = Vector2(0.582857, 0.582857)
 script = ExtResource("5_jbghi")
 
 [node name="TextureRect" type="TextureRect" parent="Fondo/Disco" unique_id=2028183125]

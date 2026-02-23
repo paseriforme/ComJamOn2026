@@ -80,13 +80,12 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 1114.9253
-offset_top = 21.693909
-offset_right = 1114.9253
-offset_bottom = 21.693909
+offset_left = 783.2418
+offset_top = 370.948
+offset_right = 783.2418
+offset_bottom = 370.948
 grow_vertical = 2
 rotation = 1.6388642
-scale = Vector2(0.6481072, 0.6481072)
 script = ExtResource("5_jbghi")
 
 [node name="TextureRect" type="TextureRect" parent="Fondo/Disco" unique_id=2028183125]
@@ -106,8 +105,9 @@ texture = ExtResource("6_a7k1q")
 
 [node name="control_disco" parent="Fondo" unique_id=1914348709 instance=ExtResource("3_3ovq8")]
 layout_mode = 1
-scale = Vector2(0.95351535, 1.3373363)
 pegatinas = Array[Texture2D]([ExtResource("7_n1hje"), ExtResource("8_jbghi"), ExtResource("6_nc4t1")])
+bien_time = null
+perfe_time = null
 bpm = 60.0
 metadata/_edit_use_anchors_ = true
 
@@ -128,9 +128,9 @@ stretch_mode = 2
 [node name="TextureRect" type="TextureRect" parent="Fondo" unique_id=2110772926]
 z_index = 2
 layout_mode = 0
-offset_left = 473.13443
+offset_left = 487.624
 offset_top = 26.405
-offset_right = 2393.1396
+offset_right = 2407.6292
 offset_bottom = 1106.405
 rotation = 0.5235988
 pivot_offset = Vector2(282.08948, 913.4328)
