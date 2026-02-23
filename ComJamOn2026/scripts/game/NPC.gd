@@ -48,8 +48,10 @@ func _iniciar_dialogo():
 		print("START DIALOGUE: ", startDialogue)
 		canvas_layer.show_dialogue(startDialogue)
 		if selfNPC == NPC_type.MANAGER:
+			Global.cancion = "CancionEnteraSinGuitarra"
 			$"../CanvasLayer/Panel/Fondo".texture = preload("uid://dkjqyqi73dt1o")
 		else:		
+			Global.cancion = "TuSombraEntreLosAmplisInstrumentalSINGUITAR"
 			$"../CanvasLayer/Panel/Fondo".texture = preload("uid://n0ob011ts0le")
 	pass
 
