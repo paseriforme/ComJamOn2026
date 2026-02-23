@@ -331,8 +331,9 @@ func end():
 		var tween1 = get_tree().create_tween()
 		tween1.set_ease(Tween.EASE_OUT)
 		tween1.tween_property(telon_izq, "position", ini_pos_1 + Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
-		
+		Global.play_cardboard(0.2)
 		var tween2 = get_tree().create_tween()
 		tween2.set_ease(Tween.EASE_OUT)
 		tween2.tween_property(telon_der, "position", ini_pos_2 - Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
 		tween2.finished.connect(func(): get_tree().quit())
+		Global.play_cardboard(0.2)

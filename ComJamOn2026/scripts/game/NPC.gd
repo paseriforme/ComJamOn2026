@@ -35,6 +35,7 @@ func _on_body_entered(body: Node) -> void:
 	tween2.set_ease(Tween.EASE_IN)
 	tween2.tween_property($Sprite2D, "position", inipos, tween_time/2).set_trans(trans)
 	Global.npc_chocado = self
+	Global.sound.play_sfx("bounce", 0.2)
 	pass
 #	var newpos = ((position - body.position) * body.speed)
 #	body.apply_impulse(newpos)

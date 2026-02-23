@@ -18,7 +18,7 @@ var somethingpressed = false
 func _ready() -> void:
 	next_key()
 	Global.sound.set_bgm_volume_db(14)
-	Global.sound.set_sfx_volume_db(1)
+	Global.sound.set_sfx_volume_db(14)
 	Global.sound.play_bgm("ambience")
 
 func _input(event: InputEvent) -> void:
@@ -52,10 +52,12 @@ func next_key() -> void:
 		var tween2 = get_tree().create_tween()
 		tween2.set_ease(Tween.EASE_OUT)
 		tween2.tween_property(flecha_confirmar, "position", Vector2(-20, 0), 1.0).set_trans(Tween.TRANS_ELASTIC)
+		Global.play_cardboard(0.2)
 		
 		var tween3 = get_tree().create_tween()
 		tween3.set_ease(Tween.EASE_OUT)
 		tween3.tween_property(flecha_reintentar, "position", Vector2(20, 0), 1.0).set_trans(Tween.TRANS_ELASTIC)
+		Global.play_cardboard(0.2)
 
 
 func _confirmar():
@@ -77,11 +79,13 @@ func _reiniciar():
 	var tween2 = get_tree().create_tween()
 	tween2.set_ease(Tween.EASE_OUT)
 	tween2.tween_property(flecha_confirmar, "position", Vector2(-450.0, 0), 1.0).set_trans(Tween.TRANS_ELASTIC)
+	Global.play_cardboard(0.2)
 	
 	var tween3 = get_tree().create_tween()
 	tween3.set_ease(Tween.EASE_OUT)
 	tween3.tween_property(flecha_reintentar, "position", Vector2(760, 0), 1.0).set_trans(Tween.TRANS_ELASTIC)
 	print_debug("REPETIR")
+	Global.play_cardboard(0.2)
 	pass
 
 func _remap():
