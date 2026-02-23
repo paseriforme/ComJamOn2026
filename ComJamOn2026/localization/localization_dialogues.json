@@ -1,297 +1,493 @@
 {
   "Dialogues": [
-	{
-	  "DialogueID": 0,
-	  "Texts": [
-		{
-		  "ID": 2,
-		  "Type": "START",
-		  "Character": "Manager",
-		  "Text": "¡Hola, hola!",
-		  "Next": 5
-		},
-		{
-		  "ID": 5,
-		  "Type": "DECISION",
-		  "Character": "Manager",
-		  "Text": "¿Lista para salir?",
-		  "Next": 6,
-		  "Options": [
-			{
-			  "Text": "Sí",
-			  "Next": 6
-			},
-			{
-			  "Text": "No",
-			  "Next": 8
-			}
-		  ]
-		},
-		{
-		  "ID": 6,
-		  "Type": "ACTION",
-		  "Character": "",
-		  "Text": "aceptar",
-		  "Next": 7
-		},
-		{
-		  "ID": 7,
-		  "Type": "END",
-		  "Character": "Manager",
-		  "Text": "¡A tope!",
-		  "Next": null
-		},
-		{
-		  "ID": 8,
-		  "Type": "ACTION",
-		  "Character": "",
-		  "Text": "negarse",
-		  "Next": 10
-		},
-		{
-		  "ID": 10,
-		  "Type": "END",
-		  "Character": "Manager",
-		  "Text": "Vuelve cuando estés lista",
-		  "Next": null
-		}
-	  ]
-	},
-	{
-	  "DialogueID": 1,
-	  "Texts": [
-		{
-		  "ID": 12,
-		  "Type": "START",
-		  "Character": "Colega",
-		  "Text": "¿Qué pasa colega?",
-		  "Next": 13
-		},
-		{
-		  "ID": 13,
-		  "Type": "DECISION",
-		  "Character": "Colega",
-		  "Text": "¿Practicamos la primera estrofa?",
-		  "Next": 14,
-		  "Options": [
-			{
-			  "Text": "Sí",
-			  "Next": 14
-			},
-			{
-			  "Text": "No",
-			  "Next": 15
-			}
-		  ]
-		},
-		{
-		  "ID": 14,
-		  "Type": "ACTION",
-		  "Character": "",
-		  "Text": "aceptar",
-		  "Next": 16
-		},
-		{
-		  "ID": 16,
-		  "Type": "END",
-		  "Character": "Colega",
-		  "Text": "¡Dale!",
-		  "Next": null
-		},
-		{
-		  "ID": 15,
-		  "Type": "ACTION",
-		  "Character": "",
-		  "Text": "negarse",
-		  "Next": 17
-		},
-		{
-		  "ID": 17,
-		  "Type": "END",
-		  "Character": "Colega",
-		  "Text": "Pfff, vale...",
-		  "Next": null
-		}
-	  ]
-	},
-	{
-	  "DialogueID": 2,
-	  "Texts": [
-		{
-		  "ID": 18,
-		  "Type": "START",
-		  "Character": "Chavala",
-		  "Text": "¿Y esos pelos, tía?",
-		  "Next": 19
-		},
-		{
-		  "ID": 19,
-		  "Type": "DECISION",
-		  "Character": "Chavala",
-		  "Text": "Ponte a practicar el puente que estás muy verde",
-		  "Next": 20,
-		  "Options": [
-			{
-			  "Text": "Sí",
-			  "Next": 20
-			},
-			{
-			  "Text": "No",
-			  "Next": 21
-			}
-		  ]
-		},
-		{
-		  "ID": 20,
-		  "Type": "ACTION",
-		  "Character": "",
-		  "Text": "aceptar",
-		  "Next": 22
-		},
-		{
-		  "ID": 22,
-		  "Type": "END",
-		  "Character": "Chavala",
-		  "Text": "¡Qué real, tía!",
-		  "Next": null
-		},
-		{
-		  "ID": 21,
-		  "Type": "ACTION",
-		  "Character": "",
-		  "Text": "negarse",
-		  "Next": 23
-		},
-		{
-		  "ID": 23,
-		  "Type": "END",
-		  "Character": "Chavala",
-		  "Text": "Qué chavala... Anda, pasa el cubata",
-		  "Next": null
-		}
-	  ]
-	},
-	{
-	  "DialogueID": 3,
-	  "Texts": [
-		{
-		  "ID": 24,
-		  "Type": "START",
-		  "Character": "Tronca",
-		  "Text": "¿Qué pasa tron?",
-		  "Next": 25
-		},
-		{
-		  "ID": 25,
-		  "Type": "DECISION",
-		  "Character": "Tronca",
-		  "Text": "¿Le damos a los estribillos?",
-		  "Next": 26,
-		  "Options": [
-			{
-			  "Text": "Sí",
-			  "Next": 26
-			},
-			{
-			  "Text": "No",
-			  "Next": 27
-			}
-		  ]
-		},
-		{
-		  "ID": 26,
-		  "Type": "ACTION",
-		  "Character": "",
-		  "Text": "aceptar",
-		  "Next": 28
-		},
-		{
-		  "ID": 28,
-		  "Type": "END",
-		  "Character": "Tronca",
-		  "Text": "Mete cuarta y acelera",
-		  "Next": null
-		},
-		{
-		  "ID": 27,
-		  "Type": "ACTION",
-		  "Character": "",
-		  "Text": "negarse",
-		  "Next": 30
-		},
-		{
-		  "ID": 30,
-		  "Type": "DIALOGUE",
-		  "Character": "Tronca",
-		  "Text": "¡Pues hasta luego, Lucas!",
-		  "Next": 29
-		},
-		{
-		  "ID": 29,
-		  "Type": "END",
-		  "Character": "Tronca",
-		  "Text": "¿Y esa sonrisita coqueta?",
-		  "Next": null
-		}
-	  ]
-	},
-	{
-	  "DialogueID": 4,
-	  "Texts": [
-		{
-		  "ID": 31,
-		  "Type": "START",
-		  "Character": "Muchacha",
-		  "Text": "Noto que algo perturba tu espíritu...",
-		  "Next": 33
-		},
-		{
-		  "ID": 33,
-		  "Type": "DECISION",
-		  "Character": "Muchacha",
-		  "Text": "Esta estrofa calmará tus sentidos...",
-		  "Next": 34,
-		  "Options": [
-			{
-			  "Text": "Sí",
-			  "Next": 34
-			},
-			{
-			  "Text": "No",
-			  "Next": 35
-			}
-		  ]
-		},
-		{
-		  "ID": 34,
-		  "Type": "ACTION",
-		  "Character": "",
-		  "Text": "aceptar",
-		  "Next": 36
-		},
-		{
-		  "ID": 36,
-		  "Type": "END",
-		  "Character": "Muchacha",
-		  "Text": "Demuestra de que está hecha tu esencia...",
-		  "Next": null
-		},
-		{
-		  "ID": 35,
-		  "Type": "ACTION",
-		  "Character": "",
-		  "Text": "negarse",
-		  "Next": 37
-		},
-		{
-		  "ID": 37,
-		  "Type": "END",
-		  "Character": "Muchacha",
-		  "Text": "...",
-		  "Next": null
-		}
-	  ]
-	}
+    {
+      "DialogueID": 0,
+      "Texts": [
+        {
+          "ID": 2,
+          "Type": "START",
+          "Character": "Manager",
+          "Text": "¡Hola, hola!",
+          "Next": 33
+        },
+        {
+          "ID": 33,
+          "Type": "DIALOGUE",
+          "Character": "Manager",
+          "Text": "Ya está todo preparado",
+          "Next": 34
+        },
+        {
+          "ID": 34,
+          "Type": "DIALOGUE",
+          "Character": "Manager",
+          "Text": "Me han dicho las chicas que no te encuentras bien",
+          "Next": 35
+        },
+        {
+          "ID": 35,
+          "Type": "DIALOGUE",
+          "Character": "Manager",
+          "Text": "Todo bien con el single ¿no?",
+          "Next": 36
+        },
+        {
+          "ID": 36,
+          "Type": "DIALOGUE",
+          "Character": "Manager",
+          "Text": "...",
+          "Next": 37
+        },
+        {
+          "ID": 37,
+          "Type": "DIALOGUE",
+          "Character": "Manager",
+          "Text": "Llevamos TODA la semana ensayándolo",
+          "Next": 38
+        },
+        {
+          "ID": 38,
+          "Type": "DIALOGUE",
+          "Character": "Manager",
+          "Text": "Más os vale que salga bien",
+          "Next": 39
+        },
+        {
+          "ID": 39,
+          "Type": "DIALOGUE",
+          "Character": "Manager",
+          "Text": "En esta sala no toca cualquiera",
+          "Next": 40
+        },
+        {
+          "ID": 40,
+          "Type": "DIALOGUE",
+          "Character": "Manager",
+          "Text": "Olvídalo, ¡os va a ir genial!",
+          "Next": 41
+        },
+        {
+          "ID": 41,
+          "Type": "DIALOGUE",
+          "Character": "Manager",
+          "Text": "¿Cómo no os va a ir genial?",
+          "Next": 42
+        },
+        {
+          "ID": 42,
+          "Type": "DIALOGUE",
+          "Character": "Manager",
+          "Text": "¿Verdad?",
+          "Next": 43
+        },
+        {
+          "ID": 43,
+          "Type": "DIALOGUE",
+          "Character": "Manager",
+          "Text": "¡¡¿Verdad?!!",
+          "Next": 44
+        },
+        {
+          "ID": 44,
+          "Type": "DIALOGUE",
+          "Character": "Manager",
+          "Text": "...",
+          "Next": 3
+        },
+        {
+          "ID": 3,
+          "Type": "DECISION",
+          "Character": "Manager",
+          "Text": "Bueno, qué, ¿Listas para salir?",
+          "Next": 4,
+          "Options": [
+            {
+              "Text": "Sí",
+              "Next": 4
+            },
+            {
+              "Text": "No",
+              "Next": 6
+            }
+          ]
+        },
+        {
+          "ID": 4,
+          "Type": "ACTION",
+          "Character": "",
+          "Text": "aceptar",
+          "Next": 5
+        },
+        {
+          "ID": 5,
+          "Type": "END",
+          "Character": "Manager",
+          "Text": "¡Qué vivan Las Magnolias!",
+          "Next": null
+        },
+        {
+          "ID": 6,
+          "Type": "ACTION",
+          "Character": "",
+          "Text": "negarse",
+          "Next": 7
+        },
+        {
+          "ID": 7,
+          "Type": "END",
+          "Character": "Manager",
+          "Text": "Vuelve cuando estés lista, sin presión",
+          "Next": null
+        }
+      ]
+    },
+    {
+      "DialogueID": 1,
+      "Texts": [
+        {
+          "ID": 8,
+          "Type": "START",
+          "Character": "Colega",
+          "Text": "¿Qué pasa, colega?",
+          "Next": 45
+        },
+        {
+          "ID": 45,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "¿Cómo estás? Tienes mala cara",
+          "Next": 46
+        },
+        {
+          "ID": 46,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "¡No me digas que se te ha olvidado el single!",
+          "Next": 47
+        },
+        {
+          "ID": 47,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "¡Yo tengo un truco para recordar las cosas olvidadas!",
+          "Next": 58
+        },
+        {
+          "ID": 58,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "Lo leí en un libro de mi padre",
+          "Next": 59
+        },
+        {
+          "ID": 59,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "«Consejos para el mileurista: Cómo meditar»",
+          "Next": 48
+        },
+        {
+          "ID": 48,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "Tienes que quedarte quieta, poner los ojos bizcos y...",
+          "Next": 49
+        },
+        {
+          "ID": 49,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "A ver, espera, cómo era...",
+          "Next": 50
+        },
+        {
+          "ID": 50,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "Ojos bizcos, cara de pan, mente en blanco...",
+          "Next": 51
+        },
+        {
+          "ID": 51,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "Eso lo tienes todo ya y no lo estás recordando...",
+          "Next": 52
+        },
+        {
+          "ID": 52,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "Debe ser otra cosa...",
+          "Next": 53
+        },
+        {
+          "ID": 53,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "Pies callosos, mal aliento... ¡No! ¡Algo que no tengas!",
+          "Next": 54
+        },
+        {
+          "ID": 54,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "Jo, tía, de verdad que no me acuerdo...",
+          "Next": 55
+        },
+        {
+          "ID": 55,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "Se me ha escapado el pensamiento...",
+          "Next": 56
+        },
+        {
+          "ID": 56,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "¿De qué estábamos hablando?",
+          "Next": 57
+        },
+        {
+          "ID": 57,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "Da igual...",
+          "Next": 9
+        },
+        {
+          "ID": 9,
+          "Type": "DECISION",
+          "Character": "Colega",
+          "Text": "¿Practicamos la primera estrofa y voy pensando?",
+          "Next": 10,
+          "Options": [
+            {
+              "Text": "Sí",
+              "Next": 10
+            },
+            {
+              "Text": "No",
+              "Next": 12
+            }
+          ]
+        },
+        {
+          "ID": 10,
+          "Type": "ACTION",
+          "Character": "",
+          "Text": "aceptar",
+          "Next": 60
+        },
+        {
+          "ID": 60,
+          "Type": "DIALOGUE",
+          "Character": "Colega",
+          "Text": "¡Esa es la actitud! ¿Debería escribir un libro yo?",
+          "Next": 11
+        },
+        {
+          "ID": 11,
+          "Type": "END",
+          "Character": "Colega",
+          "Text": "«Consejos para la guitarrista desesperada: Déjate llevar»",
+          "Next": null
+        },
+        {
+          "ID": 12,
+          "Type": "ACTION",
+          "Character": "",
+          "Text": "negarse",
+          "Next": 13
+        },
+        {
+          "ID": 13,
+          "Type": "END",
+          "Character": "Colega",
+          "Text": "Si me vuelves a necesitar ya sabes dónde estoy",
+          "Next": null
+        }
+      ]
+    },
+    {
+      "DialogueID": 2,
+      "Texts": [
+        {
+          "ID": 14,
+          "Type": "START",
+          "Character": "Chavala",
+          "Text": "¿Y esos pelos, tía?",
+          "Next": 15
+        },
+        {
+          "ID": 15,
+          "Type": "DECISION",
+          "Character": "Chavala",
+          "Text": "Ponte a practicar el puente que estás muy verde",
+          "Next": 16,
+          "Options": [
+            {
+              "Text": "Sí",
+              "Next": 16
+            },
+            {
+              "Text": "No",
+              "Next": 18
+            }
+          ]
+        },
+        {
+          "ID": 16,
+          "Type": "ACTION",
+          "Character": "",
+          "Text": "aceptar",
+          "Next": 17
+        },
+        {
+          "ID": 17,
+          "Type": "END",
+          "Character": "Chavala",
+          "Text": "¡Qué real, tía!",
+          "Next": null
+        },
+        {
+          "ID": 18,
+          "Type": "ACTION",
+          "Character": "",
+          "Text": "negarse",
+          "Next": 19
+        },
+        {
+          "ID": 19,
+          "Type": "END",
+          "Character": "Chavala",
+          "Text": "Qué chavala... Anda, pasa el cubata",
+          "Next": null
+        }
+      ]
+    },
+    {
+      "DialogueID": 3,
+      "Texts": [
+        {
+          "ID": 20,
+          "Type": "START",
+          "Character": "Tronca",
+          "Text": "¿Qué pasa tron?",
+          "Next": 21
+        },
+        {
+          "ID": 21,
+          "Type": "DECISION",
+          "Character": "Tronca",
+          "Text": "¿Le damos a los estribillos?",
+          "Next": 22,
+          "Options": [
+            {
+              "Text": "Sí",
+              "Next": 22
+            },
+            {
+              "Text": "No",
+              "Next": 24
+            }
+          ]
+        },
+        {
+          "ID": 22,
+          "Type": "ACTION",
+          "Character": "",
+          "Text": "aceptar",
+          "Next": 23
+        },
+        {
+          "ID": 23,
+          "Type": "END",
+          "Character": "Tronca",
+          "Text": "Mete cuarta y acelera",
+          "Next": null
+        },
+        {
+          "ID": 24,
+          "Type": "ACTION",
+          "Character": "",
+          "Text": "negarse",
+          "Next": 25
+        },
+        {
+          "ID": 25,
+          "Type": "DIALOGUE",
+          "Character": "Tronca",
+          "Text": "¡Pues hasta luego, Lucas!",
+          "Next": 26
+        },
+        {
+          "ID": 26,
+          "Type": "END",
+          "Character": "Tronca",
+          "Text": "¿Y esa sonrisita coqueta?",
+          "Next": null
+        }
+      ]
+    },
+    {
+      "DialogueID": 4,
+      "Texts": [
+        {
+          "ID": 27,
+          "Type": "START",
+          "Character": "Muchacha",
+          "Text": "Noto que algo perturba tu espíritu...",
+          "Next": 28
+        },
+        {
+          "ID": 28,
+          "Type": "DECISION",
+          "Character": "Muchacha",
+          "Text": "Esta estrofa calmará tus sentidos...",
+          "Next": 29,
+          "Options": [
+            {
+              "Text": "Sí",
+              "Next": 29
+            },
+            {
+              "Text": "No",
+              "Next": 31
+            }
+          ]
+        },
+        {
+          "ID": 29,
+          "Type": "ACTION",
+          "Character": "",
+          "Text": "aceptar",
+          "Next": 30
+        },
+        {
+          "ID": 30,
+          "Type": "END",
+          "Character": "Muchacha",
+          "Text": "Demuestra de que está hecha tu esencia...",
+          "Next": null
+        },
+        {
+          "ID": 31,
+          "Type": "ACTION",
+          "Character": "",
+          "Text": "negarse",
+          "Next": 32
+        },
+        {
+          "ID": 32,
+          "Type": "END",
+          "Character": "Muchacha",
+          "Text": "...",
+          "Next": null
+        }
+      ]
+    }
   ],
-  "LastModified": "2026-02-22T18:42:59.983031"
+  "LastModified": "2026-02-23T02:44:42.869589"
 }
