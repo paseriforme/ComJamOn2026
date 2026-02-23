@@ -243,9 +243,10 @@ offset_bottom = 1082.9851
 offset_left = 686.2269
 offset_right = 686.2269
 
-[node name="control_disco" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="2" unique_id=1914348709]
+[node name="control_disco" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="2" unique_id=1914348709 node_paths=PackedStringArray("porcentaje_animator")]
 offset_left = -108.955215
 offset_right = -108.955215
+porcentaje_animator = NodePath("../../Telon/AnimationPlayer")
 
 [node name="TextureRect" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="3" unique_id=2110772926]
 offset_left = 394.02966
