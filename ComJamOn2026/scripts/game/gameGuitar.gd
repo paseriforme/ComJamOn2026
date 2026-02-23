@@ -76,24 +76,23 @@ func _create_pulse():
 	tween.tween_property(pl, "rotation_degrees", rotacion_final, duration * 4)
 	
 	# Al terminar: crear siguiente y destruir este
-	await (duration * 2)
-	actual_chord += 1
-	next_beat_time += duration * 4
-	_create_pulse()
-	pl.queue_free()
-	
+	tween.finished.connect(func():
+		actual_chord += 1
+		next_beat_time += duration * 4
+		_create_pulse()
+		pl.queue_free()
+	)
 
-func start_song():
+func start_song(start = 0, fin = len(Global.song)):
 	enable = true
 	
-	var start_sec = Global.npc_chocado.firstChord * ((60/bpm) * 0.5)
+	var start_sec = start * ((60/bpm) * 0.5)
 	print(start_sec)
 	Global.sound.play_bgm(Global.cancion, false, start_sec)
 	
 	# reset de indices
-	actual_chord = Global.npc_chocado.firstChord
-	last_chord = Global.npc_chocado.lastChord
-	print(actual_chord, "!!", last_chord)
+	actual_chord = start
+	last_chord = fin
 	
 	# reset estados
 	pulsed = false

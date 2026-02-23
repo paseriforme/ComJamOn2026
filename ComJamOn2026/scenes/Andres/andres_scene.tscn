@@ -204,7 +204,7 @@ contact_monitor = true
 max_contacts_reported = 770
 script = ExtResource("8_vedlm")
 TEXTURE = ExtResource("13_y884l")
-lastChord = 53
+lastChord = 56
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="manager2" unique_id=2057201635]
 shape = SubResource("CircleShape2D_y884l")
