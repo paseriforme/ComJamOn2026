@@ -4,8 +4,8 @@ class_name SoundManager
 @onready var bgm: AudioStreamPlayer2D = $BGM
 @onready var sfx: AudioStreamPlayer2D = $SFX
 
-@export_dir var bgm_folder: String = "res://audio/bgm"
-@export_dir var sfx_folder: String = "res://audio/sfx"
+@export_dir var bgm_folder: String = "./audio/bgm"
+@export_dir var sfx_folder: String = "./audio/sfx"
 
 var bgm_tracks: Dictionary = {}
 var sfx_tracks: Dictionary = {}
