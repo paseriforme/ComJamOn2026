@@ -56,7 +56,7 @@
           "ID": 39,
           "Type": "DIALOGUE",
           "Character": "Manager",
-          "Text": "En esta sala no toca cualquiera",
+          "Text": "En la Sala Cadenas no toca cualquiera",
           "Next": 40
         },
         {
@@ -70,7 +70,7 @@
           "ID": 41,
           "Type": "DIALOGUE",
           "Character": "Manager",
-          "Text": "¿Cómo no os va a ir genial?",
+          "Text": "¿Cómo NO os va a ir genial?",
           "Next": 42
         },
         {
@@ -98,7 +98,7 @@
           "ID": 3,
           "Type": "DECISION",
           "Character": "Manager",
-          "Text": "Bueno, qué, ¿Listas para salir?",
+          "Text": "Bueno, qué, ¿listas para salir?",
           "Next": 4,
           "Options": [
             {
