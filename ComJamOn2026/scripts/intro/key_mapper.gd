@@ -17,6 +17,7 @@ var somethingpressed = false
 
 func _ready() -> void:
 	next_key()
+	Global.sound.play_bgm(Global.cancion, false, 0.0)
 
 func _input(event: InputEvent) -> void:
 #	if key >= len(actions): return
