@@ -317,14 +317,105 @@
           "ID": 14,
           "Type": "START",
           "Character": "Chavala",
-          "Text": "¿Y esos pelos, tía?",
+          "Text": "¿Y esos pelos, tía? ¿Todo bien?",
+          "Next": 61
+        },
+        {
+          "ID": 61,
+          "Type": "DIALOGUE",
+          "Character": "Chavala",
+          "Text": "¿No te sabes la canción? ¿Y eso qué más da?",
+          "Next": 62
+        },
+        {
+          "ID": 62,
+          "Type": "DIALOGUE",
+          "Character": "Chavala",
+          "Text": "Las Magnolias fluyen, tía, ¡como el viento!",
+          "Next": 63
+        },
+        {
+          "ID": 63,
+          "Type": "DIALOGUE",
+          "Character": "Chavala",
+          "Text": "El público te electrifica, tía",
+          "Next": 64
+        },
+        {
+          "ID": 64,
+          "Type": "DIALOGUE",
+          "Character": "Chavala",
+          "Text": "¡Física teórica puesta en práctica!",
+          "Next": 65
+        },
+        {
+          "ID": 65,
+          "Type": "DIALOGUE",
+          "Character": "Chavala",
+          "Text": "Como aquella vez en El Pradillo",
+          "Next": 66
+        },
+        {
+          "ID": 66,
+          "Type": "DIALOGUE",
+          "Character": "Chavala",
+          "Text": "Tronca se inventó la letra",
+          "Next": 67
+        },
+        {
+          "ID": 67,
+          "Type": "DIALOGUE",
+          "Character": "Chavala",
+          "Text": "Y las demás seguimos su voz",
+          "Next": 68
+        },
+        {
+          "ID": 68,
+          "Type": "DIALOGUE",
+          "Character": "Chavala",
+          "Text": "Como una sirena, tía, místico que te cagas",
+          "Next": 69
+        },
+        {
+          "ID": 69,
+          "Type": "DIALOGUE",
+          "Character": "Chavala",
+          "Text": "Tú también puedes ser hoy una criatura mitológica",
+          "Next": 70
+        },
+        {
+          "ID": 70,
+          "Type": "DIALOGUE",
+          "Character": "Chavala",
+          "Text": "Un minotauro...",
+          "Next": 71
+        },
+        {
+          "ID": 71,
+          "Type": "DIALOGUE",
+          "Character": "Chavala",
+          "Text": "O un kraken...",
+          "Next": 72
+        },
+        {
+          "ID": 72,
+          "Type": "DIALOGUE",
+          "Character": "Chavala",
+          "Text": "¡Lo que quieras!",
+          "Next": 73
+        },
+        {
+          "ID": 73,
+          "Type": "DIALOGUE",
+          "Character": "Chavala",
+          "Text": "Si no te convence te puedo ayudar a practicar el puente",
           "Next": 15
         },
         {
           "ID": 15,
           "Type": "DECISION",
           "Character": "Chavala",
-          "Text": "Ponte a practicar el puente que estás muy verde",
+          "Text": "¿Quieres?",
           "Next": 16,
           "Options": [
             {
@@ -348,7 +439,7 @@
           "ID": 17,
           "Type": "END",
           "Character": "Chavala",
-          "Text": "¡Qué real, tía!",
+          "Text": "Al lío",
           "Next": null
         },
         {
@@ -362,7 +453,7 @@
           "ID": 19,
           "Type": "END",
           "Character": "Chavala",
-          "Text": "Qué chavala... Anda, pasa el cubata",
+          "Text": "Eso es tía, estás hecha toda una dragona",
           "Next": null
         }
       ]
