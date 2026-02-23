@@ -23,6 +23,9 @@ var failed_this_beat = false
 var correct_this_beat = false
 var can_hit_this_beat = true
 
+var nearest_pulse_to_hit: Pulso = null
+@export var rotation_to_check: float = 90.0  # Rotacion del punto de rasgueo
+
 @onready var disco: Disco = $"../Disco"
 
 @export var bpm :float = 120
@@ -40,7 +43,7 @@ var pulses_to_start := 2
 @export var telon_der : AnimationPlayer 
 var ending = false
 
-# Parámetros de rotación
+# Parametros de rotacion
 @export var num_pulsos : int = 8
 @export var rotacion_inicial : float = -180.0
 @export var rotacion_final : float = 0.0
@@ -65,15 +68,17 @@ func _create_pulse():
 	# configurar posicion inicial
 	pl.rotation_degrees = rotacion_inicial
 	pl.scale = escala_pulsos
-	pl.set_pulso(Global.song[actual_chord])
 	
 	var duration = 60.0 / bpm  # Duracion de un beat
 	var tween = create_tween()
-	tween.tween_property(pl, "rotation_degrees", rotacion_final, duration *4)
-	# crear siguiente y destruir este
+	
+	# Mover la rotacion de inicio a fin (2 beats)
+	tween.tween_property(pl, "rotation_degrees", rotacion_final, duration * 4)
+	
+	# Al terminar: crear siguiente y destruir este
 	tween.finished.connect(func():
 		actual_chord += 1
-		next_beat_time += duration *4
+		next_beat_time += duration * 4
 		_create_pulse()
 		pl.queue_free()
 	)
@@ -106,8 +111,7 @@ func start_song(start, fin):
 	# reset visual
 	disco.rotation = deg_to_rad(-90 + 150)
 	position = Vector2(695.522, 898.507)
-	
-	# Iniciar la creación de pulsos
+	# Iniciar la creacion de pulsos
 	_create_pulse()
 	
 	print("START")
@@ -118,8 +122,25 @@ func next_pulse():
 	correct_this_beat = false
 	can_hit_this_beat = true
 
+func get_pulse_nearest_to_rotation(target_rotation: float = 90.0) -> Pulso:
+	var nearest_pulse: Pulso = null
+	var min_angle_diff = INF
+	
+	for child in get_children():
+		if child is Pulso:
+			# Calcular diferencia angular minima (considerando que es ciclico)
+			var angle_diff = abs(child.rotation_degrees - target_rotation)
+			if angle_diff > 180:
+				angle_diff = 360 - angle_diff
+			
+			if angle_diff < min_angle_diff:
+				min_angle_diff = angle_diff
+				nearest_pulse = child
+	
+	return nearest_pulse
+
 func get_nearest_pulse() -> Pulso:
-	# Obtener el pulso que está más cerca de trastes
+	# Obtener el pulso que esta mas cerca de trastes
 	var nearest_pulse: Pulso = null
 	var min_distance = INF
 	
@@ -132,12 +153,49 @@ func get_nearest_pulse() -> Pulso:
 	
 	return nearest_pulse
 
-func _matching_keys() -> bool:
-	if actual_chord >= len(Global.song):
+func _matching_keys_with_pulse(pulse: Pulso) -> bool:
+	if not pulse:
 		return false
-	for i in range(len(Global.trastes)):
-		if Global.trastes[i] != Global.song[actual_chord][i]:
+	
+	# Obtener datos del pulso - acceder a la variable pulso directamente
+	var pulso_data = []
+	if pulse.has_meta("pulso_data"):
+		pulso_data = pulse.get_meta("pulso_data")
+	elif "pulso" in pulse:
+		pulso_data = pulse.pulso
+	else:
+		return false
+	
+	if pulso_data == null or len(pulso_data) == 0:
+		return false
+	
+	# Verificar que los inputs coincidan
+	for i in range(min(len(Global.trastes), len(pulso_data))):
+		if Global.trastes[i] != pulso_data[i]:
 			return false
+	
+	return true
+
+func _is_pulse_empty(pulse: Pulso) -> bool:
+	if not pulse:
+		return true
+	
+	# Obtener datos del pulso
+	var pulso_data = []
+	if pulse.has_meta("pulso_data"):
+		pulso_data = pulse.get_meta("pulso_data")
+	elif "pulso" in pulse:
+		pulso_data = pulse.pulso
+	else:
+		return true
+	
+	if pulso_data == null or len(pulso_data) == 0:
+		return true
+	
+	for traste in pulso_data:
+		if traste:
+			return false
+	
 	return true
 
 func _any_key_pressed() -> bool:
@@ -158,31 +216,34 @@ func _acertado_on_time() -> int:
 	else:
 		return 1  # BIEN
 
-func _vacio_actual() -> bool:
-	if actual_chord >= len(Global.song):
-		return false
-	for traste in Global.song[actual_chord]:
-		if traste:
-			return false
-	return true
-
 func check_input():
 	if not can_hit_this_beat:
 		return
 	
-	# Si el acorde esta vacio esta bien
-	if _vacio_actual():
+	# Obtener el pulso mas cercano a la rotacion de rasgueo (90 grados)
+	nearest_pulse_to_hit = get_pulse_nearest_to_rotation(rotation_to_check)
+	
+	# Si no hay pulso valido, no hacer nada
+	if not nearest_pulse_to_hit:
+		print_debug("No pulse found at rotation ", rotation_to_check)
 		return
 	
+	# Si el pulso esta vacio, se considera correcto
+	if _is_pulse_empty(nearest_pulse_to_hit):
+		correct(1)
+		return
+	
+	# Si se ha pulsado, verificar
 	if pulsed:
 		var timing = _acertado_on_time()
 		
-		if timing > 0 and _matching_keys():
+		if timing > 0 and _matching_keys_with_pulse(nearest_pulse_to_hit):
 			# timing 2=perfecto, 1=bien
 			correct(timing)
-		else:
-			# Mal timing
+		elif timing > 0:
+			# Buen timing pero inputs no coinciden
 			fail()
+		# Si timing <= 0, esperar a que se salga de ventana
 
 func _physics_process(delta: float) -> void:
 	if not enable:
@@ -197,10 +258,13 @@ func _physics_process(delta: float) -> void:
 		elapsed_sb_time -= beat_time * 0.5
 		next_pulse()
 	
-	# Verificar input continuamente
+	# Actualizar referencia del pulso mas cercano al punto de rasgueo
+	nearest_pulse_to_hit = get_pulse_nearest_to_rotation(rotation_to_check)
+	
+	# Verificar input cuando se rasguea
 	if Input.is_action_just_pressed("rasgar", true):
 		pulsed = true
-		check_input()  # Verificar al momento de rasgar
+		check_input()
 	
 	if Input.is_action_just_released("rasgar"):
 		pulsed = false
@@ -224,8 +288,24 @@ func correct(timing_quality: int):
 	
 	animator.play("pegar")
 	
-	# Reproducir sonido del acorde
-	match Global.song[actual_chord]:
+	# Reproducir sonido del pulso mas cercano
+	if nearest_pulse_to_hit:
+		_play_sound_from_pulso(nearest_pulse_to_hit)
+	
+	failed_this_beat = false
+
+func _play_sound_from_pulso(pulse: Pulso):
+	var pulso_data = []
+	if pulse.has_meta("pulso_data"):
+		pulso_data = pulse.get_meta("pulso_data")
+	elif "pulso" in pulse:
+		pulso_data = pulse.pulso
+	
+	if not pulso_data or len(pulso_data) == 0:
+		return
+	
+	# Mapear los trastes a notas (ajusta segun tu logica)
+	match pulso_data:
 		Global.DO:
 			audio_player.stream = load("res://audio/sfx/DO.wav")
 			audio_player.play()
@@ -238,8 +318,6 @@ func correct(timing_quality: int):
 		Global.SOL:
 			audio_player.stream = load("res://audio/sfx/SOL.wav")
 			audio_player.play()
-	
-	failed_this_beat = false
 
 func fail():
 	if failed_this_beat:
@@ -260,8 +338,6 @@ func end():
 	disco.end()
 	Global.sound.stop_bgm()
 	if Global.npc_chocado == $"../../../../manager2":
-		#TODO: telon final
-#		ending_animator.play("end")
 		await Global.timer(1.0)
 		var time = 5.0
 		var ini_pos_1 = telon_izq.position
@@ -275,6 +351,3 @@ func end():
 		tween2.set_ease(Tween.EASE_OUT)
 		tween2.tween_property(telon_der, "position", ini_pos_2 - Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
 		tween2.finished.connect(func(): get_tree().quit())
-		
-		#get_tree().quit() #esto sera callback on finished del tween 
-		pass

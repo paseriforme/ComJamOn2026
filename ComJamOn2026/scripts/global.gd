@@ -54,6 +54,8 @@ const LA  = [false, false, false, true, true]
 const NONE  = [false, false, false, false, false]
 
 var song := [
+	#prueba
+	DO, DO, DO, DO, DO, DO, DO, DO,
 	#intro
 	NONE, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
 	# estrofa 1
