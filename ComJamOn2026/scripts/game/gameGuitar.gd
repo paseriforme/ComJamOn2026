@@ -83,7 +83,7 @@ func _create_pulse():
 		pl.queue_free()
 	)
 
-func start_song(start, fin):
+func start_song(start = 0, fin = len(Global.song)):
 	enable = true
 	
 	var start_sec = start * ((60/bpm) * 0.5)

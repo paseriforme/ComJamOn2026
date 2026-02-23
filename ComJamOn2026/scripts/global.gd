@@ -60,7 +60,7 @@ var song := [
 	#prueba
 	#DO, DO, DO, DO, DO, DO, DO, DO,
 	#intro
-	NONE, NONE,
+	#NONE, NONE,
 	# estrofa 1
 	SOL, RE,
 	RE, NONE,
@@ -97,18 +97,18 @@ var song := [
 	SOL, RE,
 	RE, NONE,
 	MI, DO,
-	DO, NONE,
+	DO, NONE
 	
 	# estribillo 2
-	SOL, SOL,
-	RE, RE,
-	MI, MI,
-	DO, DO,
-	
-	SOL, SOL,
-	RE, RE,
-	MI, MI,
-	DO, DO,
+	#SOL, SOL,
+	#RE, RE,
+	#MI, MI,
+	#DO, DO,
+	#
+	#SOL, SOL,
+	#RE, RE,
+	#MI, MI,
+	#DO, DO,
 	]
 	
 var npc_chocado = null
