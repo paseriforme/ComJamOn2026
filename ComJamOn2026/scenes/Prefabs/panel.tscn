@@ -104,10 +104,11 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_a7k1q")
 
-[node name="control_disco" parent="Fondo" unique_id=1914348709 instance=ExtResource("3_3ovq8")]
+[node name="control_disco" parent="Fondo" unique_id=1914348709 node_paths=PackedStringArray("telon_izq", "telon_der") instance=ExtResource("3_3ovq8")]
 layout_mode = 1
 pegatinas = Array[Texture2D]([ExtResource("7_n1hje"), ExtResource("8_jbghi"), ExtResource("6_nc4t1")])
-bpm = 60.0
+telon_izq = NodePath("../Telon/Izq")
+telon_der = NodePath("../Telon/Der")
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fondo/control_disco" unique_id=538621387]
@@ -154,8 +155,9 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="Fondo" unique_id=750639163]
+
 [node name="Telon" type="Control" parent="Fondo" unique_id=1036940807]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -171,7 +173,5 @@ texture = ExtResource("12_jbghi")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="Fondo" unique_id=750639163]
 
 [editable path="Fondo/TextureRect/Trastes"]
