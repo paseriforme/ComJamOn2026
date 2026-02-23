@@ -80,7 +80,7 @@ resource_name = "end"
 length = 4.0666666
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Izq:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -92,7 +92,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("Der:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -331,7 +331,6 @@ offset_left = -108.955215
 offset_right = -68.955215
 
 [node name="Telon" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="5" unique_id=1036940807]
-visible = false
 z_index = 10
 
 [node name="Izq" parent="CanvasLayer/Panel/Fondo/Telon" index="0" unique_id=961408094]
