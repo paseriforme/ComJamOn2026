@@ -1,0 +1,9 @@
+[x] movimiento de papel
+[x] movimiento de cartón
+[x] publico 
+[x] pegatinas
+[x] al andar
+[x] al chocar
+[x] al pensar?
+[x] dialogo
+[x] cheer

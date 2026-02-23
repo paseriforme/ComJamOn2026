@@ -84,9 +84,7 @@ func _create_pulse():
 	)
 
 func start_song(start = 0, fin = len(Global.song)):
-	if (Global.cancion == "Voces"):
-		Global.sound.play_sfx("cheer")
-		await Global.timer(4.0)
+
 	
 	enable = true
 	

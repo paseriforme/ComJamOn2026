@@ -99,11 +99,13 @@ func set_state(st : states):
 			character.set_process(false)	
 			canvas_layer.visible(true)
 			Global.playing = true
-			canvas_layer.control_disco.start_song()
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_play)
 			tween2.tween_property(fondo, "position", Vector2(fondo_play_x, 0), fondo_tween_time_play).set_trans(fondo_tween_trans)
 			Global.play_paper(0.2)
+			if (Global.cancion == "Voces"):
+				Global.sound.play_sfx("cheer")
+			tween2.finished.connect(func(): canvas_layer.control_disco.start_song())
 			#tween2.finished.connect(func(): set_state(states.WALK))
 			pass
 		_:
