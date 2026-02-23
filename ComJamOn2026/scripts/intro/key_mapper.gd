@@ -18,8 +18,8 @@ var somethingpressed = false
 func _ready() -> void:
 	next_key()
 	Global.sound.set_bgm_volume_db(14)
-	Global.sound.set_sfx_volume_db(14)
-#	Global.sound.play_bgm(Global.cancion, false, 0.0)
+	Global.sound.set_sfx_volume_db(1)
+	Global.sound.play_bgm("ambience")
 
 func _input(event: InputEvent) -> void:
 #	if key >= len(actions): return
@@ -42,6 +42,7 @@ func _input(event: InputEvent) -> void:
 func next_key() -> void:
 	if (key >= 0):
 		animators[key].play("pegar")
+		Global.sound.play_sfx("duct_tape1", 0.3)
 	key += 1
 	if (key < len(actions)):
 		buttons[key].visible = true

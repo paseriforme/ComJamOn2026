@@ -12,6 +12,7 @@ func _ready() -> void:
 
 func end() -> void:
 	#pause = true
+	Global.sound.play_sfx("sratch", 0.4)
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "rotation", deg_to_rad(rotation), 1.5).set_trans(Tween.TRANS_BACK)

@@ -43,6 +43,8 @@ var random = RandomNumberGenerator.new()
 
 var direccion_jugador : Vector2 = Vector2.ZERO
 var trastes: Array[bool] = [false, false, false, false, false];
+var sfx_carton: Array[String] = [ "carton1", "carton2", "carton3", "carton4", "carton5", "carton6" ]
+var sfx_papel: Array[String] = [ "paper1", "paper2", "paper3"]
 
 
 enum acordes {DO, RE, MI, SOL, NONE}
@@ -134,3 +136,14 @@ func change_scene(next : Global.Scenes, speed = 1.0, force = true):
 
 func timer(tiempo = 1.0):
 	return get_tree().create_timer(tiempo).timeout
+
+
+func play_cardboard(pitch):
+	var ind: int = random.randi_range(0, len(sfx_carton) - 1)	
+	sound.play_sfx(sfx_carton[ind], pitch)
+	pass
+	
+func play_paper(pitch):
+	var ind: int = random.randi_range(0, len(sfx_papel) - 1)	
+	sound.play_sfx(sfx_papel[ind], pitch)
+	pass

@@ -50,11 +50,13 @@ func _physics_process(delta: float) -> void:
 #		print_debug(">>> HAS PULSADO ALGO")
 		control_current_time = 0.0
 		mostrando = false
+		Global.play_paper(0.1)
 	if control_current_time >= control_feedback_time and not mostrando and canwalk:
 		control_current_time = 0.0
 #		print_debug(">>> PENSAMIENTO")
 		animator.play("pensamiento")
 		mostrando = true
+		Global.play_paper(0.1)
 		pass
 		
 	# VERDE
@@ -86,6 +88,8 @@ func _physics_process(delta: float) -> void:
 		strumPressed = true
 		apply_impulse(velocity)
 		Global.direccion_jugador = velocity
+		Global.sound.play_sfx("carton3", 0.2)
+#		Global.sound.play_sfx("step", 0.2)
 		#print("MOVE: ", directions[direction])
 	elif Input.is_action_just_released("rasgar", true):
 		strumPressed = false
@@ -112,6 +116,8 @@ func _callback_XD():
 	tween2.set_ease(ease_steps)
 	tween2.tween_property(self, "position", position + velocity, time).set_trans(trans_steps)
 	tween2.finished.connect(func(): Global.chocar_npc.emit())
+	Global.sound.play_sfx("bounce", 0.2)
+	
 	pass
 
 
@@ -138,6 +144,7 @@ func _rebote():
 	tween2.set_ease(ease_steps)
 	tween2.tween_property(self, "position", position + velocity, time_steps).set_trans(trans_steps)
 	tween2.finished.connect(_callback_XD)
+	Global.sound.play_sfx("bounce", 0.2)
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -147,4 +154,5 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 
 func _pensamiento_step_sound():
+	
 	pass

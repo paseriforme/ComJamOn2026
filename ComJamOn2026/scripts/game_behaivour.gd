@@ -72,6 +72,7 @@ func set_state(st : states):
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_walk)
 			tween2.tween_property(fondo, "position", Vector2(fondo_ini_x, 0), fondo_tween_time_walk).set_trans(fondo_tween_trans)
+			Global.play_paper(0.2)
 			tween2.finished.connect(func(): await Global.timer(0.1); if state == states.WALK: camara.set_limit_target(area_camara))
 			await Global.timer(0.1)
 			character.canwalk = true
@@ -89,6 +90,7 @@ func set_state(st : states):
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_talk)
 			tween2.tween_property(fondo, "position", Vector2(fondo_talk_x, 0), fondo_tween_time_talk).set_trans(fondo_tween_trans)
+			Global.play_paper(0.2)
 			pass
 		states.PLAY:
 			print("PLAY")
@@ -101,6 +103,7 @@ func set_state(st : states):
 			var tween2 = get_tree().create_tween()
 			tween2.set_ease(fondo_tween_ease_play)
 			tween2.tween_property(fondo, "position", Vector2(fondo_play_x, 0), fondo_tween_time_play).set_trans(fondo_tween_trans)
+			Global.play_paper(0.2)
 			#tween2.finished.connect(func(): set_state(states.WALK))
 			pass
 		_:
