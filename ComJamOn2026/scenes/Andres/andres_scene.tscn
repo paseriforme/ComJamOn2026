@@ -123,8 +123,7 @@ script = ExtResource("8_vedlm")
 TEXTURE = ExtResource("9_fffxv")
 selfNPC = 0
 startDialogue = 1
-firstChord = 8
-lastChord = 64
+lastChord = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="colega" unique_id=2003509257]
 shape = SubResource("CircleShape2D_1x3un")
@@ -144,7 +143,7 @@ script = ExtResource("8_vedlm")
 TEXTURE = ExtResource("12_dghs7")
 selfNPC = 3
 startDialogue = 2
-firstChord = 64
+firstChord = 16
 lastChord = 96
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chavala2" unique_id=455408465]
@@ -165,8 +164,8 @@ script = ExtResource("8_vedlm")
 TEXTURE = ExtResource("11_3hxkh")
 selfNPC = 2
 startDialogue = 3
-firstChord = 96
-lastChord = 160
+firstChord = 16
+lastChord = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tronca2" unique_id=1801251677]
 shape = SubResource("CircleShape2D_3hxkh")
@@ -186,8 +185,8 @@ script = ExtResource("8_vedlm")
 TEXTURE = ExtResource("10_slwiy")
 selfNPC = 1
 startDialogue = 4
-firstChord = 160
-lastChord = 224
+firstChord = 24
+lastChord = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="muchacha2" unique_id=452507978]
 shape = SubResource("CircleShape2D_dghs7")
@@ -205,7 +204,7 @@ contact_monitor = true
 max_contacts_reported = 770
 script = ExtResource("8_vedlm")
 TEXTURE = ExtResource("13_y884l")
-lastChord = 328
+lastChord = 53
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="manager2" unique_id=2057201635]
 shape = SubResource("CircleShape2D_y884l")
