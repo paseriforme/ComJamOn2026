@@ -248,8 +248,8 @@ offset_left = -108.955215
 offset_right = -108.955215
 
 [node name="TextureRect" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="3" unique_id=2110772926]
-offset_left = 413.36896
-offset_right = 2333.3726
+offset_left = 394.02966
+offset_right = 2314.0337
 
 [node name="Trastes" parent="CanvasLayer/Panel/Fondo/TextureRect" index="0" unique_id=427422133]
 z_index = 5
@@ -259,7 +259,6 @@ offset_left = 1176.1194
 offset_right = 1495.1194
 
 [node name="Telon" parent="CanvasLayer/Panel" index="2" unique_id=1036940807]
-visible = true
 z_index = 10
 
 [connection signal="body_entered" from="colega" to="colega" method="_on_body_entered"]

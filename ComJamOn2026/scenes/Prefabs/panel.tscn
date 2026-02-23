@@ -129,9 +129,9 @@ rotacion_final = 120.0
 z_index = 2
 layout_mode = 0
 offset_left = 473.13443
-offset_top = 26.405
+offset_top = 26.86565
 offset_right = 2393.1396
-offset_bottom = 1106.405
+offset_bottom = 1106.8656
 rotation = 0.5235988
 pivot_offset = Vector2(282.08948, 913.4328)
 texture = ExtResource("7_nc4t1")
@@ -168,7 +168,6 @@ texture = ExtResource("6_nc4t1")
 stretch_mode = 3
 
 [node name="Telon" type="Control" parent="." unique_id=1036940807]
-visible = false
 z_index = 100
 anchors_preset = 0
 offset_right = 40.0
