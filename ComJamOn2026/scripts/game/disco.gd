@@ -7,7 +7,7 @@ class_name Disco
 var vel:float = 0
 var pause := false
 func _ready() -> void:
-	vel =  360/ (b_x_vuelta / (bpm/60))
+	vel =  (360/2)/ (b_x_vuelta / (bpm/60))
 	print(vel)
 
 func end() -> void:

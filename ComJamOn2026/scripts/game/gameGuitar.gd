@@ -8,8 +8,8 @@ var last_chord := len(Global.song)
 var last_klk_time : float = 0
 
 @onready var audio_player: AudioStreamPlayer2D = $"../AudioPlayer"
-@onready var pegatina: TextureRect = $Pegatina
-@onready var animator: AnimationPlayer = $AnimationPlayer
+@onready var pegatina: TextureRect = $"../Pegatina"
+@onready var animator: AnimationPlayer = $"../AnimationPlayer"
 @export var pegatinas : Array[Texture2D]
 @onready var trastes: Control = $"../TextureRect/Trastes"
 
