@@ -95,9 +95,9 @@ var song := [
 	DO, NONE,
 		
 	SOL, RE,
-	RE, NONE,
-	MI, DO,
-	DO, NONE
+	#RE, NONE,
+	#MI, DO,
+	#DO, NONE
 	
 	# estribillo 2
 	#SOL, SOL,
