@@ -49,6 +49,8 @@ func _iniciar_dialogo():
 		canvas_layer.show_dialogue(startDialogue)
 		if selfNPC == NPC_type.MANAGER:
 			$"../CanvasLayer/Panel/Fondo".texture = preload("uid://dkjqyqi73dt1o")
+		else:		
+			$"../CanvasLayer/Panel/Fondo".texture = preload("uid://n0ob011ts0le")
 	pass
 
 
