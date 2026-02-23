@@ -261,6 +261,13 @@ offset_right = 1495.1194
 [node name="Telon" parent="CanvasLayer/Panel" index="2" unique_id=1036940807]
 z_index = 10
 
+[node name="Porcentaje" parent="CanvasLayer/Panel/Telon" index="2" unique_id=1213803891]
+scale = Vector2(2.5, 2.5)
+
+[node name="Label" parent="CanvasLayer/Panel/Telon/Porcentaje" index="0" unique_id=522121930]
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="body_entered" from="colega" to="colega" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="colega" to="colega" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="chavala2" to="chavala2" method="_on_body_entered"]
@@ -272,6 +279,7 @@ z_index = 10
 [connection signal="body_entered" from="manager2" to="manager2" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="manager2" to="manager2" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="Character" to="Character" method="_on_body_entered"]
+[connection signal="animation_finished" from="CanvasLayer/Panel/Telon/AnimationPlayer" to="CanvasLayer/Panel/Fondo/control_disco" method="_on_animation_player_animation_finished"]
 
 [editable path="Character"]
 [editable path="CanvasLayer/Panel"]

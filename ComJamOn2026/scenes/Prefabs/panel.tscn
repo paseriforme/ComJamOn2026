@@ -58,6 +58,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_45fkh"]
 resource_name = "pegar"
+length = 5.0333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -257,7 +258,6 @@ offset_bottom = 1080.0
 texture = ExtResource("13_nc4t1")
 
 [node name="Porcentaje" type="TextureRect" parent="Telon" unique_id=1213803891]
-visible = false
 z_index = 200
 layout_mode = 0
 offset_left = -9.009008
@@ -265,7 +265,7 @@ offset_top = -151.65164
 offset_right = 1910.991
 offset_bottom = 928.3484
 rotation = 1.7453293
-scale = Vector2(2.575, 2.575)
+scale = Vector2(2, 2)
 pivot_offset = Vector2(969.9341, 664.26184)
 texture = ExtResource("14_04h05")
 

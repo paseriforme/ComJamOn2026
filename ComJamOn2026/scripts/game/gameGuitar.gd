@@ -358,6 +358,8 @@ func end():
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if (anim_name == "pegar"):
-		porcentaje_animator.play("loop")	
+	get_tree().quit()
+#	print_debug("LOOOOOOL")
+#	porcentaje_animator.play("loop")	
+#	if (anim_name == "pegar"):
 	pass # Replace with function body.
