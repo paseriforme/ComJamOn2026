@@ -530,13 +530,111 @@
           "Type": "START",
           "Character": "Muchacha",
           "Text": "Noto que algo perturba tu espíritu...",
+          "Next": 74
+        },
+        {
+          "ID": 74,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "Dime, ¿puedo ayudarte?",
+          "Next": 75
+        },
+        {
+          "ID": 75,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "Ya veo, problemas con el single...",
+          "Next": 76
+        },
+        {
+          "ID": 76,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "Mal de mente",
+          "Next": 77
+        },
+        {
+          "ID": 77,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "Tienes que estar serena y afinar tu ingenio",
+          "Next": 78
+        },
+        {
+          "ID": 78,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "Sé que serás capaz de recordar",
+          "Next": 79
+        },
+        {
+          "ID": 78,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "Quizá debas retrotraerte al origen...",
+          "Next": 79
+        },
+        {
+          "ID": 79,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "Tengo entendido que ayudaste a Tronca...",
+          "Next": 84
+        },
+        {
+          "ID": 84,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "...con la composición de la canción ¿no?",
+          "Next": 80
+        },
+        {
+          "ID": 80,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "¿Cómo fue estar a su lado...",
+          "Next": 85
+        },
+        {
+          "ID": 85,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "...y que fuesen surgiendo las palabras?",
+          "Next": 81
+        },
+        {
+          "ID": 81,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "¿Qué sentiste cuando pusiste melodía a su voz?",
+          "Next": 82
+        },
+        {
+          "ID": 82,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "¿Serás capaz de volver a replicar...",
+          "Next": 86
+        },
+        {
+          "ID": 86,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "...el tempo que marcó tu corazón?",
+          "Next": 83
+        },
+        {
+          "ID": 83,
+          "Type": "DIALOGUE",
+          "Character": "Muchacha",
+          "Text": "Acércate, vamos a tocar juntas mi parte favorita",
           "Next": 28
         },
         {
           "ID": 28,
           "Type": "DECISION",
           "Character": "Muchacha",
-          "Text": "Esta estrofa calmará tus sentidos...",
+          "Text": "Creo que esta estrofa calmará tus sentidos...",
           "Next": 29,
           "Options": [
             {
@@ -560,7 +658,7 @@
           "ID": 30,
           "Type": "END",
           "Character": "Muchacha",
-          "Text": "Demuestra de que está hecha tu esencia...",
+          "Text": "Demuestra de qué está hecha tu esencia...",
           "Next": null
         },
         {
