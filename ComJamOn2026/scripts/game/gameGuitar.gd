@@ -31,15 +31,15 @@ var can_hit_this_beat = true
 var elapsed_b_time :float = 0
 var elapsed_sb_time :float = 0
 
-# Tiempo exacto del próximo beat
+# Tiempo exacto del proximo beat
 var next_beat_time : float = 0
 var song_time : float = 0
 
 var actual_cancion : float = 0
 var pulses_to_start := 2
-@export var ending_animator : AnimationPlayer 
-@export var telon_izq : AnimationPlayer 
-@export var telon_der : AnimationPlayer 
+#@export var ending_animator : AnimationPlayer 
+@export var telon_izq : TextureRect 
+@export var telon_der : TextureRect 
 var ending = false
 
 func _ready() -> void:
@@ -100,7 +100,7 @@ func next_pulse(puls : Pulso):
 	actual_chord += 1
 	next_beat_time += (60.0 / bpm) * 0.5
 	
-	# Verificar si terminó la canción
+	# Verificar si termino la cancion
 	if actual_chord >= len(Global.song):
 		await((60.0 / bpm) * 0.5)
 		end()
@@ -248,21 +248,21 @@ func end():
 	disco.end()
 	Global.sound.stop_bgm()
 	if Global.npc_chocado == $"../../../../manager2":
-		#TODO: telón final
+		#TODO: telon final
 #		ending_animator.play("end")
 		await Global.timer(1.0)
 		var time = 5.0
 		var ini_pos_1 = telon_izq.position
 		var ini_pos_2 = telon_der.position
-		var offset = 1000
+#		var offset = 960
+		var offset = 1030
 		var tween1 = get_tree().create_tween()
 		tween1.set_ease(Tween.EASE_OUT)
 		tween1.tween_property(telon_izq, "position", ini_pos_1 + Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
-		
 		var tween2 = get_tree().create_tween()
 		tween2.set_ease(Tween.EASE_OUT)
 		tween2.tween_property(telon_der, "position", ini_pos_2 - Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
 		tween2.finished.connect(func(): get_tree().quit())
 		
-		#get_tree().quit() #esto será callback on finished del tween 
+		#get_tree().quit() #esto sera callback on finished del tween 
 		pass

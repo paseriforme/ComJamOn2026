@@ -48,71 +48,6 @@ radius = 74.24284
 [sub_resource type="CircleShape2D" id="CircleShape2D_y884l"]
 radius = 75.00667
 
-[sub_resource type="Animation" id="Animation_dghs7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Izq:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(470, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Der:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4300, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_y884l"]
-resource_name = "end"
-length = 4.0666666
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Izq:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.96666664),
-"transitions": PackedFloat32Array(4, 0.33, 1),
-"update": 0,
-"values": [Vector2(470, 0), Vector2(1700, 0), Vector2(1500, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Der:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 0.96666664),
-"transitions": PackedFloat32Array(4, 0.33, 1),
-"update": 0,
-"values": [Vector2(4300, 0), Vector2(3200, 0), Vector2(3400, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_3hxkh"]
-resource_name = "new_animation"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dghs7"]
-_data = {
-&"RESET": SubResource("Animation_dghs7"),
-&"end": SubResource("Animation_y884l"),
-&"new_animation": SubResource("Animation_3hxkh")
-}
-
 [node name="CyntristScene" type="Node2D" unique_id=581873652]
 script = ExtResource("1_nxw74")
 tween_seguir = ExtResource("2_yu01v")
@@ -310,10 +245,13 @@ offset_bottom = 1082.9851
 offset_left = 686.2269
 offset_right = 686.2269
 
-[node name="control_disco" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="2" unique_id=1914348709 node_paths=PackedStringArray("ending_animator")]
+[node name="control_disco" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="2" unique_id=1914348709]
 offset_left = -108.955215
 offset_right = -108.955215
-ending_animator = NodePath("../Telon/AnimationPlayer")
+
+[node name="Pegatina" parent="CanvasLayer/Panel/Fondo/control_disco" index="1" unique_id=1751531275]
+visible = false
+scale = Vector2(1.3, 1.3)
 
 [node name="TextureRect" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="3" unique_id=2110772926]
 offset_left = 413.36896
@@ -327,23 +265,18 @@ offset_left = -108.955215
 offset_right = -68.955215
 
 [node name="Telon" parent="CanvasLayer/Panel/Fondo" parent_id_path=PackedInt32Array(1301705266, 93661975) index="5" unique_id=1036940807]
-visible = false
+visible = true
 z_index = 10
 
 [node name="Izq" parent="CanvasLayer/Panel/Fondo/Telon" index="0" unique_id=961408094]
-offset_left = 470.0
-offset_right = 2390.0015
-offset_bottom = 1080.0
-texture = ExtResource("26_3hxkh")
+offset_left = 450.0
+offset_right = 2370.0015
 
 [node name="Der" parent="CanvasLayer/Panel/Fondo/Telon" index="1" unique_id=1869631707]
 offset_left = 4300.0
 offset_right = 6220.0054
 offset_bottom = 1080.0
 texture = ExtResource("26_3hxkh")
-
-[node name="AnimationPlayer" parent="CanvasLayer/Panel/Fondo/Telon" index="2" unique_id=212806624]
-libraries/ = SubResource("AnimationLibrary_dghs7")
 
 [connection signal="body_entered" from="colega" to="colega" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="colega" to="colega" method="_on_body_shape_entered"]
@@ -356,7 +289,6 @@ libraries/ = SubResource("AnimationLibrary_dghs7")
 [connection signal="body_entered" from="manager2" to="manager2" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="manager2" to="manager2" method="_on_body_shape_entered"]
 [connection signal="body_entered" from="Character" to="Character" method="_on_body_entered"]
-[connection signal="animation_finished" from="CanvasLayer/Panel/Fondo/Telon/AnimationPlayer" to="CanvasLayer/Panel/Fondo/control_disco" method="_on_animation_player_animation_finished"]
 
 [editable path="Character"]
 [editable path="CanvasLayer/Panel"]

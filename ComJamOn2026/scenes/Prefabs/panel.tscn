@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://d4dtlbu4ge0j6" path="res://assets/image/UI/seccion_disco.png" id="7_nc4t1"]
 [ext_resource type="PackedScene" uid="uid://bjiblirkavor3" path="res://scenes/Cynthia/trastes.tscn" id="8_04h05"]
 [ext_resource type="Texture2D" uid="uid://dy7e3wovvardx" path="res://assets/image/UI/PEGATINA_BIEN.png" id="8_jbghi"]
+[ext_resource type="Texture2D" uid="uid://c508270bvh6pa" path="res://assets/image/UI/TELON_IZQ.png" id="12_a7k1q"]
+[ext_resource type="Texture2D" uid="uid://c67addngkguik" path="res://assets/image/UI/TELON_DER.png" id="13_nc4t1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1x3un"]
 
@@ -26,7 +28,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.13333334, 0.5),
 "transitions": PackedFloat32Array(0.25881582, 4.7568293, 3.3635833),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(0.8, 0.8)]
+"values": [Vector2(0.95, 0.95), Vector2(1.05, 1.05), Vector2(0.9, 0.9)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jbghi"]
@@ -104,23 +106,24 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_a7k1q")
 
-[node name="control_disco" parent="Fondo" unique_id=1914348709 instance=ExtResource("3_3ovq8")]
+[node name="control_disco" parent="Fondo" unique_id=1914348709 node_paths=PackedStringArray("telon_izq", "telon_der") instance=ExtResource("3_3ovq8")]
 layout_mode = 1
 scale = Vector2(0.95351535, 1.3373363)
 pegatinas = Array[Texture2D]([ExtResource("7_n1hje"), ExtResource("8_jbghi"), ExtResource("6_nc4t1")])
-bpm = 60.0
+telon_izq = NodePath("../../Telon/Izq")
+telon_der = NodePath("../../Telon/Der")
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fondo/control_disco" unique_id=538621387]
 libraries/ = SubResource("AnimationLibrary_jbghi")
 
 [node name="Pegatina" type="TextureRect" parent="Fondo/control_disco" unique_id=1751531275]
-visible = false
 layout_mode = 0
-offset_left = 1199.9999
+offset_left = 1228.3582
 offset_top = -25.373133
-offset_right = 1518.9999
+offset_right = 1547.3582
 offset_bottom = 315.62686
+scale = Vector2(0.95, 0.95)
 pivot_offset = Vector2(158.4953, 170.74194)
 texture = ExtResource("6_nc4t1")
 stretch_mode = 2
@@ -155,23 +158,27 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Telon" type="Control" parent="Fondo" unique_id=1036940807]
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="Fondo" unique_id=750639163]
+
+[node name="Telon" type="Control" parent="." unique_id=1036940807]
+z_index = 100
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(0.666, 0.666)
 
-[node name="Izq" type="TextureRect" parent="Fondo/Telon" unique_id=961408094]
+[node name="Izq" type="TextureRect" parent="Telon" unique_id=961408094]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -1920.0
+offset_bottom = 1080.0
+texture = ExtResource("12_a7k1q")
 
-[node name="Der" type="TextureRect" parent="Fondo/Telon" unique_id=1869631707]
+[node name="Der" type="TextureRect" parent="Telon" unique_id=1869631707]
+z_index = 100
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Fondo/Telon" unique_id=212806624]
-
-[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="Fondo" unique_id=750639163]
+offset_left = 1920.0
+offset_right = 3840.0
+offset_bottom = 1080.0
+texture = ExtResource("13_nc4t1")
 
 [editable path="Fondo/TextureRect/Trastes"]
