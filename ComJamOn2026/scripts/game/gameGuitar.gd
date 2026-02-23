@@ -284,11 +284,7 @@ func correct(timing_quality: int):
 	failed_this_beat = false
 
 func _play_sound_from_pulso(pulse: Pulso):
-	var pulso_data = []
-	if pulse.has_meta("pulso_data"):
-		pulso_data = pulse.get_meta("pulso_data")
-	elif "pulso" in pulse:
-		pulso_data = pulse.pulso
+	var pulso_data = pulse.pulso_data
 	
 	if not pulso_data or len(pulso_data) == 0:
 		return

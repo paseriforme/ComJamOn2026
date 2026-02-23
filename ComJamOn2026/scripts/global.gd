@@ -46,7 +46,7 @@ var trastes: Array[bool] = [false, false, false, false, false];
 
 
 enum acordes {DO, RE, MI, SOL, NONE}
-const DO  = [true, false, false, false, false]
+const DO  = [true, false, true, false, false]
 const RE  = [false, true, false, false, false]
 const FA  = [true, true, false, false, false]
 const MI  = [false, false, true, false, false]
@@ -56,63 +56,57 @@ const NONE  = [false, false, false, false, false]
 
 var song := [
 	#prueba
-	DO, DO, DO, DO, DO, DO, DO, DO,
+	#DO, DO, DO, DO, DO, DO, DO, DO,
 	#intro
-	NONE, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
+	NONE, NONE,
 	# estrofa 1
-	SOL, NONE, NONE, NONE, NONE, NONE, NONE, RE,
-	RE, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
-	MI, NONE, NONE, NONE, NONE, NONE, NONE, DO,
-	DO, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
-	
-	SOL, NONE, NONE, NONE, NONE, NONE, NONE, RE,
-	RE, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
-	MI, NONE, NONE, NONE, NONE, NONE, NONE, DO,
-	DO, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
+	SOL, RE,
+	RE, NONE,
+	MI, DO,
+	DO, NONE,
+		
+	SOL, RE,
+	RE, NONE,
+	MI, DO,
+	DO, NONE,
 	# pre-estribillo
-	MI, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
-	DO, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
-	SOL, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
-	RE, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
+	MI, NONE,
+	DO, NONE,
+	SOL, NONE,
+	RE, NONE,
 	
 	# estribillo
-	SOL, NONE, NONE, NONE, SOL, SOL, NONE, NONE,
-	RE, NONE, NONE, NONE, RE, RE, NONE, NONE,
-	MI, NONE, NONE, NONE, MI, MI, NONE, NONE,
-	DO, NONE, NONE, NONE, DO, DO, NONE, NONE,
+	SOL, SOL,
+	RE, RE,
+	MI, MI,
+	DO, DO,
 	
-	SOL, NONE, NONE, NONE, SOL, SOL, NONE, NONE,
-	RE, NONE, NONE, NONE, RE, RE, NONE, NONE,
-	MI, NONE, NONE, NONE, MI, MI, NONE, NONE,
-	DO, NONE, NONE, NONE, DO, DO, NONE, NONE,
+	SOL, SOL,
+	RE, RE,
+	MI, MI,
+	DO, DO,
 	
 	# estrofa 2
-	SOL, NONE, NONE, NONE, NONE, NONE, NONE, RE,
-	RE, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
-	MI, NONE, NONE, NONE, NONE, NONE, NONE, DO,
-	DO, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
-	
-	SOL, NONE, NONE, NONE, NONE, NONE, NONE, RE,
-	RE, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
-	MI, NONE, NONE, NONE, NONE, NONE, NONE, DO,
-	DO, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
-	
-	# pre-estribillo
-	MI, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
-	DO, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
-	SOL, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
-	RE, NONE, NONE, NONE, NONE, NONE, NONE, NONE,
+	SOL, RE,
+	RE, NONE,
+	MI, DO,
+	DO, NONE,
+		
+	SOL, RE,
+	RE, NONE,
+	MI, DO,
+	DO, NONE,
 	
 	# estribillo 2
-	SOL, NONE, NONE, NONE, SOL, SOL, NONE, NONE,
-	RE, NONE, NONE, NONE, RE, RE, NONE, NONE,
-	MI, NONE, NONE, NONE, MI, MI, NONE, NONE,
-	DO, NONE, NONE, NONE, DO, DO, NONE, NONE,
+	SOL, SOL,
+	RE, RE,
+	MI, MI,
+	DO, DO,
 	
-	SOL, NONE, NONE, NONE, SOL, SOL, NONE, NONE,
-	RE, NONE, NONE, NONE, RE, RE, NONE, NONE,
-	MI, NONE, NONE, NONE, MI, MI, NONE, NONE,
-	DO, NONE, NONE, NONE, DO, DO, NONE, NONE,
+	SOL, SOL,
+	RE, RE,
+	MI, MI,
+	DO, DO,
 	]
 	
 var npc_chocado = null
