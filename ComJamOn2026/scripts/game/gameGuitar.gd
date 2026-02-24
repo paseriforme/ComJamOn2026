@@ -38,7 +38,6 @@ var song_time : float = 0
 
 var actual_cancion : float = 0
 var pulses_to_start := 2
-@export var ending_animator : AnimationPlayer 
 @export var telon_izq : TextureRect 
 @export var telon_der : TextureRect 
 var ending = false
@@ -48,6 +47,11 @@ var ending = false
 @export var rotacion_inicial : float = -180.0
 @export var rotacion_final : float = 0.0
 @export var escala_pulsos : Vector2 = Vector2(0.66, 0.66)
+@export var porcentaje_animator : AnimationPlayer
+@export var porcentaje_label : Label
+var calculo : float = 1.0
+var notas_acertadas : float = 0
+var notas_totales : float = 0
 
 func _ready() -> void:
 	pass
@@ -56,6 +60,7 @@ func stop_song():
 	enable = false
 
 func _create_pulse():
+#	actual_chord = last_chord
 	if actual_chord >= last_chord or actual_chord >= len(Global.song):
 		if not ending: 
 			end()
@@ -85,7 +90,7 @@ func _create_pulse():
 
 func start_song(start = 0, fin = len(Global.song)):
 
-	
+	ending = false
 	enable = true
 	
 	var start_sec = Global.npc_chocado.firstChord * ((60/bpm) * 0.5)
@@ -262,6 +267,8 @@ func _physics_process(delta: float) -> void:
 func correct(timing_quality: int):
 	if correct_this_beat:
 		return
+	notas_acertadas += 1
+	notas_totales += 1
 	
 	correct_this_beat = true
 	can_hit_this_beat = false
@@ -310,6 +317,8 @@ func fail():
 	if failed_this_beat:
 		return
 	
+	notas_totales += 1
+	
 	print("FALLO")
 	failed_this_beat = true
 	can_hit_this_beat = false
@@ -339,5 +348,18 @@ func end():
 		var tween2 = get_tree().create_tween()
 		tween2.set_ease(Tween.EASE_OUT)
 		tween2.tween_property(telon_der, "position", ini_pos_2 - Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
-		tween2.finished.connect(func(): get_tree().quit())
+#		tween2.finished.connect(func(): get_tree().quit())
+		calculo = 0
+		if (notas_totales > 0):
+			calculo = (notas_acertadas / notas_totales)
+		tween2.finished.connect(func(): porcentaje_animator.play("pegar"); Global.sound.play_sfx("duct_tape1", 0.2); porcentaje_label.text = str(int(calculo * 100))  + "%")
+		
 		Global.play_cardboard(0.2)
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	get_tree().quit()
+#	print_debug("LOOOOOOL")
+#	porcentaje_animator.play("loop")	
+#	if (anim_name == "pegar"):
+	pass # Replace with function body.

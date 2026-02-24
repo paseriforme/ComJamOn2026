@@ -648,7 +648,7 @@
         },
         {
           "ID": 25,
-          "Type": "DIALOGUE",
+          "Type": "END",
           "Character": "Tronca",
           "Text": "Si me lo dices con esa sonrisa...",
           "Next": null
