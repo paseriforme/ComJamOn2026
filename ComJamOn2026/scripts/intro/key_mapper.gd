@@ -19,7 +19,7 @@ func _ready() -> void:
 	next_key()
 	Global.sound.set_bgm_volume_db(7)
 	Global.sound.set_sfx_volume_db(7)
-	Global.sound.play_bgm("ambience")
+	Global.sound.play_bgm("ambience", true)
 
 func _input(event: InputEvent) -> void:
 #	if key >= len(actions): return
