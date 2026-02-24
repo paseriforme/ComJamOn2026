@@ -29,7 +29,9 @@ config/icon="uid://j2brfboyjw2h"
 [autoload]
 
 Global="*res://scripts/global.gd"
+AudioManager="*uid://bupgf2kkplvy"
 PhantomCameraManager="*uid://duq6jhf6unyis"
+FmodManager="*uid://cds10pm7hwn3p"
 
 [display]
 

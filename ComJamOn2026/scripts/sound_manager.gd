@@ -4,8 +4,8 @@ class_name SoundManager
 @onready var bgm: AudioStreamPlayer2D = $BGM
 @onready var sfx: AudioStreamPlayer2D = $SFX
 
-@export_dir var bgm_folder: String = "./audio/bgm"
-@export_dir var sfx_folder: String = "./audio/sfx"
+@export_dir var bgm_folder: String = "res://assets/audio/bgm"
+@export_dir var sfx_folder: String = "res://assets/audio/sfx"
 
 var bgm_tracks: Dictionary = {}
 var sfx_tracks: Dictionary = {}
@@ -13,6 +13,7 @@ var sfx_tracks: Dictionary = {}
 var current_bgm_name: String = ""
 var bgm_volume_db: float = 0.0
 var sfx_volume_db: float = 0.0
+
 
 func _ready() -> void:
 	_load_audio()
@@ -22,33 +23,21 @@ func _load_audio() -> void:
 	bgm_tracks.clear()
 	sfx_tracks.clear()
 
-	# --- Cargar BGM ---
-	var dir_bgm := DirAccess.open(bgm_folder)
-	if dir_bgm:
-		dir_bgm.list_dir_begin()
-		var file := dir_bgm.get_next()
-		while file != "":
-			if not dir_bgm.current_is_dir():
-				if file.ends_with(".ogg") or file.ends_with(".wav"):
-					var path := bgm_folder + "/" + file
-					var key := file.get_basename()
-					bgm_tracks[key] = ResourceLoader.load(path)
-			file = dir_bgm.get_next()
-		dir_bgm.list_dir_end()
+	_load_audio_resources(bgm_folder, bgm_tracks)
+	_load_audio_resources(sfx_folder, sfx_tracks)
+	
+func _load_audio_resources(path: String, target_dict: Dictionary) -> void:
+	var files = ResourceLoader.list_directory(path)
 
-	# --- Cargar SFX ---
-	var dir_sfx := DirAccess.open(sfx_folder)
-	if dir_sfx:
-		dir_sfx.list_dir_begin()
-		var file2 := dir_sfx.get_next()
-		while file2 != "":
-			if not dir_sfx.current_is_dir():
-				if file2.ends_with(".ogg") or file2.ends_with(".wav"):
-					var path2 := sfx_folder + "/" + file2
-					var key2 := file2.get_basename()
-					sfx_tracks[key2] = ResourceLoader.load(path2)
-			file2 = dir_sfx.get_next()
-		dir_sfx.list_dir_end()
+	for file in files:
+		var full_path = path + "/" + file
+
+		if ResourceLoader.exists(full_path, "AudioStream"):
+			var key := file.get_basename()
+			target_dict[key] = load(full_path)
+		else:
+			# intentar como subcarpeta
+			_load_audio_resources(full_path, target_dict)
 
 
 

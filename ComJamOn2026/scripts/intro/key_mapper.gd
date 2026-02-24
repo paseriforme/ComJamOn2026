@@ -19,11 +19,14 @@ func _ready() -> void:
 	next_key()
 	Global.sound.set_bgm_volume_db(7)
 	Global.sound.set_sfx_volume_db(7)
-	Global.sound.play_bgm("ambience", true)
+#	Global.sound.play_bgm("ambience", true)
 
 func _input(event: InputEvent) -> void:
 #	if key >= len(actions): return
 #	print_debug(event)
+	if event.is_pressed():
+		if not Global.sound.bgm.playing:
+			Global.sound.play_bgm("ambience")
 	var raw_val = Input.get_joy_axis(0, 5)
 	if (event.is_pressed() or raw_val != 0.0 and event is InputEventJoypadMotion) and not somethingpressed:
 		somethingpressed = true
