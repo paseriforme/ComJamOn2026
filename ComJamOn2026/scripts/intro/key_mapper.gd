@@ -43,21 +43,40 @@ func _input(event: InputEvent) -> void:
 				# TODO: mostrar qué está mapeado a lo que estás pulsando
 				if event.is_action_pressed("rasgar"):
 					animators[5].play("pegar")
+					Global.sound.play_sfx("duct_tape1", 0.3)
 				elif event.is_action_pressed("verde"):
 					animators[0].play("pegar")
+					Global.sound.play_sfx("duct_tape1", 0.3)
 				elif event.is_action_pressed("rojo"):
 					animators[1].play("pegar")
+					Global.sound.play_sfx("duct_tape1", 0.3)
 				elif event.is_action_pressed("amarillo"):
 					animators[2].play("pegar")
+					Global.sound.play_sfx("duct_tape1", 0.3)
 				elif event.is_action_pressed("azul"):
 					animators[3].play("pegar")
+					Global.sound.play_sfx("duct_tape1", 0.3)
 				elif event.is_action_pressed("naranja"):
 					animators[4].play("pegar")
+					Global.sound.play_sfx("duct_tape1", 0.3)
 		else: # cuando has acabado de mapear, cuales son tus siguientes acciones?
 			if event.is_action_pressed("rasgar"):
 				_reiniciar()
 			elif event.is_action_pressed("verde"):
 				_confirmar()
+			elif event.is_action_pressed("rojo"):
+				animators[1].play("pegar")
+				Global.sound.play_sfx("duct_tape1", 0.3)
+			elif event.is_action_pressed("amarillo"):
+				animators[2].play("pegar")
+				Global.sound.play_sfx("duct_tape1", 0.3)
+			elif event.is_action_pressed("azul"):
+				animators[3].play("pegar")
+				Global.sound.play_sfx("duct_tape1", 0.3)
+			elif event.is_action_pressed("naranja"):
+				animators[4].play("pegar")
+				Global.sound.play_sfx("duct_tape1", 0.3)
+				
 	else:
 		somethingpressed = false
 
