@@ -301,16 +301,16 @@ func _play_sound_from_pulso(pulse: Pulso):
 	# Mapear los trastes a notas (ajusta segun tu logica)
 	match pulso_data:
 		Global.DO:
-			audio_player.stream = load("res://audio/sfx/DO.wav")
+			audio_player.stream = load("res://assets/audio/sfx/DO.wav")
 			audio_player.play()
 		Global.RE:
-			audio_player.stream = load("res://audio/sfx/RE.wav")
+			audio_player.stream = load("res://assets/audio/sfx/RE.wav")
 			audio_player.play()
 		Global.MI:
-			audio_player.stream = load("res://audio/sfx/MI.wav")
+			audio_player.stream = load("res://assets/audio/sfx/MI.wav")
 			audio_player.play()
 		Global.SOL:
-			audio_player.stream = load("res://audio/sfx/SOL.wav")
+			audio_player.stream = load("res://assets/audio/sfx/SOL.wav")
 			audio_player.play()
 
 func fail():
@@ -324,7 +324,7 @@ func fail():
 	can_hit_this_beat = false
 	correct_this_beat = false
 	#audio de fallo
-	audio_player.stream = load("res://audio/sfx/detuned.wav")
+	audio_player.stream = load("res://assets/audio/sfx/detuned.wav")
 	audio_player.play()
 	# Mostrar pegatina de fallo
 	pegatina.visible = true
