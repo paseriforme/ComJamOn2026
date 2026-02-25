@@ -1,306 +1,200 @@
 extends Control
-const PULSO = preload("res://scenes/Prefabs/pulso.tscn")
 
-var pulsos : Array[Node] = []
-var actual_pulso := 0  
-var actual_chord := 0
-var last_chord := len(Global.song)
-var last_klk_time : float = 0
-
+@export_group("Referencias a escenas")
 @onready var audio_player: AudioStreamPlayer2D = $"../AudioPlayer"
-@onready var pegatina: TextureRect = $"../Pegatina"
 @onready var animator: AnimationPlayer = $"../AnimationPlayer"
+@onready var pegatina: TextureRect = $"../Pegatina"
 @export var pegatinas : Array[Texture2D]
 @onready var trastes: Control = $"../TextureRect/Trastes"
+@export var telon_izq : TextureRect
+@export var telon_der : TextureRect
+@export var porcentaje_animator: AnimationPlayer
+@export var porcentaje_label: Label
 
+@onready var disco: Disco = $"../Disco"
+const PULSO = preload("res://scenes/Prefabs/pulso.tscn")
+
+@export_group("Configuracion de cancion")
+@export_subgroup("Dificultad")
+@export var spawn_offset := 1.5        # en beats convertidos a segundos
+var pulse_time := 0.0
+@export var bpm: float = 120
 @export var tiempo_anticipacion = 0.3  # 300ms antes
 @export var tiempo_retardo = 0.2       # 200ms despues
 @export var perfe_time = 0.08          # +-80ms del beat exacto
+@export_subgroup("Visual de pulsos")
+@export var rotacion_inicial: float = -180.0
+@export var rotacion_final: float = 0.0
+@export var scale_pulsos: Vector2 = Vector2(0.66, 0.66)
+@export var off_position_pulsos: Vector2 = Vector2(0,0)
 
-var pulsed = false
-var enable = false
-var failed_this_beat = false
-var correct_this_beat = false
-var can_hit_this_beat = true
+var song_time := 0.0
+var spawn_chord := 0   # indice de la proxima nota a spawnear
 
-var nearest_pulse_to_hit: Pulso = null
-@export var rotation_to_check: float = 90.0  # Rotacion del punto de rasgueo
+var enable := false
+var ending := false
+var rasgar_pressed := false
 
-@onready var disco: Disco = $"../Disco"
+var calculo: float = 1.0
+var notas_acertadas: float = 0.0
+var notas_totales: float = 0.0
 
-@export var bpm :float = 120
-var elapsed_b_time :float = 0
-var elapsed_sb_time :float = 0
-
-# Tiempo exacto del proximo beat
-var next_beat_time : float = 0
-var song_time : float = 0
-
-var actual_cancion : float = 0
-var pulses_to_start := 2
-@export var telon_izq : TextureRect 
-@export var telon_der : TextureRect 
-var ending = false
-
-# Parametros de rotacion
-@export var num_pulsos : int = 8
-@export var rotacion_inicial : float = -180.0
-@export var rotacion_final : float = 0.0
-@export var escala_pulsos : Vector2 = Vector2(0.66, 0.66)
-@export var porcentaje_animator : AnimationPlayer
-@export var porcentaje_label : Label
-var calculo : float = 1.0
-var notas_acertadas : float = 0
-var notas_totales : float = 0
-
-func _ready() -> void:
-	pass
-
-func stop_song():
+func stop_song() -> void:
 	enable = false
 
-func _create_pulse():
-#	actual_chord = last_chord
-	if actual_chord >= last_chord or actual_chord >= len(Global.song):
-		if not ending: 
-			end()
-		return
-	
-	var pl: Pulso = PULSO.instantiate()
-	add_child(pl)
-	pl.set_pulso(Global.song[actual_chord])
-	
-	# configurar posicion inicial
-	pl.rotation_degrees = rotacion_inicial
-	pl.scale = escala_pulsos
-	
-	var duration = 60.0 / bpm  # Duracion de un beat
-	var tween = create_tween()
-	
-	# Mover la rotacion de inicio a fin (2 beats)
-	tween.tween_property(pl, "rotation_degrees", rotacion_final, duration * 4)
-	
-	# Al terminar: crear siguiente y destruir este
-	tween.finished.connect(func():
-		actual_chord += 1
-		next_beat_time += duration * 4
-		_create_pulse()
-		pl.queue_free()
-	)
-
-func start_song(start = 0, fin = len(Global.song)):
-
-	ending = false
+func start_song(_bpm: float = 120) -> void:
+	bpm = _bpm
+	pulse_time = spawn_offset * (60.0 / bpm)
+	spawn_chord = 0
+	# porcentaje de perfeccion
+	calculo = 1
+	notas_acertadas = 0.0
+	notas_totales = 0.0
+	# banderas
+	rasgar_pressed = false
 	enable = true
+	ending = false
 	
-	var start_sec = Global.npc_chocado.firstChord * ((60/bpm) * 0.5)
-	print(start_sec)
-	Global.sound.play_bgm(Global.cancion, false, start_sec)
+	# Resetear estado de todas las notas
+	for nota in Global.song:
+		nota.hit = false
+		nota.evaluated = false
 	
-	# reset de indices
-	actual_chord = Global.npc_chocado.firstChord
-	last_chord = Global.npc_chocado.lastChord
-	
-	# reset estados
-	pulsed = false
-	failed_this_beat = false
-	correct_this_beat = false
-	can_hit_this_beat = true
-	pulses_to_start = 2
-	
-	# reset tiempos
-	elapsed_b_time = 0
-	elapsed_sb_time = 0
-	last_klk_time = 0
-	song_time = 0
-	next_beat_time = (60.0 / bpm) * 0.5  # Primer medio beat
-	
-	# reset visual
-	disco.rotation = deg_to_rad(-90 + 150)
-	position = Vector2(695.522, 898.507)
-	# Iniciar la creacion de pulsos
-	_create_pulse()
-	
+	Global.sound.play_bgm(Global.cancion)
+	song_time = Global.sound.bgm.get_playback_position()
 	print("START")
 
-func next_pulse():
-	# Reset de estados para el nuevo beat
-	failed_this_beat = false
-	correct_this_beat = false
-	can_hit_this_beat = true
+func _create_pulse(nota: Nota) -> void:
+	var puls: Pulso = PULSO.instantiate()
+	puls.set_pulso(nota.chord)
+	add_child(puls)
+	puls.global_position = global_position + off_position_pulsos
+	puls.scale = scale_pulsos	
+	puls.rotation = deg_to_rad(rotacion_inicial)
+	var tween = puls.create_tween()
+	tween.tween_property(puls, "rotation", deg_to_rad(rotacion_final), pulse_time)
+	tween.finished.connect(func(): 
+		puls.queue_free()
+		)
 
-func get_pulse_nearest_to_rotation(target_rotation: float = 90.0) -> Pulso:
-	var nearest_pulse: Pulso = null
-	var min_angle_diff = INF
+func get_judgeable_note() -> Nota:
+	# Buscamos la nota no evaluada mas cercana al tiempo de la cancion
+	# si no hay una nota en rango devuelve null
+	var best_note: Nota = null
+	var best_diff := 999.0
 	
-	for child in get_children():
-		if child is Pulso:
-			# Calcular diferencia angular minima (considerando que es ciclico)
-			var angle_diff = abs(child.rotation_degrees - target_rotation)
-			if angle_diff > 180:
-				angle_diff = 360 - angle_diff
-			
-			if angle_diff < min_angle_diff:
-				min_angle_diff = angle_diff
-				nearest_pulse = child
+	for nota in Global.song:
+		if nota.evaluated:
+			continue
+		var diff: float = song_time - nota.time
+		var abs_diff: float = abs(diff)
+		if abs_diff <= tiempo_anticipacion and abs_diff < best_diff:
+			best_diff = abs_diff
+			best_note = nota
 	
-	return nearest_pulse
+	return best_note
 
-func get_nearest_pulse() -> Pulso:
-	# Obtener el pulso que esta mas cerca de trastes
-	var nearest_pulse: Pulso = null
-	var min_distance = INF
-	
-	for child in get_children():
-		if child is Pulso:
-			var distance = (child.global_position - trastes.global_position).length()
-			if distance < min_distance:
-				min_distance = distance
-				nearest_pulse = child
-	
-	return nearest_pulse
+func _is_correct(nota: Nota) -> bool:
+	for i in Global.trastes.size():
+		if nota.chord[i] != Global.trastes[i]:
+			return false
+	return true
 
-func _any_key_pressed() -> bool:
-	for traste in Global.trastes:
-		if traste:
-			return true
-	return false
-	
-func _time_diff_for_pulse(pulse: Pulso) -> float:
-	if not pulse:
-		return 9999.0
-	var total_duration = (60.0 / bpm) * 4.0
-	var start_rot = rotacion_inicial
-	var end_rot = rotacion_final
-	var delta_rot = end_rot - start_rot
-	var rot_speed = delta_rot / total_duration
-	var angle_diff = rotation_to_check - pulse.rotation_degrees
-	# normalizar a [-180,180]
-	while angle_diff > 180.0:
-		angle_diff -= 360.0
-	while angle_diff < -180.0:
-		angle_diff += 360.0
-	# tiempo restante hasta target
-	if abs(rot_speed) < 0.00001:
-		return 9999.0
-	var time_until_target = angle_diff / rot_speed
-	# expected hit time = song_time + time_until_target
-	var expected_hit_time = song_time + time_until_target
-	var time_diff = song_time - expected_hit_time  # == -time_until_target
-	#print_debug("pulse.angle=", pulse.rotation_degrees, "angle_diff=", angle_diff, "rot_speed=", rot_speed, "time_until=", time_until_target, "time_diff=", time_diff)
-	return time_diff
-	
-# Devuelve: 2 = perfecto, 1 = bien, 0 = fuera de ventana.
-func _acertado_on_time(pulse: Pulso) -> int:
-	var time_diff = _time_diff_for_pulse(pulse)
-	# fuera de ventana
-	if time_diff < - tiempo_anticipacion or time_diff > tiempo_retardo:
-		return 0
-	# perfecto
-	if abs(time_diff) < perfe_time:
-		return 2
-	# bien
-	return 1
-
-func _is_press_late(pulse: Pulso) -> bool:
-	var time_diff = _time_diff_for_pulse(pulse)
-	return time_diff > tiempo_retardo
-
-func check_input():
-	if not can_hit_this_beat:
-		return
-		
-	nearest_pulse_to_hit = get_pulse_nearest_to_rotation(rotation_to_check)
-	if not nearest_pulse_to_hit:
-		return
-		
-	# Si se ha pulsado
-	if pulsed:
-		if nearest_pulse_to_hit._is_pulse_empty():
-			print("FAIL PULSA EN VACIO")
-			fail()
-			return
-		if _is_press_late(nearest_pulse_to_hit):
-			print("FAIL PULSA TARDE")
-			fail()
-			return
-		var timing = _acertado_on_time(nearest_pulse_to_hit)
-		if timing > 0 and nearest_pulse_to_hit._matching_keys_with_pulse():
-			# perfecto / bien
-			correct(timing)
-			return
-		elif timing > 0:
-			# buen timing pero combinacion incorrecta -> fallo
-			print("FAIL COMBINACION NO COINCIDE")
-			fail()
-			return
-		else:
-			print("OTRO")
-			return
-var last_evaluated_pulse: Pulso = null
-func _physics_process(delta: float) -> void:
-	if not enable:
+func check_input() -> void:
+	var nota: Nota = get_judgeable_note()
+	if nota == null:
+		fail()
 		return
 	
-	song_time += delta
-	elapsed_sb_time += delta
-	# Actualizar referencia del pulso mas cercano al punto de rasgueo
-	nearest_pulse_to_hit = get_pulse_nearest_to_rotation(rotation_to_check)
+	var diff: float = song_time - nota.time
+	var abs_diff: float = abs(diff)
 	
-	if nearest_pulse_to_hit \
-	and not pulsed \
-	and nearest_pulse_to_hit != last_evaluated_pulse:
-		if not nearest_pulse_to_hit._is_pulse_empty():
-			var time_diff = _time_diff_for_pulse(nearest_pulse_to_hit)
-			if time_diff > tiempo_retardo:
-				print("FAIL NO PULSA EN PULSO NO VACIO (UNA SOLA VEZ)")
-				fail()
-				last_evaluated_pulse = nearest_pulse_to_hit
-		next_pulse()
+	# Marcar como evaluada
+	nota.evaluated = true
 	
-	if Input.is_action_just_pressed("rasgar", true):
-		pulsed = true
-		check_input()
-	if Input.is_action_just_released("rasgar"):
-		pulsed = false
-
-func correct(timing_quality: int):
-	if correct_this_beat:
-		return
-	notas_totales += 1
-	
-	correct_this_beat = true
-	can_hit_this_beat = false
-	last_evaluated_pulse = nearest_pulse_to_hit
-	
-	# Mostrar pegatina segun calidad
 	pegatina.visible = true
-	match timing_quality:
-		2:  # PERFECTO
-			pegatina.texture = pegatinas[2]
-			notas_acertadas += 1
-			print("PERFECTO")
-		1:  # BIEN
-			pegatina.texture = pegatinas[1]
-			notas_acertadas += 0.5
-			print("BIEN")
+	
+	if not _is_correct(nota):
+		fail()
+		pegatina.texture = pegatinas[0]
+		return
+	
+	if abs_diff <= perfe_time:
+		# perfecto
+		nota.hit = true
+		correct(nota.chord)
+		pegatina.texture = pegatinas[2]
+	elif diff >= -tiempo_anticipacion and diff <= tiempo_retardo:
+		# bien
+		nota.hit = true
+		correct(nota.chord)
+		pegatina.texture = pegatinas[1]
+	else:
+		# Mal
+		nota.hit = false
+		fail()
+		pegatina.texture = pegatinas[0]
 	
 	animator.play("pegar")
-	
-	# Reproducir sonido del pulso mas cercano
-	if nearest_pulse_to_hit:
-		_play_sound_from_pulso(nearest_pulse_to_hit)
-	
-	failed_this_beat = false
 
-func _play_sound_from_pulso(pulse: Pulso):
-	var pulso_data = pulse.pulso_data
-	
-	if not pulso_data or len(pulso_data) == 0:
+func _check_missed_notes() -> void:
+	# Solo revisar notas que ya han sido spawneadas (indice < spawn_chord)
+	for i in range(spawn_chord):
+		var nota: Nota = Global.song[i]
+		if nota.evaluated:
+			continue
+		# si no ha sido evaluada y se ha pasado el tiempo maximo, es un fallo
+		if song_time - nota.time > tiempo_retardo:
+			nota.evaluated = true
+			nota.hit = false
+			fail()
+
+func _check_song_finished() -> void:
+	# Todas las notas evaluadas y la cancion ha terminado
+	if spawn_chord >= Global.song.size():
+		var todas_evaluadas := true
+		for nota in Global.song:
+			if not nota.evaluated:
+				todas_evaluadas = false
+				break
+		if todas_evaluadas:
+			end()
+
+func _input(event: InputEvent) -> void:
+	if not enable:
+		return
+	if event.is_action_pressed("rasgar") and not rasgar_pressed:
+		rasgar_pressed = true
+		check_input()
+	if event.is_action_released("rasgar"):
+		rasgar_pressed = false
+
+func _process(_delta: float) -> void:
+	if not enable or ending:
 		return
 	
-	# Mapear los trastes a notas (ajusta segun tu logica)
-	match pulso_data:
+	song_time = Global.sound.bgm.get_playback_position()
+	
+	# Spawn de pulsos con antelacion
+	while spawn_chord < Global.song.size():
+		var nota: Nota = Global.song[spawn_chord]
+		if song_time >= nota.time - pulse_time:
+			_create_pulse(nota)
+			spawn_chord += 1
+		else:
+			break  
+	
+	_check_missed_notes()
+	_check_song_finished()
+
+func correct(chord: Array) -> void:
+	notas_acertadas += 1.0
+	
+	if not chord or len(chord) == 0:
+		return
+	
+	# Mapear los trastes a notas
+	match chord:
 		Global.DO:
 			audio_player.stream = load("res://assets/audio/sfx/DO.wav")
 			audio_player.play()
@@ -314,53 +208,52 @@ func _play_sound_from_pulso(pulse: Pulso):
 			audio_player.stream = load("res://assets/audio/sfx/SOL.wav")
 			audio_player.play()
 
-func fail():
-	if failed_this_beat:
-		return
-	
-	notas_totales += 1
-	
+func fail() -> void:
 	print("FALLO")
-	failed_this_beat = true
-	can_hit_this_beat = false
-	correct_this_beat = false
 	#audio de fallo
 	audio_player.stream = load("res://assets/audio/sfx/detuned.wav")
 	audio_player.play()
-	# Mostrar pegatina de fallo
 	pegatina.visible = true
-	pegatina.texture = pegatinas[0]
-	animator.play("pegar")
 
-func end():
+func end() -> void:
+	if ending:
+		return
 	ending = true
+	enable = false
 	disco.end()
 	Global.sound.stop_bgm()
+	
+	calculo = 0.0
+	if Global.song.size() > 0:
+		calculo = notas_acertadas /  Global.song.size()
+	print("RESULTADO: ", int(calculo * 100), "%")
+
 	if Global.npc_chocado == $"../../../../manager2":
 		await Global.timer(1.0)
-		var time = 5.0
-		var ini_pos_1 = telon_izq.position
-		var ini_pos_2 = telon_der.position
-		var offset = 1000
+		var anim_time := 5.0
+		var ini_pos_1 := telon_izq.position
+		var ini_pos_2 := telon_der.position
+		var offset := 1000.0
+		
 		var tween1 = get_tree().create_tween()
 		tween1.set_ease(Tween.EASE_OUT)
-		tween1.tween_property(telon_izq, "position", ini_pos_1 + Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
+		tween1.tween_property(telon_izq, "position", ini_pos_1 + Vector2(offset, 0), anim_time)\
+			.set_trans(Tween.TRANS_ELASTIC)
 		Global.play_cardboard(0.2)
+		
 		var tween2 = get_tree().create_tween()
 		tween2.set_ease(Tween.EASE_OUT)
-		tween2.tween_property(telon_der, "position", ini_pos_2 - Vector2(offset,0), time).set_trans(Tween.TRANS_ELASTIC)
-#		tween2.finished.connect(func(): get_tree().quit())
-		calculo = 0
-		if (notas_totales > 0):
-			calculo = (notas_acertadas / notas_totales)
-		tween2.finished.connect(func(): porcentaje_animator.play("pegar"); Global.sound.play_sfx("duct_tape1", 0.2); porcentaje_label.text = str(int(calculo * 100))  + "%")
-		
+		tween2.tween_property(telon_der, "position", ini_pos_2 - Vector2(offset, 0), anim_time)\
+			.set_trans(Tween.TRANS_ELASTIC)
+		tween2.finished.connect(func():
+			porcentaje_label.text = str(int(calculo * 100)) + "%"
+			Global.sound.play_sfx("duct_tape1", 0.2)
+			porcentaje_animator.play("pegar")
+		)
 		Global.play_cardboard(0.2)
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	get_tree().quit()
-#	print_debug("LOOOOOOL")
-#	porcentaje_animator.play("loop")	
-#	if (anim_name == "pegar"):
-	pass # Replace with function body.
+	# Solo salir al terminar la animacion del porcentaje final, no la de pegatinas
+	if anim_name == "pegar" and ending:
+		get_tree().quit()

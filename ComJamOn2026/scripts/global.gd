@@ -56,59 +56,60 @@ const SOL  = [false, false, false, true, false]
 const LA  = [false, false, false, true, true]
 const NONE  = [false, false, false, false, false]
 
-var song := [
+var song : Array[Nota] = [
 	#prueba
 	#DO, DO, DO, DO, DO, DO, DO, DO,
 	#intro
 	#NONE, NONE,
 	# estrofa 1
-	SOL, RE,
-	RE, NONE,
-	MI, DO,
-	DO, NONE,
-		
-	SOL, RE,
-	RE, NONE,
-	MI, DO,
-	DO, NONE,
+	Nota.new(1.0, SOL), Nota.new(2, RE),
+	Nota.new(4, RE),
+	Nota.new(8, MI), Nota.new(10, DO),
+	Nota.new(12, DO),
+	
+	Nota.new(1.0, SOL), Nota.new(2, RE),
+	Nota.new(4, RE),
+	Nota.new(8, MI), Nota.new(10, DO),
+	Nota.new(12, DO),
+	
 	# pre-estribillo
-	MI, NONE,
-	DO, NONE,
-	SOL, NONE,
-	RE, NONE,
+	Nota.new(16, MI), 
+	Nota.new(20, DO),
+	Nota.new(24, SOL),
+	Nota.new(28, RE),
 	
 	# estribillo
-	SOL, SOL,
-	RE, RE,
-	MI, MI,
-	DO, DO,
+	Nota.new(32, SOL), Nota.new(34, SOL), Nota.new(35, SOL),
+	Nota.new(36, RE), Nota.new(38, RE), Nota.new(39, RE),
+	Nota.new(40, MI), Nota.new(42, MI), Nota.new(43, MI),
+	Nota.new(44, DO), Nota.new(46, DO), Nota.new(47, DO),
 	
-	SOL, SOL,
-	RE, RE,
-	MI, MI,
-	DO, DO,
+	Nota.new(32, SOL), Nota.new(34, SOL), Nota.new(35, SOL),
+	Nota.new(36, RE), Nota.new(38, RE), Nota.new(39, RE),
+	Nota.new(40, MI), Nota.new(42, MI), Nota.new(43, MI),
+	Nota.new(44, DO), Nota.new(46, DO), Nota.new(47, DO),
 	
 	# estrofa 2
-	SOL, RE,
-	RE, NONE,
-	MI, DO,
-	DO, NONE,
-		
-	SOL, RE,
-	#RE, NONE,
-	#MI, DO,
-	#DO, NONE
+	Nota.new(1.0, SOL), Nota.new(2, RE),
+	Nota.new(4, RE),
+	Nota.new(8, MI), Nota.new(10, DO),
+	Nota.new(12, DO),
+	
+	Nota.new(1.0, SOL), Nota.new(2, RE),
+	Nota.new(4, RE),
+	Nota.new(8, MI), Nota.new(10, DO),
+	Nota.new(12, DO),
 	
 	# estribillo 2
-	#SOL, SOL,
-	#RE, RE,
-	#MI, MI,
-	#DO, DO,
-	#
-	#SOL, SOL,
-	#RE, RE,
-	#MI, MI,
-	#DO, DO,
+	Nota.new(32, SOL), Nota.new(34, SOL), Nota.new(35, SOL),
+	Nota.new(36, RE), Nota.new(38, RE), Nota.new(39, RE),
+	Nota.new(40, MI), Nota.new(42, MI), Nota.new(43, MI),
+	Nota.new(44, DO), Nota.new(46, DO), Nota.new(47, DO),
+	
+	Nota.new(32, SOL), Nota.new(34, SOL), Nota.new(35, SOL),
+	Nota.new(36, RE), Nota.new(38, RE), Nota.new(39, RE),
+	Nota.new(40, MI), Nota.new(42, MI), Nota.new(43, MI),
+	Nota.new(44, DO), Nota.new(46, DO), Nota.new(47, DO),
 	]
 	
 var npc_chocado = null
