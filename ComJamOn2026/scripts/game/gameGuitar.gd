@@ -267,7 +267,6 @@ func _physics_process(delta: float) -> void:
 func correct(timing_quality: int):
 	if correct_this_beat:
 		return
-	notas_acertadas += 1
 	notas_totales += 1
 	
 	correct_this_beat = true
@@ -279,9 +278,11 @@ func correct(timing_quality: int):
 	match timing_quality:
 		2:  # PERFECTO
 			pegatina.texture = pegatinas[2]
+			notas_acertadas += 1
 			print("PERFECTO")
 		1:  # BIEN
 			pegatina.texture = pegatinas[1]
+			notas_acertadas += 0.5
 			print("BIEN")
 	
 	animator.play("pegar")
