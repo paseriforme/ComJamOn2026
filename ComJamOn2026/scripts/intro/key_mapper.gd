@@ -5,8 +5,6 @@ var key := -1
 
 var actions := ["verde", "rojo", "amarillo", "azul", "naranja", "rasgar"]
 @export var buttons : Array[Node]
-@export var loop_animations : Array[Animation]
-@export var pegar_animations : Array[Animation]
 @onready var animator : AnimationPlayer = $AnimationPlayer
 @export var animators : Array[AnimationPlayer]
 @onready var flecha_confirmar : TextureRect = $Confirmar
@@ -43,7 +41,18 @@ func _input(event: InputEvent) -> void:
 				next_key()
 			else:
 				# TODO: mostrar qué está mapeado a lo que estás pulsando
-				pass
+				if event.is_action_pressed("rasgar"):
+					animators[5].play("pegar")
+				elif event.is_action_pressed("verde"):
+					animators[0].play("pegar")
+				elif event.is_action_pressed("rojo"):
+					animators[1].play("pegar")
+				elif event.is_action_pressed("amarillo"):
+					animators[2].play("pegar")
+				elif event.is_action_pressed("azul"):
+					animators[3].play("pegar")
+				elif event.is_action_pressed("naranja"):
+					animators[4].play("pegar")
 		else: # cuando has acabado de mapear, cuales son tus siguientes acciones?
 			if event.is_action_pressed("rasgar"):
 				_reiniciar()
