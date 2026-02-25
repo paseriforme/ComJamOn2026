@@ -7,18 +7,15 @@ class_name UI
 
 func _ready() -> void:
 	Global.end_dialogue.connect(_end_dialogue)
-#	visible(false)
 
 func visible(vis):
 	if vis:
 		dialogue_manager.visible = true
 	else:
 		dialogue_manager.visible = false
-#		panel.set_process(false)
-		control_disco.stop_song()
 
 func stop_song():
-	control_disco.stop_song()
+	control_disco.end()
 
 func show_dialogue(character):
 	dialogue_manager.start(character)

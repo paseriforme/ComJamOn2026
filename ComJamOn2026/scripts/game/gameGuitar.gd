@@ -16,7 +16,7 @@ const PULSO = preload("res://scenes/Prefabs/pulso.tscn")
 
 @export_group("Configuracion de cancion")
 @export_subgroup("Dificultad")
-@export var spawn_offset := 1.5        # en beats convertidos a segundos
+@export var spawn_offset := 1.5        # en beats
 var pulse_time := 0.0
 @export var bpm: float = 120
 @export var tiempo_anticipacion = 0.3  # 300ms antes
@@ -39,12 +39,10 @@ var calculo: float = 1.0
 var notas_acertadas: float = 0.0
 var notas_totales: float = 0.0
 
-func stop_song() -> void:
-	enable = false
-
 func start_song(_bpm: float = 120) -> void:
 	bpm = _bpm
 	pulse_time = spawn_offset * (60.0 / bpm)
+	disco.set_vel((rotacion_final - rotacion_inicial)/pulse_time)
 	spawn_chord = 0
 	# porcentaje de perfeccion
 	calculo = 1
@@ -68,13 +66,15 @@ func _create_pulse(nota: Nota) -> void:
 	var puls: Pulso = PULSO.instantiate()
 	puls.set_pulso(nota.chord)
 	add_child(puls)
+	# asignaciones del pulso
 	puls.global_position = global_position + off_position_pulsos
-	puls.scale = scale_pulsos	
+	puls.scale = scale_pulsos
 	puls.rotation = deg_to_rad(rotacion_inicial)
+	# tween de movimiento
 	var tween = puls.create_tween()
 	tween.tween_property(puls, "rotation", deg_to_rad(rotacion_final), pulse_time)
 	tween.finished.connect(func(): 
-		puls.queue_free()
+		puls.queue_free() # se elimina cuando termina
 		)
 
 func get_judgeable_note() -> Nota:
@@ -103,7 +103,6 @@ func _is_correct(nota: Nota) -> bool:
 func check_input() -> void:
 	var nota: Nota = get_judgeable_note()
 	if nota == null:
-		fail()
 		return
 	
 	var diff: float = song_time - nota.time
@@ -112,41 +111,42 @@ func check_input() -> void:
 	# Marcar como evaluada
 	nota.evaluated = true
 	
-	pegatina.visible = true
-	
+	# es correcto el acorde?
 	if not _is_correct(nota):
 		fail()
 		pegatina.texture = pegatinas[0]
+		animator.play("pegar")
 		return
-	
+	# comprobar con respecto al tiempo
 	if abs_diff <= perfe_time:
 		# perfecto
+		notas_acertadas += 1
 		nota.hit = true
-		correct(nota.chord)
-		pegatina.texture = pegatinas[2]
+		correct(2,nota.chord)
 	elif diff >= -tiempo_anticipacion and diff <= tiempo_retardo:
 		# bien
+		notas_acertadas += 0.5
 		nota.hit = true
-		correct(nota.chord)
+		correct(1, nota.chord)
 		pegatina.texture = pegatinas[1]
 	else:
 		# Mal
 		nota.hit = false
+		audio_player.volume_db = 0
 		fail()
-		pegatina.texture = pegatinas[0]
 	
-	animator.play("pegar")
 
 func _check_missed_notes() -> void:
 	# Solo revisar notas que ya han sido spawneadas (indice < spawn_chord)
 	for i in range(spawn_chord):
 		var nota: Nota = Global.song[i]
-		if nota.evaluated:
-			continue
+		if nota.evaluated: continue
+		
 		# si no ha sido evaluada y se ha pasado el tiempo maximo, es un fallo
-		if song_time - nota.time > tiempo_retardo:
+		if song_time > nota.time + tiempo_retardo:
 			nota.evaluated = true
 			nota.hit = false
+			audio_player.volume_db = -10
 			fail()
 
 func _check_song_finished() -> void:
@@ -187,12 +187,10 @@ func _process(_delta: float) -> void:
 	_check_missed_notes()
 	_check_song_finished()
 
-func correct(chord: Array) -> void:
-	notas_acertadas += 1.0
-	
+func correct(time_quality:int, chord: Array) -> void:
 	if not chord or len(chord) == 0:
 		return
-	
+	audio_player.volume_db = 0
 	# Mapear los trastes a notas
 	match chord:
 		Global.DO:
@@ -207,6 +205,10 @@ func correct(chord: Array) -> void:
 		Global.SOL:
 			audio_player.stream = load("res://assets/audio/sfx/SOL.wav")
 			audio_player.play()
+	
+	pegatina.visible = true
+	pegatina.texture = pegatinas[time_quality]
+	animator.play("pegar")
 
 func fail() -> void:
 	print("FALLO")
@@ -214,6 +216,8 @@ func fail() -> void:
 	audio_player.stream = load("res://assets/audio/sfx/detuned.wav")
 	audio_player.play()
 	pegatina.visible = true
+	pegatina.texture = pegatinas[0]
+	animator.play("pegar")
 
 func end() -> void:
 	if ending:

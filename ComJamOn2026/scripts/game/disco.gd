@@ -6,8 +6,13 @@ class_name Disco
 
 var vel:float = 0
 var pause := false
+
 func _ready() -> void:
-	vel =  (360/2)/ (b_x_vuelta / (bpm/60))
+	vel = 0.1
+	print(vel)
+
+func set_vel(_vel:float) -> void:
+	vel = _vel
 	print(vel)
 
 func end() -> void:
@@ -17,11 +22,6 @@ func end() -> void:
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "rotation", deg_to_rad(rotation), 1.5).set_trans(Tween.TRANS_BACK)
 	tween.finished.connect(func(): Global.end_song.emit())
- 
-func start() -> void:
-	rotation = deg_to_rad(0)
-	pause = true
 
 func _physics_process(delta: float) -> void:
 	rotation += deg_to_rad(delta * vel)
-	#print(rotation)
