@@ -11,7 +11,7 @@ var actions := ["verde", "rojo", "amarillo", "azul", "naranja", "rasgar"]
 @onready var flecha_reintentar : TextureRect = $Reintentar
 var trans : bool = false
 var ini_map
-var somethingpressed = false
+var somethingpressed: bool = false
 
 var initial_input_map := {}
 
@@ -23,6 +23,9 @@ func _ready() -> void:
 	if not OS.is_debug_build(): # si es release queremos que no haya nada mapeado pero en debug si para debugear
 		for a in actions:
 			InputMap.action_erase_events(a)
+		var ev := InputEventKey.new()
+		ev.keycode = KEY_ESCAPE
+		InputMap.action_add_event("escape", ev)
 	_save_initial_inputmap()
 
 func _input(event: InputEvent) -> void:
