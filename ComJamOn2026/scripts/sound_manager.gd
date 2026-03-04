@@ -139,6 +139,7 @@ func _create_sfx_pool():
 func _add_sfx_player() -> AudioStreamPlayer2D:
 	var p := AudioStreamPlayer2D.new()
 	p.bus = "SFX"
+	p.volume_db = sfx_volume_db
 	add_child(p)
 	sfx_pool.append(p)
 	return p
