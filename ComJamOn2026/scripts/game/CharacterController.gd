@@ -50,13 +50,13 @@ func _physics_process(delta: float) -> void:
 #		print_debug(">>> HAS PULSADO ALGO")
 		control_current_time = 0.0
 		mostrando = false
-		Global.play_paper(0.1)
+#		Global.play_paper(0.1)
 	if control_current_time >= control_feedback_time and not mostrando and canwalk:
 		control_current_time = 0.0
 #		print_debug(">>> PENSAMIENTO")
 		animator.play("pensamiento")
 		mostrando = true
-		Global.play_paper(0.1)
+#		Global.play_paper(0.1)
 		pass
 		
 	# VERDE
@@ -67,7 +67,7 @@ func _physics_process(delta: float) -> void:
 		if direction >= len(directions): 
 			direction = 0
 		$Sprite2D.texture = sprite_directions[direction]
-		Global.play_paper(0.2)
+#		Global.play_paper(0.2)
 		#print("TURN LEFT")
 	if Input.is_action_just_released("verde", true): greenPressed = false
 		
@@ -79,7 +79,7 @@ func _physics_process(delta: float) -> void:
 		if direction < 0: 
 			direction = len(directions) -1
 		$Sprite2D.texture = sprite_directions[direction]
-		Global.play_paper(0.2)
+#		Global.play_paper(0.2)
 		#print("TURN RIGHT")
 	if Input.is_action_just_released("rojo", true): redPressed = false
 	# RASGEO
