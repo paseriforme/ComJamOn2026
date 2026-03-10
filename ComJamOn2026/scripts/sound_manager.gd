@@ -84,10 +84,10 @@ func _set_bgm_stream(name: String, loop: bool):
 	bgm.stop()
 	bgm.stream = bgm_tracks[name]
 	
-	if bgm.stream is AudioStreamOggVorbis:
-		bgm.stream.loop = loop
-	elif bgm.stream is AudioStreamWAV:
-		bgm.stream.loop_mode = (AudioStreamWAV.LOOP_FORWARD if loop else AudioStreamWAV.LOOP_DISABLED)
+#	if bgm.stream is AudioStreamOggVorbis:
+#		bgm.stream.loop = loop
+#	elif bgm.stream is AudioStreamWAV:
+#		bgm.stream.loop_mode = (AudioStreamWAV.LOOP_FORWARD if loop else AudioStreamWAV.LOOP_DISABLED)
 
 func stop_bgm() -> void:
 	if not bgm.playing:
