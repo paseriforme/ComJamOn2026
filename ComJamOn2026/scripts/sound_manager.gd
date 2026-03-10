@@ -14,7 +14,7 @@ class_name SoundManager
 var sfx_pool: Array[AudioStreamPlayer2D] = []
 
 @export_group("Parámetros del fundido de BGM")
-@export var bgm_fade_time := 0.5
+@export var bgm_fade_time := 0.25
 var _bgm_tween: Tween
 
 var bgm_tracks: Dictionary = {}
