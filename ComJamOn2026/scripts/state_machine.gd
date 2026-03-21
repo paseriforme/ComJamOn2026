@@ -22,7 +22,7 @@ func _ready() -> void:
 	Global.on_game_end.connect(_on_game_end)
 	
 	## PRIMER CAMBIO DE ESCENA
-	Global.change_scene(Global.Scenes.CONTEXT)
+	Global.change_scene(Global.Scenes.SELECTION)
 	pass 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,6 +32,8 @@ func _process(delta: float) -> void:
 
 func _input(event):
 	var scene = Global.Scenes.NULL;
+	if event.is_action_pressed("0"):
+		scene = Global.Scenes.SELECTION
 	if event.is_action_pressed("1"):
 		scene = Global.Scenes.CONTEXT
 	if event.is_action_pressed("2"):

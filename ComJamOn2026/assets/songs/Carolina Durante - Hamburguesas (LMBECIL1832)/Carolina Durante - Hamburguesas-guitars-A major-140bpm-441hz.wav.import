@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bckx6qtrp0bop"
+path="res://.godot/imported/Carolina Durante - Hamburguesas-guitars-A major-140bpm-441hz.wav-01eb63bf1cb99062abe0b8560c76b8c8.sample"
+
+[deps]
+
+source_file="res://assets/songs/Carolina Durante - Hamburguesas (LMBECIL1832)/Carolina Durante - Hamburguesas-guitars-A major-140bpm-441hz.wav"
+dest_files=["res://.godot/imported/Carolina Durante - Hamburguesas-guitars-A major-140bpm-441hz.wav-01eb63bf1cb99062abe0b8560c76b8c8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

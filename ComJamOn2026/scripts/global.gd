@@ -22,13 +22,15 @@ signal chocar_npc()
 signal aceptar()
 @warning_ignore("unused_signal")
 signal negarse()
+@warning_ignore("unused_signal")
+signal startSong(song: String, dificulty: String)
 
 ## maquina de estados y variables de flujo
 var sm # state machine
 var current_scene = Scenes.CONTEXT 
 var next_scene = Scenes.CONTEXT
 ## MUY IMPORTANTE: MISMO ORDEN QUE EN EL SERIALIZED ARRAY DE LA STATEMACHINE
-enum Scenes { CONTEXT, GAME, NULL}
+enum Scenes {SELECTION, CONTEXT, GAME, LIBRE, NULL}
 
 ## sonido
 var sfx
@@ -148,3 +150,31 @@ func play_paper(pitch):
 	var ind: int = random.randi_range(0, len(sfx_papel) - 1)	
 	sound.play_sfx(sfx_papel[ind], pitch)
 	pass
+
+
+func _physics_process(delta: float) -> void:
+	# VERDE
+	if not Global.trastes[0]  and Input.is_action_pressed("verde",true):
+		Global.trastes[0] = true;
+	elif Input.is_action_just_released("verde", true):
+		Global.trastes[0] = false
+	# ROJO
+	if not Global.trastes[1] and Input.is_action_pressed("rojo",true):
+		Global.trastes[1] = true;
+	elif Input.is_action_just_released("rojo", true):
+		Global.trastes[1] = false
+	# AMARILLO
+	if not Global.trastes[2] and Input.is_action_pressed("amarillo",true):
+		Global.trastes[2] = true
+	elif Input.is_action_just_released("amarillo", true):
+		Global.trastes[2] = false
+	# AZUL
+	if not Global.trastes[3] and Input.is_action_pressed("azul",true):
+		Global.trastes[3] = true
+	elif Input.is_action_just_released("azul", true):
+		Global.trastes[3] = false
+	# NARANJA
+	if not Global.trastes[4] and Input.is_action_pressed("naranja",true):
+		Global.trastes[4] = true
+	elif Input.is_action_just_released("naranja", true):
+		Global.trastes[4] = false

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://s5nsitwp0j1u"]
+
+[ext_resource type="Script" uid="uid://dqhy1jl3kiq11" path="res://scenes/SongButton.gd" id="1_wmpmt"]
+
+[node name="song_option" type="Button" unique_id=45005765]
+theme_override_font_sizes/font_size = 45
+text = "ASDFG"
+script = ExtResource("1_wmpmt")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
