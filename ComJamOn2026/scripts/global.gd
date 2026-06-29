@@ -144,8 +144,9 @@ func timer(tiempo = 1.0):
 func play_cardboard(pitch):
 	var ind: int = random.randi_range(0, len(sfx_carton) - 1)	
 	sound.play_sfx(sfx_carton[ind], pitch)
+	$CanvasLayer/Control/Telon/Porcentaje.visible = true
 	pass
-	
+
 func play_paper(pitch):
 	var ind: int = random.randi_range(0, len(sfx_papel) - 1)	
 	sound.play_sfx(sfx_papel[ind], pitch)

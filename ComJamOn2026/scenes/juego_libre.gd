@@ -13,11 +13,10 @@ func _ready() -> void:
 			songs.add_child(song)
 	Global.startSong.connect(setup_song_context)
 
-func setup_song_context(song : String = "") -> void:
+func setup_song_context(song : String = "", difficulty : String = "") -> void:
 	if song == "" or song not in SongLoader.songs:
 		print("Cancion: [", song, "] no es valida")
 		return
-	
+	print("Change scene to play[",song,"]")
 	juego.visible = true
 	songs.visible = false
-	
