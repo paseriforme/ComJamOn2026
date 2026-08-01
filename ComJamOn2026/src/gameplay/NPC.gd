@@ -3,59 +3,49 @@ class_name NPC
 
 enum NPC_type {COLEGA, MUCHACHA, TRONCA, CHAVALA, MANAGER}
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var canvas_layer: UI = $"../CanvasLayer"
-@export var TEXTURE := preload("uid://dk6ux8aiesioe")
-@export var selfNPC : NPC_type = NPC_type.MANAGER
-@export var startDialogue : int = 0
-@onready var gameState: GameState = $".."
-
-@export var firstChord := 0
-@export var lastChord := len(Global.song)
-
-var inipos: Vector2 
+@export_group("Visual")
+@export var TEXTURE 		:= preload("uid://dk6ux8aiesioe")
+@export var selfNPC 		: NPC_type = NPC_type.MANAGER
+@export var dialogue		: int = 0
 @export var distance_factor : float = 0.05
-@export var tween_time : float = 0.5
+@export var tween_time 		: float = 0.5
+
+@export_group("Referencias")
+#@export var gameState		: GameState
+@export var sprite_2d		: Sprite2D
+@export var audio_player	: AudioStreamPlayer2D
+
+@export_group("Juego")
+@export var song : Song
+
+var _sprite_ini_pos: Vector2 
 
 func _ready() -> void:
-	Global.chocar_npc.connect(_iniciar_dialogo);
-	inipos = $Sprite2D.position
+	_sprite_ini_pos = sprite_2d.position
 	sprite_2d.texture = TEXTURE
 
 func _on_body_entered(body: Node) -> void:
-#	if body.linear_velocity != Vector2.ZERO:
-#		var velocity = body.linear_velocity
-#		print_debug(velocity)
-#		velocity = velocity * -1
-	var velocity: Vector2 = Global.direccion_jugador
+	var dir: Vector2 = Global.direccion_jugador
 	var trans : Tween.TransitionType = Tween.TRANS_SINE
 	var tween2: Tween = get_tree().create_tween()
+	SoundSystem.play_sfx("bounce", 0.2)
 	tween2.set_ease(Tween.EASE_OUT)
-	tween2.tween_property($Sprite2D, "position", inipos + velocity * distance_factor, tween_time/2).set_trans(trans)
+	tween2.tween_property(sprite_2d, "position", _sprite_ini_pos + dir * distance_factor, tween_time/2).set_trans(trans)
 	tween2.set_ease(Tween.EASE_IN)
-	tween2.tween_property($Sprite2D, "position", inipos, tween_time/2).set_trans(trans)
-	Global.npc_chocado = self
-	Global.sound.play_sfx("bounce", 0.2)
+	tween2.tween_property(sprite_2d, "position", _sprite_ini_pos, tween_time/2).set_trans(trans)
+	Global.start_dialogue.emit(self)
 	pass
-#	var newpos = ((position - body.position) * body.speed)
-#	body.apply_impulse(newpos)
-#	print("CHOQUE", newpos)
-
-func _iniciar_dialogo():
-	gameState.ini = firstChord
-	gameState.fin = lastChord
-	if Global.npc_chocado and Global.npc_chocado == self: 
-		gameState.set_state(GameState.states.TALK)
-		print("START DIALOGUE: ", startDialogue)
-		canvas_layer.show_dialogue(startDialogue)
-		if selfNPC == NPC_type.MANAGER:
-			Global.cancion = "Voces"
-			$"../CanvasLayer/Panel/Fondo".texture = preload("uid://dkjqyqi73dt1o")
-		else:		
-			Global.cancion = "Instrumental"
-			$"../CanvasLayer/Panel/Fondo".texture = preload("uid://n0ob011ts0le")
-	pass
-
-
-func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
-	pass # Replace with function body.
+#
+#func _iniciar_dialogo():
+	#gameState.ini = firstChord
+	#gameState.fin = lastChord
+	#if Global.npc_chocado and Global.npc_chocado == self: 
+		#gameState.set_state(GameState.states.TALK)
+		#print("START DIALOGUE: ", startDialogue)
+		#if selfNPC == NPC_type.MANAGER:
+			#Global.cancion = "Voces"
+			#$"../CanvasLayer/Panel/Fondo".texture = preload("uid://dkjqyqi73dt1o")
+		#else:
+			#Global.cancion = "Instrumental"
+			#$"../CanvasLayer/Panel/Fondo".texture = preload("uid://n0ob011ts0le")
+	#pass

@@ -17,9 +17,9 @@ var initial_input_map := {}
 
 func _ready() -> void:
 	next_key()
-	Global.sound.set_bgm_volume_db(7)
-	Global.sound.set_sfx_volume_db(7)
-#	Global.sound.play_bgm("ambience", true)
+	SoundSystem.set_bgm_volume_db(7)
+	SoundSystem.set_sfx_volume_db(7)
+#	SoundSystem.play_bgm("ambience", true)
 	if not OS.is_debug_build(): # si es release queremos que no haya nada mapeado pero en debug si para debugear
 		for a in actions:
 			InputMap.action_erase_events(a)
@@ -32,8 +32,8 @@ func _input(event: InputEvent) -> void:
 #	if key >= len(actions): return
 #	print_debug(event)
 	if event.is_pressed(): # para html que suene pq en el ready no funciona siempre
-		if not Global.sound.bgm.playing:
-			Global.sound.play_bgm("ambience")
+		if not SoundSystem.bgm.playing:
+			SoundSystem.play_bgm("ambience")
 	var raw_val = Input.get_joy_axis(0, 5)
 	if (event.is_pressed() or raw_val != 0.0 and event is InputEventJoypadMotion) and not somethingpressed:
 		somethingpressed = true
@@ -46,22 +46,22 @@ func _input(event: InputEvent) -> void:
 				# TODO: mostrar qué está mapeado a lo que estás pulsando
 				if event.is_action_pressed("rasgar"):
 					animators[5].play("pegar")
-					Global.sound.play_sfx("duct_tape1", 0.3)
+					SoundSystem.play_sfx("duct_tape1", 0.3)
 				elif event.is_action_pressed("verde"):
 					animators[0].play("pegar")
-					Global.sound.play_sfx("duct_tape1", 0.3)
+					SoundSystem.play_sfx("duct_tape1", 0.3)
 				elif event.is_action_pressed("rojo"):
 					animators[1].play("pegar")
-					Global.sound.play_sfx("duct_tape1", 0.3)
+					SoundSystem.play_sfx("duct_tape1", 0.3)
 				elif event.is_action_pressed("amarillo"):
 					animators[2].play("pegar")
-					Global.sound.play_sfx("duct_tape1", 0.3)
+					SoundSystem.play_sfx("duct_tape1", 0.3)
 				elif event.is_action_pressed("azul"):
 					animators[3].play("pegar")
-					Global.sound.play_sfx("duct_tape1", 0.3)
+					SoundSystem.play_sfx("duct_tape1", 0.3)
 				elif event.is_action_pressed("naranja"):
 					animators[4].play("pegar")
-					Global.sound.play_sfx("duct_tape1", 0.3)
+					SoundSystem.play_sfx("duct_tape1", 0.3)
 		else: # cuando has acabado de mapear, cuales son tus siguientes acciones?
 			if event.is_action_pressed("rasgar"):
 				_reiniciar()
@@ -69,16 +69,16 @@ func _input(event: InputEvent) -> void:
 				_confirmar()
 			elif event.is_action_pressed("rojo"):
 				animators[1].play("pegar")
-				Global.sound.play_sfx("duct_tape1", 0.3)
+				SoundSystem.play_sfx("duct_tape1", 0.3)
 			elif event.is_action_pressed("amarillo"):
 				animators[2].play("pegar")
-				Global.sound.play_sfx("duct_tape1", 0.3)
+				SoundSystem.play_sfx("duct_tape1", 0.3)
 			elif event.is_action_pressed("azul"):
 				animators[3].play("pegar")
-				Global.sound.play_sfx("duct_tape1", 0.3)
+				SoundSystem.play_sfx("duct_tape1", 0.3)
 			elif event.is_action_pressed("naranja"):
 				animators[4].play("pegar")
-				Global.sound.play_sfx("duct_tape1", 0.3)
+				SoundSystem.play_sfx("duct_tape1", 0.3)
 				
 	else:
 		somethingpressed = false
@@ -86,7 +86,7 @@ func _input(event: InputEvent) -> void:
 func next_key() -> void:
 	if (key >= 0):
 		animators[key].play("pegar")
-		Global.sound.play_sfx("duct_tape1", 0.3)
+		SoundSystem.play_sfx("duct_tape1", 0.3)
 	key += 1
 	if (key < len(actions)): 
 		buttons[key].visible = true
@@ -109,7 +109,7 @@ func _confirmar():
 	print_debug("CONFIRMAR")
 	Global.change_scene(Global.Scenes.GAME)
 	trans = true
-	Global.sound.play_sfx("click", 0.2)
+	SoundSystem.play_sfx("click", 0.2)
 	pass
 	
 func _reiniciar():

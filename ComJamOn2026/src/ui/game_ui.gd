@@ -17,9 +17,6 @@ func visible(vis):
 func stop_song():
 	control_disco.end()
 
-func show_dialogue(character):
-	dialogue_manager.start(character)
-	
 #func continue_dialogue(character):
 func _process(delta: float) -> void:
 	if Global.playing: return 

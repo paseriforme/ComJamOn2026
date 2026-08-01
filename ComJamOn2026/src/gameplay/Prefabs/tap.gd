@@ -1,5 +1,5 @@
 extends Control
-class_name Pulso
+class_name Tap
 
 var pulso_data:Array
 

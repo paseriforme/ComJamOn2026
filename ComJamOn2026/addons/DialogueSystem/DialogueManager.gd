@@ -4,10 +4,10 @@ class_name DialogueManager
 const DIALOGUE_BOX = preload("uid://dcenjwoarjpme")
 const DECISION_BOX = preload("uid://omqusqkky5ti")
 
-@export var charactersPath: String
-@export var dialoguesPath: String
-@export var audiosPath: String = "res://assets/audio/" 
-@export var fontsPath: String = "res://assets/font/" 
+@export_dir var charactersPath	: String
+@export_dir var dialoguesPath	: String
+@export_dir var audiosPath		: String = "res://assets/audio/" 
+@export_dir var fontsPath		: String = "res://assets/font/" 
 
 var loader:= DialogueLoader.new()
 var current_nodes
@@ -30,10 +30,8 @@ func _ready() -> void:
 	
 	loader.load_all(charactersPath, dialoguesPath)
 	$Feedback/AnimationPlayer.play("loop")
-#	$Feedback/AVerde.play("loop")
-#	$Feedback/ARojo.play("loop")
-	#Descomentar para probar
-	#start(0)
+	
+	Global.start_dialogue.connect(start)
 
 func pegar_rojo():
 	$Feedback/ARojo.play("pegar")
@@ -45,8 +43,8 @@ func pegar_verde():
 	Global.sound.play_sfx("duct_tape1", 0.3)
 	pass
 
-func start(dialogue_id):
-	current_nodes = loader.dialogues[dialogue_id]
+func start(npc: NPC):
+	current_nodes = loader.dialogues[npc.dialogue]
 	current_node = _find_start_node()
 	
 	$DialogueBox.visible = true

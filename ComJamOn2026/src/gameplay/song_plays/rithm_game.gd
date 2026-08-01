@@ -2,19 +2,19 @@ extends Control
 class_name Game_Guitar
 
 @export_group("Referencias a escenas")
-@onready var audio_player: AudioStreamPlayer2D = $"../AudioPlayer"
-@onready var animator: AnimationPlayer = $"../AnimationPlayer"
-@onready var pegatina: TextureRect = $"../Pegatina"
-@export var pegatinas : Array[Texture2D]
-@onready var trastes: Control = $"../TextureRect/Trastes"
-@export var telon_izq : TextureRect
-@export var telon_der : TextureRect
-@export var porcentaje_animator: AnimationPlayer
-@export var porcentaje_label: Label
+@export var audio_player		: AudioStreamPlayer2D
+@export var animator			: AnimationPlayer
+@export var pegatina			: TextureRect
+@export var pegatinas 			: Array[Texture2D]
+@export var trastes				: Control
+@export var telon_izq			: TextureRect
+@export var telon_der			: TextureRect
+@export var porcentaje_animator	: AnimationPlayer
+@export var porcentaje_label	: Label
 
-@onready var music_player: AudioStreamPlayer2D = $MusicPlayer
-@onready var guitar_player: AudioStreamPlayer2D = $GuitarPlayer
-@onready var disco: Disco = $"../Disco"
+@export var music_player: AudioStreamPlayer2D
+@export var guitar_player: AudioStreamPlayer2D
+@export var disco: Disco
 const PULSO = preload("uid://dlsillfjnepba")
 
 @export_group("Configuracion de cancion")
@@ -134,7 +134,7 @@ func _update_clock(delta: float) -> void:
 ## a la misma velocidad angular que el disco. Asi una nota que spawnea tarde no
 ## viaja de mas ni se desincroniza, y varias en el mismo frame se abren en abanico.
 func spawn_pulse(nota: Nota) -> void:
-	var puls: Pulso = PULSO.instantiate()
+	var puls: Tap = PULSO.instantiate()
 	puls.set_pulso(nota.chord)
 	add_child(puls)
 	puls.global_position = global_position + off_position_pulsos

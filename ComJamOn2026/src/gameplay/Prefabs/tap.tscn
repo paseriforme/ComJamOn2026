@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dlsillfjnepba"]
 
-[ext_resource type="Script" uid="uid://bpt2ut7ph3v7m" path="res://src/gameplay/song_plays/pulso.gd" id="1_vph8p"]
-[ext_resource type="Texture2D" uid="uid://3bpv0cf6bhi5" path="res://assets/image/UI/NOTAS/VERDE.png" id="2_ndi4p"]
-[ext_resource type="Texture2D" uid="uid://cnvudux88bwc8" path="res://assets/image/UI/NOTAS/ROJO.png" id="3_jkv0m"]
-[ext_resource type="Texture2D" uid="uid://bh8irm2olxoum" path="res://assets/image/UI/NOTAS/AMARILLO.png" id="4_ju5kw"]
-[ext_resource type="Texture2D" uid="uid://rwf82oaw5uv1" path="res://assets/image/UI/NOTAS/AZUL.png" id="5_4vae4"]
-[ext_resource type="Texture2D" uid="uid://dueqg0r2x8k54" path="res://assets/image/UI/NOTAS/NARANJA.png" id="6_yyum5"]
+[ext_resource type="Script" uid="uid://bpt2ut7ph3v7m" path="res://src/gameplay/Prefabs/tap.gd" id="1_f64hl"]
+[ext_resource type="Texture2D" uid="uid://3bpv0cf6bhi5" path="res://assets/image/UI/NOTAS/VERDE.png" id="2_03lp3"]
+[ext_resource type="Texture2D" uid="uid://cnvudux88bwc8" path="res://assets/image/UI/NOTAS/ROJO.png" id="3_7l8kr"]
+[ext_resource type="Texture2D" uid="uid://bh8irm2olxoum" path="res://assets/image/UI/NOTAS/AMARILLO.png" id="4_vmsnq"]
+[ext_resource type="Texture2D" uid="uid://rwf82oaw5uv1" path="res://assets/image/UI/NOTAS/AZUL.png" id="5_d2cax"]
+[ext_resource type="Texture2D" uid="uid://dueqg0r2x8k54" path="res://assets/image/UI/NOTAS/NARANJA.png" id="6_1keul"]
 
-[node name="Pulso" type="Control" unique_id=1177493615]
+[node name="Tap" type="Control" unique_id=1177493615]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -16,7 +16,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_vph8p")
+script = ExtResource("1_f64hl")
 
 [node name="Verde" type="TextureRect" parent="." unique_id=1001314730]
 z_index = 1
@@ -27,7 +27,7 @@ offset_right = 64.0
 offset_bottom = -537.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("2_ndi4p")
+texture = ExtResource("2_03lp3")
 
 [node name="Rojo" type="TextureRect" parent="." unique_id=237537647]
 z_index = 1
@@ -38,7 +38,7 @@ offset_right = 64.0
 offset_bottom = -669.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("3_jkv0m")
+texture = ExtResource("3_7l8kr")
 
 [node name="Amarillo" type="TextureRect" parent="." unique_id=1152343199]
 z_index = 1
@@ -49,7 +49,7 @@ offset_right = 64.0
 offset_bottom = -801.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("4_ju5kw")
+texture = ExtResource("4_vmsnq")
 
 [node name="Azul" type="TextureRect" parent="." unique_id=1118710860]
 z_index = 1
@@ -60,7 +60,7 @@ offset_right = 64.0
 offset_bottom = -933.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("5_4vae4")
+texture = ExtResource("5_d2cax")
 
 [node name="Naranja" type="TextureRect" parent="." unique_id=646286410]
 z_index = 1
@@ -71,4 +71,4 @@ offset_right = 64.0
 offset_bottom = -1065.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("6_yyum5")
+texture = ExtResource("6_1keul")

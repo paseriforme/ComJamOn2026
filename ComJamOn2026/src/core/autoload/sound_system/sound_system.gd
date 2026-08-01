@@ -2,7 +2,6 @@ extends Node
 class_name SoundManager  
 
 @onready var bgm: AudioStreamPlayer2D = $BGM
-#@onready var sfx: AudioStreamPlayer2D = $SFX
 
 @export_group("Carpetas a los recursos")
 @export_dir var bgm_folder: String = "res://assets/audio/bgm"

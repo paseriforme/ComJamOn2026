@@ -159,8 +159,8 @@ _data = {
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_7tull")
-charactersPath = "res://localization/localization_characters.json"
-dialoguesPath = "res://localization/localization_dialogues.json"
+charactersPath = "res://src/resources/localization"
+dialoguesPath = "res://src/resources/localization"
 
 [node name="Feedback" type="Control" parent="." unique_id=1995713304]
 top_level = true

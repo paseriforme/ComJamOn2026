@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://c7k3rqpmcf0vt"]
 
 [ext_resource type="Script" uid="uid://rrj77v2uye7p" path="res://src/gameplay/world_behaviour_player/world_player_controller.gd" id="1_ycjbx"]
+[ext_resource type="Script" uid="uid://jqbbw87bi3j0" path="res://src/gameplay/world_behaviour_player/input_manager.gd" id="2_06re6"]
 [ext_resource type="Texture2D" uid="uid://bg6obgr80fbap" path="res://assets/tweens/UI_bocadillo_separado_03.png" id="2_bq1yo"]
+[ext_resource type="Script" uid="uid://coeevdwioktfw" path="res://src/gameplay/world_behaviour_player/pensamiento.gd" id="2_pvohp"]
 [ext_resource type="Texture2D" uid="uid://clomtys4m4bff" path="res://assets/tweens/UI_bocadillo_separado_02.png" id="3_pvohp"]
 [ext_resource type="Texture2D" uid="uid://bodu7d7ug7tyg" path="res://assets/tweens/UI_bocadillo_separado_01.png" id="4_06re6"]
 
@@ -353,6 +355,9 @@ script = ExtResource("1_ycjbx")
 speed = 100.0
 sprite_directions = Array[Texture2D]([SubResource("CompressedTexture2D_xhxll"), SubResource("CompressedTexture2D_cx57j"), SubResource("CompressedTexture2D_np3hh"), SubResource("CompressedTexture2D_p2uxh"), SubResource("CompressedTexture2D_dvl2a"), SubResource("CompressedTexture2D_6h1tk"), SubResource("CompressedTexture2D_ffjvi"), SubResource("CompressedTexture2D_lj7f7")])
 
+[node name="InputManager" type="Node" parent="." unique_id=1267757074]
+script = ExtResource("2_06re6")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1373909019]
 shape = SubResource("CircleShape2D_8iokl")
 
@@ -365,8 +370,11 @@ position = Vector2(-1583, 28)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1876696374]
 libraries/ = SubResource("AnimationLibrary_ffjvi")
 
-[node name="Pensamiento" type="Node2D" parent="." unique_id=36495212]
+[node name="Pensamiento" type="Node2D" parent="." unique_id=36495212 node_paths=PackedStringArray("animator")]
+z_index = 3
 position = Vector2(17, -188)
+script = ExtResource("2_pvohp")
+animator = NodePath("../AnimationPlayer")
 
 [node name="Burbuja" type="Sprite2D" parent="Pensamiento" unique_id=1261536454]
 modulate = Color(1, 1, 1, 0)
@@ -389,4 +397,4 @@ texture = ExtResource("4_06re6")
 centered = false
 offset = Vector2(-354.515, -397.905)
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="." to="." method="_rebote"]

@@ -30,9 +30,8 @@ config/icon="uid://j2brfboyjw2h"
 
 Global="*res://src/core/autoload/global.gd"
 PhantomCameraManager="*uid://duq6jhf6unyis"
-AudioManager="*uid://bupgf2kkplvy"
-FmodManager="*uid://cds10pm7hwn3p"
 SongLoader="*uid://tutkxr8stgb8"
+SoundSystem="*uid://c5ya1ob52s5nm"
 
 [display]
 

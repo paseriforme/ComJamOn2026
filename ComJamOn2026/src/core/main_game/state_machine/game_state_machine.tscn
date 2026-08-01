@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dhwq84dhhtp70" path="res://src/core/main_game/scenes/null_scene/null_scene.tscn" id="6_l5x4w"]
 [ext_resource type="Script" uid="uid://cmcoki5ih8fjr" path="res://src/ui/fade.gd" id="7_k1n7d"]
 [ext_resource type="Shader" uid="uid://cl3vg05lb4dd5" path="res://src/shaders/vignette.gdshader" id="8_pw0jw"]
-[ext_resource type="Script" uid="uid://cdy06es2yfjyw" path="res://src/scripts/sound_manager.gd" id="9_jplje"]
 
 [sub_resource type="Animation" id="Animation_ypfem"]
 length = 0.001
@@ -77,18 +76,11 @@ pause_layer = NodePath("PauseLayer")
 transition_layer = NodePath("TransitionLayer")
 post_process_layer = NodePath("PostProcessLayer")
 debug_layer = NodePath("DebugLayer")
-sound = NodePath("Systems/Sound")
-bgm = NodePath("Systems/Sound/BGM")
-sfx = NodePath("Systems/Sound/SFX")
+sound = NodePath("")
+bgm = NodePath("")
+sfx = NodePath("")
 
 [node name="Systems" type="Node" parent="." unique_id=1559461877]
-
-[node name="Sound" type="Node" parent="Systems" unique_id=1246444031]
-script = ExtResource("9_jplje")
-
-[node name="BGM" type="AudioStreamPlayer2D" parent="Systems/Sound" unique_id=1286556813]
-
-[node name="SFX" type="AudioStreamPlayer2D" parent="Systems/Sound" unique_id=522212755]
 
 [node name="SceneRoot" type="Node" parent="." unique_id=138193595]
 unique_name_in_owner = true

@@ -16,12 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://c23uj8aqhgdbh" path="res://assets/image/Direcciones/este.png" id="15_pdu4h"]
 [ext_resource type="Texture2D" uid="uid://bj67wmu6qtfgr" path="res://assets/image/Direcciones/noreste.png" id="16_gryjf"]
 [ext_resource type="Texture2D" uid="uid://cp5ahioqhx588" path="res://assets/image/Direcciones/norte.png" id="17_1t3uq"]
+[ext_resource type="Texture2D" uid="uid://cvyr7eii15wki" path="res://assets/image/Amigas/PJ_CHAVALA.png" id="17_07xln"]
 [ext_resource type="Texture2D" uid="uid://b3px0qd1erdfg" path="res://assets/image/Direcciones/noroeste.png" id="18_moi5h"]
 [ext_resource type="Texture2D" uid="uid://cywf2cin76cxc" path="res://assets/image/Direcciones/oeste.png" id="19_f80cm"]
 [ext_resource type="Texture2D" uid="uid://duonodj4hgetl" path="res://assets/image/Direcciones/suroeste.png" id="20_iwjxg"]
 [ext_resource type="Texture2D" uid="uid://kw5pykq6pu5w" path="res://assets/image/Backgrounds/FONDO_delante.png" id="21_xhjg3"]
-[ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://src/ui/UI.gd" id="22_g8k1u"]
-[ext_resource type="PackedScene" uid="uid://bks1yclxa8xyy" path="res://src/gameplay/Prefabs/game_ui.tscn" id="23_hxoeb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
@@ -89,6 +88,7 @@ lastChord = 8
 
 [node name="chavala" parent="Characters" unique_id=1274624807 instance=ExtResource("8_n6srv")]
 position = Vector2(-461, -299)
+TEXTURE = ExtResource("17_07xln")
 
 [node name="tronca" parent="Characters" unique_id=1239317248 instance=ExtResource("8_n6srv")]
 position = Vector2(439, -313)
@@ -149,10 +149,5 @@ shape = SubResource("RectangleShape2D_1x3un")
 z_index = 1
 position = Vector2(-926, 0)
 texture = ExtResource("21_xhjg3")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1116039382]
-script = ExtResource("22_g8k1u")
-
-[node name="Panel" parent="CanvasLayer" unique_id=1301705266 instance=ExtResource("23_hxoeb")]
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]

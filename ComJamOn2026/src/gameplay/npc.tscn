@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://cw6y7erkcfuc1"]
 
 [ext_resource type="Script" uid="uid://bcchepkryj7kl" path="res://src/gameplay/NPC.gd" id="1_tgtwd"]
-[ext_resource type="Texture2D" uid="uid://cvyr7eii15wki" path="res://assets/image/Amigas/PJ_CHAVALA.png" id="2_vajkt"]
 [ext_resource type="Texture2D" uid="uid://csa6te68rejsc" path="res://assets/image/Amigas/PJ_yo.png" id="3_vajkt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_slwiy"]
 radius = 88.14193
 
-[node name="npc" type="RigidBody2D" unique_id=817138838]
+[node name="npc" type="RigidBody2D" unique_id=817138838 node_paths=PackedStringArray("sprite_2d")]
 physics_interpolation_mode = 1
 mass = 9.223372e+18
 gravity_scale = 0.0
@@ -16,7 +15,13 @@ freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 770
 script = ExtResource("1_tgtwd")
-TEXTURE = ExtResource("2_vajkt")
+TEXTURE = null
+selfNPC = null
+startDialogue = null
+distance_factor = null
+tween_time = null
+sprite_2d = NodePath("Sprite2D")
+firstChord = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1363245483]
 shape = SubResource("CircleShape2D_slwiy")
@@ -24,5 +29,6 @@ shape = SubResource("CircleShape2D_slwiy")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1149496786]
 texture = ExtResource("3_vajkt")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1102622028]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
