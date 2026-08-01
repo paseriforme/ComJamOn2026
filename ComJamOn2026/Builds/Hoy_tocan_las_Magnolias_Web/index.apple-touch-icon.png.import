@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://collj2t5heb3b"
-path="res://.godot/imported/index.apple-touch-icon.png-24b34266033d785f9f3d741a108bd53b.ctex"
+path="res://.godot/imported/index.apple-touch-icon.png-e62f1b097fa96892d996aa0560c58951.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Builds/Hoy_tocan_las_Magnolias_Web/index.apple-touch-icon.png"
-dest_files=["res://.godot/imported/index.apple-touch-icon.png-24b34266033d785f9f3d741a108bd53b.ctex"]
+source_file="res://builds/Hoy_tocan_las_Magnolias_Web/index.apple-touch-icon.png"
+dest_files=["res://.godot/imported/index.apple-touch-icon.png-e62f1b097fa96892d996aa0560c58951.ctex"]
 
 [params]
 

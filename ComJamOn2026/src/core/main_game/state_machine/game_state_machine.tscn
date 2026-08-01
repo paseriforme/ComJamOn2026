@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://c161kl18xdbk1"]
+
+[ext_resource type="Script" uid="uid://bqnm45w65wo6p" path="res://src/core/main_game/state_machine/game_state_machine.gd" id="1_x1f73"]
+[ext_resource type="PackedScene" uid="uid://dgvv7pnmkwcaf" path="res://src/core/main_game/scenes/selection_scene/selection_scene.tscn" id="2_m5cce"]
+[ext_resource type="PackedScene" uid="uid://byuoxy3wu36jd" path="res://src/core/main_game/scenes/context_scene/context_scene.tscn" id="3_u0bgs"]
+[ext_resource type="PackedScene" uid="uid://cpbv42xhe4um5" path="res://src/core/main_game/scenes/game_scene/game_scene.tscn" id="4_vfqys"]
+[ext_resource type="PackedScene" uid="uid://db0toc8i82rfe" path="res://src/gameplay/free_mode/JuegoLibre.tscn" id="5_snrk5"]
+[ext_resource type="PackedScene" uid="uid://dhwq84dhhtp70" path="res://src/core/main_game/scenes/null_scene/null_scene.tscn" id="6_l5x4w"]
+[ext_resource type="Script" uid="uid://cmcoki5ih8fjr" path="res://src/ui/fade.gd" id="7_k1n7d"]
+[ext_resource type="Shader" uid="uid://cl3vg05lb4dd5" path="res://src/shaders/vignette.gdshader" id="8_pw0jw"]
+[ext_resource type="Script" uid="uid://cdy06es2yfjyw" path="res://src/scripts/sound_manager.gd" id="9_jplje"]
+
+[sub_resource type="Animation" id="Animation_ypfem"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRoot/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0.13725491, 0.003921569)]
+}
+
+[sub_resource type="Animation" id="Animation_x8x11"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRoot/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0.13725491, 0), Color(0, 0, 0.13725491, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x6nt1"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionRoot/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0.13725491, 1), Color(0, 0, 0.13725491, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xojqu"]
+_data = {
+&"RESET": SubResource("Animation_ypfem"),
+&"fade_in": SubResource("Animation_x8x11"),
+&"fade_out": SubResource("Animation_x6nt1")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_678pj"]
+shader = ExtResource("8_pw0jw")
+shader_parameter/outerRadius = 5.0
+shader_parameter/MainAlpha = 1.0
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[node name="MainGame" type="Node" unique_id=1764933967 node_paths=PackedStringArray("scene_root", "pause_layer", "transition_layer", "post_process_layer", "debug_layer", "sound", "bgm", "sfx")]
+script = ExtResource("1_x1f73")
+scene_root = NodePath("SceneRoot")
+first_scene = &"selection_scene"
+scenes = Array[PackedScene]([ExtResource("2_m5cce"), ExtResource("3_u0bgs"), ExtResource("4_vfqys"), ExtResource("5_snrk5"), ExtResource("6_l5x4w")])
+pause_layer = NodePath("PauseLayer")
+transition_layer = NodePath("TransitionLayer")
+post_process_layer = NodePath("PostProcessLayer")
+debug_layer = NodePath("DebugLayer")
+sound = NodePath("Systems/Sound")
+bgm = NodePath("Systems/Sound/BGM")
+sfx = NodePath("Systems/Sound/SFX")
+
+[node name="Systems" type="Node" parent="." unique_id=1559461877]
+
+[node name="Sound" type="Node" parent="Systems" unique_id=1246444031]
+script = ExtResource("9_jplje")
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="Systems/Sound" unique_id=1286556813]
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="Systems/Sound" unique_id=522212755]
+
+[node name="SceneRoot" type="Node" parent="." unique_id=138193595]
+unique_name_in_owner = true
+
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=1484952698]
+layer = 20
+
+[node name="PauseRoot" type="Control" parent="PauseLayer" unique_id=231588445]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TransitionLayer" type="CanvasLayer" parent="." unique_id=1845705408 node_paths=PackedStringArray("player")]
+layer = 100
+script = ExtResource("7_k1n7d")
+player = NodePath("TransitionRoot/AnimationPlayer")
+
+[node name="TransitionRoot" type="Control" parent="TransitionLayer" unique_id=713171721]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="TransitionLayer/TransitionRoot" unique_id=1416811766]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0.13725491, 0.003921569)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionLayer/TransitionRoot" unique_id=1276923746]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_xojqu")
+
+[node name="PostProcessLayer" type="CanvasLayer" parent="." unique_id=383879478]
+layer = 110
+
+[node name="PostProcessRoot" type="Control" parent="PostProcessLayer" unique_id=1642014327]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="PostProcessLayer/PostProcessRoot" unique_id=1681182503]
+material = SubResource("ShaderMaterial_678pj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DebugLayer" type="CanvasLayer" parent="." unique_id=2104614086]
+layer = 120
+
+[node name="DebugRoot" type="Control" parent="DebugLayer" unique_id=629214116]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="animation_finished" from="TransitionLayer/TransitionRoot/AnimationPlayer" to="TransitionLayer" method="_on_animation_player_animation_finished"]

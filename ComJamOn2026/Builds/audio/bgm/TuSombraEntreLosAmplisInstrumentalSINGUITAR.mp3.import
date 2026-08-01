@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://dtqief6xhenyk"
-path="res://.godot/imported/TuSombraEntreLosAmplisInstrumentalSINGUITAR.mp3-722c8a943c3e361c667431b497dd9c01.mp3str"
+path="res://.godot/imported/TuSombraEntreLosAmplisInstrumentalSINGUITAR.mp3-b979f4d73f0fc39a02b850b86d9e6b45.mp3str"
 
 [deps]
 
-source_file="res://Builds/audio/bgm/TuSombraEntreLosAmplisInstrumentalSINGUITAR.mp3"
-dest_files=["res://.godot/imported/TuSombraEntreLosAmplisInstrumentalSINGUITAR.mp3-722c8a943c3e361c667431b497dd9c01.mp3str"]
+source_file="res://builds/audio/bgm/TuSombraEntreLosAmplisInstrumentalSINGUITAR.mp3"
+dest_files=["res://.godot/imported/TuSombraEntreLosAmplisInstrumentalSINGUITAR.mp3-b979f4d73f0fc39a02b850b86d9e6b45.mp3str"]
 
 [params]
 

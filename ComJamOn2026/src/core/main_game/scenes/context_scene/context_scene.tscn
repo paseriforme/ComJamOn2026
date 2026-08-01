@@ -1,0 +1,235 @@
+[gd_scene format=3 uid="uid://byuoxy3wu36jd"]
+
+[ext_resource type="Script" uid="uid://dsl350fagpmch" path="res://src/core/main_game/scenes/context_scene/context_scene.gd" id="1_p5nvv"]
+[ext_resource type="Script" uid="uid://1neibfg3x4pd" path="res://src/scripts/intro/key_mapper.gd" id="2_4nk5g"]
+[ext_resource type="Texture2D" uid="uid://ccct4kxrjh38f" path="res://assets/image/Backgrounds/main_menu.png" id="2_6qt28"]
+[ext_resource type="Animation" uid="uid://bqlwd4rou07jl" path="res://assets/tweens/animations/loop_verde.res" id="4_f88sm"]
+[ext_resource type="Texture2D" uid="uid://dxl342sc1u5jg" path="res://assets/image/UI/PEGATAS/PEG_VERDE.png" id="4_ri61y"]
+[ext_resource type="Texture2D" uid="uid://dk3bba52ryyx2" path="res://assets/image/UI/PEGATAS/PEG_ROJO.png" id="5_23oyl"]
+[ext_resource type="Animation" uid="uid://5f1vkfmpbxib" path="res://assets/tweens/animations/loop_rojo.res" id="5_u8rhp"]
+[ext_resource type="Texture2D" uid="uid://c1b7b4g6fvm2k" path="res://assets/image/UI/PEGATAS/PEG_AMARILLO.png" id="6_52in3"]
+[ext_resource type="Animation" uid="uid://b12pn81an1200" path="res://assets/tweens/animations/loop_amarillo.res" id="6_enjpd"]
+[ext_resource type="Texture2D" uid="uid://duershgbknewt" path="res://assets/image/UI/PEGATAS/PEG_AZUL.png" id="7_8hy63"]
+[ext_resource type="Animation" uid="uid://cjvyel1cawtmf" path="res://assets/tweens/animations/loop_azul.res" id="7_yo0gm"]
+[ext_resource type="Texture2D" uid="uid://b5i3g0xtwprvx" path="res://assets/image/UI/PEGATAS/PEG_NARANJA.png" id="8_3lhbi"]
+[ext_resource type="Animation" uid="uid://b6b1vp8qg3428" path="res://assets/tweens/animations/loop_naranja.res" id="8_m8bm1"]
+[ext_resource type="Animation" uid="uid://b3deqi0gxnsjh" path="res://assets/tweens/animations/loop_rasgeo.res" id="9_cjjoh"]
+[ext_resource type="Texture2D" uid="uid://bc4ac2pporq0t" path="res://assets/image/UI/PEGATAS/PEG_RASGUEO.png" id="9_gpbvq"]
+[ext_resource type="Animation" uid="uid://rvxhe3o7saq5" path="res://assets/tweens/animations/pegar_verde.res" id="10_rcnnb"]
+[ext_resource type="Animation" uid="uid://bvdt7tb87rov5" path="res://assets/tweens/animations/pegar_rojo.res" id="11_jykjm"]
+[ext_resource type="Animation" uid="uid://hqqe41hc46wo" path="res://assets/tweens/animations/pegar_amarillo.res" id="12_hqjhl"]
+[ext_resource type="Animation" uid="uid://b6mtfhy2b1k8j" path="res://assets/tweens/animations/pegar_azul.res" id="13_5b0pt"]
+[ext_resource type="Animation" uid="uid://bv6fkc8v70pra" path="res://assets/tweens/animations/pegar_naranja.res" id="14_5nyix"]
+[ext_resource type="Animation" uid="uid://da52aim7hawio" path="res://assets/tweens/animations/pegar_rasgeo.res" id="15_rdrxq"]
+[ext_resource type="AnimationLibrary" uid="uid://doqugb4ecg78g" path="res://assets/tweens/animations/calibrar_anims.res" id="22_oiic2"]
+[ext_resource type="Texture2D" uid="uid://be5cx0ivk5xsa" path="res://assets/image/UI/PEGATAS/CONFIRMAR.png" id="23_enjpd"]
+[ext_resource type="Texture2D" uid="uid://cv815jqb372f3" path="res://assets/image/UI/PEGATAS/REPETIR.png" id="24_yo0gm"]
+
+
+[sub_resource type="Animation" id="Animation_enjpd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Verde:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f88sm"]
+_data = {
+&"RESET": SubResource("Animation_enjpd"),
+&"loop": ExtResource("4_f88sm"),
+&"pegar": ExtResource("10_rcnnb")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u8rhp"]
+_data = {
+&"loop": ExtResource("5_u8rhp"),
+&"pegar": ExtResource("11_jykjm")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_enjpd"]
+_data = {
+&"loop": ExtResource("6_enjpd"),
+&"pegar": ExtResource("12_hqjhl")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yo0gm"]
+_data = {
+&"loop": ExtResource("7_yo0gm"),
+&"pegar": ExtResource("13_5b0pt")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8bm1"]
+_data = {
+&"loop": ExtResource("8_m8bm1"),
+&"pegar": ExtResource("14_5nyix")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cjjoh"]
+_data = {
+&"loop": ExtResource("9_cjjoh"),
+&"pegar": ExtResource("15_rdrxq")
+}
+
+[node name="ContextScene" type="Control" unique_id=913253790]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_p5nvv")
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=683123072]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.666, 0.666)
+texture = ExtResource("2_6qt28")
+
+[node name="Control" type="Control" parent="." unique_id=1936184046 node_paths=PackedStringArray("buttons", "animators")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -640.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.666, 0.666)
+script = ExtResource("2_4nk5g")
+buttons = [NodePath("Verde"), NodePath("Rojo"), NodePath("Amarillo"), NodePath("Azul"), NodePath("Naranja"), NodePath("Rasgueo")]
+loop_animations = Array[Animation]([ExtResource("4_f88sm"), ExtResource("5_u8rhp"), ExtResource("6_enjpd"), ExtResource("7_yo0gm"), ExtResource("8_m8bm1"), ExtResource("9_cjjoh")])
+pegar_animations = Array[Animation]([ExtResource("10_rcnnb"), ExtResource("11_jykjm"), ExtResource("12_hqjhl"), ExtResource("13_5b0pt"), ExtResource("14_5nyix"), ExtResource("15_rdrxq")])
+animators = [NodePath("AVerde"), NodePath("ARojo"), NodePath("AAmarillo"), NodePath("AAzul"), NodePath("ANaranja"), NodePath("ARasgeo")]
+
+[node name="Verde" type="TextureRect" parent="Control" unique_id=1704656196]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+rotation = -0.17453292
+pivot_offset = Vector2(470.6421, 721.9659)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_ri61y")
+stretch_mode = 2
+
+[node name="Rojo" type="TextureRect" parent="Control" unique_id=821390965]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+rotation = -0.17453292
+pivot_offset = Vector2(728.1843, 678.79474)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_23oyl")
+stretch_mode = 2
+
+[node name="Amarillo" type="TextureRect" parent="Control" unique_id=1012652153]
+visible = false
+modulate = Color(1, 1, 0, 1)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+rotation = -0.17453292
+pivot_offset = Vector2(975.08405, 678.0385)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_52in3")
+stretch_mode = 2
+
+[node name="Azul" type="TextureRect" parent="Control" unique_id=1587230987]
+visible = false
+modulate = Color(0, 0, 1, 1)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+rotation = -0.17453292
+pivot_offset = Vector2(1222.1616, 658.33154)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_8hy63")
+stretch_mode = 2
+
+[node name="Naranja" type="TextureRect" parent="Control" unique_id=1650109053]
+visible = false
+modulate = Color(1, 0.49019608, 0, 1)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+rotation = -0.17453292
+pivot_offset = Vector2(1487.2856, 625.9883)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_3lhbi")
+stretch_mode = 2
+
+[node name="Rasgueo" type="TextureRect" parent="Control" unique_id=1328082055]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+rotation = -0.17453292
+pivot_offset = Vector2(986.48645, 909.90985)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("9_gpbvq")
+stretch_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=1721709650]
+root_node = NodePath("../..")
+libraries/ = ExtResource("22_oiic2")
+
+[node name="AVerde" type="AnimationPlayer" parent="Control" unique_id=583447121]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_f88sm")
+
+[node name="ARojo" type="AnimationPlayer" parent="Control" unique_id=1649001620]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_u8rhp")
+
+[node name="AAmarillo" type="AnimationPlayer" parent="Control" unique_id=1210454188]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_enjpd")
+
+[node name="AAzul" type="AnimationPlayer" parent="Control" unique_id=1298175699]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_yo0gm")
+
+[node name="ANaranja" type="AnimationPlayer" parent="Control" unique_id=912780564]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_m8bm1")
+
+[node name="ARasgeo" type="AnimationPlayer" parent="Control" unique_id=1710315397]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_cjjoh")
+
+[node name="Confirmar" type="TextureRect" parent="Control" unique_id=1750839680]
+layout_mode = 0
+offset_left = -450.0
+offset_right = 1470.0
+offset_bottom = 1080.0
+texture = ExtResource("23_enjpd")
+
+[node name="Reintentar" type="TextureRect" parent="Control" unique_id=2045899531]
+layout_mode = 0
+offset_left = 760.0
+offset_right = 2680.0
+offset_bottom = 1080.0
+texture = ExtResource("24_yo0gm")

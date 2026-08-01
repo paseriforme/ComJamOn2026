@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bks1yclxa8xyy"]
+
+[ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="1_xe1fm"]
+[ext_resource type="PackedScene" uid="uid://b4ikcrgnnxlnl" path="res://src/gameplay/Prefabs/telon.tscn" id="3_yog35"]
+[ext_resource type="PackedScene" uid="uid://dl7gqnw4pf5pa" path="res://src/gameplay/song_plays/fondo.tscn" id="6_ln0vj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1x3un"]
+
+[node name="GameUI" type="Panel" unique_id=1301705266]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1x3un")
+metadata/_edit_use_anchors_ = true
+
+[node name="DialogueManager" parent="." unique_id=500792603 instance=ExtResource("1_xe1fm")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Fondo" parent="." unique_id=1011409188 instance=ExtResource("6_ln0vj")]
+layout_mode = 0
+anchors_preset = 0
+
+[node name="Telon" parent="." unique_id=13815980 instance=ExtResource("3_yog35")]
+layout_mode = 0

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dgd2gv13rdwvw"
-path="res://.godot/imported/detuned.wav-01af09be2261a51b6c4d6ddcb3633be2.sample"
+path="res://.godot/imported/detuned.wav-e5ce93aac88da9d4c5ae9a760b26ec53.sample"
 
 [deps]
 
-source_file="res://Builds/audio/sfx/detuned.wav"
-dest_files=["res://.godot/imported/detuned.wav-01af09be2261a51b6c4d6ddcb3633be2.sample"]
+source_file="res://builds/audio/sfx/detuned.wav"
+dest_files=["res://.godot/imported/detuned.wav-e5ce93aac88da9d4c5ae9a760b26ec53.sample"]
 
 [params]
 

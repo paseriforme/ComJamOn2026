@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://upha6sr3sc61"
-path="res://.godot/imported/index.icon.png-9af680e7088877c3d9017aede374a7e6.ctex"
+path="res://.godot/imported/index.icon.png-b768c09de3efdf9f8aba933c872114c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Builds/Hoy_tocan_las_Magnolias_Web/index.icon.png"
-dest_files=["res://.godot/imported/index.icon.png-9af680e7088877c3d9017aede374a7e6.ctex"]
+source_file="res://builds/Hoy_tocan_las_Magnolias_Web/index.icon.png"
+dest_files=["res://.godot/imported/index.icon.png-b768c09de3efdf9f8aba933c872114c3.ctex"]
 
 [params]
 

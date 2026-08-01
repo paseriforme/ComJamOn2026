@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://bpd0h6j8bgm5s"
-path="res://.godot/imported/CancionEnteraSinGuitarra.ogg-55d5afb6a9cd5fbeafe43629ea6cdd19.oggvorbisstr"
+path="res://.godot/imported/CancionEnteraSinGuitarra.ogg-79b010192d8654bdd10195c4d43ad9ad.oggvorbisstr"
 
 [deps]
 
-source_file="res://Builds/audio/bgm/CancionEnteraSinGuitarra.ogg"
-dest_files=["res://.godot/imported/CancionEnteraSinGuitarra.ogg-55d5afb6a9cd5fbeafe43629ea6cdd19.oggvorbisstr"]
+source_file="res://builds/audio/bgm/CancionEnteraSinGuitarra.ogg"
+dest_files=["res://.godot/imported/CancionEnteraSinGuitarra.ogg-79b010192d8654bdd10195c4d43ad9ad.oggvorbisstr"]
 
 [params]
 

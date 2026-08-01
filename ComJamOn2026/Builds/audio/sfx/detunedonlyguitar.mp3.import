@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://bvqnwxlc4mck3"
-path="res://.godot/imported/detunedonlyguitar.mp3-831da646dd0627d73da75610fa66f2ec.mp3str"
+path="res://.godot/imported/detunedonlyguitar.mp3-8de4ce9a2b2044279f56b6183003cb7d.mp3str"
 
 [deps]
 
-source_file="res://Builds/audio/sfx/detunedonlyguitar.mp3"
-dest_files=["res://.godot/imported/detunedonlyguitar.mp3-831da646dd0627d73da75610fa66f2ec.mp3str"]
+source_file="res://builds/audio/sfx/detunedonlyguitar.mp3"
+dest_files=["res://.godot/imported/detunedonlyguitar.mp3-8de4ce9a2b2044279f56b6183003cb7d.mp3str"]
 
 [params]
 

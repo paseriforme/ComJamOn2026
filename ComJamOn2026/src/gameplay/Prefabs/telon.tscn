@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://b4ikcrgnnxlnl"]
+
+[ext_resource type="Texture2D" uid="uid://c508270bvh6pa" path="res://assets/image/UI/TELON_IZQ.png" id="1_tyla8"]
+[ext_resource type="Texture2D" uid="uid://c67addngkguik" path="res://assets/image/UI/TELON_DER.png" id="2_8dmol"]
+[ext_resource type="Texture2D" uid="uid://c1b7b4g6fvm2k" path="res://assets/image/UI/PEGATAS/PEG_AMARILLO.png" id="3_rt2oi"]
+[ext_resource type="FontFile" uid="uid://dearr2yxd2r4l" path="res://assets/font/ChelseaMarket-Regular.ttf" id="4_1xwck"]
+
+[sub_resource type="Animation" id="Animation_7as73"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_6u4vf"]
+resource_name = "loop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Porcentaje:rotation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.7453292519943295, 1.3962634015954636]
+}
+
+[sub_resource type="Animation" id="Animation_45fkh"]
+resource_name = "pegar"
+length = 5.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Porcentaje:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Porcentaje:modulate")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Porcentaje:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.5),
+"transitions": PackedFloat32Array(1, 4.7568293, 3.3635833),
+"update": 0,
+"values": [Vector2(2.5, 2.5), Vector2(3, 3), Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a2071"]
+_data = {
+&"RESET": SubResource("Animation_7as73"),
+&"loop": SubResource("Animation_6u4vf"),
+&"pegar": SubResource("Animation_45fkh")
+}
+
+[node name="Telon" type="Control" unique_id=13815980]
+z_index = 100
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.666, 0.666)
+
+[node name="Izq" type="TextureRect" parent="." unique_id=290516894]
+layout_mode = 0
+offset_left = -1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_tyla8")
+
+[node name="Der" type="TextureRect" parent="." unique_id=1351304294]
+z_index = 100
+layout_mode = 0
+offset_left = 1920.0
+offset_right = 3840.0
+offset_bottom = 1080.0
+texture = ExtResource("2_8dmol")
+
+[node name="Porcentaje" type="TextureRect" parent="." unique_id=765840145]
+z_index = 200
+layout_mode = 0
+offset_left = -9.009008
+offset_top = -151.65164
+offset_right = 1910.991
+offset_bottom = 928.3484
+rotation = 1.7453293
+scale = Vector2(2, 2)
+pivot_offset = Vector2(969.9341, 664.26184)
+texture = ExtResource("3_rt2oi")
+
+[node name="Label" type="Label" parent="Porcentaje" unique_id=73716865]
+layout_mode = 0
+offset_left = 933.5989
+offset_top = 734.8147
+offset_right = 1085.5989
+offset_bottom = 827.8147
+rotation = -1.5707964
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("4_1xwck")
+theme_override_font_sizes/font_size = 72
+text = "100%"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1148481873]
+libraries/ = SubResource("AnimationLibrary_a2071")

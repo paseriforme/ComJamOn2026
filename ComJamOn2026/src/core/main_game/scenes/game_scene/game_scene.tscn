@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://cpbv42xhe4um5"]
+
+[ext_resource type="Script" uid="uid://b1t1q20iiwg56" path="res://src/core/main_game/scenes/game_scene/game_scene.gd" id="1_w5aja"]
+[ext_resource type="Texture2D" uid="uid://bcts5vf22lxia" path="res://assets/image/Backgrounds/FONDO_detras.png" id="2_n6srv"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_eniy0"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_v5jjf"]
+[ext_resource type="Resource" uid="uid://euybd2w0bax" path="res://addons/phantom_camera/examples/resources/tween/player_phantom_camera_2d_tween.tres" id="5_oelf0"]
+[ext_resource type="Texture2D" uid="uid://b8ka77slh8orw" path="res://assets/image/Amigas/PJ_colega.png" id="7_qi78m"]
+[ext_resource type="PackedScene" uid="uid://cw6y7erkcfuc1" path="res://src/gameplay/npc.tscn" id="8_n6srv"]
+[ext_resource type="Texture2D" uid="uid://qoe6mw2w882e" path="res://assets/image/Amigas/PJ_tronca.png" id="9_6lusm"]
+[ext_resource type="Texture2D" uid="uid://c8thtjx23eqbr" path="res://assets/image/Amigas/PJ_muchacha.png" id="10_sv54f"]
+[ext_resource type="Texture2D" uid="uid://bcsf37x8s2y24" path="res://assets/image/Amigas/PJ_manager.png" id="11_u83ci"]
+[ext_resource type="PackedScene" uid="uid://c7k3rqpmcf0vt" path="res://src/gameplay/world_behaviour_player/world_player.tscn" id="12_2c7p8"]
+[ext_resource type="Texture2D" uid="uid://b00kjd6ghq1nh" path="res://assets/image/Direcciones/sur.png" id="13_4jtg2"]
+[ext_resource type="Texture2D" uid="uid://dbmcxslvrmuvh" path="res://assets/image/Direcciones/sureste.png" id="14_5bop0"]
+[ext_resource type="Texture2D" uid="uid://c23uj8aqhgdbh" path="res://assets/image/Direcciones/este.png" id="15_pdu4h"]
+[ext_resource type="Texture2D" uid="uid://bj67wmu6qtfgr" path="res://assets/image/Direcciones/noreste.png" id="16_gryjf"]
+[ext_resource type="Texture2D" uid="uid://cp5ahioqhx588" path="res://assets/image/Direcciones/norte.png" id="17_1t3uq"]
+[ext_resource type="Texture2D" uid="uid://b3px0qd1erdfg" path="res://assets/image/Direcciones/noroeste.png" id="18_moi5h"]
+[ext_resource type="Texture2D" uid="uid://cywf2cin76cxc" path="res://assets/image/Direcciones/oeste.png" id="19_f80cm"]
+[ext_resource type="Texture2D" uid="uid://duonodj4hgetl" path="res://assets/image/Direcciones/suroeste.png" id="20_iwjxg"]
+[ext_resource type="Texture2D" uid="uid://kw5pykq6pu5w" path="res://assets/image/Backgrounds/FONDO_delante.png" id="21_xhjg3"]
+[ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://src/ui/UI.gd" id="22_g8k1u"]
+[ext_resource type="PackedScene" uid="uid://bks1yclxa8xyy" path="res://src/gameplay/Prefabs/game_ui.tscn" id="23_hxoeb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
+size = Vector2(2310.5, 1394.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1x3un"]
+size = Vector2(3926, 1379)
+
+[node name="GameScene" type="Control" unique_id=422265414]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_w5aja")
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=1066133197]
+z_index = -1
+position = Vector2(-926, 0)
+texture = ExtResource("2_n6srv")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1454112614]
+top_level = true
+zoom = Vector2(0.6, 0.6)
+limit_left = -1187
+limit_top = -702
+limit_right = 1124
+limit_bottom = 693
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D" unique_id=1421160804]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_eniy0")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="Player" parent="." unique_id=294427056 instance=ExtResource("12_2c7p8")]
+speed = 500.0
+sprite_directions = Array[Texture2D]([ExtResource("13_4jtg2"), ExtResource("14_5bop0"), ExtResource("15_pdu4h"), ExtResource("16_gryjf"), ExtResource("17_1t3uq"), ExtResource("18_moi5h"), ExtResource("19_f80cm"), ExtResource("20_iwjxg")])
+
+[node name="PlayerPhantomCamera2D" type="Node2D" parent="." unique_id=842678402]
+unique_name_in_owner = true
+process_priority = -1
+top_level = true
+script = ExtResource("4_v5jjf")
+priority = 10
+follow_mode = 2
+zoom = Vector2(0.6, 0.6)
+frame_preview = false
+tween_resource = ExtResource("5_oelf0")
+follow_damping = true
+follow_damping_value = Vector2(1, 1)
+draw_limits = true
+limit_target = NodePath("../Colisiones/Area/AreaShape")
+
+[node name="Characters" type="Node" parent="." unique_id=228106312]
+
+[node name="colega" parent="Characters" unique_id=817138838 instance=ExtResource("8_n6srv")]
+position = Vector2(-686, 13)
+TEXTURE = ExtResource("7_qi78m")
+selfNPC = 0
+startDialogue = 1
+lastChord = 8
+
+[node name="chavala" parent="Characters" unique_id=1274624807 instance=ExtResource("8_n6srv")]
+position = Vector2(-461, -299)
+
+[node name="tronca" parent="Characters" unique_id=1239317248 instance=ExtResource("8_n6srv")]
+position = Vector2(439, -313)
+TEXTURE = ExtResource("9_6lusm")
+selfNPC = 2
+startDialogue = 3
+firstChord = 24
+lastChord = 32
+
+[node name="muchacha" parent="Characters" unique_id=1199175343 instance=ExtResource("8_n6srv")]
+position = Vector2(685, 63)
+TEXTURE = ExtResource("10_sv54f")
+selfNPC = 3
+startDialogue = 4
+firstChord = 32
+lastChord = 40
+
+[node name="manager" parent="Characters" unique_id=1633235734 instance=ExtResource("8_n6srv")]
+position = Vector2(78, -401)
+TEXTURE = ExtResource("11_u83ci")
+lastChord = 56
+
+[node name="Colisiones" type="Node" parent="." unique_id=257799548]
+
+[node name="Escenario" type="StaticBody2D" parent="Colisiones" unique_id=584871068]
+physics_interpolation_mode = 1
+visible = false
+position = Vector2(0, 3)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones/Escenario" unique_id=1942579654]
+visible = false
+polygon = PackedVector2Array(-1040, -204, -1060, -144, -994, 367, -928, 574, -789, 698, 268, 697, 838, 697, 967, 487, 1010, -241, 856, -284, 681, -310, 641, -392, 523, -401, 488, -474, 380, -449, 287, -493, 168, -459, 53, -505, -30, -443, -117, -491, -232, -439, -315, -420, -368, -434, -461, -384, -643, -415, -681, -356, -730, -386, -834, -327, -938, -297, -1040, -205, -1231, -756, 1214, -742, 1206, 764, -969, 839, -1355, 688, -1274, -804, -1258, -354, -1255, -241)
+
+[node name="Invertida" type="StaticBody2D" parent="Colisiones" unique_id=584681549]
+process_mode = 4
+physics_interpolation_mode = 1
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones/Invertida" unique_id=1699006497]
+visible = false
+polygon = PackedVector2Array(-1044, -199, -1054, -154, -994, 372, -928, 571, -794, 705, 274, 740, 841, 685, 966, 491, 1001, -41, 1007, -233, 857, -280, 681, -307, 641, -389, 524, -398, 488, -471, 381, -446, 287, -490, 170, -457, 53, -503, -32, -439, -117, -488, -231, -436, -314, -417, -367, -431, -460, -380, -642, -412, -681, -351, -730, -383, -834, -324, -936, -295)
+
+[node name="Area" type="StaticBody2D" parent="Colisiones" unique_id=231081674]
+physics_interpolation_mode = 1
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="AreaShape" type="CollisionShape2D" parent="Colisiones/Area" unique_id=897806955]
+position = Vector2(-31.25, -4.25)
+shape = SubResource("RectangleShape2D_2eiin")
+
+[node name="AreaShape2" type="CollisionShape2D" parent="Colisiones/Area" unique_id=1671091593]
+position = Vector2(-844, -4.5)
+shape = SubResource("RectangleShape2D_1x3un")
+
+[node name="Refondo" type="Sprite2D" parent="." unique_id=900404311]
+z_index = 1
+position = Vector2(-926, 0)
+texture = ExtResource("21_xhjg3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1116039382]
+script = ExtResource("22_g8k1u")
+
+[node name="Panel" parent="CanvasLayer" unique_id=1301705266 instance=ExtResource("23_hxoeb")]
+
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
