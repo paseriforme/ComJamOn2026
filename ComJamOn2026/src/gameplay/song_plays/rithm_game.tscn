@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://dl7gqnw4pf5pa"]
+
+[ext_resource type="Script" uid="uid://ck10m815fx7p3" path="res://src/gameplay/song_plays/rithm_game.gd" id="1_ltam6"]
+[ext_resource type="Texture2D" uid="uid://85mmwcu7tyr8" path="res://assets/image/UI/PEGATINA_MAL.png" id="2_7n68b"]
+[ext_resource type="Texture2D" uid="uid://dy7e3wovvardx" path="res://assets/image/UI/PEGATINA_BIEN.png" id="3_iwv7l"]
+[ext_resource type="Texture2D" uid="uid://bcgg4m4fbkvs6" path="res://assets/image/UI/PEGATINA_PERFECTO.png" id="4_m537j"]
+[ext_resource type="Texture2D" uid="uid://n0ob011ts0le" path="res://assets/image/Characters/UI PRACTICA.png" id="5_jfylv"]
+[ext_resource type="Texture2D" uid="uid://ci4a5gkijkp4m" path="res://assets/image/UI/sombra_vinilo.png" id="6_tr0c0"]
+[ext_resource type="Texture2D" uid="uid://uvypc1m30qg" path="res://assets/image/UI/vinilo.png" id="7_k7pvl"]
+[ext_resource type="Script" uid="uid://y3quaa0klmfh" path="res://src/gameplay/song_plays/visual_disco.gd" id="8_6lcyt"]
+[ext_resource type="PackedScene" uid="uid://bjiblirkavor3" path="res://src/gameplay/song_plays/trastes.tscn" id="9_mvlp3"]
+
+[sub_resource type="Animation" id="Animation_n1hje"]
+resource_name = "pegar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pegatina:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.5),
+"transitions": PackedFloat32Array(0.25881582, 4.7568293, 3.3635833),
+"update": 0,
+"values": [Vector2(0.95, 0.95), Vector2(1.05, 1.05), Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ryyxb"]
+_data = {
+&"pegar": SubResource("Animation_n1hje")
+}
+
+[node name="RithmGame" type="Control" unique_id=970978807]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ltam6")
+pegatinas = Array[Texture2D]([ExtResource("2_7n68b"), ExtResource("3_iwv7l"), ExtResource("4_m537j")])
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=1011409188]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.7284969
+anchor_right = -0.7284969
+offset_left = -667.5239
+offset_right = 1696.4761
+offset_bottom = 1079.0
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("5_jfylv")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Sombra vinilo" type="TextureRect" parent="Fondo" unique_id=1491559369]
+layout_mode = 0
+offset_left = 480.59692
+offset_top = 7.462672
+offset_right = 2400.5972
+offset_bottom = 1087.4626
+texture = ExtResource("6_tr0c0")
+
+[node name="Pegatina" type="TextureRect" parent="Fondo" unique_id=1752952818]
+z_index = 2
+layout_mode = 0
+offset_left = 1228.3582
+offset_top = -25.373133
+offset_right = 1547.3582
+offset_bottom = 315.62686
+scale = Vector2(0.95, 0.95)
+pivot_offset = Vector2(158.4953, 170.74194)
+texture = ExtResource("4_m537j")
+stretch_mode = 3
+
+[node name="VisualDisco" type="TextureRect" parent="." unique_id=741267219]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2262.35
+offset_top = -280.33002
+offset_right = -652.3501
+offset_bottom = 1317.6699
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.67, 0.67)
+texture = ExtResource("7_k7pvl")
+script = ExtResource("8_6lcyt")
+
+[node name="Trastes" parent="." unique_id=427422133 instance=ExtResource("9_mvlp3")]
+z_index = 60
+layout_mode = 1
+offset_left = -913.99994
+offset_top = 133.0
+offset_right = -289.99994
+offset_bottom = 504.0
+scale = Vector2(0.67, 0.67)
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1381291329]
+position = Vector2(-1600, 0)
+scale = Vector2(0.67, 0.67)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1768203460]
+root_node = NodePath("../Fondo")
+libraries/ = SubResource("AnimationLibrary_ryyxb")

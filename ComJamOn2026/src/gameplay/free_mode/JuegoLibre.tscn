@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://db0toc8i82rfe"]
 
 [ext_resource type="Script" uid="uid://cpnli11ustcmo" path="res://src/gameplay/free_mode/juego_libre.gd" id="1_3kyd3"]
-[ext_resource type="PackedScene" uid="uid://dl7gqnw4pf5pa" path="res://src/gameplay/song_plays/fondo.tscn" id="1_lm074"]
+[ext_resource type="PackedScene" uid="uid://dl7gqnw4pf5pa" path="res://src/gameplay/song_plays/rithm_game.tscn" id="1_lm074"]
 [ext_resource type="Texture2D" uid="uid://c508270bvh6pa" path="res://assets/image/UI/TELON_IZQ.png" id="3_0tr4f"]
 [ext_resource type="Texture2D" uid="uid://c67addngkguik" path="res://assets/image/UI/TELON_DER.png" id="4_8x73q"]
 [ext_resource type="Texture2D" uid="uid://c1b7b4g6fvm2k" path="res://assets/image/UI/PEGATAS/PEG_AMARILLO.png" id="5_1swfi"]
