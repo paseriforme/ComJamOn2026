@@ -317,11 +317,11 @@ tracks/8/keys = {
 tracks/9/type = "method"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Pensamiento")
+tracks/9/path = NodePath(".")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.6666667, 1.2333333),
+"times": PackedFloat32Array(0, 0.6333333, 1.204228),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
@@ -363,11 +363,14 @@ texture = SubResource("CompressedTexture2D_8iokl")
 [node name="Segundo" type="Node2D" parent="." unique_id=1371953691]
 position = Vector2(-1583, 28)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1876696374]
+libraries/ = SubResource("AnimationLibrary_ffjvi")
+
 [node name="Pensamiento" type="Node2D" parent="." unique_id=36495212 node_paths=PackedStringArray("animator")]
 z_index = 3
 position = Vector2(17, -188)
 script = ExtResource("2_pvohp")
-animator = NodePath("AnimationPlayer")
+animator = NodePath("../AnimationPlayer")
 
 [node name="Burbuja" type="Sprite2D" parent="Pensamiento" unique_id=1261536454]
 modulate = Color(1, 1, 1, 0)
@@ -380,7 +383,7 @@ offset = Vector2(-250, -208.91)
 [node name="Parte2" type="Sprite2D" parent="Pensamiento" unique_id=1160587547]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(116, 137.99998)
-rotation = 0.6195919
+rotation = -0.34906584
 texture = ExtResource("3_pvohp")
 centered = false
 offset = Vector2(-377.65, -355.99)
@@ -390,7 +393,3 @@ position = Vector2(88, 193)
 texture = ExtResource("4_06re6")
 centered = false
 offset = Vector2(-354.515, -397.905)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pensamiento" unique_id=1876696374]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_ffjvi")

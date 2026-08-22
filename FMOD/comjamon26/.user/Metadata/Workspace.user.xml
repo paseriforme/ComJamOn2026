@@ -9,8 +9,11 @@
 		</relationship>
 	</object>
 	<object class="ProjectSettings" id="{cd7ddc46-1bc0-4b08-b4cf-d1cfd2868551}">
+		<property name="openWindows">
+			<value>Event Editor 1</value>
+		</property>
 		<property name="windowLayout">
-			<value>AAAAAQAAACgAUABhAHIAYQBtAGUAdABlAHIAcwAgAEIAcgBvAHcAcwBlAHIAIAAxAAAAQgHZ0MsAAwAAAAAC+AAAAH0AAASHAAADawAAAvgAAACcAAAEhwAAA2sAAAAAAAAAAAeAAAAC+AAAAJwAAASHAAADaw==</value>
+			<value>AAAAAgAAABwARQB2AGUAbgB0ACAARQBkAGkAdABvAHIAIAAxAAAAQgHZ0MsAAwAAAAAAAP////gAAAd/AAAEBwAAAoEAAAEUAAAGoAAAArcAAAAAAgAAAAeAAAAAAAAAABcAAAd/AAAEBwAAACgAUABhAHIAYQBtAGUAdABlAHIAcwAgAEIAcgBvAHcAcwBlAHIAIAAxAAAAQgHZ0MsAAwAAAAAC+AAAAH0AAASHAAADawAAAvgAAACcAAAEhwAAA2sAAAAAAAAAAAeAAAAC+AAAAJwAAASHAAADaw==</value>
 		</property>
 	</object>
 	<object class="WorkspaceChangelist" id="{463e4993-1c98-4bf6-93aa-122fc3b8f33c}" />

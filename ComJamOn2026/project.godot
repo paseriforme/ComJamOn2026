@@ -20,7 +20,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Hoy tocan Las Magnolias"
 config/version="0.1"
-run/main_scene="uid://c161kl18xdbk1"
+run/main_scene="uid://cpbv42xhe4um5"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0.13725491, 1)
 boot_splash/image="uid://3atsb35rtqiw"
