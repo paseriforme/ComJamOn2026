@@ -13,10 +13,12 @@ func load_all(charactersPath:= "", dialoguesPath:=""):
 
 func load_characters(path):
 	var data = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if !data: printerr("ERROR LEYENDO PERSONAJES")
 	characters = data["characters"]
 
 func load_dialogues(path):
 	var data = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if !data: printerr("ERROR LEYENDO DIALOGOS")
 	
 	for dialogue in data["Dialogues"]:
 		var nodes = {}

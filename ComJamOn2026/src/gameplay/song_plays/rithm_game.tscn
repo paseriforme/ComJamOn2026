@@ -30,7 +30,7 @@ _data = {
 &"pegar": SubResource("Animation_n1hje")
 }
 
-[node name="RithmGame" type="Control" unique_id=970978807]
+[node name="RithmGame" type="Control" unique_id=970978807 node_paths=PackedStringArray("audio_player", "animator", "pegatina", "trastes")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,7 +38,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ltam6")
+audio_player = NodePath("AudioPlayer")
+animator = NodePath("AnimationPlayer")
+pegatina = NodePath("Fondo/Pegatina")
 pegatinas = Array[Texture2D]([ExtResource("2_7n68b"), ExtResource("3_iwv7l"), ExtResource("4_m537j")])
+trastes = NodePath("Trastes")
 
 [node name="Fondo" type="TextureRect" parent="." unique_id=1011409188]
 layout_mode = 1

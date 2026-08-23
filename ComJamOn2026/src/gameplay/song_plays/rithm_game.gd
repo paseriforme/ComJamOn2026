@@ -1,5 +1,5 @@
 extends Control
-class_name Game_Guitar
+class_name RithmGameManager
 
 @export_group("Referencias a escenas")
 @export var audio_player		: AudioStreamPlayer2D
@@ -7,8 +7,6 @@ class_name Game_Guitar
 @export var pegatina			: TextureRect
 @export var pegatinas 			: Array[Texture2D]
 @export var trastes				: Control
-@export var telon_izq			: TextureRect
-@export var telon_der			: TextureRect
 @export var porcentaje_animator	: AnimationPlayer
 @export var porcentaje_label	: Label
 
@@ -288,7 +286,6 @@ func _check_missed_notes() -> void:
 			_mark_done(nota)
 			feedback_fail()
 
-
 func _check_song_finished() -> void:
 	if spawn_chord < _notes().size():
 		return
@@ -297,9 +294,7 @@ func _check_song_finished() -> void:
 			return
 	end()
 
-
 # --- Fin de cancion -----------------------------------------------------------
-
 func end() -> void:
 	if ending:
 		return
@@ -308,37 +303,9 @@ func end() -> void:
 	enable = false
 	disco.end()
 	Global.sound.stop_bgm()
-
+	
 	calculo = 0.0
 	if _notes().size() > 0:
 		calculo = notas_acertadas / _notes().size()
-	print("RESULTADO: ", int(calculo * 100), "%")
-
-	if Global.npc_chocado == $"../../../../manager2":
-		await Global.timer(1.0)
-		var anim_time := 5.0
-		var ini_pos_1 := telon_izq.position
-		var ini_pos_2 := telon_der.position
-		var offset := 1000.0
-
-		var tween1 = get_tree().create_tween()
-		tween1.set_ease(Tween.EASE_OUT)
-		tween1.tween_property(telon_izq, "position", ini_pos_1 + Vector2(offset, 0), anim_time)\
-			.set_trans(Tween.TRANS_ELASTIC)
-		Global.play_cardboard(0.2)
-
-		var tween2 = get_tree().create_tween()
-		tween2.set_ease(Tween.EASE_OUT)
-		tween2.tween_property(telon_der, "position", ini_pos_2 - Vector2(offset, 0), anim_time)\
-			.set_trans(Tween.TRANS_ELASTIC)
-		tween2.finished.connect(func():
-			porcentaje_label.text = str(int(calculo * 100)) + "%"
-			Global.sound.play_sfx("duct_tape1", 0.2)
-			porcentaje_animator.play("pegar")
-		)
-		Global.play_cardboard(0.2)
-
-
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "pegar" and ending:
-		get_tree().quit()
+	#print("RESULTADO: ", int(calculo * 100), "%")
+	Global.end_song.emit(int(calculo * 100))

@@ -1,15 +1,15 @@
 extends Node2D
-class_name GameState
+class_name GameBehaivour
 
 enum states {WALK, TALK, PLAY}
 
-@onready var character: CharacterController = $Character
-@onready var canvas_layer: UI = $CanvasLayer
-@onready var dialogue_man: DialogueManager = $CanvasLayer/Panel/DialogueManager
-@onready var camara: PhantomCamera2D = $PlayerPhantomCamera2D
-@onready var fondo : TextureRect = $CanvasLayer/Panel/Fondo
-@onready var area_camara : String = "../Colisiones/Area/AreaShape"
-@onready var area_camara_talk : String = "../Colisiones/Area/AreaShape2"
+@export var character			: WorldPlayerController
+@export var canvas_layer		: GameUIManager
+@export var dialogue_man		: DialogueManager
+@export var camara				: PhantomCamera2D
+@export var fondo 				: TextureRect
+@export var area_camara 		: String = "../Colisiones/Area/AreaShape"
+@export var area_camara_talk : String = "../Colisiones/Area/AreaShape2"
 
 @export var fondo_ini_x : float = -1600.0
 @export var fondo_talk_x : float = -860.0
@@ -75,11 +75,11 @@ func set_state(st : states):
 			Global.play_paper(0.2)
 			tween2.finished.connect(func(): await Global.timer(0.1); if state == states.WALK: camara.set_limit_target(area_camara))
 			await Global.timer(0.1)
-			character.canwalk = true
+			#character.canwalk = true
 			pass
 		states.TALK:
 			print("TALK")
-			character.canwalk = false
+			#character.canwalk = false
 			character.set_process(false)
 			canvas_layer.visible(true)
 			dialogue_man.set_process(true)
@@ -95,7 +95,7 @@ func set_state(st : states):
 		states.PLAY:
 			print("PLAY")
 			dialogue_man.set_process(false)
-			character.canwalk = false
+			#character.canwalk = false
 			character.set_process(false)	
 			canvas_layer.visible(true)
 			Global.playing = true
@@ -107,6 +107,3 @@ func set_state(st : states):
 				Global.sound.play_sfx("cheer")
 			tween2.finished.connect(func(): canvas_layer.control_disco.start_song())
 			#tween2.finished.connect(func(): set_state(states.WALK))
-			pass
-		_:
-			pass

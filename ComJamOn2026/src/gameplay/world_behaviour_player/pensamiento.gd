@@ -1,8 +1,8 @@
 extends Node2D
 class_name Pensamiento
 
-@export var control_feedback_time 	: float = 1.0
-@export var animator				: AnimationPlayer
+@export var control_feedback_time 	: float 			= 1.0
+@export var animator				: AnimationPlayer 	= null
 
 var control_current_time	: float = 0.0
 

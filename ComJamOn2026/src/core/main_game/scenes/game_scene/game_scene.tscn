@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cywf2cin76cxc" path="res://assets/image/Direcciones/oeste.png" id="19_f80cm"]
 [ext_resource type="Texture2D" uid="uid://duonodj4hgetl" path="res://assets/image/Direcciones/suroeste.png" id="20_iwjxg"]
 [ext_resource type="Texture2D" uid="uid://kw5pykq6pu5w" path="res://assets/image/Backgrounds/FONDO_delante.png" id="21_xhjg3"]
+[ext_resource type="PackedScene" uid="uid://bks1yclxa8xyy" path="res://src/ui/game_ui.tscn" id="22_02s8s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
@@ -28,7 +29,7 @@ size = Vector2(2310.5, 1394.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x3un"]
 size = Vector2(3926, 1379)
 
-[node name="GameScene" type="Control" unique_id=422265414]
+[node name="GameScene" type="Control" unique_id=422265414 node_paths=PackedStringArray("character", "game_ui")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,6 +38,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_w5aja")
+character = NodePath("Player")
+game_ui = NodePath("GameUI")
 
 [node name="Fondo" type="Sprite2D" parent="." unique_id=1066133197]
 z_index = -1
@@ -83,33 +86,28 @@ limit_target = NodePath("../Colisiones/Area/AreaShape")
 position = Vector2(-686, 13)
 TEXTURE = ExtResource("7_qi78m")
 selfNPC = 0
-startDialogue = 1
-lastChord = 8
+dialogue = 1
 
 [node name="chavala" parent="Characters" unique_id=1274624807 instance=ExtResource("8_n6srv")]
 position = Vector2(-461, -299)
 TEXTURE = ExtResource("17_07xln")
+dialogue = 2
 
 [node name="tronca" parent="Characters" unique_id=1239317248 instance=ExtResource("8_n6srv")]
 position = Vector2(439, -313)
 TEXTURE = ExtResource("9_6lusm")
 selfNPC = 2
-startDialogue = 3
-firstChord = 24
-lastChord = 32
+dialogue = 3
 
 [node name="muchacha" parent="Characters" unique_id=1199175343 instance=ExtResource("8_n6srv")]
 position = Vector2(685, 63)
 TEXTURE = ExtResource("10_sv54f")
 selfNPC = 3
-startDialogue = 4
-firstChord = 32
-lastChord = 40
+dialogue = 4
 
 [node name="manager" parent="Characters" unique_id=1633235734 instance=ExtResource("8_n6srv")]
 position = Vector2(78, -401)
 TEXTURE = ExtResource("11_u83ci")
-lastChord = 56
 
 [node name="Colisiones" type="Node" parent="." unique_id=257799548]
 
@@ -149,5 +147,7 @@ shape = SubResource("RectangleShape2D_1x3un")
 z_index = 1
 position = Vector2(-926, 0)
 texture = ExtResource("21_xhjg3")
+
+[node name="GameUI" parent="." unique_id=278046600 instance=ExtResource("22_02s8s")]
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]

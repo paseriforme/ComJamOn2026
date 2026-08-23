@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_slwiy"]
 radius = 88.14193
 
-[node name="npc" type="RigidBody2D" unique_id=817138838 node_paths=PackedStringArray("sprite_2d")]
+[node name="npc" type="RigidBody2D" unique_id=817138838 node_paths=PackedStringArray("sprite_2d", "audio_player")]
 physics_interpolation_mode = 1
 mass = 9.223372e+18
 gravity_scale = 0.0
@@ -15,13 +15,8 @@ freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 770
 script = ExtResource("1_tgtwd")
-TEXTURE = null
-selfNPC = null
-startDialogue = null
-distance_factor = null
-tween_time = null
 sprite_2d = NodePath("Sprite2D")
-firstChord = null
+audio_player = NodePath("AudioStreamPlayer2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1363245483]
 shape = SubResource("CircleShape2D_slwiy")

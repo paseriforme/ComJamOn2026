@@ -11,7 +11,6 @@ enum NPC_type {COLEGA, MUCHACHA, TRONCA, CHAVALA, MANAGER}
 @export var tween_time 		: float = 0.5
 
 @export_group("Referencias")
-#@export var gameState		: GameState
 @export var sprite_2d		: Sprite2D
 @export var audio_player	: AudioStreamPlayer2D
 
@@ -25,6 +24,9 @@ func _ready() -> void:
 	sprite_2d.texture = TEXTURE
 
 func _on_body_entered(body: Node) -> void:
+	# Solo salta el dialogo si es un choque con el jugador
+	if body is not WorldPlayerController: return
+	
 	var dir: Vector2 = Global.direccion_jugador
 	var trans : Tween.TransitionType = Tween.TRANS_SINE
 	var tween2: Tween = get_tree().create_tween()
@@ -33,19 +35,4 @@ func _on_body_entered(body: Node) -> void:
 	tween2.tween_property(sprite_2d, "position", _sprite_ini_pos + dir * distance_factor, tween_time/2).set_trans(trans)
 	tween2.set_ease(Tween.EASE_IN)
 	tween2.tween_property(sprite_2d, "position", _sprite_ini_pos, tween_time/2).set_trans(trans)
-	Global.start_dialogue.emit(self)
-	pass
-#
-#func _iniciar_dialogo():
-	#gameState.ini = firstChord
-	#gameState.fin = lastChord
-	#if Global.npc_chocado and Global.npc_chocado == self: 
-		#gameState.set_state(GameState.states.TALK)
-		#print("START DIALOGUE: ", startDialogue)
-		#if selfNPC == NPC_type.MANAGER:
-			#Global.cancion = "Voces"
-			#$"../CanvasLayer/Panel/Fondo".texture = preload("uid://dkjqyqi73dt1o")
-		#else:
-			#Global.cancion = "Instrumental"
-			#$"../CanvasLayer/Panel/Fondo".texture = preload("uid://n0ob011ts0le")
-	#pass
+	Global.npc_hit.emit(self)

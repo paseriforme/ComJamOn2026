@@ -1,29 +1,28 @@
 extends Node
-class_name UI
-@onready var control_disco: Control = $Panel/Fondo/control_disco
-@onready var dialogue_manager: DialogueManager = $Panel/DialogueManager
-@onready var panel: Panel = $Panel
-@onready var game_state: GameState = $".."
+class_name GameUIManager
+
+@export var rithm_game_manager	: RithmGameManager
+@export var dialogue_manager	: DialogueManager
+@export var telon 				: Control
+
+var _npc : NPC = null
 
 func _ready() -> void:
-	Global.end_dialogue.connect(_end_dialogue)
+	Global.npc_hit.connect(_npc_hit)
+	#Global.end_dialogue.connect(_end_dialogue)
+## 
 
-func visible(vis):
-	if vis:
-		dialogue_manager.visible = true
-	else:
-		dialogue_manager.visible = false
+func _npc_hit(npc : NPC):
+	_npc = npc
+	## ANDRES AQUI, CAMBIAR VISUALES
 
-func stop_song():
-	control_disco.end()
+func start_dialoue():
+	dialogue_manager.start_dialogue(_npc)
 
-#func continue_dialogue(character):
-func _process(delta: float) -> void:
-	if Global.playing: return 
-	if Input.is_action_just_pressed("rasgar",true) and dialogue_manager.dialogue_box.visible and not dialogue_manager.ending and not dialogue_manager.starting:
-		Global.sound.play_sfx("click", 0.2)
-		dialogue_manager.dialogue_box.pressed()
+func start_song():
+	dialogue_manager.end_dialogue()
 
-func _end_dialogue(ini = null, fin = null):
-	if (Global.dialogo_aceptado):
-		game_state.set_state(GameState.states.PLAY)
+func hide_ui():
+	dialogue_manager.visible = false
+	rithm_game_manager.visible = false
+	telon.visible = false

@@ -13,13 +13,11 @@ signal on_disable(scene)
 @warning_ignore("unused_signal")
 signal on_game_end()
 @warning_ignore("unused_signal")
-signal start_dialogue(NPC)
+signal npc_hit(NPC)
 @warning_ignore("unused_signal")
 signal end_dialogue()
 @warning_ignore("unused_signal")
-signal end_song()
-@warning_ignore("unused_signal")
-signal chocar_npc()
+signal end_song(int) ## Indica que se ha acabado la cancion y con que porcentaje
 @warning_ignore("unused_signal")
 signal aceptar()
 @warning_ignore("unused_signal")
@@ -47,7 +45,7 @@ func timer(tiempo = 1.0):
 func play_cardboard(pitch):
 	var ind: int = random.randi_range(0, len(sfx_carton) - 1)	
 	SoundSystem.play_sfx(sfx_carton[ind], pitch)
-	$CanvasLayer/Control/Telon/Porcentaje.visible = true
+	#$CanvasLayer/Control/Telon/Porcentaje.visible = true
 	pass
 
 func play_paper(pitch):

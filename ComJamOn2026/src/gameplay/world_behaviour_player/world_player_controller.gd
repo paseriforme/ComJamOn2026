@@ -27,9 +27,6 @@ var factor_spr_scale_2 	: float = 0.5
 var time_steps_2 		: float = 0.75
 var factor_steps_2 		: float = 0.75
 
-
-@onready var animator 	: AnimationPlayer = $AnimationPlayer 
-
 func _ready() -> void:
 	init_scale = $Sprite2D.scale
 	body_entered.connect(_rebote)

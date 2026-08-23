@@ -4,8 +4,8 @@ class_name DialogueManager
 const DIALOGUE_BOX = preload("uid://dcenjwoarjpme")
 const DECISION_BOX = preload("uid://omqusqkky5ti")
 
-@export_dir var charactersPath	: String
-@export_dir var dialoguesPath	: String
+@export_file var charactersPath	: String
+@export_file var dialoguesPath	: String
 @export_dir var audiosPath		: String = "res://assets/audio/" 
 @export_dir var fontsPath		: String = "res://assets/font/" 
 
@@ -30,8 +30,7 @@ func _ready() -> void:
 	
 	loader.load_all(charactersPath, dialoguesPath)
 	$Feedback/AnimationPlayer.play("loop")
-	
-	Global.start_dialogue.connect(start)
+	set_process(false)
 
 func pegar_rojo():
 	$Feedback/ARojo.play("pegar")
@@ -43,40 +42,38 @@ func pegar_verde():
 	Global.sound.play_sfx("duct_tape1", 0.3)
 	pass
 
-func start(npc: NPC):
-	current_nodes = loader.dialogues[npc.dialogue]
-	current_node = _find_start_node()
-	
-	$DialogueBox.visible = true
+func start_dialogue(npc: NPC):
 	if starting: return
 	starting = true
-	_show_node()
+	set_process(true)
 	
-	var sprite1 = $DialogueBox/Triangulo
-	var sprite2 = $DialogueBox/Fondo
-	var sprite3 = $DialogueBox/CharacterSprite
-	var pos : Vector2 = Vector2(-1280,-720)
-	# triangulito
-	Global.play_cardboard(0.2)
-	var tween1 = get_tree().create_tween()
-	tween1.set_ease(Tween.EASE_OUT)
-	tween1.tween_property(sprite1, "position", pos, tween_char_time).set_trans(Tween.TRANS_BACK)
-	await Global.timer(0.2)
+	visible = true
+	current_nodes = loader.dialogues[npc.dialogue]
+	current_node = _find_start_node()
+	$DialogueBox.visible = true
+	_show_node() 
 	
-	# mensaje
-	Global.play_cardboard(0.2)
-	var tween2 = get_tree().create_tween()
-	tween2.set_ease(Tween.EASE_OUT)
-	tween2.tween_property(sprite2, "position", pos, tween_char_time * 1.2 ).set_trans(Tween.TRANS_BACK)
-	await Global.timer(0.5)
+	var pasos := [
+		{ "sprite": $DialogueBox/Triangulo,      "sonido": "cardboard", "espera": 0.2 },
+		{ "sprite": $DialogueBox/Fondo,          "sonido": "cardboard", "espera": 0.5 },
+		{ "sprite": $DialogueBox/CharacterSprite,"sonido": "paper",     "espera": 0.0 },
+	]
+	_dialogue_animation(Vector2(-1280, -720), Tween.EASE_OUT, pasos, func(): starting = false)
+
+
+func end_dialogue():
+	if ending: return
+	ending = true
+	set_process(false)
 	
-	# sprite
-	Global.play_paper(0.2)
-	var tween3 = get_tree().create_tween()
-	tween3.set_ease(Tween.EASE_OUT)
-	tween3.tween_property(sprite3, "position", pos, tween_char_time * 1.5).set_trans(Tween.TRANS_BACK)
-	
-	tween3.finished.connect(func(): starting = false)
+	var pasos := [
+		{ "sprite": $DialogueBox/CharacterSprite,"sonido": "paper",     "espera": 0.5 },
+		{ "sprite": $DialogueBox/Fondo,          "sonido": "cardboard", "espera": 0.2 },
+		{ "sprite": $DialogueBox/Triangulo,      "sonido": "cardboard", "espera": 0.0 },
+	]
+	_dialogue_animation(Vector2(-1280, 400), Tween.EASE_IN, pasos, func():
+		ending = false
+		Global.end_dialogue.emit())
 
 func _find_start_node():
 	for n in current_nodes.values():
@@ -176,63 +173,41 @@ func next_node():
 	current_node = current_nodes[current_node.next]
 	_show_node()
 
-func end_dialogue():	
-	if ending: return
-	ending = true
+func _dialogue_animation(pos: Vector2, ease: Tween.EaseType, steps: Array, at_end: Callable) -> void:
+	var factores := [1.0, 1.2, 1.5]
+	var ultimo: Tween
 	
-	
-	
-	var sprite3 = $DialogueBox/Triangulo
-	var sprite2 = $DialogueBox/Fondo
-	var sprite1 = $DialogueBox/CharacterSprite
-	var pos : Vector2 =  Vector2(-1280,400)
-	_show_node()
-
-#	var tween2 = get_tree().create_tween()
-#	tween2.set_ease(Tween.EASE_IN)
-#	tween2.tween_property(sprite1, "position", pos, tween_char_time).set_trans(Tween.TRANS_BACK)
-#	tween2.finished.connect(func():  ending = false; Global.end_dialogue.emit())
-	
-	# sprite
-	Global.play_paper(0.2)
-	var tween1 = get_tree().create_tween()
-	tween1.set_ease(Tween.EASE_IN)
-	tween1.tween_property(sprite1, "position", pos, tween_char_time).set_trans(Tween.TRANS_BACK)
-	await Global.timer(0.5)
-#	
-#	# mensaje
-	Global.play_cardboard(0.2)	
-	var tween2 = get_tree().create_tween()
-	tween2.set_ease(Tween.EASE_IN)
-	tween2.tween_property(sprite2, "position", pos, tween_char_time * 1.2 ).set_trans(Tween.TRANS_BACK)
-	await Global.timer(0.2)
-#	
-#	# triangulito
-	Global.play_cardboard(0.2)
-	var tween3 = get_tree().create_tween()
-	tween3.set_ease(Tween.EASE_IN)
-	tween3.tween_property(sprite3, "position", pos, tween_char_time * 1.5).set_trans(Tween.TRANS_BACK)
-	
-	tween3.finished.connect(func():  ending = false; Global.end_dialogue.emit())
-	
+	for i in steps.size():
+		var step: Dictionary = steps[i]
+		
+		if step["sonido"] == "cardboard":
+			Global.play_cardboard(0.2)
+		else:
+			Global.play_paper(0.2)
+		
+		ultimo = get_tree().create_tween()
+		ultimo.set_ease(ease)
+		ultimo.tween_property(step["sprite"], "position", pos, tween_char_time * factores[i]) \
+			.set_trans(Tween.TRANS_BACK)
+		
+		if step["espera"] > 0.0:
+			await Global.timer(step["espera"])
+	ultimo.finished.connect(at_end)
 
 func choose(next_id):
 	current_node = current_nodes[next_id]
 	feedback.visible = false
 	_show_node()
-	
+
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("verde",true) and decision_box.visible and not dialogue_box.visible:
 		choose(current_node.options[0].next)
-		Global.sound.play_sfx("click", 0.5)
+		SoundSystem.play_sfx("click", 0.5)
 #		pegar_verde()
-		pass
 	if Input.is_action_pressed("rojo",true) and decision_box.visible and not dialogue_box.visible:
 		choose(current_node.options[1].next)
-		Global.sound.play_sfx("click", 0.5)
+		SoundSystem.play_sfx("click", 0.5)
 #		pegar_rojo()
-		pass
-	pass
-	
-	
-	
+	if Input.is_action_just_pressed("rasgar",true) and dialogue_box.visible and not ending and not starting:
+		SoundSystem.play_sfx("click", 0.2)
+		dialogue_box.pressed()

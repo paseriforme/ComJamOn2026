@@ -1,30 +1,30 @@
 {
   "characters": {
-    "Colega": {
-      "font": "Sin fuente",
-      "sound": "",
-      "Color": "#2db044"
-    },
-    "Muchacha": {
-      "font": "Sin fuente",
-      "sound": "",
-      "Color": "#452998"
-    },
-    "Tronca": {
-      "font": "Sin fuente",
-      "sound": "",
-      "Color": "#e6ab31"
-    },
-    "Chavala": {
-      "font": "Sin fuente",
-      "sound": "",
-      "Color": "#cb6725"
-    },
-    "Manager": {
-      "font": "Sin fuente",
-      "sound": "",
-      "Color": "#d917ca"
-    }
+	"Colega": {
+	  "font": "Sin fuente",
+	  "sound": "",
+	  "Color": "#2db044"
+	},
+	"Muchacha": {
+	  "font": "Sin fuente",
+	  "sound": "",
+	  "Color": "#452998"
+	},
+	"Tronca": {
+	  "font": "Sin fuente",
+	  "sound": "",
+	  "Color": "#e6ab31"
+	},
+	"Chavala": {
+	  "font": "Sin fuente",
+	  "sound": "",
+	  "Color": "#cb6725"
+	},
+	"Manager": {
+	  "font": "Sin fuente",
+	  "sound": "",
+	  "Color": "#d917ca"
+	}
   },
   "lastModified": "2026-02-23T02:44:42.869260"
 }

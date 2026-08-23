@@ -5,9 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://b4ikcrgnnxlnl" path="res://src/gameplay/song_plays/telon.tscn" id="3_yog35"]
 [ext_resource type="PackedScene" uid="uid://dl7gqnw4pf5pa" path="res://src/gameplay/song_plays/rithm_game.tscn" id="6_ln0vj"]
 
-[node name="GameUI" type="CanvasLayer" unique_id=278046600]
-visible = false
+[node name="GameUI" type="CanvasLayer" unique_id=278046600 node_paths=PackedStringArray("rithm_game_manager", "dialogue_manager", "telon")]
+process_mode = 1
 script = ExtResource("1_adfwi")
+rithm_game_manager = NodePath("RithmGameManager")
+dialogue_manager = NodePath("DialogueManager")
+telon = NodePath("Telon")
 
 [node name="DialogueManager" parent="." unique_id=500792603 instance=ExtResource("1_xe1fm")]
 anchors_preset = 3
@@ -19,22 +22,11 @@ grow_horizontal = 0
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="RithmGame" parent="." unique_id=1011409188 instance=ExtResource("6_ln0vj")]
+[node name="RithmGameManager" parent="." unique_id=1011409188 instance=ExtResource("6_ln0vj")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
-spawn_offset = null
-tiempo_anticipacion = null
-tiempo_retardo = null
-perfe_time = null
-resync_threshold = null
-pre_roll = null
-dificulty = null
-rotacion_inicial = null
-rotacion_final = null
-scale_pulsos = null
-off_position_pulsos = null
 
 [node name="Telon" parent="." unique_id=13815980 instance=ExtResource("3_yog35")]
