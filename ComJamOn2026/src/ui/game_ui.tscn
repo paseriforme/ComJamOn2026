@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bks1yclxa8xyy"]
 
-[ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://src/ui/game_ui.gd" id="1_adfwi"]
+[ext_resource type="Script" path="res://src/ui/game_ui_manager.gd" id="1_adfwi"]
 [ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="1_xe1fm"]
 [ext_resource type="PackedScene" uid="uid://b4ikcrgnnxlnl" path="res://src/gameplay/song_plays/telon.tscn" id="3_yog35"]
 [ext_resource type="PackedScene" uid="uid://dl7gqnw4pf5pa" path="res://src/gameplay/song_plays/rithm_game.tscn" id="6_ln0vj"]
@@ -13,6 +13,7 @@ dialogue_manager = NodePath("DialogueManager")
 telon = NodePath("Telon")
 
 [node name="DialogueManager" parent="." unique_id=500792603 instance=ExtResource("1_xe1fm")]
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -23,6 +24,7 @@ grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="RithmGameManager" parent="." unique_id=1011409188 instance=ExtResource("6_ln0vj")]
+visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -30,3 +32,4 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="Telon" parent="." unique_id=13815980 instance=ExtResource("3_yog35")]
+visible = false

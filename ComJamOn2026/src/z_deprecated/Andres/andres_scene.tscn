@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://qoe6mw2w882e" path="res://assets/image/Amigas/PJ_tronca.png" id="11_3hxkh"]
 [ext_resource type="Texture2D" uid="uid://kw5pykq6pu5w" path="res://assets/image/Backgrounds/FONDO_delante.png" id="11_5jka1"]
 [ext_resource type="Texture2D" uid="uid://cvyr7eii15wki" path="res://assets/image/Amigas/PJ_CHAVALA.png" id="12_dghs7"]
-[ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://src/ui/game_ui.gd" id="12_ojqkt"]
+[ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://src/ui/game_ui_manager.gd" id="12_ojqkt"]
 [ext_resource type="PackedScene" uid="uid://bks1yclxa8xyy" path="res://src/ui/game_ui.tscn" id="13_g7yle"]
 [ext_resource type="Texture2D" uid="uid://bcsf37x8s2y24" path="res://assets/image/Amigas/PJ_manager.png" id="13_y884l"]
 [ext_resource type="Texture2D" uid="uid://cp5ahioqhx588" path="res://assets/image/Direcciones/norte.png" id="15_3hxkh"]

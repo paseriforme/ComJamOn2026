@@ -7,12 +7,18 @@ enum states {WORLD, TALK, PLAY}
 @export var game_ui 	: GameUIManager
 @export var state		:= states.WORLD
 
+var _acepto := false
+
 func _ready() -> void:
 	Global.npc_hit.connect(func(npc) :set_state(states.TALK))
+	Global.end_dialogue.connect(_on_end_dialogue)
+	Global.negarse.connect(func() :_acepto = false)
+	Global.aceptar.connect(func() :_acepto = true)
 	
 	set_state(state)
 
 func set_state(st : states):
+	if state == st: return
 	state = st
 	match st:
 		states.WORLD:
@@ -27,3 +33,9 @@ func set_state(st : states):
 			print("PLAY")
 			game_ui.start_song()
 			character.canwalk = false
+
+func _on_end_dialogue():
+	if _acepto:
+		set_state(states.PLAY)
+	else:
+		set_state(states.WORLD)

@@ -54,9 +54,9 @@ func start_dialogue(npc: NPC):
 	_show_node() 
 	
 	var pasos := [
-		{ "sprite": $DialogueBox/Triangulo,      "sonido": "cardboard", "espera": 0.2 },
-		{ "sprite": $DialogueBox/Fondo,          "sonido": "cardboard", "espera": 0.5 },
-		{ "sprite": $DialogueBox/CharacterSprite,"sonido": "paper",     "espera": 0.0 },
+		{ "sprite": $DialogueBox/Triangulo,			"sonido": "cardboard", 	"espera": 0.2 },
+		{ "sprite": $DialogueBox/Fondo,				"sonido": "cardboard", 	"espera": 0.5 },
+		{ "sprite": $DialogueBox/CharacterSprite,	"sonido": "paper", 		"espera": 0.0 },
 	]
 	_dialogue_animation(Vector2(-1280, -720), Tween.EASE_OUT, pasos, func(): starting = false)
 
@@ -64,15 +64,20 @@ func start_dialogue(npc: NPC):
 func end_dialogue():
 	if ending: return
 	ending = true
+	# En algun momento que no distingo esto se oculta pero no se donde 
+	# asique por ahora lo dejo asi
+	$DialogueBox.visible = true 
+	
 	set_process(false)
 	
 	var pasos := [
-		{ "sprite": $DialogueBox/CharacterSprite,"sonido": "paper",     "espera": 0.5 },
-		{ "sprite": $DialogueBox/Fondo,          "sonido": "cardboard", "espera": 0.2 },
-		{ "sprite": $DialogueBox/Triangulo,      "sonido": "cardboard", "espera": 0.0 },
+		{ "sprite": $DialogueBox/CharacterSprite,	"sonido": "paper", 		"espera": 0.5 },
+		{ "sprite": $DialogueBox/Fondo,				"sonido": "cardboard",	"espera": 0.2 },
+		{ "sprite": $DialogueBox/Triangulo,			"sonido": "cardboard",	"espera": 0.0 },
 	]
 	_dialogue_animation(Vector2(-1280, 400), Tween.EASE_IN, pasos, func():
 		ending = false
+		visible = false  
 		Global.end_dialogue.emit())
 
 func _find_start_node():
