@@ -49,6 +49,7 @@ punto_spawn = NodePath("Fondo/Marker2D")
 disco_parent = NodePath("Fondo/DiscoParent")
 visual_disco = NodePath("Fondo/DiscoParent/VisualDisco")
 spawn_offset = 6.0
+rotacion_inicial = -90.0
 
 [node name="Fondo" type="TextureRect" parent="." unique_id=1011409188]
 layout_mode = 1
