@@ -51,8 +51,10 @@ position = Vector2(-926, 0)
 texture = ExtResource("2_n6srv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1454112614]
+physics_interpolation_mode = 1
 top_level = true
 zoom = Vector2(0.6, 0.6)
+process_callback = 0
 limit_left = -1187
 limit_top = -702
 limit_right = 1124
@@ -69,13 +71,14 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 speed = 500.0
 sprite_directions = Array[Texture2D]([ExtResource("13_4jtg2"), ExtResource("14_5bop0"), ExtResource("15_pdu4h"), ExtResource("16_gryjf"), ExtResource("17_1t3uq"), ExtResource("18_moi5h"), ExtResource("19_f80cm"), ExtResource("20_iwjxg")])
 
-[node name="PlayerPhantomCamera2D" type="Node2D" parent="." unique_id=842678402]
+[node name="PlayerPhantomCamera2D" type="Node2D" parent="." unique_id=842678402 node_paths=PackedStringArray("follow_target")]
 unique_name_in_owner = true
 process_priority = -1
 top_level = true
 script = ExtResource("4_v5jjf")
 priority = 10
 follow_mode = 2
+follow_target = NodePath("../Player")
 zoom = Vector2(0.6, 0.6)
 frame_preview = false
 tween_resource = ExtResource("5_oelf0")
