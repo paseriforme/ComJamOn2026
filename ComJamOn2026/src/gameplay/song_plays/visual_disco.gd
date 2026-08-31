@@ -15,13 +15,13 @@ func set_vel(_vel:float) -> void:
 	vel = _vel
 	print(vel)
 
-func end() -> void:
+func end(score: int) -> void:
 	#pause = true
-	Global.sound.play_sfx("scratch", 0.4)
+	SoundSystem.play_sfx("scratch", 0.4)
 	var tween = get_tree().create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "rotation", deg_to_rad(rotation), 1.5).set_trans(Tween.TRANS_BACK)
-	tween.finished.connect(func(): Global.end_song.emit())
+	tween.finished.connect(func(): Global.end_song.emit(score))
 
 func _physics_process(delta: float) -> void:
 	rotation += deg_to_rad(delta * vel)

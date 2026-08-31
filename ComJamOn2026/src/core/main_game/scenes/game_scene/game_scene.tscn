@@ -20,9 +20,12 @@
 [ext_resource type="Resource" uid="uid://dklbcqvsq8v76" path="res://assets/songs/Test/song.tres" id="17_n6srv"]
 [ext_resource type="Texture2D" uid="uid://b3px0qd1erdfg" path="res://assets/image/Direcciones/noroeste.png" id="18_moi5h"]
 [ext_resource type="Texture2D" uid="uid://cywf2cin76cxc" path="res://assets/image/Direcciones/oeste.png" id="19_f80cm"]
+[ext_resource type="Resource" uid="uid://hxy3hxdkqxnb" path="res://assets/songs/girl in red - we fell in love in october (Debugmod12)/song.tres" id="19_oelf0"]
 [ext_resource type="Texture2D" uid="uid://duonodj4hgetl" path="res://assets/image/Direcciones/suroeste.png" id="20_iwjxg"]
+[ext_resource type="Resource" uid="uid://bssfluc735qpo" path="res://assets/songs/Muse - Undisclosed Desires (azn)/song.tres" id="21_so7w8"]
 [ext_resource type="Texture2D" uid="uid://kw5pykq6pu5w" path="res://assets/image/Backgrounds/FONDO_delante.png" id="21_xhjg3"]
 [ext_resource type="PackedScene" uid="uid://cvgusot1yqdcn" path="res://src/ui/game_ui.tscn" id="22_02s8s"]
+[ext_resource type="Resource" uid="uid://d3mcfpdmcxwkj" path="res://assets/songs/Carolina Durante - Hamburguesas (LMBECIL1832)/song.tres" id="23_qi78m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
@@ -95,26 +98,30 @@ difficulty = "Easy"
 position = Vector2(-461, -299)
 TEXTURE = ExtResource("17_07xln")
 dialogue = 2
-difficulty = ""
+song = ExtResource("19_oelf0")
+difficulty = "Expert"
 
 [node name="tronca" parent="Characters" unique_id=1239317248 instance=ExtResource("8_n6srv")]
 position = Vector2(439, -313)
 TEXTURE = ExtResource("9_6lusm")
 selfNPC = 2
 dialogue = 3
-difficulty = ""
+song = ExtResource("21_so7w8")
+difficulty = "Easy"
 
 [node name="muchacha" parent="Characters" unique_id=1199175343 instance=ExtResource("8_n6srv")]
 position = Vector2(685, 63)
 TEXTURE = ExtResource("10_sv54f")
 selfNPC = 3
 dialogue = 4
-difficulty = ""
+song = ExtResource("23_qi78m")
+difficulty = "Easy"
 
 [node name="manager" parent="Characters" unique_id=1633235734 instance=ExtResource("8_n6srv")]
 position = Vector2(78, -401)
 TEXTURE = ExtResource("11_u83ci")
-difficulty = ""
+song = ExtResource("17_n6srv")
+difficulty = "Hard"
 
 [node name="Colisiones" type="Node" parent="." unique_id=257799548]
 

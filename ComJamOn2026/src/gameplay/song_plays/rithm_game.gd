@@ -42,6 +42,10 @@ var _runtime: Array[Note] = []
 var calculo: float = 1.0
 var notas_acertadas: float = 0.0
 
+func _ready() -> void:
+	if music_player and not music_player.finished.is_connected(end):
+		music_player.finished.connect(end)
+
 func start_song(song: Song, dificulty: String = "Easy") -> void:
 	visible = true
 	_current_song = song
@@ -75,8 +79,9 @@ func start_song(song: Song, dificulty: String = "Easy") -> void:
 		_runtime.append(Note.create(d))
 	
 	music_player.stream = load(_current_song.song_path)
-	instrument_player.stream = load(_current_song.guitar_path)
-
+	if _current_song.guitar_path:
+		instrument_player.stream = load(_current_song.guitar_path)
+	
 	_clock = SongClock.new(music_player, instrument_player, resync_threshold)
 	_clock.start(time_offset)
 	print(">>> start_song: enable=", enable, " clock=", _clock, " notas=", _runtime.size())
@@ -163,8 +168,6 @@ func _process(delta: float) -> void:
 				_active.remove_at(i)
 	
 	_check_missed_notes()
-	_check_song_finished()
-
 
 func _check_missed_notes() -> void:
 	for i in range(spawn_chord):
@@ -173,24 +176,13 @@ func _check_missed_notes() -> void:
 			_mark_done(nota)
 			feedback_manager.feedback_fail()
 
-func _check_song_finished() -> void:
-	if spawn_chord < _runtime.size():
-		return
-	for nota: Note in _runtime:
-		if nota.state != Note.State.DONE:
-			return
-	end()
-
 func end() -> void:
-	if ending:
-		return
 	SoundSystem.bgm.volume_db = 0
 	ending = true
 	enable = false
-	visual_disco.end()
 	SoundSystem.stop_bgm()
 
 	calculo = 0.0
 	if _runtime.size() > 0:
 		calculo = notas_acertadas / _runtime.size()
-	Global.end_song.emit(int(calculo * 100))
+	visual_disco.end(int(calculo * 100))

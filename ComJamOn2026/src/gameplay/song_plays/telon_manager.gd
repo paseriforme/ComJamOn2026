@@ -31,7 +31,7 @@ func _play_teon(percent : int):
 	tween2.tween_property(telon_der, "position", ini_pos_2 - Vector2(offset, 0), anim_time)\
 		.set_trans(Tween.TRANS_ELASTIC)
 	tween2.finished.connect(func():
-		Global.sound.play_sfx("duct_tape1", 0.2)
+		SoundSystem.play_sfx("duct_tape1", 0.2)
 		animPlayer.play("pegar")
 	)
 	Global.play_cardboard(0.2)
