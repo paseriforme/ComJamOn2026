@@ -17,12 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://bj67wmu6qtfgr" path="res://assets/image/Direcciones/noreste.png" id="16_gryjf"]
 [ext_resource type="Texture2D" uid="uid://cp5ahioqhx588" path="res://assets/image/Direcciones/norte.png" id="17_1t3uq"]
 [ext_resource type="Texture2D" uid="uid://cvyr7eii15wki" path="res://assets/image/Amigas/PJ_CHAVALA.png" id="17_07xln"]
-[ext_resource type="Resource" uid="uid://dklbcqvsq8v76" path="res://assets/songs/Test/song.tres" id="17_n6srv"]
+[ext_resource type="Resource" uid="uid://c1he23oykx0vd" path="res://src/resources/songs/hamburguesas.tres" id="17_n6srv"]
 [ext_resource type="Texture2D" uid="uid://b3px0qd1erdfg" path="res://assets/image/Direcciones/noroeste.png" id="18_moi5h"]
 [ext_resource type="Texture2D" uid="uid://cywf2cin76cxc" path="res://assets/image/Direcciones/oeste.png" id="19_f80cm"]
 [ext_resource type="Texture2D" uid="uid://duonodj4hgetl" path="res://assets/image/Direcciones/suroeste.png" id="20_iwjxg"]
 [ext_resource type="Texture2D" uid="uid://kw5pykq6pu5w" path="res://assets/image/Backgrounds/FONDO_delante.png" id="21_xhjg3"]
-[ext_resource type="PackedScene" uid="uid://cvgusot1yqdcn" path="res://src/ui/game_ui.tscn" id="22_02s8s"]
+[ext_resource type="PackedScene" uid="uid://bks1yclxa8xyy" path="res://src/ui/game_ui.tscn" id="22_02s8s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)
@@ -88,33 +88,40 @@ position = Vector2(-686, 13)
 TEXTURE = ExtResource("7_qi78m")
 selfNPC = 0
 dialogue = 1
+distance_factor = null
+tween_time = null
 song = ExtResource("17_n6srv")
-difficulty = "Easy"
 
 [node name="chavala" parent="Characters" unique_id=1274624807 instance=ExtResource("8_n6srv")]
 position = Vector2(-461, -299)
 TEXTURE = ExtResource("17_07xln")
+selfNPC = null
 dialogue = 2
-difficulty = ""
+distance_factor = null
+tween_time = null
 
 [node name="tronca" parent="Characters" unique_id=1239317248 instance=ExtResource("8_n6srv")]
 position = Vector2(439, -313)
 TEXTURE = ExtResource("9_6lusm")
 selfNPC = 2
 dialogue = 3
-difficulty = ""
+distance_factor = null
+tween_time = null
 
 [node name="muchacha" parent="Characters" unique_id=1199175343 instance=ExtResource("8_n6srv")]
 position = Vector2(685, 63)
 TEXTURE = ExtResource("10_sv54f")
 selfNPC = 3
 dialogue = 4
-difficulty = ""
+distance_factor = null
+tween_time = null
 
 [node name="manager" parent="Characters" unique_id=1633235734 instance=ExtResource("8_n6srv")]
 position = Vector2(78, -401)
 TEXTURE = ExtResource("11_u83ci")
-difficulty = ""
+selfNPC = null
+distance_factor = null
+tween_time = null
 
 [node name="Colisiones" type="Node" parent="." unique_id=257799548]
 

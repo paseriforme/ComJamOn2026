@@ -1,16 +1,17 @@
-[gd_scene format=3 uid="uid://bks1yclxa8xyy"]
+[gd_scene format=3 uid="uid://cvgusot1yqdcn"]
 
-[ext_resource type="Script" path="res://src/ui/game_ui_manager.gd" id="1_adfwi"]
+[ext_resource type="Script" uid="uid://40m4u2ifr5t3" path="res://src/ui/game_ui_manager.gd" id="1_adfwi"]
 [ext_resource type="PackedScene" uid="uid://b3hm2tyr5qb37" path="res://addons/DialogueSystem/DialogueManager.tscn" id="1_xe1fm"]
 [ext_resource type="PackedScene" uid="uid://b4ikcrgnnxlnl" path="res://src/gameplay/song_plays/telon.tscn" id="3_yog35"]
 [ext_resource type="PackedScene" uid="uid://dl7gqnw4pf5pa" path="res://src/gameplay/song_plays/rithm_game.tscn" id="6_ln0vj"]
 
-[node name="GameUI" type="CanvasLayer" unique_id=278046600 node_paths=PackedStringArray("rithm_game_manager", "dialogue_manager", "telon")]
+[node name="GameUI" type="CanvasLayer" unique_id=278046600 node_paths=PackedStringArray("rithm_game_manager", "dialogue_manager", "telon", "fondo")]
 process_mode = 1
 script = ExtResource("1_adfwi")
 rithm_game_manager = NodePath("RithmGameManager")
 dialogue_manager = NodePath("DialogueManager")
 telon = NodePath("Telon")
+fondo = NodePath("RithmGameManager/Fondo")
 
 [node name="DialogueManager" parent="." unique_id=500792603 instance=ExtResource("1_xe1fm")]
 visible = false
@@ -21,6 +22,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
+audiosPath = "res://assets/audio/"
+fontsPath = "res://assets/font/"
 metadata/_edit_use_anchors_ = true
 
 [node name="RithmGameManager" parent="." unique_id=1011409188 instance=ExtResource("6_ln0vj")]
@@ -33,3 +36,5 @@ grow_vertical = 1
 
 [node name="Telon" parent="." unique_id=13815980 instance=ExtResource("3_yog35")]
 visible = false
+
+[editable path="RithmGameManager"]

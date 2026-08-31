@@ -22,22 +22,26 @@ signal end_song(int) ## Indica que se ha acabado la cancion y con que porcentaje
 signal aceptar()
 @warning_ignore("unused_signal")
 signal negarse()
-@warning_ignore("unused_signal")
-signal startSong(song: String, dificulty: String)
 
 var random = RandomNumberGenerator.new()
 
 var direccion_jugador : Vector2 = Vector2.ZERO
-var trastes: Array[bool] = [false, false, false, false, false];
-var sfx_carton: Array[String] = [ "carton1", "carton2", "carton3", "carton4", "carton5", "carton6" ]
-var sfx_papel: Array[String] = [ "paper1", "paper2", "paper3"]
+var trastes 	: Array[bool] = [false, false, false, false, false]
+
+const sfx_carton: Array[String] = [ "carton1", "carton2", "carton3", "carton4", "carton5", "carton6" ]
+const sfx_papel: Array[String] = [ "paper1", "paper2", "paper3"]
+const ACCIONES := ["verde", "rojo", "amarillo", "azul", "naranja"]
 
 var npc_chocado = null
 var dialogo_aceptado = false;
 var playing = false;
 
-func _ready() -> void:
-	pass
+func _input(event: InputEvent) -> void:
+	for i in ACCIONES.size():
+		if event.is_action_pressed(ACCIONES[i]):
+			trastes[i] = true
+		elif event.is_action_released(ACCIONES[i]):
+			trastes[i] = false
 
 func timer(tiempo = 1.0):
 	return get_tree().create_timer(tiempo).timeout

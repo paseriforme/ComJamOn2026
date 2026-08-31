@@ -17,12 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://bj67wmu6qtfgr" path="res://assets/image/Direcciones/noreste.png" id="16_gryjf"]
 [ext_resource type="Texture2D" uid="uid://cp5ahioqhx588" path="res://assets/image/Direcciones/norte.png" id="17_1t3uq"]
 [ext_resource type="Texture2D" uid="uid://cvyr7eii15wki" path="res://assets/image/Amigas/PJ_CHAVALA.png" id="17_07xln"]
-[ext_resource type="Resource" uid="uid://dklbcqvsq8v76" path="res://assets/songs/Test/song.tres" id="17_n6srv"]
+[ext_resource type="Resource" uid="uid://d3mcfpdmcxwkj" path="res://assets/songs/Carolina Durante - Hamburguesas (LMBECIL1832)/song.tres" id="17_n6srv"]
 [ext_resource type="Texture2D" uid="uid://b3px0qd1erdfg" path="res://assets/image/Direcciones/noroeste.png" id="18_moi5h"]
 [ext_resource type="Texture2D" uid="uid://cywf2cin76cxc" path="res://assets/image/Direcciones/oeste.png" id="19_f80cm"]
 [ext_resource type="Texture2D" uid="uid://duonodj4hgetl" path="res://assets/image/Direcciones/suroeste.png" id="20_iwjxg"]
 [ext_resource type="Texture2D" uid="uid://kw5pykq6pu5w" path="res://assets/image/Backgrounds/FONDO_delante.png" id="21_xhjg3"]
-[ext_resource type="PackedScene" uid="uid://cvgusot1yqdcn" path="res://src/ui/game_ui.tscn" id="22_02s8s"]
+[ext_resource type="PackedScene" uid="uid://bks1yclxa8xyy" path="res://src/ui/game_ui.tscn" id="22_02s8s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eiin"]
 size = Vector2(2310.5, 1394.5)

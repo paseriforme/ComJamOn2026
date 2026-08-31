@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dgvv7pnmkwcaf" path="res://src/core/main_game/scenes/selection_scene/selection_scene.tscn" id="2_m5cce"]
 [ext_resource type="PackedScene" uid="uid://byuoxy3wu36jd" path="res://src/core/main_game/scenes/context_scene/context_scene.tscn" id="3_u0bgs"]
 [ext_resource type="PackedScene" uid="uid://cpbv42xhe4um5" path="res://src/core/main_game/scenes/game_scene/game_scene.tscn" id="4_vfqys"]
-[ext_resource type="PackedScene" uid="uid://db0toc8i82rfe" path="res://src/gameplay/free_mode/JuegoLibre.tscn" id="5_snrk5"]
+[ext_resource type="PackedScene" uid="uid://db0toc8i82rfe" path="res://src/core/main_game/scenes/free_mode_scene/free_mode_scene.tscn" id="5_snrk5"]
 [ext_resource type="PackedScene" uid="uid://dhwq84dhhtp70" path="res://src/core/main_game/scenes/null_scene/null_scene.tscn" id="6_l5x4w"]
 [ext_resource type="Script" uid="uid://cmcoki5ih8fjr" path="res://src/ui/fade.gd" id="7_k1n7d"]
 [ext_resource type="Shader" uid="uid://cl3vg05lb4dd5" path="res://src/shaders/vignette.gdshader" id="8_pw0jw"]
@@ -67,7 +67,7 @@ shader_parameter/outerRadius = 5.0
 shader_parameter/MainAlpha = 1.0
 shader_parameter/vignette_color = Color(0, 0, 0, 1)
 
-[node name="MainGame" type="Node" unique_id=1764933967 node_paths=PackedStringArray("scene_root", "pause_layer", "transition_layer", "post_process_layer", "debug_layer", "sound", "bgm", "sfx")]
+[node name="MainGame" type="Node" unique_id=1764933967 node_paths=PackedStringArray("scene_root", "pause_layer", "transition_layer", "post_process_layer", "debug_layer")]
 script = ExtResource("1_x1f73")
 scene_root = NodePath("SceneRoot")
 first_scene = &"selection_scene"
@@ -76,9 +76,6 @@ pause_layer = NodePath("PauseLayer")
 transition_layer = NodePath("TransitionLayer")
 post_process_layer = NodePath("PostProcessLayer")
 debug_layer = NodePath("DebugLayer")
-sound = NodePath("")
-bgm = NodePath("")
-sfx = NodePath("")
 
 [node name="Systems" type="Node" parent="." unique_id=1559461877]
 

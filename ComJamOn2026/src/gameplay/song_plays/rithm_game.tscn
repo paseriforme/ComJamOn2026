@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://uvypc1m30qg" path="res://assets/image/UI/vinilo.png" id="7_k7pvl"]
 [ext_resource type="Script" uid="uid://y3quaa0klmfh" path="res://src/gameplay/song_plays/visual_disco.gd" id="8_6lcyt"]
 [ext_resource type="PackedScene" uid="uid://bjiblirkavor3" path="res://src/gameplay/song_plays/trastes.tscn" id="9_mvlp3"]
+[ext_resource type="Script" uid="uid://bfo8c0w3dwaa3" path="res://src/gameplay/song_plays/feedback_manager.gd" id="10_7n68b"]
+[ext_resource type="Script" uid="uid://cfvbthlde4s61" path="res://src/gameplay/song_plays/taps_manager.gd" id="11_iwv7l"]
 
 [sub_resource type="Animation" id="Animation_n1hje"]
 resource_name = "pegar"
@@ -30,7 +32,7 @@ _data = {
 &"pegar": SubResource("Animation_n1hje")
 }
 
-[node name="RithmGame" type="Control" unique_id=970978807 node_paths=PackedStringArray("audio_player", "animator", "pegatina", "trastes")]
+[node name="RithmGame" type="Control" unique_id=970978807 node_paths=PackedStringArray("feedback_manager", "taps_manager", "fondo", "music_player", "instrument_player", "punto_spawn", "disco_parent", "visual_disco")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,11 +40,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ltam6")
-audio_player = NodePath("AudioPlayer")
-animator = NodePath("AnimationPlayer")
-pegatina = NodePath("Fondo/Pegatina")
-pegatinas = Array[Texture2D]([ExtResource("2_7n68b"), ExtResource("3_iwv7l"), ExtResource("4_m537j")])
-trastes = NodePath("Trastes")
+feedback_manager = NodePath("FeedbackManager")
+taps_manager = NodePath("TapsManager")
+fondo = NodePath("Fondo")
+music_player = NodePath("MusicPlayer")
+instrument_player = NodePath("InstrumentPlayer")
+punto_spawn = NodePath("Fondo/Marker2D")
+disco_parent = NodePath("Fondo/DiscoParent")
+visual_disco = NodePath("Fondo/DiscoParent/VisualDisco")
+spawn_offset = 6.0
 
 [node name="Fondo" type="TextureRect" parent="." unique_id=1011409188]
 layout_mode = 1
@@ -77,36 +83,58 @@ pivot_offset = Vector2(158.4953, 170.74194)
 texture = ExtResource("4_m537j")
 stretch_mode = 3
 
-[node name="VisualDisco" type="TextureRect" parent="." unique_id=741267219]
+[node name="Trastes" parent="Fondo" unique_id=427422133 instance=ExtResource("9_mvlp3")]
+z_index = 60
+layout_mode = 1
+offset_left = 1023.8805
+offset_top = 196.3208
+offset_right = 1647.8805
+offset_bottom = 567.3208
+
+[node name="Marker2D" type="Marker2D" parent="Fondo" unique_id=1794029667]
+position = Vector2(771.64185, 917.91046)
+
+[node name="DiscoParent" type="Control" parent="Fondo" unique_id=693935821]
+anchors_preset = 0
+offset_left = 771.64185
+offset_top = 917.91046
+offset_right = 811.64185
+offset_bottom = 957.91046
+
+[node name="VisualDisco" type="TextureRect" parent="Fondo/DiscoParent" unique_id=741267219]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -2262.35
-offset_top = -280.33002
-offset_right = -652.3501
-offset_bottom = 1317.6699
+offset_left = -825.9701
+offset_top = -818.50745
+offset_right = 784.0299
+offset_bottom = 779.49255
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.67, 0.67)
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("7_k7pvl")
 script = ExtResource("8_6lcyt")
 
-[node name="Trastes" parent="." unique_id=427422133 instance=ExtResource("9_mvlp3")]
-z_index = 60
-layout_mode = 1
-offset_left = -913.99994
-offset_top = 133.0
-offset_right = -289.99994
-offset_bottom = 504.0
-scale = Vector2(0.67, 0.67)
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=2133187638]
 
-[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1381291329]
-position = Vector2(-1600, 0)
-scale = Vector2(0.67, 0.67)
+[node name="InstrumentPlayer" type="AudioStreamPlayer" parent="." unique_id=416397764]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1768203460]
 root_node = NodePath("../Fondo")
 libraries/ = SubResource("AnimationLibrary_ryyxb")
+
+[node name="FeedbackManager" type="Node" parent="." unique_id=732040250 node_paths=PackedStringArray("guitar_player", "animator", "pegatina")]
+script = ExtResource("10_7n68b")
+guitar_player = NodePath("../InstrumentPlayer")
+animator = NodePath("../AnimationPlayer")
+pegatina = NodePath("../Fondo/Pegatina")
+pegatinas = Array[Texture2D]([ExtResource("2_7n68b"), ExtResource("3_iwv7l"), ExtResource("4_m537j")])
+
+[node name="TapsManager" type="Node" parent="." unique_id=1113511860 node_paths=PackedStringArray("disco_parent")]
+script = ExtResource("11_iwv7l")
+disco_parent = NodePath("../Fondo/DiscoParent")
+
+[node name="JudgementManager" type="Node" parent="." unique_id=89604520]

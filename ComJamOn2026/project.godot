@@ -30,7 +30,6 @@ config/icon="uid://j2brfboyjw2h"
 
 Global="*res://src/core/autoload/global.gd"
 PhantomCameraManager="*uid://duq6jhf6unyis"
-SongLoader="*uid://tutkxr8stgb8"
 SoundSystem="*uid://c5ya1ob52s5nm"
 
 [display]
@@ -48,7 +47,7 @@ project/assembly_name="GodotBase"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/GDQuest_GDScript_formatter/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [input]
 

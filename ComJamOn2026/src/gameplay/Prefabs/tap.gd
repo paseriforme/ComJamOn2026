@@ -1,35 +1,21 @@
 extends Control
 class_name Tap
 
-var pulso_data:Array
+static var active_color 	:= Color(1.0, 1.0, 1.0, 1.0)
+static var idle_color 		:= Color(0.1,0.1,0.1,0.75)
 
-func set_pulso(pulso):
-	pulso_data = pulso
-	#print(pulso)
-	for i in len(pulso):
-		if pulso[i]:
-			get_child(i).modulate = Color(1.0, 1.0, 1.0, 1.0)
-		else:
-			get_child(i).modulate = Color(0.1,0.1,0.1,0.75)
-		#get_child(i).visible = pulso[i]
+const TAP = preload("uid://dlsillfjnepba")
 
-func _get_pulse_data() -> Array:
-	return pulso_data
-
-func _is_pulse_empty() -> bool:
-	if pulso_data == null or len(pulso_data) == 0:
-		# Si no hay datos consideramos vacío (o inexistente)
-		return true
-	for p in pulso_data:
-		if p:
-			return false
-	return true
-
-func _matching_keys_with_pulse() -> bool:
-	if pulso_data == null or len(pulso_data) == 0:
-		return false
-	# comparar hasta el mínimo de ambas longitudes
-	for i in range(min(len(Global.trastes), len(pulso_data))):
-		if Global.trastes[i] != pulso_data[i]:
-			return false
-	return true
+static func create_tap(parent:Node, off_position: Vector2, off_rotation: float, off_scale: Vector2, config: Array) -> Tap :
+	var tap = TAP.instantiate()
+	parent.add_child(tap)
+	tap.position = off_position
+	tap.scale = off_scale
+	tap.rotation = off_rotation
+	
+	#print(config)
+	for i in len(config):
+		tap.get_child(i).modulate = Tap.active_color if config[i] else Tap.idle_color
+		#tap.get_child(i).visible = config[i]
+	
+	return tap
