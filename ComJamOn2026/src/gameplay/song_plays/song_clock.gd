@@ -35,7 +35,7 @@ func update(delta: float) -> void:
 	if _music.is_playing():
 		var audio_pos: float = _music.get_playback_position() \
 			+ AudioServer.get_time_since_last_mix() \
-			- AudioServer.get_output_latency()
+			- AudioServer.get_output_latency() # latencia con el dispositivo de audio
 		if audio_pos > 0.0 and abs(audio_pos - time) > _resync_threshold:
 			time = audio_pos
 

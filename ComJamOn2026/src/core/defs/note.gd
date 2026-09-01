@@ -5,6 +5,8 @@ extends RefCounted
 ## Envuelve un NoteData inmutable y le anyade el estado que cambia al jugar
 
 enum State { PENDING, ACTIVE, DONE }
+## Resultado de procesar una nota viva (hold) en un frame.
+enum Tick { SUSTAINING, COMPLETED, BROKEN }
 
 # Config de dificultad unico, (start_song)
 static var perfect_window := 0.08
@@ -21,6 +23,11 @@ var chord: Array:
 	get: return data.chord
 var duration: float:
 	get: return data.duration
+
+static func configure(perfect_time, start_accept_window, end_accept_window):
+	perfect_window 	= perfect_time
+	early_window 	= start_accept_window
+	late_window		= end_accept_window
 
 ## Factoria de notas
 static func create(d: NoteData) -> Note:
@@ -66,11 +73,22 @@ func _frets_match(frets: Array) -> bool:
 
 # --- Huecos sobrescribibles
 ## Solo HoldNote lo aprovecha ahora mismo
-func process(_song_time: float, _frets: Array, _delta: float) -> int:
+func process(_song_time: float, _frets: Array, _delta: float) -> Tick:
 	return 0
 
 func is_missed(song_time: float) -> bool:
 	return song_time > time + late_window
+
+## Puntuacion del golpe inicial segun calidad
+func score_for(quality: int) -> float:
+	match quality:
+		1: return 0.5
+		2: return 1.0
+	return 0.0
+
+## Puntuacion extra al completar (solo notas con duracion)
+func score_on_complete() -> float:
+	return 0.0
 
 func _check_chord(frets: Array) -> bool:
 	return _frets_match(frets)

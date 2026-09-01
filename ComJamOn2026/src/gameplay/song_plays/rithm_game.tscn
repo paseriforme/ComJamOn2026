@@ -32,7 +32,7 @@ _data = {
 &"pegar": SubResource("Animation_n1hje")
 }
 
-[node name="RithmGame" type="Control" unique_id=970978807 node_paths=PackedStringArray("feedback_manager", "taps_manager", "fondo", "music_player", "instrument_player", "punto_spawn", "disco_parent", "visual_disco")]
+[node name="RithmGame" type="Control" unique_id=970978807 node_paths=PackedStringArray("feedback_manager", "taps_manager", "music_player", "instrument_player", "visual_disco")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,14 +42,11 @@ grow_vertical = 2
 script = ExtResource("1_ltam6")
 feedback_manager = NodePath("FeedbackManager")
 taps_manager = NodePath("TapsManager")
-fondo = NodePath("Fondo")
 music_player = NodePath("MusicPlayer")
 instrument_player = NodePath("InstrumentPlayer")
-punto_spawn = NodePath("Fondo/Marker2D")
-disco_parent = NodePath("Fondo/DiscoParent")
 visual_disco = NodePath("Fondo/DiscoParent/VisualDisco")
-spawn_offset = 6.0
-rotacion_inicial = -90.0
+spawn_offset_beats = 5.0
+perfect_time = 0.1
 
 [node name="Fondo" type="TextureRect" parent="." unique_id=1011409188]
 layout_mode = 1
@@ -137,5 +134,3 @@ pegatinas = Array[Texture2D]([ExtResource("2_7n68b"), ExtResource("3_iwv7l"), Ex
 [node name="TapsManager" type="Node" parent="." unique_id=1113511860 node_paths=PackedStringArray("disco_parent")]
 script = ExtResource("11_iwv7l")
 disco_parent = NodePath("../Fondo/DiscoParent")
-
-[node name="JudgementManager" type="Node" parent="." unique_id=89604520]

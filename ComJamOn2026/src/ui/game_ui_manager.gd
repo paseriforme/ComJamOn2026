@@ -37,14 +37,11 @@ func start_song():
 	rithm_game_manager.start_song(_npc.song, _npc.difficulty)
 
 func hide_ui():
-	#dialogue_manager.visible = false
-	rithm_game_manager.visible = false
-	telon.visible = false
+	fondo_a_walk()
+
 
 # --- Fondo -------------------------------------------------------------------
-
 func fondo_a_walk() -> void:
-	hide_ui()
 	_mover_fondo(fondo_walk_x, fondo_ease_walk, fondo_time_walk)
 
 func fondo_a_talk() -> void:

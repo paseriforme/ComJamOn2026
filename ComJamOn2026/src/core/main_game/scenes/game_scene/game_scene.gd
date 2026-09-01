@@ -14,7 +14,7 @@ func _ready() -> void:
 	Global.end_dialogue.connect(_on_end_dialogue)
 	Global.negarse.connect(func() :_acepto = false)
 	Global.aceptar.connect(func() :_acepto = true)
-	Global.end_song.connect(func(npc) :set_state(states.WORLD))
+	Global.end_song.connect(func() :set_state(states.WORLD))
 	
 	set_state(state)
 

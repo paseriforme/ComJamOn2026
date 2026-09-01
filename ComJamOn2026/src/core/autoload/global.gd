@@ -17,7 +17,9 @@ signal npc_hit(NPC)
 @warning_ignore("unused_signal")
 signal end_dialogue()
 @warning_ignore("unused_signal")
-signal end_song(int) ## Indica que se ha acabado la cancion y con que porcentaje
+signal play_telon(int) ## Indica que se lance el telon y con que porcentaje
+@warning_ignore("unused_signal")
+signal end_song() ## Indica que se ha acabado la cancion
 @warning_ignore("unused_signal")
 signal aceptar()
 @warning_ignore("unused_signal")

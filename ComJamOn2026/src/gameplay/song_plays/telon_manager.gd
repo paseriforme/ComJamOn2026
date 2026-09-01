@@ -7,10 +7,14 @@ class_name TelonManager
 @export var porcentaje_label: Label
 @export var animPlayer 		: AnimationPlayer
 
+var _enable = false
+
 func _ready() -> void:
-	Global.end_song.connect(_play_teon)
+	Global.play_telon.connect(_play_teon)
 
 func _play_teon(percent : int):
+	_enable = true
+	visible = true
 	porcentaje.visible = true
 	porcentaje_label.text = str(percent) + "%"
 	
@@ -35,3 +39,22 @@ func _play_teon(percent : int):
 		animPlayer.play("pegar")
 	)
 	Global.play_cardboard(0.2)
+
+func _hide_telon():
+	_enable = false
+	visible = false
+	Global.end_song.emit()
+
+func _input(event: InputEvent) -> void:
+	if _enable and _accion_de_juego_pulsada :
+		_hide_telon()
+
+func _accion_de_juego_pulsada() -> bool:
+	return (
+		Input.is_action_just_pressed("verde")
+		or Input.is_action_just_pressed("rojo")
+		or Input.is_action_just_pressed("amarillo")
+		or Input.is_action_just_pressed("azul")
+		or Input.is_action_just_pressed("naranja")
+		or Input.is_action_just_pressed("rasgar")
+	)
